@@ -40,7 +40,7 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
             current = next;
         }
 
-        head.next = reverseKGroup(current, k);
+        head.next = reverseKGroupSimpleastRecursion(current, k);
         return previous;
     }
 
