@@ -31,8 +31,8 @@ public class _Goo_89_Find_Shortest_All_Path_from_Source_to_Destination {
         for (int r = 0; r < rSiz; r++) {
             for (int c = 0; c < cSiz; c++) {
                 if (grid[r][c] == 's') {
-                    rowQ.add(r);
-                    colQ.add(c);
+                    //rowQ.add(r);
+                    //colQ.add(c);
                     break;
                 }
             }
