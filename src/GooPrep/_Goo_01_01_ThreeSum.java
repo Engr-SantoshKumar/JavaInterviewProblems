@@ -23,30 +23,25 @@ public class _Goo_01_01_ThreeSum {
             int start = i+1;
             int end = arr.length -1;
             int target = k-arr[i];
-
-            while(start < end){
-
-                if(arr[start] + arr[end] == target)
-                {
-                    System.out.println("Pair : "+ arr[i] + " & " + arr[start] + " & " + arr[end]);
-                    while(start < end && arr[start] == arr[start+1]) start++;
-                    while(start < end && arr[end] == arr[end-1]) end--;
-                    start++;
-                    end --;
+                while(start < end){
+                    if(arr[start] + arr[end] == target)
+                    {
+                        System.out.println("Pair : "+ arr[i] + " & " + arr[start] + " & " + arr[end]);
+                        while(start < end && arr[start] == arr[start+1]) start++;
+                        while(start < end && arr[end] == arr[end-1]) end--;
+                        start++;
+                        end --;
+                    }
+                    else if(arr[start]+arr[end] > target) {
+                        end--;
+                    }
+                    else {
+                        start++;
+                    }
                 }
-                else if(arr[start]+arr[end] > target)
-                {
-                    end--;
-                }
-                else
-                {
-                    start++;
-                }
-            }
             while(i < end && arr[i] == arr[i+1]) i++; // if next element is same, will move i to avoid duplicate
         }
     }
-
     public static void main(String[] args) {
         //int[] v = new int[]{2, 1, 8, 4, 7, 3, 0, 8, 0, 9};
         int[] v = new int[]{2, -1, 8, 4, 7, 3, 0, 8, 0, 9, -9, -10};
