@@ -48,21 +48,18 @@ public class _Goo_60_Game_Of_Life {
                 int neighborsCount = 0;
 
                 // for each cell, check all possible 8 directions and count the number of alive neighbors
-                for (int[] dir : directions)
-                {
+                for (int[] dir : directions){
                     neighborsCount += isAlive(board, row + dir[0], col + dir[1]);
                 }
-
                 // in case current cell is dead but has 3 live neighbors
                 if (board[row][col] == 0) {
                     if (neighborsCount == 3) {
                         board[row][col] = dead2alive;
                     }
-                } else {
+                } else{
                     // in case current cell is alive AND
                     // neighborsCount either less than 2 or more than 3
-                    if (neighborsCount != 2 && neighborsCount != 3)
-                    {
+                    if (neighborsCount != 2 && neighborsCount != 3){
                         board[row][col] = alive2dead;
                     }
                 }
@@ -81,7 +78,6 @@ public class _Goo_60_Game_Of_Life {
                     board[row][col] = 0;
                 }
             }
-
         }
     }
 
@@ -111,3 +107,16 @@ public class _Goo_60_Game_Of_Life {
         }
     }
 }
+
+/*
+GIVEN:
+        {0, 1, 0},
+        {0, 0, 1},
+        {1, 1, 1},
+        {0, 0, 0}
+OUTPUT:
+        [0, 0, 0]
+        [1, 0, 1]
+        [0, 1, 1]
+        [0, 1, 0]
+ */
