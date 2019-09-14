@@ -7,10 +7,10 @@
  which means this process has no parent process. All the PIDs will be distinct positive integers.
 
  Input:
- pid =  [1, 3, 10, 5, 12,  13]
- ppid = [3, 0, 5,  3,  5,  12]
+ pid =  [3, 0, 5,  3,  5,  12, 12, 16, 16]
+ ppid = [1, 3, 10, 5, 12,  13, 16, 17, 13]
  kill = 5
- Output: [5, 10, 12, 13]
+ Output: [5, 10, 12, 16, 17, 13]
  Explanation:
                 3
               /   \
