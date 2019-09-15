@@ -45,7 +45,8 @@ public class _Goo_01_01_ThreeSum {
     public static void main(String[] args) {
         //int[] v = new int[]{2, 1, 8, 4, 7, 3, 0, 8, 0, 9};
         int[] v = new int[]{2, -1, 8, 4, 7, 3, 0, 8, 0, 9, -9, -10};
-        threeSumWithoutExtraSpace(v, 0);
+        int[] v1= new int[]{-2, 2, 0, -2, 2};
+        threeSumWithoutExtraSpace(v1, 0);
     }
 }
 /*
