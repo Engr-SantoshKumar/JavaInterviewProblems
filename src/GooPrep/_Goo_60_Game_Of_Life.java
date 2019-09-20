@@ -31,7 +31,9 @@ import java.util.Arrays;
 public class _Goo_60_Game_Of_Life {
 
     //All all eight possible directions neighbours
-    static int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1,1}, {-1, -1}, {-1, 1}, {1, -1}};
+    static int[] rowDirections = {-1, +1 , 0, 0, 1, 1, -1, -1};
+    static int[] colDirections = {0 , 0, -1, +1, 1, -1, -1, 1};
+
     //all states
     static int dead =0;
     static int alive = 1;
@@ -46,12 +48,15 @@ public class _Goo_60_Game_Of_Life {
 
                 // keep track of the number of alive neighbors
                 int neighborsCount = 0;
+                // Find all the alive neighbour count
+                neighborsCount = exploreAllAliveNeighbours(board, row, col);
 
-                // for each cell, check all possible 8 directions and count the number of alive neighbors
-                for (int[] dir : directions){
-                    neighborsCount += isAlive(board, row + dir[0], col + dir[1]);
-                }
-                // in case current cell is dead but has 3 live neighbors
+                /*
+                if we think: there are only two case to handle
+                Case one: if current cell is date
+                Case two: else current cell is not dead
+                 */
+                // if current cell is dead and Alive Neighbours count ==3
                 if (board[row][col] == 0) {
                     if (neighborsCount == 3) {
                         board[row][col] = dead2alive;
@@ -81,18 +86,21 @@ public class _Goo_60_Game_Of_Life {
         }
     }
 
-    public static int isAlive(int[][] board, int row, int col) {
+    public static int exploreAllAliveNeighbours(int[][] board, int row, int col) {
+        int count = 0;
+        for(int i=0; i<8; i++){
+            int nR = row + rowDirections[i];
+            int nC = col + colDirections[i];
 
-        if(row >= 0 && row <board.length && col>=0 && col<board[0].length )
-        {
-            // we care about only 2 states of neighbour cell alive or it was alive before i.e alive2dead
-            if(board[row][col] == alive || board[row][col] == alive2dead) {
-                return 1;
+            if(nR >= 0 && nR <board.length && nC>=0 && nC<board[0].length){
+                //look for live or live2Ded cell
+                if(board[nR][nC] == alive || board[nR][nC] == alive2dead){
+                    count++;
+                }
             }
         }
-        return 0;
+        return count;
     }
-
 
     public static void main(String[] args) {
         int[][] M = new int[][]{

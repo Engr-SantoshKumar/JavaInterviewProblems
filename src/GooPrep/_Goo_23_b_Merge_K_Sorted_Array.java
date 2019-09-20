@@ -16,7 +16,7 @@ public class _Goo_23_b_Merge_K_Sorted_Array {
         PriorityQueue<pqNodes> pq = new PriorityQueue<>();
         int resultSize =0;
 
-        //Step 1: add fist element from each array to pq also get the size of each arry for result array
+        //Step 1: add fist element from each array to pq also get the size of each array to store result
         for(int i =0; i<arr.length; i++){
             resultSize+=arr[i].length;
 
@@ -49,27 +49,28 @@ public class _Goo_23_b_Merge_K_Sorted_Array {
         int[] result = mergeKSortedArray(new int[][] { arr1, arr2, arr3 });
         System.out.println(Arrays.toString(result));
     }
+
+    //node class for priorityQueue with Comparable to compare its self to other pqNodes
+    static class pqNodes implements Comparable<pqNodes> {
+        int array;
+        int index;
+        int value;
+
+        public pqNodes(int array, int index, int value){
+            this.array = array;
+            this.index = index;
+            this.value = value;
+        }
+
+        // compare method to compare values
+        public int compareTo(pqNodes n){
+            if(value > n.value) return 1;  // i.e if the value of current node value > incoming node value
+            if(value < n.value) return -1;
+            return 0;
+            // return Integer.compare(value,n.value);  --> this will do the same above
+        }
+    }
+
 }
 
 
-//node class for priorityQueue with Comparable to compare its self to other pqNodes
-class pqNodes implements Comparable<pqNodes> {
-    int array;
-    int index;
-    int value;
-
-    public pqNodes(int array, int index, int value){
-        this.array = array;
-        this.index = index;
-        this.value = value;
-    }
-
-    // compare method to compare values
-    public int compareTo(pqNodes n){
-        if(value > n.value) return 1;  // i.e if the value of current node value > incoming node value
-        if(value < n.value) return -1;
-        return 0;
-
-        // return Integer.compare(value,n.value);  --> this will do the same above
-    }
-}

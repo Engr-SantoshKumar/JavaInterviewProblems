@@ -19,7 +19,7 @@
                 10   12 -- 16 --17
                       \   /
                         13
- Kill 5 will also kill 10, 12, 13. in order first 13 then 12 then 10
+ Kill 5 will also kill 10, 12, 13, 16, 17, 13. in this order
 
  */
 package GooPrep02;

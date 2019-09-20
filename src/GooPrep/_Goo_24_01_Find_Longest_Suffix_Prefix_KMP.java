@@ -35,7 +35,7 @@ public class _Goo_24_01_Find_Longest_Suffix_Prefix_KMP {
         int i =1;
         while(i < s.length()){
 
-            if(s.charAt(currMaxLPS) == s.charAt(i)){
+            if(s.charAt(i) == s.charAt(currMaxLPS)){
                 currMaxLPS ++;
                 lpsArray[i] = currMaxLPS;
                 i++;

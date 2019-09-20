@@ -18,8 +18,7 @@ public class _Goo_01_01_ThreeSum {
             return;
           }
         Arrays.sort(arr); //0, 0, 1, 2, 3, 4, 7, 8, 8, 9
-        //i will move until third last position, 2nd last will be start and last will be end
-        for(int i =0; i < arr.length-3; i++){
+        for(int i =0; i < arr.length-2; i++){
             int start = i+1;
             int end = arr.length -1;
             int target = k-arr[i];
@@ -45,7 +44,7 @@ public class _Goo_01_01_ThreeSum {
     public static void main(String[] args) {
         //int[] v = new int[]{2, 1, 8, 4, 7, 3, 0, 8, 0, 9};
         int[] v = new int[]{2, -1, 8, 4, 7, 3, 0, 8, 0, 9, -9, -10};
-        int[] v1= new int[]{-2, 2, 0, -2, 2};
+        int[] v1= new int[]{3, 0, 0,0};
         threeSumWithoutExtraSpace(v1, 0);
     }
 }

@@ -31,11 +31,11 @@ public class _Goo_93_Iterator_Of_Iterator_Using_Queue implements Iterator {
      */
     public Integer next() {
         Iterator<Integer> curList = queue.remove(); // remove list
-        Integer headInteger = curList.next();       // get the 1st element
+        Integer firstInteger = curList.next();       // get the 1st element
         if(curList.hasNext()) {                     // add back the remaining
             queue.add(curList);
         }
-        return headInteger;
+        return firstInteger;
     }
 
     public boolean hasNext(){
@@ -54,7 +54,7 @@ public class _Goo_93_Iterator_Of_Iterator_Using_Queue implements Iterator {
         list3.addAll(Arrays.asList(11,12));
         list4.addAll(Arrays.asList(14,15,16));
 
-        //creating iterator of each arraylist
+        //creating iterator of each arrayList
         Iterator it1 = list1.iterator();
         Iterator it2 = list2.iterator();
         Iterator it3 = list3.iterator();
