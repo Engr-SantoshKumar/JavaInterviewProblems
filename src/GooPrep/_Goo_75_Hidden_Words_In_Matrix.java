@@ -61,11 +61,10 @@ public class _Goo_75_Hidden_Words_In_Matrix {
                 return true;
             }
         }
+        // reset the the visited matrix board
         visitedMatrix[row][col] = false;
         return false;
     }
-
-
 
     public static void main(String[] args) {
         char mat[][] =
