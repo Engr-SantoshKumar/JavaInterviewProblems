@@ -33,27 +33,13 @@ public class _Goo_42_Sorted_Array_To_BST {
 
     public static void main(String[] args) {
         _Goo_42_Sorted_Array_To_BST tree = new _Goo_42_Sorted_Array_To_BST();
-        int arr[] = new int[]{1, 2, 3, 4, 5};
+        int arr[] = new int[]{1,2,3,6,7,8};
         int n = arr.length;
         root = tree.sortedArrayToBST(arr, 0, n - 1);
 
         //display tree
         TreePrint.print(root);
-
-
-        System.out.println("\n\n Preorder traversal of constructed BST");
-        tree.preOrder(root);
-
     }
 
-    /* A utility function to print preorder traversal of BST */
-    void preOrder(Node node) {
-        if (node == null) {
-            return;
-        }
-        System.out.print(node.data + " ");
-        preOrder(node.left);
-        preOrder(node.right);
-    }
 
 }

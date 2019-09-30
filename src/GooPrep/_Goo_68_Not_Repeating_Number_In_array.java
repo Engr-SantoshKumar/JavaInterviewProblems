@@ -55,22 +55,23 @@ public class _Goo_68_Not_Repeating_Number_In_array {
         for (int i = 0; i<A.length; i++)
         {
             result ^=A[i];
+            System.out.println(result);
         }
         return result;
     }
 
     static void testFor(int[] arr){
         System.out.print("\n input : "+Arrays.toString(arr));
-        System.out.print(" output using set=> : "+singleNumberUsingSet(arr));
+        //System.out.print(" output using set=> : "+singleNumberUsingSet(arr));
         System.out.print("\n input : "+Arrays.toString(arr));
         System.out.print(" output using bit=> : "+singleNumber(arr));
     }
     public static void main(String args[]){
         int[] ar  = new int[] {1,2,1,2,3};
-        int[] ar1 = new int[] {1,2,3,4,1,2,3};
+        //int[] ar1 = new int[] {1,2,3,4,1,2,3};
 
         testFor(ar);
-        testFor(ar1);
+        //testFor(ar1);
 
     }
 

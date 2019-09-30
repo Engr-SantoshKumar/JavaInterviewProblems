@@ -31,11 +31,11 @@ public class _Goo_93_Iterator_Of_Iterator_Using_Queue implements Iterator {
      */
     public Integer next() {
         Iterator<Integer> curList = queue.remove(); // remove list
-        Integer firstInteger = curList.next();       // get the 1st element
-        if(curList.hasNext()) {                     // add back the remaining
+        Integer firstElement = curList.next();     // Get current element// we can't use curList.remove as its type is void
+        if(curList.hasNext()) {                    // add back the remaining
             queue.add(curList);
         }
-        return firstInteger;
+        return firstElement;
     }
 
     public boolean hasNext(){

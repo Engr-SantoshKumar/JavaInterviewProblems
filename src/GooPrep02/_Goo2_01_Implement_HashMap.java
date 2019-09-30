@@ -51,7 +51,7 @@ public class _Goo2_01_Implement_HashMap {
      /* GET : fist go to the Linked List represented by hashCode i.e key%31
         and loop through the Linked List to find key */
     public int get(int key) {
-        hmNode head = list.get(key%31);
+        hmNode head = list.get(key % 31);
             while(head.next != null){
                 head = head.next;
                 if(head.key == key){
@@ -74,7 +74,6 @@ public class _Goo2_01_Implement_HashMap {
             head = head.next;
         }
         System.out.println("Key: "+ key + "Removed from hashMap");
-
     }
 
     public static void main(String[] args) {
@@ -88,7 +87,6 @@ public class _Goo2_01_Implement_HashMap {
         System.out.println("key 1: value: " + hashMap.get(2));            // returns 1
         hashMap.remove(2);               // remove the mapping for 2
         System.out.println(hashMap.get(3));   // returns -1 (not found)
-
     }
 
 

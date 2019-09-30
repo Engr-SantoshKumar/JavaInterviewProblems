@@ -19,21 +19,23 @@ public class _Goo_38_Max_in_Incresing_then_decresing_Array {
     public static void main (String[] args)
     {
         int arr[] = {1, 3, 50, 10, 9, 7, 6};
+        int arr1[] = {2, 3, 4, 2, 2, 2, 2, 2, 2};
         int[] ar3= new int[]{1, 50, 50, 50, 50, 60};
         int n = arr.length;
-        //System.out.println("The maximum element is "+ findMaximumRecursion(arr, 0, n-1));
-        fMax(ar3);
+        System.out.println("The maximum element using recursion is :  "+ findMaximumRecursion(arr1, 0, n-1));
+        System.out.println("The maximum element using normalWay is :  "+ findMaximumNormalWay(arr1));
+        fMax(arr1);
     }
     static void fMax(int[] ar){
         int i = findMaximum(ar);
         if(i == -1){
-            System.out.println(" max in array "+Arrays.toString(ar)+ " was not found");
+            System.out.println(" max in array "+Arrays.toString(ar)+ " is not found");
         }else{
-            System.out.println(" max in array "+Arrays.toString(ar)+ " was  "+ar[i]);
+            System.out.println(" max in array "+Arrays.toString(ar)+ " is  "+ar[i]);
         }
 
     }
-
+ //NOTE Recursion will not work for {2, 3, 4, 2, 2, 2, 2, 2, 2};
     public static int findMaximumRecursion(int[] arr, int low, int high) {
 
         /* Base Case: Only one element is present in arr[low..high]*/
@@ -64,7 +66,7 @@ public class _Goo_38_Max_in_Incresing_then_decresing_Array {
             return findMaximumRecursion(arr, mid + 1, high);
         }
     }
-
+    //NOTE Binary  will not work for {2, 3, 4, 2, 2, 2, 2, 2, 2};
     public static int findMaximum(int[]ar){
 
         int lo = 0; int hi = ar.length-1;
@@ -93,6 +95,20 @@ public class _Goo_38_Max_in_Incresing_then_decresing_Array {
             }
         }
         return -1;
+    }
+
+    public static int findMaximumNormalWay(int[]ar){
+        int low = 0;
+        int high = ar.length-1;
+
+        int max = ar[high];
+        int i;
+        for (i = low; i < high; i++)
+        {
+            if (ar[i] > max)
+                max = ar[i];
+        }
+        return max;
     }
 
 }

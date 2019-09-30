@@ -27,9 +27,9 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad {
     static List<String>  result= new ArrayList<String>();
 
 
-    public static List<String> letterCombinations(String digits){
-        if(digits.length()!=0){
-            createStrings("", digits);
+    public static List<String> letterCombinations(String KeyPadDigits){
+        if(KeyPadDigits.length()!=0){
+            createStrings("", KeyPadDigits);
         }
         return result;
     }
@@ -45,11 +45,9 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad {
                 // take the 1st digit from the next_digit string, e.g: "3 4 5" -> substring(0,1) --> 3
             String digit = next_digits.substring(0,1);
             String letters = hmap.get(digit);
-
             for(int i=0; i < letters.length(); i++){
                 // pick the first char of 3 = def --> d
                 String letter = Character.toString(letters.charAt(i));
-
                 // call fun again with remaining digits --> next_digits.substring(1) --> "4 5"
                 createStrings(combinations+letter, next_digits.substring(1));
             }

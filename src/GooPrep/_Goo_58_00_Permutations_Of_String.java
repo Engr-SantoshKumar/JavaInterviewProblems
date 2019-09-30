@@ -27,6 +27,7 @@ public class _Goo_58_00_Permutations_Of_String {
 
     public static void createStrings(String str, String combinations ){
         // if no digit left, the combination is done
+        //System.out.println(combinations);
         if(str.length()==0)
         {
             result.add(combinations);

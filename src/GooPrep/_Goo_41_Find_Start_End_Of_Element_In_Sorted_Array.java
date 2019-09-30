@@ -13,13 +13,13 @@ public class _Goo_41_Find_Start_End_Of_Element_In_Sorted_Array {
 
     public static void main (String[] args) {
 
-        int[] a = {0, 1, 1, 1, 3, 2, 4, 1, 4,4,4,4,4,4,4,4,4,4,4,4};
+        int[] a = {0, 1, 1, 1, 2, 3, 4, 4,4,4,4,4,4,4,4,4,4,4,4};
         Arrays.sort(a);
         System.out.println("Given Array : " + Arrays.toString(a));
         int key = 4;
-        int currentPostion = findtheNumber(a, key);
-        System.out.println("First Index : " + findLowerIndex(a,key, currentPostion));
-        System.out.println("Last Index : " + findHigherIndex(a,key, currentPostion));
+        int currentPosition = findtheNumber(a, key);
+        System.out.println("First Index : " + findLowerIndex(a,key, currentPosition));
+        System.out.println("Last Index : " + findHigherIndex(a,key, currentPosition));
 
     }
 
@@ -43,7 +43,7 @@ public class _Goo_41_Find_Start_End_Of_Element_In_Sorted_Array {
         return kPositio;
     }
 
-    /* Case Lower: Search for key between 0 and currentPosiiton */
+    /* Case Lower: Search for key between 0 and currentPosition */
 
     public static int findLowerIndex(int[] arr, int key, int currentPosiiton ){
         int lo = 0;
@@ -64,7 +64,7 @@ public class _Goo_41_Find_Start_End_Of_Element_In_Sorted_Array {
         return  currentLow;
     }
 
-    /* Case Higher: Search for key between currentPosiiton and end of arr */
+    /* Case Higher: Search for key between currentPosition and end of arr */
     public static int findHigherIndex(int[] arr, int key, int currentPosiiton ){
         int lo = currentPosiiton;
         int hi = arr.length -1;
