@@ -90,10 +90,7 @@ public class _x_04_Is_Binary_Search_Tree {
         return true;
 
 
-
     }
-
-
 
 
     public static void main(String[] args) {
