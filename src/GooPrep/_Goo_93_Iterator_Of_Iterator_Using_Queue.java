@@ -31,8 +31,10 @@ public class _Goo_93_Iterator_Of_Iterator_Using_Queue implements Iterator {
      */
     public Integer next() {
         Iterator<Integer> curList = queue.remove(); // remove list
-        Integer firstElement = curList.next();     // Get current element// we can't use curList.remove as its type is void
-        if(curList.hasNext()) {                    // add back the remaining
+        Integer firstElement = curList.next();     // Get current element, we are calling the inbuild method of Iterator
+                                                  // here as curList is Iterator<Integer>
+        // add back the remaining
+        if(curList.hasNext()) {
             queue.add(curList);
         }
         return firstElement;

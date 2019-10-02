@@ -37,10 +37,10 @@ class LRU{
     int capacity;
     int totalItemsInCache =0;
 
-    LinkedList<Node> DLL = new LinkedList<>();
-    HashMap<Integer, Node> Hmap = new HashMap<>();
+    LinkedList<Node> linkedList = new LinkedList<>();
+    HashMap<Integer, Node> hashMap = new HashMap<>();
 
-
+    // set the capacity
     public LRU(int capacity){
         if(capacity <1){
             System.out.println("Invalid capacity");
@@ -61,13 +61,13 @@ class LRU{
     }
 
     public boolean isPresentInCache(int key){
-        return Hmap.containsKey(key);
+        return hashMap.containsKey(key);
     }
 
     public void makeMostRecent(int key){
-        Node node = Hmap.get(key);
-        DLL.remove(node);
-        DLL.addFirst(node);
+        Node node = hashMap.get(key);
+        linkedList.remove(node);
+        linkedList.addFirst(node);
     }
 
     public boolean isFull(){
@@ -75,22 +75,22 @@ class LRU{
     }
 
     public void removeLRUEntryFromCache(){
-        int key = DLL.getLast().key;
-        Hmap.remove(key);
-        DLL.removeLast();
+        int key = linkedList.getLast().key;
+        hashMap.remove(key);
+        linkedList.removeLast();
         totalItemsInCache --;
     }
 
     public void addNew(int key, int value){
         Node node = new Node(key, value);
-        Hmap.put(key, node);
-        DLL.addFirst(node);
+        hashMap.put(key, node);
+        linkedList.addFirst(node);
         totalItemsInCache++;
     }
 
     public int get(int key){
         if(isPresentInCache(key)){
-            Node node = Hmap.get(key);
+            Node node = hashMap.get(key);
             makeMostRecent(key);
             return node.data;
         }
@@ -99,7 +99,7 @@ class LRU{
     }
 
     void print() {
-        Iterator<Node> it = DLL.iterator();
+        Iterator<Node> it = linkedList.iterator();
         while (it.hasNext()) {
             System.out.print(it.next().data + " ->");
         }

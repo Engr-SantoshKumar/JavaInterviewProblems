@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Queue;
 
-public class _Goo2_02_Sorted_Array_To_BST_UsingBFS {
+public class _Goo2_02_T_Sorted_Array_To_BST_UsingBFS {
 
     static Node root;
 
@@ -39,7 +39,7 @@ public class _Goo2_02_Sorted_Array_To_BST_UsingBFS {
 
 
     public static void main(String[] args) {
-        _Goo2_02_Sorted_Array_To_BST_UsingBFS tree = new _Goo2_02_Sorted_Array_To_BST_UsingBFS();
+        _Goo2_02_T_Sorted_Array_To_BST_UsingBFS tree = new _Goo2_02_T_Sorted_Array_To_BST_UsingBFS();
         int arr[] = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
         int[] arrForBST = tree.sortedArrayToBSTUsingBFS(arr);
         //display tree

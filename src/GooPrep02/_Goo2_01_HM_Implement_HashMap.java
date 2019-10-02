@@ -17,7 +17,7 @@ package GooPrep02;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _Goo2_01_Implement_HashMap {
+public class _Goo2_01_HM_Implement_HashMap {
 
     // create a list of 31 Linked List and initiate it with dummy head
     List<hmNode> list = null;
@@ -77,7 +77,7 @@ public class _Goo2_01_Implement_HashMap {
     }
 
     public static void main(String[] args) {
-        _Goo2_01_Implement_HashMap hashMap = new _Goo2_01_Implement_HashMap();
+        _Goo2_01_HM_Implement_HashMap hashMap = new _Goo2_01_HM_Implement_HashMap();
         hashMap.MyHashMap();
         hashMap.put(1, 101);
         hashMap.put(2, 202);

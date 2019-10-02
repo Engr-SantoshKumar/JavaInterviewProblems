@@ -57,7 +57,7 @@ public class _Goo_75_Hidden_Words_In_Matrix {
             int nRow = row + rowDirections[i];
             int nCol = col + colDirections[i];
 
-            if(dfs(board, visitedMatrix, row, col,charIndex+1, word)){
+            if(dfs(board, visitedMatrix, nRow, nCol,charIndex+1, word)){
                 return true;
             }
         }
@@ -76,7 +76,7 @@ public class _Goo_75_Hidden_Words_In_Matrix {
                         "CPYEN".toCharArray()
                 };
 
-        String word = "CODE";
+        String word = "SANTOSH";
         System.out.println(findHiddenWord(mat, word));
 
     }
