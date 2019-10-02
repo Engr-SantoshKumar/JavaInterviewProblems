@@ -22,7 +22,7 @@ public class _Goo2_13_T_LowestCommonAncestorInBinaryTree {
         Queue<Node> queue = new LinkedList<>();
         hashMap.put(root, null);
         queue.add(root);
-        //constructing map with key as left/right node and value as root until we get one Of the child
+        //constructing map with key as left/right node and value as root until we found BOTH child
         // same left/right node also adding to queue
         while (!hashMap.containsKey(c1) || !hashMap.containsKey(c2)) {
             Node node = queue.poll();
@@ -71,7 +71,8 @@ public class _Goo2_13_T_LowestCommonAncestorInBinaryTree {
         System.out.println("LCA of 2 and 5 : " + findLCA(root, 2, 5).data);
         System.out.println("LCA of 7 and 5 : " + findLCA(root, 7, 5).data);
 
-        System.out.println("LCA of 7 and 5 : " + lowestCommonAncestor(root, root.left.right, root.left.left.left).data);
-        System.out.println("LCA of 7 and 5 : " + lowestCommonAncestor(root, root.left.left, root.left.left.left).data);
+        System.out.println("LCA of 5 and 7 : " + lowestCommonAncestor(root, root.left.left.left, root.right.right).data);
+        System.out.println("LCA of 5 and 8 : " + lowestCommonAncestor(root, root.left.left.left, root.right).data);
+        System.out.println("LCA of 10 and 5 : " + lowestCommonAncestor(root, root.left, root.left.left.left).data);
     }
 }
