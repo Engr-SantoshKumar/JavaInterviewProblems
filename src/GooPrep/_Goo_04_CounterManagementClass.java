@@ -25,32 +25,31 @@ public class _Goo_04_CounterManagementClass {
     static Queue<Long> qhr = new ArrayDeque<>();
 
     static void hitCounter() {
-        long currTimeSec = System.currentTimeMillis() / 1000;
-        qSec.offer(currTimeSec);
+        long currTimeInSec = System.currentTimeMillis() / 1000;
+        qSec.offer(currTimeInSec);
         secCounter++;
         System.out.println("size " + qSec.size());
         System.out.println(qSec);
-        currTimeSec = System.currentTimeMillis() / 1000;
-        while (!qSec.isEmpty() && currTimeSec - qSec.peek() > 0) {
+        currTimeInSec = System.currentTimeMillis() / 1000;
+        while (!qSec.isEmpty() && currTimeInSec - qSec.peek() > 0) {
             secCounter--;
             minCounter++;
             qMin.offer(qSec.poll());
         }
 
-        while (!qMin.isEmpty() && currTimeSec - qMin.peek() > 60) {
+        while (!qMin.isEmpty() && currTimeInSec - qMin.peek() > 60) {
             minCounter--;
             hrCounter++;
             qhr.offer(qMin.poll());
         }
 
-        while (!qhr.isEmpty() && currTimeSec - qhr.peek() > 60 * 60) {
+        while (!qhr.isEmpty() && currTimeInSec - qhr.peek() > 60 * 60) {
             hrCounter--;
             qhr.poll();
         }
         System.out.println(" at this time sec counter " + qSec.size());
         System.out.println(" at this time min counter " + (qMin.size() + qSec.size()));
         System.out.println(" at this time hr counter " + (qhr.size() + qMin.size() + qSec.size()));
-
     }
 
     public static void main(String args[]) {
@@ -68,7 +67,6 @@ public class _Goo_04_CounterManagementClass {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }
