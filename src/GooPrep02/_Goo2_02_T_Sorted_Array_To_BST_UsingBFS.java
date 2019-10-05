@@ -20,9 +20,7 @@ public class _Goo2_02_T_Sorted_Array_To_BST_UsingBFS {
         while(!queue.isEmpty()){
 
             midLR current = queue.poll();
-            //if(current.lS < current.lE && current.rS < current.rE){
-                arrForBST[i++] = current.curDigt;
-            //}
+            arrForBST[i++] = current.curDigt;
 
             if(current.lS <= current.lE){
                 mid = current.lS + (current.lE - current.lS)/2;

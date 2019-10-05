@@ -13,9 +13,7 @@ package GooPrep;
 public class _Goo_45_Count_And_Say_Algorithm {
 
     public static void main(String[] args) {
-        int n =5;
         System.out.println(countAndSay(8));
-
     }
 
     public static String countAndSay(int n){
@@ -25,7 +23,7 @@ public class _Goo_45_Count_And_Say_Algorithm {
         String result ="1";
         for(int i = 1; i<n; i++){
             /* IMP:
-             *In below for loop, previous character is processed in current iteration.
+             *previous character is processed in current iteration.
              * That is why a dummy character is added to make sure that loop runs one extra iteration.
              */
             result+='$';

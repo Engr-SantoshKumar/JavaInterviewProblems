@@ -42,6 +42,8 @@ public class _Goo_60_01_Number_Of_Island {
 
         Queue<IsLandCells> queue = new ArrayDeque<>();
         queue.add(new IsLandCells(row, col));
+        //once you put the current r/c make into queue make it zero
+        grid[row][col] =0;
         //All all four directions
         int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
@@ -54,6 +56,7 @@ public class _Goo_60_01_Number_Of_Island {
                 {
                     if(grid[rowN][colN] == 1){
                         queue.add(new IsLandCells(rowN, colN));
+                        //once you put the current r/c make it zero
                         grid[rowN][colN] =0;
                     }
                 }
