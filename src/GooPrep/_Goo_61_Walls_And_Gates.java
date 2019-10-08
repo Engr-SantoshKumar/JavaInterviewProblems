@@ -16,9 +16,9 @@ Given :                         OutPut:
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  Logic: you always just need to update INF cells, if value is something else its already being updated with distance
  step1: load queue with all 0s --> q[0(r0,c2), 0(r3,c0)]
- step2: pull zero and visit is adjutant cell, if cell value is INF then update cell value with [currentCell's value + 1]
+ step2: pull zero and visit is adjutant cell, if cell value is INF then update cell value with [currentCell's value+1]
  and add cell to queue. After working with all 0's adjutant cells, queue will looks like
- pull 0(r0,c2) --> q[0(r3,c0), 1(r1,c2), 1(r0,c3)] --> now pull 0(r3,c0)
+ pull 0(r0,c2) --> q[0(r3,c0), # 1(r1,c2), 1(r0,c3)] --> now pull 0(r3,c0)
  --> q[1(r1,c2), 1(r0,c3), 1(r2, c0]
 
  */

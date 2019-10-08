@@ -22,8 +22,7 @@ public class _Goo_50_BinaryTree_Level_Order_Traversal {
         while(!q.isEmpty()){
             int size = q.size();
             while(size >0){
-                Node current = q.peek();
-                q.remove();
+                Node current = q.poll();
                 if(current!=null)
                 {
                     System.out.print(current.data + " ");
@@ -48,8 +47,7 @@ public class _Goo_50_BinaryTree_Level_Order_Traversal {
         q.add(null);
 
         while(!q.isEmpty()){
-            Node current = q.peek();
-            q.remove();
+            Node current = q.poll();
             if(current!=null)
             {
                 System.out.print(current.data + " ");

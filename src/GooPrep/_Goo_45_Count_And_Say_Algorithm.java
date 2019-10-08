@@ -36,8 +36,8 @@ public class _Goo_45_Count_And_Say_Algorithm {
                     count ++;
                 }
                 else{
-                    sb.append(count);
                     sb.append(result.charAt(j-1));
+                    sb.append(count);
                     // reset count
                     count =1;
                 }
