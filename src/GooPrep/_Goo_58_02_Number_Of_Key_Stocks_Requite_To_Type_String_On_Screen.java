@@ -32,12 +32,11 @@ public class _Goo_58_02_Number_Of_Key_Stocks_Requite_To_Type_String_On_Screen {
     public static void findPath(String inputStr){
 
         Map<Character, Integer[]> map = new HashMap<Character, Integer[]>();
-        for (char ch = 'A'; ch <= 'Z'; ++ch){
+        for (char ch = 'A'; ch <= 'Z'; ch++){
 
             int rowCoordinates = (ch - 'A') / 5; // 13/5=2 because 13 divided 5=2
             int colCoordinates = (ch - 'A') % 5; // 13%5=3 because 13%5 =3 with a  of 3
-            Integer[] coordinates = {rowCoordinates, colCoordinates};
-            map.put(ch, coordinates);
+            map.put(ch, new Integer[]{rowCoordinates, colCoordinates});
         }
 
         int keystrokesTillNow =0;
@@ -59,7 +58,7 @@ public class _Goo_58_02_Number_Of_Key_Stocks_Requite_To_Type_String_On_Screen {
 
     public static void main (String[] args)
     {
-        String str = "SANTOSH";
+        String str = "UPS";
         findPath(str);
     }
 }

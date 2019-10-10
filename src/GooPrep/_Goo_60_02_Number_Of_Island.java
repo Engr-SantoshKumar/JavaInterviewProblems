@@ -22,68 +22,57 @@ import java.util.Queue;
 
 public class _Goo_60_02_Number_Of_Island {
 
+    //All all eight possible directions neighbours
+    static int[] rowDirections = {-1, +1 , 0, 0};
+    static int[] colDirections = {0 , 0, -1, +1};
+    static Queue<Integer> rowQ = new LinkedList<>();
+    static Queue<Integer> colQ = new LinkedList<>();
+
+
     public static int No_of_Islands(int[][] grid){
         int count =0;
-
         // iterate through every cell in this 2D array
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[0].length; col++) {
-
                 if(grid[row][col] ==1){
-                    createIsland(grid, row, col);
-                        count++;
+                    rowQ.add(row);
+                    colQ.add(col);
+                    grid[row][col] = 0;
+                    createIsland(grid);
+                    count++;
                 }
             }
         }
         return count;
     }
 
-    public static void createIsland(int[][] grid, int row, int col){
+    public static void createIsland(int[][]grid){
 
-        Queue<Integer> queue = new LinkedList<>();
-        int rowLength = grid.length;
-        int colLength = grid[0].length;
+        while(!rowQ.isEmpty()) {
+            int curRow = rowQ.poll();
+            int curCol = colQ.poll();
+            for (int i = 0; i < 4; i++) {
+                int nextRow = curRow + rowDirections[i];
+                int nextCol = curCol + colDirections[i];
+                //boundary check
+                if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >= grid[0].length) continue;
+                //skip already visited cell or blocked
+                if (grid[nextRow][nextCol] == 0) continue;
+                rowQ.add(nextRow);
+                colQ.add(nextCol);
+                grid[nextRow][nextCol] = 0;
+            }
+        }
 
-        grid[row][col] = 0;
-        //as we are solving this problem using BFS..put the current position to queue
-
-        // find the position  --> currentRow Position * RowLength + colPosition => [3][4] --> 3*5+4 = 15+4 =19
-        int position = row * rowLength + col;
-        queue.add(position);
-
-        while(!queue.isEmpty()){
-            position = queue.poll();
-        int i = position / rowLength;
-        int j = position % rowLength;
-            //search upward and mark adjacent '1's as '0'.
-            if(i>0 && grid[i-1][j]=='1'){
-                    queue.offer((i-1)*rowLength+j);
-                    grid[i-1][j]='0';
-                }
-            //down
-            if(i<rowLength-1 && grid[i+1][j]=='1'){
-                    queue.offer((i+1)*rowLength+j);
-                    grid[i+1][j]='0';
-                }
-            //left
-            if(j>0 && grid[i][j-1]=='1'){
-                    queue.offer(i*rowLength+j-1);
-                    grid[i][j-1]='0';
-                }
-            //right
-            if(j<colLength-1 && grid[i][j+1]=='1'){
-                    queue.offer(i*rowLength+j+1);
-                    grid[i][j+1]='0';
-                }
     }
-}
+
 
 
     public static void main(String[] args) throws java.lang.Exception
     {
         int M[][] = new int[][] {
                 { 1, 1, 0, 0, 0 },
-                { 0, 1, 0, 0, 1 },
+                { 1, 1, 0, 0, 1 },
                 { 1, 0, 0, 1, 1 },
                 { 0, 0, 0, 0, 0 },
                 { 1, 0, 1, 0, 1 } };

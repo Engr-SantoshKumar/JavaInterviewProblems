@@ -55,9 +55,8 @@ public class _Goo_62_LinkedList_Connected_Components {
             while(head!=null && hSet.contains(head.data)){
                 head = head.next;
             }
-
             // if the starting head is not equal to currentHead that means
-            // we found at least one node from the set
+            // we found at least one set from the given set
             if(startHead !=head){
                 count++;
             }

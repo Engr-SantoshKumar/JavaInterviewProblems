@@ -1,13 +1,13 @@
 /**  63 [Left Sum == Right Sum]
  ___________________________________________________________________________________________________________________
-Given an array A with n elements, find all indexes i such that
- A[0] + A[1] +..+ A[i-1] = A[i+1] + A[i+2]+…+ A[n-1].
+    Given an array A with n elements, find all indexes i such that
+     A[0] + A[1] +..+ A[i-1] = A[i+1] + A[i+2]+…+ A[n-1].
 
 
- Input : A[] = {-7, 1, 5, 2, -4, 3, 0}
- Output : 3
- 3 is an equilibrium index, because:
- A[0] + A[1] + A[2]  =  A[4] + A[5] + A[6]
+     Input : A[] = {-7, 1, 5, 2, -4, 3, 0}
+     Output : 3
+     3 is an equilibrium index, because:
+     A[0] + A[1] + A[2]  =  A[4] + A[5] + A[6]
 
 */
 

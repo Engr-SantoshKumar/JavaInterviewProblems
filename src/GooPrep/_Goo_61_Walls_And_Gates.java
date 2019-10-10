@@ -24,43 +24,47 @@ Given :                         OutPut:
  */
 package GooPrep;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class _Goo_61_Walls_And_Gates {
 
+    //All all eight possible directions neighbours
+    static int[] rowDirections = {-1, +1 , 0, 0};
+    static int[] colDirections = {0 , 0, -1, +1};
+    static Queue<Integer> rowQ = new LinkedList<>();
+    static Queue<Integer> colQ = new LinkedList<>();
+
 
     public static void shortestPathToGate(int[][] grid){
-
         if(grid==null || grid.length==0||grid[0].length==0)
             return;
-        //All all four directions
-        int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-
-        Queue<Cell> queue = new ArrayDeque<>();
 
         //scan for 0 and put all 0s in the queue
         for(int row =0; row<grid.length; row++){
             for(int col =0; col<grid[0].length; col++){
                 if(grid[row][col] ==0){
-                    queue.offer(new Cell(row, col));
+                    rowQ.add(row);
+                    colQ.add(col);
                 }
             }
         }
         // pull the 0 and check its adjutant cells is this value is MaxInteger update it
-        while (!queue.isEmpty()){
-            Cell cl = queue.poll();
-            for(int[] dir: directions){
-                int rowN = cl.row + dir[0];
-                int colN = cl.col + dir[1];
-                if(rowN >= 0 && rowN <grid.length && colN>=0 && colN<grid[0].length )
-                {
-                    if(grid[rowN][colN] == Integer.MAX_VALUE){
-                        int currentCellValue = grid[cl.row][cl.col];
-                        grid[rowN][colN] = currentCellValue +1;
-                        queue.offer(new Cell(rowN, colN));
-                    }
+        while (!rowQ.isEmpty()) {
+            int curRow = rowQ.poll();
+            int curCol = colQ.poll();
+            for (int i = 0; i < 4; i++) {
+                int nextRow = curRow + rowDirections[i];
+                int nextCol = curCol + colDirections[i];
+                //some condition checks
+                if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >= grid[0].length) continue;
+                if (grid[nextRow][nextCol] == -1) continue;
+
+                if (grid[nextRow][nextCol] == Integer.MAX_VALUE) {
+                    grid[nextRow][nextCol] = grid[curRow][curCol] + 1;
+                    rowQ.add(nextRow);
+                    colQ.add(nextCol);
                 }
             }
         }
@@ -80,13 +84,5 @@ public class _Goo_61_Walls_And_Gates {
         for (int[] x : grid) {
             System.out.println(Arrays.toString(x));
         }
-    }
-}
-class Cell{
-    int row;
-    int col;
-    public Cell(int r, int c){
-        this.row = r;
-        this.col = c;
     }
 }

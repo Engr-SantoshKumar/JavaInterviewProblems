@@ -20,10 +20,10 @@ also represented as a string.
 
  */
 package GooPrep;
-public class _Goo_64_01_StringInteger_Multiplication {
+public class _Goo_59_01_StringInteger_Multiplication {
     public static String multiply(String s1, String s2) {
 
-        int[] result = new int[s1.length()+s2.length()];
+        int[] result = new int[s1.length() + s2.length()]; // maximum can be
 
        /*compute products from each pair of digits from num1 and num2*/
         for(int i=s1.length()-1; i>=0; i--){

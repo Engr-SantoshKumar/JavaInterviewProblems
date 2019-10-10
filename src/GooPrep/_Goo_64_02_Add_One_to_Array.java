@@ -15,10 +15,13 @@ import java.util.Arrays;
 public class _Goo_64_02_Add_One_to_Array {
 
     public static void main(String args[]) {
-        int[] ar = new int[]{9,8,9};
+        int[] ar = new int[]{8,8,9,9};
         System.out.println(Arrays.toString(plusOne(ar)));
 
     }
+
+    // Here logic is: we will traverse from right to left and check we keep making current index 0
+    // until we find a index which value is less than 9 ..if less than 9 increment its value and return
 
     public static int[] plusOne(int[] digits) {
 
@@ -28,10 +31,9 @@ public class _Goo_64_02_Add_One_to_Array {
                 digits[i]++;
                 return digits;
             }
-
             digits[i] = 0;
         }
-
+        // when all digits are 9 9 9 .... just create a new array of n+1 size and place 1 at first place
         int[] newNumber = new int [n+1];
         newNumber[0] = 1;
 
