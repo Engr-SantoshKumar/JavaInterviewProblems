@@ -12,17 +12,8 @@ import java.util.Set;
 
 public class _Goo_65_Reverse_Vowels_In_String {
     static String reverseVowels(String str) {
-        Set<Character> vowels = new HashSet<>();
-        vowels.add('a');
-        vowels.add('e');
-        vowels.add('i');
-        vowels.add('o');
-        vowels.add('u');
-        vowels.add('A');
-        vowels.add('E');
-        vowels.add('I');
-        vowels.add('O');
-        vowels.add('U');
+        Character[] vowel = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
+        Set<Character> vowels = Set.of(vowel);
         char[] car = str.toCharArray();
         int i = 0;
         int j = car.length - 1;

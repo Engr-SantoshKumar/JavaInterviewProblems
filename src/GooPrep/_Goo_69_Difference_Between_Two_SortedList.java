@@ -62,11 +62,7 @@ public class _Goo_69_Difference_Between_Two_SortedList {
         Map<Integer, Integer> map = new HashMap<>();
         // update map with key and count for array 1
         for(int a : arr1){
-            int count = 1;
-            if(map.containsKey(a)){
-                count+=map.get(a);
-            }
-            map.put(a, count);
+            map.put(a, map.getOrDefault(a,0)+1);
         }
         // decrement map for keys in array 2
         for(int a : arr2){
