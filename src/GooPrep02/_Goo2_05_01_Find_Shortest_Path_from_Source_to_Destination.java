@@ -12,7 +12,6 @@ public class _Goo2_05_01_Find_Shortest_Path_from_Source_to_Destination {
     static Queue<Integer> colQ = new ArrayDeque<>();
 
     public static int findShortestPath(char[][] grid){
-
        int rSiz = grid.length;
        int cSiz = grid[0].length;
        boolean visitedGrid[][] = new boolean[rSiz][cSiz];
