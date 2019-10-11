@@ -39,7 +39,6 @@ public class _Goo_70_02_Reverse_Integer {
     }
 
 
-
     public static void main(String[] args) {
         int num = 12345;
         System.out.println(reverseInteger(num));

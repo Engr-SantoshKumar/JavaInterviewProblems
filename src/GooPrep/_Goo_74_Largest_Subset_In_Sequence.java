@@ -20,23 +20,24 @@ public class _Goo_74_Largest_Subset_In_Sequence {
         if (num.length == 1) {
             return num;
         }
-        int count = 1;
-        int max = 1;
-        int[] result = new int[num.length];
-        for (int i = 1; i < num.length; i++) {
+        int i = 1;
+        int j = 1;
 
-            if (num[i - 1] == num[i]) {//dup case (1, 1, 2, 2, 2)
+        int[] result = new int[num.length];
+        for (int k = 1; k < num.length; k++) {
+
+            if (num[k - 1] == num[k]) {//dup case (1, 1, 2, 2, 2)
                 continue;
-            } else if (num[i - 1] + 1 == num[i]) {
-                count++;
+            } else if (num[k - 1] + 1 == num[k]) {
+                j++;
 
             } else {
 
-                if(count>max) {
-                    result = createSubArray(num, count, i);
+                if(j>i) {
+                    result = createSubArray(num, j, k);
                 }
-                max = Math.max(count, max);
-                count = 1;
+                i = Math.max(j, i);
+                j = 1;
             }
         }
         return result;
@@ -62,34 +63,33 @@ public class _Goo_74_Largest_Subset_In_Sequence {
         if (num.length == 1) {
             return num;
         }
-        int j = 0;
-        int i = 1;
-        int[] result = new int[]{j, i};
-        int globSize = i-j;
-        for (i = 1; i < num.length; i++) {
+        int startIndex = 0;
+        int endIndex = 1;
+        int[] resultIndex = {startIndex, endIndex};
+        int maxSizeTillNow = endIndex-startIndex;
+        for (endIndex = 1; endIndex < num.length; endIndex++) {
 
             //dup case (1, 1, 2, 2, 2)
-            if (num[i - 1] == num[i]) {
-                j=i;// if we are not considering repeated integer
+            if (num[endIndex - 1] == num[endIndex]) {
+                startIndex=endIndex;// if we are not considering repeated integer
                 continue;
 
-            } else if (num[i - 1] + 1 == num[i]) {
+            } else if (num[endIndex - 1] + 1 == num[endIndex]) {
                 continue;
 
             } else {
-                int currentSize = i-j;
-                if(globSize < currentSize) {
-                    result[0] = j;
-                    result[1] = i;
-                    globSize = currentSize;
-
+                int currentSize = endIndex-startIndex;
+                if(maxSizeTillNow < currentSize) {
+                    resultIndex[0] = startIndex;
+                    resultIndex[1] = endIndex;
+                    maxSizeTillNow = currentSize;
                 }
-                j =i;
-
+                // move startIndex counter to endIndex-1
+                startIndex =endIndex-1;
             }
         }
-        int start = result[0];
-        int end = result[1];
+        int start = resultIndex[0];
+        int end = resultIndex[1];
         int[] resultArray = new int[ end - start ];
         int t =0;
         for(int k = start; k<end; k++){
@@ -98,13 +98,13 @@ public class _Goo_74_Largest_Subset_In_Sequence {
         }
         System.out.println(Arrays.toString(resultArray));
 
-        return result;
+        return resultIndex;
     }
 
 
     public static void main(String[] args) {
-        int[] arr = {3,27,4,5,6,7,12,17,9,22,23,68};
-        System.out.println(Arrays.toString(longestSequenceSubSet(arr)));
+        int[] arr = {3,27,4,5,5,6,7,12,17,9,22,23,68};
+        //System.out.println(Arrays.toString(longestSequenceSubSet(arr)));
         longestSequenceSubSetUsingTwoPointer(arr);
 
     }

@@ -28,7 +28,7 @@ public class _Goo2_05_01_Find_Shortest_Path_from_Source_to_Destination {
        }
 
        while(!rowQ.isEmpty()){
-           int size = rowQ.size(); // here using the logic of level order printing
+           int size = rowQ.size(); // here using the logic of level order printing to find steps
            while(size > 0){
                int curR = rowQ.poll();
                int curC = colQ.poll();
