@@ -11,7 +11,7 @@ Logic in this problem is same as og "Finding sub Anagram in a String" problem _G
  */
 
 package GooPrep;
-public class _Goo_27_Minimum_Window_Substring {
+public class _Goo_27_Minimum_Window_Substring_BANC {
 
     static void minimumWindowSubstring(String S, String pattern){
 

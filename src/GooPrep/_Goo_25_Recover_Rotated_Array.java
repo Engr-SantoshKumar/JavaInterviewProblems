@@ -5,11 +5,7 @@
  *
  * Logic :
  * 1. find the smallest element in array i.e is rotation point
- * 2. rotate the 1stPart (0, rotationPoint)     -->  [4,5,6,7,7] --> [7,7,6,5,4]
- * 3. rotate the 2ndPart (rotationPoint, end)   -->    [1,2,3,3] --> [3,3,2,1]
- * 4. rotate the wholeArray (0, end)            --> [7,7,6,5,4,3,3,2,1] --> [7,7,6,5,4,3,3,2,1]
- *
- *
+  Create array from (lowPoint -->to--> end) + (start -->to-->lowPoint)
  */
 
 package GooPrep;

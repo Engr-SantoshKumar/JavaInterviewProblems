@@ -71,3 +71,41 @@ public class _Goo_04_CounterManagementClass {
     }
 }
 
+/**
+class HitCounter {
+public:
+HitCounter() {
+
+}
+
+    /** Record a hit.
+     @param timestamp - The current timestamp (in seconds granularity).
+    void hit(int timestamp) {
+        purge(timestamp, INTERVAL);
+        Q.push(timestamp);
+    }
+
+    /** Return the number of hits in the past 5 minutes.
+     @param timestamp - The current timestamp (in seconds granularity).
+    int getHits(int timestamp) {
+        purge(timestamp, INTERVAL);
+        return Q.size();
+    }
+
+private:
+        queue<int> Q;
+        int INTERVAL = 300; // 5 minutes
+
+        void purge(int timestamp, int INTERVAL) {
+        while (!Q.empty()) {
+        auto p = Q.front();
+        if (timestamp - p >= INTERVAL) {
+        Q.pop();
+        } else {
+        break;
+        }
+        }
+        }
+        };
+ */
+

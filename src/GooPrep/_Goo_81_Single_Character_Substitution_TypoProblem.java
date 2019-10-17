@@ -28,7 +28,7 @@ public class _Goo_81_Single_Character_Substitution_TypoProblem {
 
         Map<Integer, ArrayList> map = new HashMap<>();
 
-        //short the vocab based on size
+        //sort the vocab based on size
         for(String word: vocab){
             int len = word.length();
             if(!map.containsKey(len)){

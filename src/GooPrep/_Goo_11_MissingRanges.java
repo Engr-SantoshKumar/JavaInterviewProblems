@@ -27,8 +27,12 @@ public class _Goo_11_MissingRanges {
             if(arr[i] < lower){
                 continue;
             }
+            if (arr[i] == Integer.MIN_VALUE) {
+                lower = arr[i] + 1;
+                continue;
+            }
             //Cases 1: keep moving lower until there is missing number e.g 1,2,3
-            if(lower >= arr[i]){
+            if(lower == arr[i]){
                 lower = arr[i] +1;
             }
 
@@ -44,12 +48,16 @@ public class _Goo_11_MissingRanges {
                 if(arr[i] > upper){
                     result.add(String.format("%s-%s", lower, upper));
                     break; //--> no need to scan more as current element is > upper
-                }else{
+                }else if(arr[i] == Integer.MAX_VALUE) {
+                        return result;
+                }
+                else{
                     result.add(String.format("%s-%s", lower, arr[i]-1));
                     lower = arr[i]+ 1;
                 }
             }
         }
+
         // Case: if the last element is less than upper
         if(arr[arr.length-1] < upper)
         {
@@ -73,4 +81,12 @@ public class _Goo_11_MissingRanges {
        int[] nums3 = {-10,-5, -1, 0};
        List<String> list3 = missingRanges(nums3, 1, 99);
        System.out.println(Arrays.toString(list3.toArray())); //[1-99]
-    }}
+    }
+}
+
+/*
+[2, 4-49, 51-74, 76-99]
+[2, 4-49, 51-74, 76-98]
+[0-49, 51-74, 76-99]
+[1-99]
+ */

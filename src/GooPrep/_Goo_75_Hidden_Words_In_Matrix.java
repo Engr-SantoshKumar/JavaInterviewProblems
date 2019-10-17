@@ -30,9 +30,12 @@ public class _Goo_75_Hidden_Words_In_Matrix {
         // iterate through every cell in this 2D array
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) {
-                boolean[][] visitedMatrix=new boolean[board.length][board[0].length];
-                if (dfs(board, visitedMatrix, row, col,0,word)){
-                    return true;
+                if(board[row][col] == word.charAt(0)){
+                    boolean[][] visitedMatrix=new boolean[board.length][board[0].length];
+                    if (dfs(board, visitedMatrix, row, col,0,word))
+                    {
+                        return true;
+                    }
                 }
             }
         }
@@ -70,14 +73,17 @@ public class _Goo_75_Hidden_Words_In_Matrix {
         char mat[][] =
                 {
                         "DEMXB".toCharArray(),
-                        "AOEPE".toCharArray(),
-                        "DDCOD".toCharArray(),
-                        "EBEDS".toCharArray(),
-                        "CPYEN".toCharArray()
+                        "AOEAE".toCharArray(),
+                        "PDCPD".toCharArray(),
+                        "EBEDP".toCharArray(),
+                        "CPYEL".toCharArray()
                 };
 
         String word = "SANTOSH";
         System.out.println(findHiddenWord(mat, word));
+
+        String word1 = "APPLE";
+        System.out.println(findHiddenWord(mat, word1));
 
     }
 

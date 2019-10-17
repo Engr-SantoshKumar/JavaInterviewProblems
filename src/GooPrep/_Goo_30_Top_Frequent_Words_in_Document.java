@@ -29,19 +29,11 @@ public class _Goo_30_Top_Frequent_Words_in_Document {
         String[] words = str.split(" ");
 
         for(String word : words){
-            if(!hMap.containsKey(word)){
-                hMap.put(word, 1);
-            }else{
-                hMap.put(word, hMap.get(word)+1);
-            }
+            hMap.put(word, hMap.getOrDefault(word,0)+1);
         }
+        System.out.println(hMap);
         // create a pq of size (count of top words) with comparator, comparing their counts
-        PriorityQueue<WordAndCount> pq = new PriorityQueue<>(topWordsNo, new Comparator<WordAndCount>() {
-            @Override
-            public int compare(WordAndCount o1, WordAndCount o2) {
-                return o1.count - o2.count;
-            }
-        });
+        PriorityQueue<WordAndCount> pq = new PriorityQueue<>((a,b)->(a.count - b.count));
         //now iterate over items in HashMap to get the word-counts
         for(Map.Entry<String, Integer> entry : hMap.entrySet()){
             if(topWordsNo > 0){

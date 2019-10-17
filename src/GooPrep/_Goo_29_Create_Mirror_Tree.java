@@ -17,7 +17,7 @@ more info = https://www.youtube.com/watch?v=vdwcCIkLUQI&t=186s
 
 package GooPrep;
 
-public class _Goo_29_Create_Mirrro_Tree {
+public class _Goo_29_Create_Mirror_Tree {
 
     public static void main(String args[]) {
 

@@ -48,7 +48,6 @@ public class _Goo_22_b_Character_sort_by_CountOrOrder_Map {
             CharAndCount top = pq.poll();
             System.out.println(top.chr + " : " + top.count);
         }
-
     }
 
     public static void main(String args[]) {

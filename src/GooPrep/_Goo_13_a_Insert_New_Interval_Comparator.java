@@ -16,6 +16,12 @@ import java.util.List;
 public class _Goo_13_a_Insert_New_Interval_Comparator {
 
     public static List<Interval> mergeInterval(List<Interval> existingIntervals, Interval newInterval){
+
+        List<Interval> finalResult = new ArrayList<Interval>();
+        if(existingIntervals == null || existingIntervals.size() ==0){
+            finalResult.add(newInterval);
+        }
+
         // First sort the existingIntervals with start timing
         Collections.sort(existingIntervals, new Comparator<Interval>() {
             @Override
@@ -23,12 +29,6 @@ public class _Goo_13_a_Insert_New_Interval_Comparator {
                 return a.start - b.start;
             }
         });
-
-        List<Interval> finalResult = new ArrayList<Interval>();
-
-        if(existingIntervals == null || existingIntervals.size() ==0){
-            finalResult.add(newInterval);
-        }
 
         /** looping through existing intervals and will check where to insert the new interval */
         for(Interval curInterval: existingIntervals){

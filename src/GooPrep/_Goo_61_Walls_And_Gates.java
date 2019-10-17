@@ -30,7 +30,7 @@ import java.util.Queue;
 
 public class _Goo_61_Walls_And_Gates {
 
-    //All all eight possible directions neighbours
+    //All all four possible directions neighbours
     static int[] rowDirections = {-1, +1 , 0, 0};
     static int[] colDirections = {0 , 0, -1, +1};
     static Queue<Integer> rowQ = new LinkedList<>();

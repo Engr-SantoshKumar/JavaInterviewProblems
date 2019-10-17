@@ -29,15 +29,16 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
 
         NodeLinkList current = head;
         NodeLinkList previous = null;
-        NodeLinkList next;
+        NodeLinkList next = null;
 
-
-        int count = k;
-        while (count-- > 0 ) {
+        // revers k nodes
+        int count = 0;
+        while (count < k && current != null) {
             next = current.next;
             current.next = previous;
             previous = current;
             current = next;
+            count++;
         }
 
         head.next = reverseKGroupSimpleastRecursion(current, k);

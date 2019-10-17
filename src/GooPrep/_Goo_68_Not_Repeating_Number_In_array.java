@@ -10,14 +10,20 @@
  and second it will remove)
  Q. Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  A: for this we need to use bit-manipulation
- known that A XOR A = 0 and the XOR operator is commutative.
- 0 ^ N = N
- N ^ N = 0
- So..... if N is the single number
- N1 ^ N1 ^ N2 ^ N2 ^..............^ Nx ^ Nx ^ N
- = (N1^N1) ^ (N2^N2) ^..............^ (Nx^Nx) ^ N
- = 0 ^ 0 ^ ..........^ 0 ^ N
- = N
+
+             a) XOR of a number with itself is 0.
+             b) XOR of a number with 0 is number itself.
+
+            e.g
+             res = 7 ^ 3 ^ 5 ^ 4 ^ 5 ^ 3 ^ 4
+
+             Since XOR is associative and commutative, above
+             expression can be written as:
+             res = 7 ^ (3 ^ 3) ^ (4 ^ 4) ^ (5 ^ 5)
+             = 7 ^ 0 ^ 0 ^ 0
+             = 7 ^ 0
+             = 7
+
  */
 
 package GooPrep;
@@ -47,6 +53,8 @@ public class _Goo_68_Not_Repeating_Number_In_array {
         }
         return result;
     }
+
+
 
     //bit-manipulation : known that A XOR A = 0 and the XOR operator is commutative.
 

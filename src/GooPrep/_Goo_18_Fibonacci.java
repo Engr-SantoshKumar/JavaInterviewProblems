@@ -6,12 +6,15 @@
 */
 package GooPrep;
 
+import java.util.Arrays;
+
 public class _Goo_18_Fibonacci {
 
     public static void main (String args[]){
         System.out.println(" fib of 7 is " + fibonacciRec(7));
         System.out.println(" fib simple of 7 " + fibSimple(7));
         System.out.println(" fib DP of 7 " + fibDP(7));
+        System.out.println(" fib fibDPWithThreeSpace of 7 " + fibDPWithThreeSpace(7));
         }
 
         static int fibonacciRec ( int n){
@@ -48,6 +51,21 @@ public class _Goo_18_Fibonacci {
                 //System.out.println(" at i= " + i + "  " + Arrays.toString(fib));
             }
         return fib[n];
+    }
+
+
+    static int fibDPWithThreeSpace ( int n){
+        int[] myStorage = new int[3];
+        myStorage[0] = 0;
+        myStorage[1] = 1;
+
+        int i = 2;
+        while(i<=n){
+            myStorage[i%3] = myStorage[(i-1) %3 ] + myStorage[(i-2) %3 ];
+            i++;
+            System.out.println(Arrays.toString(myStorage));
+        }
+        return myStorage[n%3];
     }
 }
 
