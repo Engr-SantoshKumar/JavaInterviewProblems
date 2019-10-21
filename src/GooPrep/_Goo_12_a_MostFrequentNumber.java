@@ -5,10 +5,12 @@
  * Number : 5 Count: 8
  */
 package GooPrep;
-import java.util.Arrays;
-public class _Goo_12_a_MostFrequentNumber {
-    public static void mostPopularNumber(int [] arr){
+import java.util.*;
 
+public class _Goo_12_a_MostFrequentNumber {
+
+
+    public static void mostPopularNumber(int [] arr){
         //sort the array
         Arrays.sort(arr);
 
@@ -17,7 +19,6 @@ public class _Goo_12_a_MostFrequentNumber {
         int maxCount = 1;
 
         for(int i =1; i<arr.length; i++){
-
             if(arr[i] == arr[i-1]){
                 currentCount ++;
             }else{
@@ -37,10 +38,11 @@ public class _Goo_12_a_MostFrequentNumber {
     }
 
 
+
+
     public static void main (String[] args) {
 
         int arr[] = {1, 5, 2, 1, 3, 2, 1 , 1, 5, 5,5, 5,5, 5,5};
-        int n = arr.length;
         mostPopularNumber(arr);
 
     }

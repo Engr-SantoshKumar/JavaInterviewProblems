@@ -37,21 +37,23 @@ public class _Goo_79_Search_Item_And_Iterator_________________ {
         for(int i=0, j=0; i < space.length(); i++){
             if(space.charAt(i)!=s.charAt(j)){
                 index = i;
-            } else{
+            } else if(space.length()>s.length()){
+                i++;
+            }else{
                 j++;
             }
         }
         if(index == -1){
             return 0;
         }
-        return index+1;
+        return index;
     }
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("abc");
-        //list.add("sa");
-        //list.add("nto");
+        list.add("sa");
+        list.add("nto");
         list.add("san");
         list.add("to");
         list.add("sh");

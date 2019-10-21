@@ -16,24 +16,21 @@ public class _Goo_86_Largest_Sum_SubArray {
         if (a.length < 1){
             return 0;
         }
-
-        int currentMaxSum = a[0];
+        int currentSum = a[0];
         int globalSum = a[0];
 
         for(int i =1; i < a.length; i++){
-
             //if current_max is less than 0, then current_max = A[i]
-            if(currentMaxSum < 0){
-                currentMaxSum = a[i];
+            if(currentSum < 0){
+                currentSum = a[i];
             }
             //otherwise current_max = current_max + A[i]
             else{
-                currentMaxSum = currentMaxSum + a[i];
+                currentSum = currentSum + a[i];
             }
-
             /* if global_max is less than current_max then global_max = current_max */
-            if(globalSum < currentMaxSum){
-                globalSum = currentMaxSum;
+            if(globalSum < currentSum){
+                globalSum = currentSum;
             }
         }
         return globalSum;

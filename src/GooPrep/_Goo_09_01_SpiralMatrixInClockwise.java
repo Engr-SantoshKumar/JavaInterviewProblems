@@ -1,4 +1,4 @@
-/** 09 [Spiral Matrix In Clockwise ]
+/** 09 _01 [Spiral Matrix In Clockwise ]
 -------------------------------------------------------------------------------------------------------
  * Q: Write a function that takes in a matrix and outputs it in spiral order. Eg,
  * 1 2 3
@@ -6,7 +6,7 @@
  * 7 8 9
  */
 package GooPrep;
-public class _Goo_09_SpiralMatrixInClockwise {
+public class _Goo_09_01_SpiralMatrixInClockwise {
 
     public static void printSpiralMatrix(int [][] matrix){
 

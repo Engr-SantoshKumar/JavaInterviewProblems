@@ -1,6 +1,12 @@
 /**
 [ Goo 91 ] [ Hash Map With Expiring Values ]
 _________________________________________________________________________________________________________________
+ Question: you have to implement a time critical hashmap, such that you are given input as: key, value & time-limit.
+ If the time limit gets over and then the hashmap must not return any value.
+ This should be strictly implemented as an Object Oriented code.
+
+ All operations implementations: https://gist.github.com/pcan/16faf4e59942678377e0
+
  Java HashMap is not synchronized by default. If we add/remove key-value pairs from a HashMap
  in a concurrent application where multiple threads are adding and removing pairs,
  we may end up having inconsistent state of the map. Learn to synchronize hashmap and ConcurrentHashMap in Java.
@@ -61,5 +67,4 @@ public class _Goo_91_HashMap_With_Expiring_Values<K,V>{
             this.time = time;
         }
     }
-
 }

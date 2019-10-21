@@ -15,22 +15,21 @@ import java.util.LinkedList;
 public class _Goo_82_LRU_Cache {
     public static void main(String args[]) {
         LRU cache = new LRU(4);
-        cache.put(1, 1);
+        cache.put(1, 10);
         cache.print();      //1 ->
-        cache.put(2, 2);
-        cache.put(3, 3);
-        cache.put(4, 4);
+        cache.put(2, 20);
+        cache.put(3, 30);
+        cache.put(4, 40);
         System.out.println("Original Cache :  " );
         cache.print();      // 4 ->3 ->2 ->1 ->
-        System.out.println("Get 1 : " + cache.get(1));
+        System.out.println("Get 2 : " + cache.get(2));
         System.out.println("Cache structure after accessing 1 :  " );
         cache.print();      // 1 ->4 ->3 ->2 ->
-        cache.put(5, 5);    // evicts key 2
+        cache.put(5, 50);    // evicts key 2
         System.out.println("Cache after adding 5:  " );
         cache.print();      // 5 ->1 ->4 ->3 ->
         System.out.println("get invalid key :" + cache.get(7));    // - 1
     }
-
 }
 
 class LRU{
@@ -47,7 +46,7 @@ class LRU{
         }
         this.capacity = capacity;
     }
-
+    /* Put operation */
     public void put(int key, int value){
         if(isPresentInCache(key)){
             makeMostRecent(key);
@@ -55,9 +54,18 @@ class LRU{
             if(isFull()){
                 removeLRUEntryFromCache();
             }
-            addNew(key, value);
+            addToMapAndLL(key, value);
         }
 
+    }
+    /* Get operation */
+    public int get(int key){
+        if(isPresentInCache(key)){
+            Node node = hashMap.get(key);
+            makeMostRecent(key);
+            return node.value;
+        }
+        return -1;
     }
 
     public boolean isPresentInCache(int key){
@@ -81,36 +89,27 @@ class LRU{
         totalItemsInCache --;
     }
 
-    public void addNew(int key, int value){
+    public void addToMapAndLL(int key, int value){
         Node node = new Node(key, value);
         hashMap.put(key, node);
         linkedList.addFirst(node);
         totalItemsInCache++;
     }
 
-    public int get(int key){
-        if(isPresentInCache(key)){
-            Node node = hashMap.get(key);
-            makeMostRecent(key);
-            return node.data;
-        }
-
-        return -1;
-    }
-
     void print() {
         Iterator<Node> it = linkedList.iterator();
         while (it.hasNext()) {
-            System.out.print(it.next().data + " ->");
+            System.out.print(it.next().value + " ->");
         }
         System.out.println();
     }
 
     class Node{
-        int data;
         int key;
-        public Node(int data, int key){
-            this.data = data;
+        int value;
+        public Node(int key, int value){
+            this.key = key;
+            this.value = value;
         }
     }
 

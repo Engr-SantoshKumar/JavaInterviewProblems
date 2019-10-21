@@ -25,6 +25,7 @@ public class _Goo_89_Find_All_Path_from_Source_to_Destination {
         // some global variables
         List<LinkedHashSet<Integer>> allPathsResult = new ArrayList<LinkedHashSet<Integer>>();
         Queue<pathNode> queue = new ArrayDeque<>();
+        int totalWaysToGetDestination =0;
 
         int rSiz = grid.length;
         int cSiz = grid[0].length;
@@ -57,6 +58,7 @@ public class _Goo_89_Find_All_Path_from_Source_to_Destination {
 
             if(curNode.nodeNo == exitCell){
                 allPathsResult.add(curNode.pathTraveled);
+                totalWaysToGetDestination++;
             }
             ArrayList<Integer> adjacentCells  =  exploreNeighbours(curNode.nodeNo, curNode.pathTraveled, grid );
 
@@ -68,6 +70,7 @@ public class _Goo_89_Find_All_Path_from_Source_to_Destination {
             }
         }
 
+        System.out.println("Total possible Paths : " + totalWaysToGetDestination);
         //to print the all the path
         for(LinkedHashSet<Integer> ll : allPathsResult){
             System.out.println(ll);

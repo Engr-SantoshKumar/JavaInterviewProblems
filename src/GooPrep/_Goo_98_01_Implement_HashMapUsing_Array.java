@@ -59,7 +59,6 @@ class HashEntry {
     }
 
     public int getValue() {
-
         return value;
     }
 }

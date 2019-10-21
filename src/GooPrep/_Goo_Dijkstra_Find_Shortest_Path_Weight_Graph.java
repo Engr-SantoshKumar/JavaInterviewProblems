@@ -15,7 +15,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class _Goo_Find_Shortest_Path_Graph {
+public class _Goo_Dijkstra_Find_Shortest_Path_Weight_Graph {
+
 
 
      class Vertex implements Comparable<Vertex> {

@@ -35,8 +35,8 @@ public class _Goo_77_Tree_maxSum_Neighbour_Restriction {
 
         NodeSumPairs finalSumPairs = new NodeSumPairs(0, 0);
 
-        // Left and right children are not included
-        finalSumPairs.sumWithRoot = leftNodePairs.sumWithOutRoot + rightNodePairs.sumWithOutRoot + root.data;
+        // as taking current root date, which restrict us to use its child data
+        finalSumPairs.sumWithRoot = root.data + leftNodePairs.sumWithOutRoot + rightNodePairs.sumWithOutRoot;
 
         // root not include, so if we are not including root what to add to make it max
         finalSumPairs.sumWithOutRoot = Math.max(leftNodePairs.sumWithOutRoot, leftNodePairs.sumWithRoot)
@@ -55,7 +55,6 @@ public class _Goo_77_Tree_maxSum_Neighbour_Restriction {
 
         System.out.println(Math.max(p.sumWithOutRoot, p.sumWithRoot));
     }
-
 
     static class NodeSumPairs{
         int sumWithRoot, sumWithOutRoot;

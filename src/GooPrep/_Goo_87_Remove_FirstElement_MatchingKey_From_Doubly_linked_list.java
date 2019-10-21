@@ -25,7 +25,6 @@ public class _Goo_87_Remove_FirstElement_MatchingKey_From_Doubly_linked_list {
             head = del.next;
 
         //Change next only if node to be deleted is NOT the last node
-
         if (del.next != null)
             del.next.prev = del.prev;
 

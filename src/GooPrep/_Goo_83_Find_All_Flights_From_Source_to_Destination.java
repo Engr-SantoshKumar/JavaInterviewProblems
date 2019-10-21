@@ -21,6 +21,8 @@
  */
 package GooPrep;
 
+import _01_Coderust._06_Graph.Graph;
+
 import java.util.*;
 
 public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
@@ -29,23 +31,23 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
                                                          String source, String destination){
 
         // first create a map/graph from flightList
-        HashMap<String, List<String>> sourceDestinationGraph = new HashMap<>();
-
+        HashMap<String, List<String>> map = new HashMap<>();
         for(Flight flight : flightList){
-            if(sourceDestinationGraph.containsKey(flight.source)){
-                List<String> destinations = sourceDestinationGraph.get(flight.source);
+            if(map.containsKey(flight.source)){
+                List<String> destinations = map.get(flight.source);
                 destinations.add(flight.Destination);
-                sourceDestinationGraph.put(flight.source, destinations);
+                map.get(flight.source).add(flight.Destination);
+                //map.put(flight.source, destinations);
             }else{
                 List<String> destinations = new ArrayList<>();
                 destinations.add(flight.Destination);
-                sourceDestinationGraph.put(flight.source, destinations);
+                map.put(flight.source, destinations);
             }
         }
-        System.out.println(sourceDestinationGraph);
+        System.out.println(map);
         
         // find all possible path using BFS 
-        findAllRoutesBFS(sourceDestinationGraph, source, destination);
+        findAllRoutesBFS(map, source, destination);
     }
     
     
@@ -56,10 +58,10 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
         Queue<SourceWithPath> queue = new ArrayDeque<>();
 
         // first put the source in Queue as (source and destination)
-        LinkedHashSet<String> firstPath = new LinkedHashSet<>();
-        firstPath.add(source);
+        LinkedHashSet<String> path = new LinkedHashSet<>();
+        path.add(source);
 
-        queue.add(new SourceWithPath(source, firstPath));
+        queue.add(new SourceWithPath(source, path));
 
         while(!queue.isEmpty()){
             SourceWithPath currentPath = queue.poll();

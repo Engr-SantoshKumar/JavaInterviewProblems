@@ -17,8 +17,6 @@ public class _Goo_31_Sort_String {
     public static void main(String args[]) {
         String s = "THISIISGOOOD";
         sortString(s);
-
-
     }
 
     static void sortString(String s){
@@ -41,7 +39,7 @@ public class _Goo_31_Sort_String {
             maxCount = Math.max(maxCount, chars[i]);
             if(chars[i] > 0){
                 for(int j =0; j < chars[i]; j++){
-                    char c = (char)(i + 'A');
+                    char c = (char) (i + 'A');
                     newStr+=c;
                 }
             }
