@@ -11,6 +11,14 @@
   ┌─┴─┐
   5  10
 
+                50
+         ┌───────┴───────┐
+        70              30
+    ┌───┴───┐       ┌───┴───┐
+   80      60      40      20
+                         ┌─┴─┐
+                        10   5
+
 	e.g - in the this tree swapping will occurs in this way: 20<->40 , 75<->85, 60<->80, 30<->70
 more info = https://www.youtube.com/watch?v=vdwcCIkLUQI&t=186s
 */

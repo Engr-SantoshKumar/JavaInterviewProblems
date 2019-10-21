@@ -40,7 +40,7 @@ public class _Goo_09_02_SpiralMatrixInDiagonally {
         for(int k = 0; k<rowEnd; k++){
             int i = k;
             int j = 0;
-            while(i>=0){
+            while(i>=0){  /*Using I here */
                 System.out.print(matrix[i][j] + " ");
                 //row is decreasing and col is increasing as we move up
                 i--;
@@ -52,7 +52,7 @@ public class _Goo_09_02_SpiralMatrixInDiagonally {
         for(int k = 1; k < colEnd; k++){
             int i = rowEnd-1;
             int j = k;
-            while(j<colEnd){
+            while(j<colEnd){   /*Using J here */
                 System.out.print(matrix[i][j]+ " ");
                 //row is decreasing and col is increasing as we move up
                 i--;
