@@ -80,8 +80,8 @@ public class _Goo_38_Max_in_Incresing_then_decresing_Array {
                 return ar[lo]>=ar[hi]?lo: hi;
             }
             System.out.println(" lo "+lo+" mid "+mid+" hi "+hi);
-            // Since it is incr and then decr so mid>=hi is not possible else for
-            // 60, 50 ,50, 50 the o/p comes to 50 as
+
+            //if mid is greater than left and right
             if(mid>0 && mid< ar.length-1 && ar[mid]>=ar[mid-1] && ar[mid]>ar[mid+1]){
                 return mid;
             }

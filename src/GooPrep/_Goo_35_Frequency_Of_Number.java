@@ -26,11 +26,7 @@ public class _Goo_35_Frequency_Of_Number {
         Map<Integer, Integer> hMap = new HashMap<>();
 
         for(int i: arr){
-            if(!hMap.containsKey(i)){
-                hMap.put(i, 1);
-            }else{
-                hMap.put(i, hMap.get(i)+1);
-            }
+                hMap.put(i, hMap.getOrDefault(i, 0)+1);
         }
 
         if(!hMap.containsKey(k)){

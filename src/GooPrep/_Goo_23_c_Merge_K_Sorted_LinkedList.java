@@ -23,12 +23,7 @@ public class _Goo_23_c_Merge_K_Sorted_LinkedList {
         if(heads==null || heads.length==0)  return null;
 
         // create a PQ with linklist node Comparator
-        PriorityQueue<NodeLinkList> pq = new PriorityQueue<>(new Comparator<NodeLinkList>() {
-            @Override
-            public int compare(NodeLinkList o1, NodeLinkList o2) {
-                return o1.data - o2.data;
-            }
-        });
+        PriorityQueue<NodeLinkList> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
 
         NodeLinkList resultHead = null;
         NodeLinkList currentNode = null;
@@ -47,7 +42,8 @@ public class _Goo_23_c_Merge_K_Sorted_LinkedList {
             // add the above node to result
             if(resultHead == null){ // this is just for first time
                 resultHead = mNode;
-                currentNode = mNode;
+                currentNode = mNode; // keep the track of last added node position of result LL so that
+                                    // we don't need to traverse all the way to last to add new incoming node
             }else{
                 currentNode.next=mNode;
                 currentNode = currentNode.next;

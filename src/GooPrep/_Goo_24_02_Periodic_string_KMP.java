@@ -39,27 +39,27 @@ public class _Goo_24_02_Periodic_string_KMP {
 
     static void computeLPSArray(String sPattern, int pLen, int[] lpsArray){
 
-        int currMaxLPS =0;
+        int count =0;
         lpsArray[0] =0; // lps[0] is always 0
 
         int i =1;
         while(i < pLen){
 
-            if(sPattern.charAt(currMaxLPS) == sPattern.charAt(i)){
-                currMaxLPS ++;
-                lpsArray[i] = currMaxLPS;
+            if(sPattern.charAt(count) == sPattern.charAt(i)){
+                count ++;
+                lpsArray[i] = count;
                 i++;
             }
             else
             {
-                if(currMaxLPS != 0)
+                if(count != 0)
                 {
                 /**
-                 lps[currMaxLPS-1] contains the largest prefix of pattern that matches the suffix ending at
-                 pattern[currMaxLPS-1], So try to match from that prefix
+                 lps[count-1] contains the largest prefix of pattern that matches the suffix ending at
+                 pattern[count-1], So try to match from that prefix
                  (which has to be smaller than current prefix)
                   ---> "i " --> is not incrementing here.               */
-                    currMaxLPS = lpsArray[currMaxLPS-1];
+                    count = lpsArray[count-1];
                 }
                 else{
                     lpsArray[i] =0;

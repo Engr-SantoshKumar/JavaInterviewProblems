@@ -9,7 +9,7 @@ package GooPrep;
 public class _Goo_21_Stock_Buy_Sell_Multiple_Transections {
 
     public static void main(String args[]) {
-        int[] ar = new int[]{12, 4, 1, 6, 7, 15, 11, 12, 0, 3};
+        int[] ar = new int[]{5, 3, 8, 5, 1, 6};
         System.out.println(profitMultipleTransactions(ar));
     }
     static int profitMultipleTransactions(int[] ar){
@@ -19,7 +19,6 @@ public class _Goo_21_Stock_Buy_Sell_Multiple_Transections {
             int profit = ar[i] - ar[i-1];
             // if profit is more than 0, add to total profit
             if(profit>0){
-                System.out.println(" profit "+profit);
                 totalProfit += profit;
             }
         }

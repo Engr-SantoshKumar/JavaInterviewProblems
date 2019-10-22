@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 public class _Goo_23_b_Merge_K_Sorted_Array {
     public static int[] mergeKSortedArray(int[][] arr) {
 
-        PriorityQueue<pqNodes> pq = new PriorityQueue<>();
+        PriorityQueue<pqNodes> pq = new PriorityQueue<>((a,b) -> a.value -b.value);
         int resultSize =0;
 
         //Step 1: add fist element from each array to pq also get the size of each array to store result
@@ -51,7 +51,7 @@ public class _Goo_23_b_Merge_K_Sorted_Array {
     }
 
     //node class for priorityQueue with Comparable to compare its self to other pqNodes
-    static class pqNodes implements Comparable<pqNodes> {
+    static class pqNodes {
         int array;
         int index;
         int value;
@@ -60,14 +60,6 @@ public class _Goo_23_b_Merge_K_Sorted_Array {
             this.array = array;
             this.index = index;
             this.value = value;
-        }
-
-        // compare method to compare values
-        public int compareTo(pqNodes n){
-            if(value > n.value) return 1;  // i.e if the value of current node value > incoming node value
-            if(value < n.value) return -1;
-            return 0;
-            // return Integer.compare(value,n.value);  --> this will do the same above
         }
     }
 

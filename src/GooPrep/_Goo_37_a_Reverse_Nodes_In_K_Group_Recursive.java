@@ -23,7 +23,7 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
 
 
 //=========Solution One ============================================================================
-       public static NodeLinkList reverseKGroupSimpleastRecursion(NodeLinkList head, int k) {
+       public static NodeLinkList reverseKGroupSimplestRecursion(NodeLinkList head, int k) {
 
         if(hasEnoughNods(head,k) == false) return head;
 
@@ -32,16 +32,15 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
         NodeLinkList next = null;
 
         // revers k nodes
-        int count = 0;
-        while (count < k && current != null) {
+        while (k>0) {
             next = current.next;
             current.next = previous;
             previous = current;
             current = next;
-            count++;
+            k--;
         }
 
-        head.next = reverseKGroupSimpleastRecursion(current, k);
+        head.next = reverseKGroupSimplestRecursion(current, k);
         return previous;
     }
 
@@ -90,6 +89,6 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
         LinkedList<Number> mylist1 = new LinkedList<Number>(a1);
         NodeLinkList head1 = mylist1.getHead();
         //LinkedList.printList(reverseKGroup(head1, 3));
-        LinkedList.printList(reverseKGroupSimpleastRecursion(head1, 3));
+        LinkedList.printList(reverseKGroupSimplestRecursion(head1, 3));
     }
 }
