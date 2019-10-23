@@ -21,23 +21,9 @@ public class _Goo_22_a_Character_sort_by_CountOrOrder_Array {
         }
         //System.out.println(Arrays.toString(chCount));
 
-        PriorityQueue<CharAndCount> pq = new PriorityQueue<>(new Comparator<CharAndCount>() {
-            @Override
-            public int compare(CharAndCount o1, CharAndCount o2) {
-                // Compare value by frequency
-                int freqCompare = o2.count - o1.count;
+        PriorityQueue<CharAndCount> pq = new PriorityQueue<>((a,b) ->
+                (((b.count - a.count)==0)?(a.chr - b.chr):(b.count - a.count)));
 
-                // Compare value if frequency is equal
-                int charCompare = o1.chr - o2.chr;
-
-                // If frequency is equal, then just compare by value, otherwise -
-                // compare by the frequency.
-                if(freqCompare==0)
-                    return charCompare;
-                else
-                    return o2.count - o1.count;
-            }
-        });
 
         for(char alphabet = 'A'; alphabet <= 'Z'; alphabet++){
             int count = chCount[alphabet - 'A'];

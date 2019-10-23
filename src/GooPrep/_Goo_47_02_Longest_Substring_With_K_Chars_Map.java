@@ -33,8 +33,12 @@ public class _Goo_47_02_Longest_Substring_With_K_Chars_Map {
                     //update map for 'start Index' if V:1 remove from map, else V:--;
                     char l = givenString.charAt(start);
                     int count = map.get(l);
-                    if(count==1) map.remove(l);
-                    else map.put(l, map.get(l)-1);
+                    if(count==1) {
+                        map.remove(l);
+                    }
+                    else {
+                        map.put(l, map.get(l)-1);
+                    }
 
                     start++; // reduce window size
                 }
@@ -44,6 +48,7 @@ public class _Goo_47_02_Longest_Substring_With_K_Chars_Map {
     }
     public static void main(String[] args) {
         String s = "aaccbbbbcccbdddadacb";
+        String s1 = "abc";
         System.out.println("\n\nlongest substring ");
         System.out.println(lengthOfLongestSubstringKDistinct(s, 2));
     }

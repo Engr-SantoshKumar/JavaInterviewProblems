@@ -12,7 +12,8 @@ package GooPrep;
 
 import java.lang.reflect.Constructor;
 
-public class _Goo_51_Java_Language_this_super_constructor {
+public class _Goo_51_Java_Language_this_super_constructor extends myClass{
+
 
     /**Can you call both this() and super() from a constructor? **/
 
@@ -63,6 +64,38 @@ public class _Goo_51_Java_Language_this_super_constructor {
      */
 
 
+   public _Goo_51_Java_Language_this_super_constructor() {
+       //this();  //Call to 'this()' must be the first statement in constructor body
+       // super(); // Call to 'super()' must be the first statement in constructor body
+       System.out.println("I am inside constructor");
+
+       //super(); --> error
+       //this();  --> error
+    }
+
+    public _Goo_51_Java_Language_this_super_constructor(int value) {
+        this();  //---> calling line 67: _Goo_51_Java_Language_this_super_constructor
+        // super(); // Call to 'super()' must be the first statement in constructor body
+        System.out.println("I am inside constructor");
+        //super(); --> error
+        //this();  --> error
+    }
+
+    public void thisKeyWordTest(){
+       //this();
+    }
+
+
+    public static void main(String[] args) {
+        _Goo_51_Java_Language_this_super_constructor my = new _Goo_51_Java_Language_this_super_constructor();
+        //this();
+    }
+}
+
+class myClass{
+    public myClass(){
+        System.out.println("I am inside myClass");
+    }
 }
 
 
