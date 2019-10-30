@@ -26,20 +26,25 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad_WithoutRecurs
     }};
 
     public static void letterCombinations(String digits) {
-        Queue<String> result = new LinkedList<>();
+        List<String> result = new ArrayList<>();
+        Queue<String> queue = new LinkedList<>();
         if(digits.length() ==0) {
             System.out.println("Not enough keys");
         }
-        result.add(""); // add a empty string or we can also all the char of first digit
+        queue.add(""); // add a empty string or we can also all the char of first digit
         // check if the length, if the length is not equal to digits length that means still some key remaining to add
-        while(result.peek().length()!=digits.length()){
+        while(!queue.isEmpty()){
             //get the length of current removed string
-            String currentWord = result.poll();
+            String currentWord = queue.poll();
             int currentWordLength = currentWord.length();
+            if(currentWordLength == digits.length()){
+                result.add(currentWord);
+                continue;
+            }
             // get the digit at currentWordLength and get its string value was map is Map<String, String>
             String nextMapping =  hmap.get(digits.charAt(currentWordLength) - '0'); // - '0' to convert to int value
             for(char c : nextMapping.toCharArray()){
-                result.add(currentWord+c);
+                queue.add(currentWord+c);
             }
         }
         System.out.println(result);
