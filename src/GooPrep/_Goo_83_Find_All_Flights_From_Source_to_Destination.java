@@ -33,16 +33,11 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
         // first create a map/graph from flightList
         HashMap<String, List<String>> map = new HashMap<>();
         for(Flight flight : flightList){
-            if(map.containsKey(flight.source)){
-                List<String> destinations = map.get(flight.source);
-                destinations.add(flight.Destination);
-                map.get(flight.source).add(flight.Destination);
-                //map.put(flight.source, destinations);
-            }else{
+            if(!map.containsKey(flight.source)){
                 List<String> destinations = new ArrayList<>();
-                destinations.add(flight.Destination);
                 map.put(flight.source, destinations);
             }
+            map.get(flight.source).add(flight.Destination);
         }
         System.out.println(map);
         
@@ -51,7 +46,7 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
     }
     
     
-    public static void findAllRoutesBFS(HashMap<String, List<String>> Graph,
+    public static void findAllRoutesBFS(HashMap<String, List<String>> mapGraph,
                                               String source, String destination)
     {
         List<LinkedHashSet<String>> allPathsResult = new ArrayList<LinkedHashSet<String>>();
@@ -70,14 +65,14 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
             if(currentPath.source == destination)
                 allPathsResult.add(currentPath.path);
 
-            // if the Graph/map doesn't contain source (i.e key) means no flight going out
+            // if the mapGraph/map doesn't contain source (i.e key) means no flight going out
             // from here and we can just skip it
-            if(!Graph.containsKey(currentPath.source))
+            if(!mapGraph.containsKey(currentPath.source))
                 continue;
 
             // visit all the dest of the current source and if the current stop is not already visited,
             // add to the current path and make current path the new source
-            for(String dist: Graph.get(currentPath.source) ){
+            for(String dist: mapGraph.get(currentPath.source) ){
                 if(currentPath.path.contains(dist))
                     continue; // skip already visited path
 

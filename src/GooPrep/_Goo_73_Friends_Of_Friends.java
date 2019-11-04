@@ -22,7 +22,6 @@ class Person{
         void setFriends(Person p){
             friendsList.add(p);
         }
-
         // created a return to print name
         public String toString(){
         return this.name;
@@ -69,13 +68,15 @@ public class _Goo_73_Friends_Of_Friends{
         p0.setFriends(p1);
         p0.setFriends(p2);
         p0.setFriends(p3);
-
-        p1.setFriends(p3);p1.setFriends(p5);
+        p1.setFriends(p3);
+        p1.setFriends(p5);
         p2.setFriends(p1);
         p3.setFriends(p4);
-        p4.setFriends(p3);p4.setFriends(p5);
+        p4.setFriends(p3);
+        p4.setFriends(p5);
 
         friendsOfFriends(p0);
+
     }
 }
 

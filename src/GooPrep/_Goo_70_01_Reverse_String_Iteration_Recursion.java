@@ -6,7 +6,7 @@
  */
 package GooPrep;
 
-public class _Goo_70_Reverse_String_Iteration_Recursion {
+public class _Goo_70_01_Reverse_String_Iteration_Recursion {
 
     //iteration way
     static String reverse(String s){

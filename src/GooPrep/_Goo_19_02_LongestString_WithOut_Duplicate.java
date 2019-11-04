@@ -23,18 +23,18 @@ public class _Goo_19_02_LongestString_WithOut_Duplicate {
         {
             if(!hSet.contains(str.charAt(i))){
                 hSet.add(str.charAt(i++));
-                count = Math.max(count, hSet.size());
                 //System.out.println(str.substring(j,i));
             }else{
+                count = Math.max(count, hSet.size());
                 hSet.remove(str.charAt(j++));
             }
         }
-
+        count = Math.max(count, hSet.size());
         return count;
     }
 
     public static void main(String[] args) {
-        String s = "pwwkew";
+        String s = "abcdef";
         System.out.println(longestSubStringWithDups(s));
     }
 }

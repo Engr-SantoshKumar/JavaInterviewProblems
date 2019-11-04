@@ -21,9 +21,8 @@ package GooPrep;
 
 import java.util.Iterator;
 
+
 public class _Goo_88_Implement_Peeking_Iterator{
-
-
 
     class PeekingIterator implements Iterator<Integer> {
 

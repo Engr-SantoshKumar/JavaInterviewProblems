@@ -21,15 +21,16 @@ public class _Goo_47_02_Longest_Substring_With_K_Chars_Map {
             map.put(c, map.getOrDefault(c, 0) +1);
 
             // if window size is more than k, remove characters from the left
-            if(map.size()>=k){
-                if(map.size()==k){
+            if(map.size()==k)
+            {
                     String curString = givenString.substring(start, current +1);
                     // update maximum window size if necessary
-                    if(curString.length() > longestString.length() )
+                    if(curString.length() > longestString.length() ){
                         longestString = curString;
-                }
-                while(map.size()>k)
-                {
+                    }
+            }
+            while(map.size()>k)
+            {
                     //update map for 'start Index' if V:1 remove from map, else V:--;
                     char l = givenString.charAt(start);
                     int count = map.get(l);
@@ -39,9 +40,7 @@ public class _Goo_47_02_Longest_Substring_With_K_Chars_Map {
                     else {
                         map.put(l, map.get(l)-1);
                     }
-
                     start++; // reduce window size
-                }
             }
         }
         return longestString;
@@ -53,3 +52,5 @@ public class _Goo_47_02_Longest_Substring_With_K_Chars_Map {
         System.out.println(lengthOfLongestSubstringKDistinct(s, 2));
     }
 }
+//inPut : aaccbbbbcccbdddadacb
+//outPut: ccbbbbcccb

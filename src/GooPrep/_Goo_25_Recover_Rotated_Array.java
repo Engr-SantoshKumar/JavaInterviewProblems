@@ -27,9 +27,7 @@ public class _Goo_25_Recover_Rotated_Array {
         int high = arr.length - 1;
         // this loop will keep on going until it will find the lowest value
         while (arr[low] > arr[high]) {
-
-            int mid = low + (high - low) / 2;
-
+            int mid = (low+high) / 2;
             if (arr[mid] > arr[high]) {
                 low = mid + 1;
             } else {

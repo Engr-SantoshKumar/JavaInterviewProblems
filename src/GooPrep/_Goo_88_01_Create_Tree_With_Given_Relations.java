@@ -16,7 +16,7 @@ package GooPrep;
 
 import java.util.*;
 
-public class _Goo_88_01_Create_Tree_With_Given_Relations_KiranSolution{
+public class _Goo_88_01_Create_Tree_With_Given_Relations{
 
     public static void main(String[] args) {
         List<Pair> list = constructPairs();

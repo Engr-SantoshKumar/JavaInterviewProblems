@@ -20,7 +20,6 @@ Time complexity: O(h), where h is the height of the tree.
  */
 package GooPrep02;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class _Goo2_15_T_Find_Path_Between_Any_Two_Nodes {

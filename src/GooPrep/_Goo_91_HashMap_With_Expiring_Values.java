@@ -40,18 +40,19 @@ public class _Goo_91_HashMap_With_Expiring_Values<K,V>{
         this.limit = limit;
     }
 
-    public synchronized V put(K key , V value) {
+    public V put(K key , V value) {
         Pair<V, Long> pair
                 = map.put(key ,new Pair(value, System.currentTimeMillis()));
         return pair != null ? pair.value:null;
     }
 
-    public synchronized V get(K key){
+    public  V get(K key){
         if(!map.containsKey(key)) {
             return null;
         }
         Pair<V, Long>  pair = map.get(key);
         if(System.currentTimeMillis() - pair.time <= limit ) {
+            System.out.println(pair.value);
             return pair.value;
         }
         map.remove(key);
@@ -67,4 +68,27 @@ public class _Goo_91_HashMap_With_Expiring_Values<K,V>{
             this.time = time;
         }
     }
+
+    public static void main(String[] args) throws Exception{
+        _Goo_91_HashMap_With_Expiring_Values sExp =
+                new _Goo_91_HashMap_With_Expiring_Values(System.currentTimeMillis()+10000);
+
+
+        sExp.put(10, "Santosh");
+        Thread.sleep(5000);
+        sExp.put(11, "10");
+        sExp.put(12, 100);
+        sExp.put(13, 10000110);
+
+        sExp.get(10);
+        sExp.get(13);
+
+        Thread.sleep(10000);
+
+        sExp.get(10);
+        Thread.sleep(10000);
+        sExp.get(11);
+
+    }
+
 }

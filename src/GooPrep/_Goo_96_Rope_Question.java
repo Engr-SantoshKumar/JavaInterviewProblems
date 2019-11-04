@@ -84,7 +84,7 @@ public class _Goo_96_Rope_Question {
 
     public static void main(String[] args) {
         System.out.println(findLongest());
-        System.out.println(findIndexOf('o'));
+        System.out.println(findIndexOf('A'));
         System.out.println(extractVowels());
     }
 

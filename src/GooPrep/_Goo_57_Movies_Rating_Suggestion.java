@@ -21,16 +21,16 @@ import java.util.*;
         final int movieId;
         Float rating;
         final List<Movie> similarMovies;
-
+        //constructor
         Movie(int movieId, Float rating) {
             this.movieId = movieId;
             this.rating = rating;
             similarMovies = new ArrayList<Movie>();
         }
 
-        public void addSimilarMovies(Movie movie){
-            similarMovies.add(movie);
-            movie.similarMovies.add(this);
+        public void addSimilarMovies(Movie mov){
+            similarMovies.add(mov);
+            mov.similarMovies.add(this);
         }
 
         public List<Movie> getSimilarMovies() {
@@ -45,16 +45,11 @@ public class _Goo_57_Movies_Rating_Suggestion {
                 return null;
 
         Set<Movie> visited = new HashSet<>();
-        PriorityQueue<Movie> pq = new PriorityQueue<>(new Comparator<Movie>() {
-            @Override
-            public int compare(Movie a, Movie b) {
-                return b.rating.compareTo(a.rating);
-            }
-        });
+        PriorityQueue<Movie> pq = new PriorityQueue<>((a,b) -> (b.rating.compareTo(a.rating)));
 
         List<Integer> result = new ArrayList<>();
 
-        dfs(movie, visited, pq);
+
 
         while(!pq.isEmpty() && numTopRatedSimilarMovies >0){
             result.add(pq.poll().movieId);

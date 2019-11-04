@@ -14,7 +14,7 @@ public class _x_03_findRotationPointInArray {
         int high = arr.length - 1;
         // this loop will keep on going until it will find the lowest value
         while (arr[low] > arr[high]) {
-            int mid = low+(high-low)/2;
+            int mid = (low+high)/2;
             //System.out.println("Mid-index->"+mid+ "  MidValue->"+ arr[mid]);
             if (arr[mid] > arr[high]) {
                 low = mid + 1;

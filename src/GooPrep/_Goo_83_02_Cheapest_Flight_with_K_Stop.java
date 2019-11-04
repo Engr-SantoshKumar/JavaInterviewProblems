@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class _Goo_83_Cheapest_Flight_with_K_Stop {
+public class _Goo_83_02_Cheapest_Flight_with_K_Stop {
 
     public static int findCheapestPrice(int nodes, int[][] flights, int source, int destination, int noOfStops)
     {
@@ -68,9 +68,9 @@ public class _Goo_83_Cheapest_Flight_with_K_Stop {
 
     public static void main(String[] args) {
         int noOfAirPorts = 3;
-        int[][] flights = new int[][] {{0,1,100},{1,2,100},{0,2,500}};
-        int src = 0, dst = 2, k = 1;
-        findCheapestPrice(noOfAirPorts, flights, src, dst, k);
+        int[][] flights = new int[][] {{1,2,10},{1,3,20},{2,3,20}, {3, 5, 80},{3, 4, 10}, {4, 5, 10}};
+        int src = 1, dst = 5, k = 2;
+        System.out.println(findCheapestPrice(noOfAirPorts, flights, src, dst, k));
     }
 
 

@@ -7,6 +7,7 @@ ________________________________________________________________________________
  */
 package GooPrep;
 import java.util.Arrays;
+
 public class _Goo_85_Longest_SubString_Of_A_Char {
 
     public static int[] longestSubstring(String str, char ch){

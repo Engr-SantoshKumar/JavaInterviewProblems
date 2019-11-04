@@ -23,12 +23,7 @@ public class _Goo_13_a_Insert_New_Interval_Comparator {
         }
 
         // First sort the existingIntervals with start timing
-        Collections.sort(existingIntervals, new Comparator<Interval>() {
-            @Override
-            public int compare(Interval a, Interval b) {
-                return a.start - b.start;
-            }
-        });
+        Collections.sort(existingIntervals, ((a, b) -> a.start -b.start));
 
         /** looping through existing intervals and will check where to insert the new interval */
         for(Interval curInterval: existingIntervals){

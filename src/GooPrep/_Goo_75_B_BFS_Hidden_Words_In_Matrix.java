@@ -27,7 +27,7 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
     static int[] colDirections = {0 , 0, -1, +1, 1, -1, -1, 1};
     static Queue<Integer> rowQueue = new ArrayDeque<>();
     static Queue<Integer> colQueue = new ArrayDeque<>();
-    static Queue<String> wordQueue = new ArrayDeque<>();
+
 
     public static boolean findHiddenWord(char[][] board, String word) {
         if (board==null ||board.length==0||board[0].length==0) return false;
@@ -38,7 +38,6 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
                     boolean[][] visitedMatrix=new boolean[board.length][board[0].length];
                     rowQueue.add(row);
                     colQueue.add(col);
-                    wordQueue.add(Character.toString((board[row][col])));
                     if (BFS(board, visitedMatrix, word)){
                         return true;
                     }
@@ -49,24 +48,30 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
     }
 
     public static boolean BFS(char[][] board, boolean[][] visitedMatrix, String givenWord){
+        int curLength = 1;
 
         while(!rowQueue.isEmpty()){
 
-                String currentWord = wordQueue.poll();
-                int nextIndex = currentWord.length();
-                if(currentWord.length()==givenWord.length()) return true;
                 int curRow = rowQueue.poll();
                 int curCol = colQueue.poll();
+
+
+
                 for(int i =0; i<8; i++) {
                     int nRow = curRow + rowDirections[i];
                     int nCol = curCol + colDirections[i];
 
                     // some validations
+                    if(curLength==givenWord.length()) return true;
                     if (nRow < 0 || nRow >= board.length || nCol < 0 || nCol >= board[0].length) continue;
-                    if (visitedMatrix[nRow][nCol] || board[nRow][nCol] != givenWord.charAt(nextIndex)) continue;
+                    if (visitedMatrix[nRow][nCol]) continue;
+
+                    if (board[nRow][nCol] != givenWord.charAt(curLength)) continue;
+                    System.out.println(curLength + " -- " +  board[nRow][nCol]);
+
                     rowQueue.add(nRow);
                     colQueue.add(nCol);
-                    wordQueue.add(currentWord + board[nRow][nCol] );
+                    curLength++;
                 }
         }
         return false;

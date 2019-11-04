@@ -26,7 +26,6 @@ public class _Goo_66_Selective_Iterator_Using_List{
             System.out.println(sl.next());
         }
     }
-
 }
 
 class SelectionListIterator implements Iterator<Number> {

@@ -46,7 +46,7 @@ public class _Goo_11_MissingRanges {
             else
                 {
                 if(arr[i] > upper){
-                    result.add(String.format("%s-%s", lower, upper));
+                    result.add(String.format("%s-%s", lower, upper-1));
                     break; //--> no need to scan more as current element is > upper
                 }else if(arr[i] == Integer.MAX_VALUE) {
                         return result;

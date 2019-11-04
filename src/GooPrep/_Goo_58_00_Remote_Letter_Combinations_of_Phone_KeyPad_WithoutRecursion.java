@@ -32,10 +32,11 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad_WithoutRecurs
             System.out.println("Not enough keys");
         }
         queue.add(""); // add a empty string or we can also all the char of first digit
-        // check if the length, if the length is not equal to digits length that means still some key remaining to add
+
         while(!queue.isEmpty()){
             //get the length of current removed string
             String currentWord = queue.poll();
+            // if the length is not equal to digits length that means still some key remaining to add
             int currentWordLength = currentWord.length();
             if(currentWordLength == digits.length()){
                 result.add(currentWord);
