@@ -26,11 +26,11 @@ public class _Goo_21_Stock_Maximum_Profit_Two_Transactions {
         // lets fill the array from right to left
         for(int i = size - 2; i >= 0; i-- ){
             // update max stock price seen so far
-            max_price = Math.max(max_price, arr[i]);
             /* we can get profit[i] by taking maximum of: Logic is ..buy at current Price and sell at max
                a) previous maximum, i.e., profit[i+1]
                b) profit by buying at price[i] and selling at max_price */
             profit[i] = Math.max(profit[i+1], max_price - arr[i]);
+            max_price = Math.max(max_price, arr[i]);
         }
         // to keep track of min stock price on the right of current stock price
         int min_price = arr[0];
@@ -38,12 +38,13 @@ public class _Goo_21_Stock_Maximum_Profit_Two_Transactions {
         //Get the maximum profit with two transactions allowed, After this loop, profit[n-1] contains the result */
         for (int i = 1; i < size; i++){
             // update minimum stock price seen so far
-            min_price = Math.min(min_price, arr[i]);
             /* Maximum profit is maximum of:  logic is buy at min price and sell at current
                 a) previous maximum, i.e., profit[i-1]
                 b) (Buy, Sell) at (min_price, price[i]) and add profit of other trans. stored in profit[i] */
             profit[i] = Math.max (profit[i - 1],
                     (arr[i] - min_price) + profit[i]);
+
+            min_price = Math.min(min_price, arr[i]);
         }
         // the last element of profit[] stores the result
         return profit[size - 1];

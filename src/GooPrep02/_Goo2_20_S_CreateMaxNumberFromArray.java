@@ -1,15 +1,9 @@
-
-
 /**
  * [ Goo2_S 20 ] [ Given a list of non negative integers, arrange them such that they form the largest number ]
  * __________________________________________________________________________________________________________
- *
- *
-Example 1:
 
 Input: [10,2]
 Output: "210"
-Example 2:
 
  Input: [3,30,34,5,9]
  Output: "9534330"
@@ -20,7 +14,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 
-public class _Goo2_S_20_CreateMaxNumberFromArray {
+public class _Goo2_20_S_CreateMaxNumberFromArray {
 
     public static String largestNumber(int[] nums) {
         String[] arr = new String[nums.length];

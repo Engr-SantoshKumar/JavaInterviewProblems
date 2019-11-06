@@ -6,7 +6,7 @@ import java.util.*;
  * [  ] [  ]
  * ____________________________________________________________________________________________________________________
  */
-public class _Goo2_G_19_Keys_And_Doors {
+public class _Goo2_19_G_Keys_And_Doors {
 
     static int[] rowDirections = {-1, +1 , 0, 0};
     static int[] colDirections = {0 , 0, -1, +1};

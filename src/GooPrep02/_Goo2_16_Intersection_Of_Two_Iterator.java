@@ -42,21 +42,21 @@ public class _Goo2_16_Intersection_Of_Two_Iterator implements Iterator<Integer> 
 
     //Compute next intersection value.
     private Integer setNext() {
-        int v1 = 0;
-        int v2 = 0;
+        int i = 0;
+        int j = 0;
         if (i1.hasNext() && i2.hasNext()) {
-            v1 = i1.next();
-            v2 = i2.next();
-            if (v1 == v2)
-                return v1;
+            i = i1.next();
+            j = i2.next();
+            if (i == j)
+                return i;
         }
         while (i1.hasNext() && i2.hasNext()) {
-            if (v1 < v2) {
-                v1 = i1.next();
-            } else if (v1 > v2) {
-                v2 = i2.next();
+            if (i < j) {
+                i = i1.next();
+            } else if (i > j) {
+                j = i2.next();
             } else {
-                return v1;
+                return i;
             }
         }
         return null;
