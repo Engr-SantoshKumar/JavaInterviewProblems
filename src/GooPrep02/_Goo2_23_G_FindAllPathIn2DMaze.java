@@ -31,12 +31,12 @@ public class _Goo2_23_G_FindAllPathIn2DMaze {
 
         while(!queue.isEmpty()){
             SourceWithPath current = queue.poll();
-            if(current.source[0] == dest[0] && current.source[1] == dest[1]){
-                results.add(current.pathTraveled);
-            }
             int curRow = current.source[0];
             int curCol = current.source[1];
 
+            if(curRow == dest[0] && curCol == dest[1]){
+                results.add(current.pathTraveled);
+            }
             for (int i = 0; i < 4; i++){
                 int nRow = curRow + rDir[i];
                 int nCol = curCol + cDir[i];
@@ -46,16 +46,19 @@ public class _Goo2_23_G_FindAllPathIn2DMaze {
                 if (visitedMatrix[nRow][nCol]) continue;
                 if (grid[nRow][nCol]==0)continue;
 
+                //update source and path with new cell
                 int[] newSource = {nRow,nCol};
                 List<int[]> newPath = new ArrayList<>();
-
                 newPath.addAll(current.pathTraveled);
                 newPath.add(newSource);
+
+                //add to Q and update boolean matrix
                 queue.add(new SourceWithPath(newSource, newPath));
                 visitedMatrix[nRow][nCol]=true;
             }
         }
 
+        //print result
         for(List<int[]> cur: results){
             for(int[] i : cur){
                 System.out.print(Arrays.toString(i));
