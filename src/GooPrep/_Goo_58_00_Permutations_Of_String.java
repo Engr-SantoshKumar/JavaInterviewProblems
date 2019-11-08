@@ -20,12 +20,12 @@ public class _Goo_58_00_Permutations_Of_String {
 
     public static List<String> letterCombinations(String str){
         if(str.length()!=0){
-            createStrings( str, "");
+            createStrings( "", str);
         }
         return result;
     }
 
-    public static void createStrings(String str, String combinations ){
+    public static void createStrings(String combinations, String str  ){
         // if no digit left, the combination is done
         //System.out.println(combinations);
         if(str.length()==0)
@@ -42,7 +42,7 @@ public class _Goo_58_00_Permutations_Of_String {
                 String remChars = str.substring(0, i) + str.substring(i+1);
 
                 // call fun again with remaining chars and current combination + currentCh
-                createStrings(remChars, combinations+currentCh);
+                createStrings(combinations+currentCh, remChars);
             }
         }
     }

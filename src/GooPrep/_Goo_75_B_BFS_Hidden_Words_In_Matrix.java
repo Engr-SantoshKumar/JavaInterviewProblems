@@ -54,9 +54,6 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
 
                 int curRow = rowQueue.poll();
                 int curCol = colQueue.poll();
-
-
-
                 for(int i =0; i<8; i++) {
                     int nRow = curRow + rowDirections[i];
                     int nCol = curCol + colDirections[i];
@@ -67,12 +64,12 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
                     if (visitedMatrix[nRow][nCol]) continue;
 
                     if (board[nRow][nCol] != givenWord.charAt(curLength)) continue;
-                    System.out.println(curLength + " -- " +  board[nRow][nCol]);
 
                     rowQueue.add(nRow);
                     colQueue.add(nCol);
-                    curLength++;
+
                 }
+            curLength++;
         }
         return false;
     }

@@ -26,7 +26,7 @@ import java.util.Queue;
 
 public class _Goo_83_02_Cheapest_Flight_with_K_Stop {
 
-    public static int findCheapestPrice(int nodes, int[][] flights, int source, int destination, int noOfStops)
+    public static int findCheapestPrice(int[][] flights, int source, int destination, int noOfStops)
     {
         // first create a map/graph with given flights
         Map<Integer, HashMap<Integer, Integer>> mapWithSrcPrice = new HashMap<>();
@@ -67,10 +67,9 @@ public class _Goo_83_02_Cheapest_Flight_with_K_Stop {
     }
 
     public static void main(String[] args) {
-        int noOfAirPorts = 3;
         int[][] flights = new int[][] {{1,2,10},{1,3,20},{2,3,20}, {3, 5, 80},{3, 4, 10}, {4, 5, 10}};
         int src = 1, dst = 5, k = 2;
-        System.out.println(findCheapestPrice(noOfAirPorts, flights, src, dst, k));
+        System.out.println(findCheapestPrice( flights, src, dst, k));
     }
 
 

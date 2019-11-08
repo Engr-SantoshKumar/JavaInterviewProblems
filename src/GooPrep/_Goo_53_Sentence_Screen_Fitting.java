@@ -54,7 +54,7 @@ public class _Goo_53_Sentence_Screen_Fitting {
 
                     // basically we are checking if the given word is the last word of sentence,
                     // if yes increase the count
-                    if(curWordIndex%sentence.length == sentence.length-1) times ++;
+                    if(curWordIndex % sentence.length == sentence.length-1) times ++;
                     curWordIndex++;
                 }
             }

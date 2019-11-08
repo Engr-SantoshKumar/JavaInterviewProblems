@@ -24,7 +24,7 @@ outPut
 
  */
 package GooPrep;
-public class _Goo_09_02_SpiralMatrixInDiagonally {
+public class _Goo_09_02_PrintMatrixDiagonally {
 
     private static void printMatrixDiagonally(int[][] matrix){
 
