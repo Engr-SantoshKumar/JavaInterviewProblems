@@ -23,9 +23,9 @@ public class _Goo2_23_G_FindAllPathIn2DMaze {
 
         Queue<SourceWithPath> queue = new ArrayDeque<>();
 
-        List<List<int[]>> results = new ArrayList<>();
+        List<LinkedHashSet<int[]>> results = new ArrayList<>();
 
-        ArrayList<int[]> currentPath = new ArrayList<>();
+        LinkedHashSet<int[]> currentPath = new LinkedHashSet<>();
         currentPath.add(source);
         queue.offer(new SourceWithPath(source, currentPath));
 
@@ -36,6 +36,7 @@ public class _Goo2_23_G_FindAllPathIn2DMaze {
 
             if(curRow == dest[0] && curCol == dest[1]){
                 results.add(current.pathTraveled);
+                break;
             }
             for (int i = 0; i < 4; i++){
                 int nRow = curRow + rDir[i];
@@ -43,23 +44,27 @@ public class _Goo2_23_G_FindAllPathIn2DMaze {
 
                 // some validations
                 if (nRow < 0 || nRow >= grid.length || nCol < 0 || nCol >= grid[0].length) continue;
-                if (visitedMatrix[nRow][nCol]) continue;
+                //if (visitedMatrix[nRow][nCol]) continue;
                 if (grid[nRow][nCol]==0)continue;
 
                 //update source and path with new cell
                 int[] newSource = {nRow,nCol};
-                List<int[]> newPath = new ArrayList<>();
+
+                if(current.pathTraveled.contains(newSource)) continue;
+
+
+                LinkedHashSet<int[]> newPath = new LinkedHashSet<>();
                 newPath.addAll(current.pathTraveled);
                 newPath.add(newSource);
 
                 //add to Q and update boolean matrix
                 queue.add(new SourceWithPath(newSource, newPath));
-                visitedMatrix[nRow][nCol]=true;
+                //visitedMatrix[nRow][nCol]=true;
             }
         }
 
         //print result
-        for(List<int[]> cur: results){
+        for(LinkedHashSet<int[]> cur: results){
             for(int[] i : cur){
                 System.out.print(Arrays.toString(i));
             }
@@ -79,8 +84,8 @@ public class _Goo2_23_G_FindAllPathIn2DMaze {
 
 class SourceWithPath{
     int[] source;
-    List<int[]> pathTraveled;
-    public SourceWithPath(int[] source, List<int[]> pathTraveled){
+    LinkedHashSet<int[]> pathTraveled;
+    public SourceWithPath(int[] source, LinkedHashSet<int[]> pathTraveled){
         this.source = source;
         this.pathTraveled = pathTraveled;
     }

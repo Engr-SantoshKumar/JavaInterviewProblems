@@ -35,40 +35,35 @@ import java.util.Arrays;
  */
 public class _Goo2_18_QuickSort {
 
-    public static void quickSort(int[] a, int low, int high) {
-        if (a == null || a.length == 0)
-            return;
-        if (low >= high) {
-            return;
+    public static void quickSort(int arr[], int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(arr, begin, end);
+
+            quickSort(arr, begin, partitionIndex-1);
+            quickSort(arr, partitionIndex+1, end);
         }
-        // pick the pivot
-        int mid = (low + high) / 2;
-        int pivot = a[mid];
-        // make left < pivot and right > pivot
-        int i = low, j = high;
-        while (i <= j) {
-            while (a[i] < pivot) {
+    }
+
+    private static int partition(int arr[], int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin-1);
+
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
                 i++;
+
+                int swapTemp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = swapTemp;
             }
-            while (a[j] > pivot) {
-                j--;
-            }
-            if (i <= j) {
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-                i++;
-                j--;
-            }
-        }
-        // recursively sort two sub parts
-        if (low < j) {
-            quickSort(a, low, j);
         }
 
-        if (high > i) {
-            quickSort(a, i, high);
-        }
+        //swap the pivot point index value too
+        int swapTemp = arr[i+1];
+        arr[i+1] = arr[end];
+        arr[end] = swapTemp;
+
+        return i+1;
     }
 
 
