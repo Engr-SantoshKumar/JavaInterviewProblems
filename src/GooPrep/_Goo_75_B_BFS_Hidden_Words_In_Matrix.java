@@ -48,7 +48,7 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
     }
 
     public static boolean BFS(char[][] board, boolean[][] visitedMatrix, String givenWord){
-        int curLength = 1;
+        int index = 1;
 
         while(!rowQueue.isEmpty()){
 
@@ -59,17 +59,18 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
                     int nCol = curCol + colDirections[i];
 
                     // some validations
-                    if(curLength==givenWord.length()) return true;
+                    if(index==givenWord.length()) return true;
                     if (nRow < 0 || nRow >= board.length || nCol < 0 || nCol >= board[0].length) continue;
                     if (visitedMatrix[nRow][nCol]) continue;
 
-                    if (board[nRow][nCol] != givenWord.charAt(curLength)) continue;
+                    if (board[nRow][nCol] != givenWord.charAt(index)) continue;
 
                     rowQueue.add(nRow);
                     colQueue.add(nCol);
 
                 }
-            curLength++;
+                //increase the index
+                index++;
         }
         return false;
     }

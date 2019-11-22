@@ -39,21 +39,21 @@ public class _Goo2_10_T_Find_Leaves_of_BT_bottomUP {
     public static int findLeavesAtEachLevelUsingMap(Node root, Map<Integer, List<Integer>> hm){
 
         if(root == null) return -1;
-        int leftSize = findLeavesAtEachLevelUsingMap(root.left, hm);
-        int rightSize = findLeavesAtEachLevelUsingMap(root.right, hm);
+        int leftHeight = findLeavesAtEachLevelUsingMap(root.left, hm);
+        int rightHeight = findLeavesAtEachLevelUsingMap(root.right, hm);
 
-        // since its bottomUP, first time this code is reached is when maxLevel will be 0,
-        int maxLevel = Math.max( leftSize, rightSize ) +1;
+        // since its bottomUP, first time this code is reached is when curLevel will be 0,
+        int curLevel = Math.max( leftHeight, rightHeight ) +1;
 
-        // Using maxLevel as Key to store leaves
-        if(hm.containsKey(maxLevel)){
-            hm.get(maxLevel).add(root.data);
+        // Using curLevel as Key to store leaves
+        if(hm.containsKey(curLevel)){
+            hm.get(curLevel).add(root.data);
         }else{
             List<Integer> leaveAtThisLevel = new LinkedList<>();
             leaveAtThisLevel.add(root.data);
-            hm.put(maxLevel, leaveAtThisLevel);
+            hm.put(curLevel, leaveAtThisLevel);
         }
-        return maxLevel;
+        return curLevel;
     }
 
     // traverse the tree bottom-up recursively

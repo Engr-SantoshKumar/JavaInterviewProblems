@@ -11,9 +11,7 @@
 
 package GooPrep;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 import java.util.LinkedList;
 
 public class _Goo_82_0_LRU_Cache {
@@ -45,7 +43,7 @@ public class _Goo_82_0_LRU_Cache {
                     index = i;
                 }i++;
             }
-            // remove from ll
+            // remove from current element from linkedList
             linkedList.remove(index);
             // no need to remove from hasSet as when we put it will make it most recent
         }

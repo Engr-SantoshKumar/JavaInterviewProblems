@@ -45,7 +45,7 @@ public class _Goo_11_MissingRanges {
             // Cases 3: if bunch of nums missing
             else
                 {
-                if(arr[i] > upper){
+                if(arr[i] >= upper){
                     result.add(String.format("%s-%s", lower, upper-1));
                     break; //--> no need to scan more as current element is > upper
                 }else if(arr[i] == Integer.MAX_VALUE) {
@@ -66,8 +66,9 @@ public class _Goo_11_MissingRanges {
         return result;
     }
    public static void main(String[] args) {
-        int[] nums = {-10,0, 1, 3, 50, 75, 110, 150};
-        List<String> list = missingRanges(nums, 0, 99);
+        int[] nums = {-3,4, 12, 14, 16, 30, 32};
+
+        List<String> list = missingRanges(nums, 10, 30);
         System.out.println(Arrays.toString(list.toArray())); //--> [2, 4-49, 51-74, 76-99]
 
        int[] nums1 = {-10,0, 1, 3, 50, 75, 99};

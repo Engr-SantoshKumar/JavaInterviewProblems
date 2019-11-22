@@ -24,22 +24,26 @@ public class _Goo2_22_Stack_Candy_Crush {
     private static void crushCandy(int[] arr){
 
         for(int i =0; i <arr.length; i++){
+            //base cases: if stack is empty push the current with count 1
             if(stack.isEmpty()){
                 stack.push(new IntAndCount(arr[i], 1));
                 continue;
             }
+
+            //Cases one: when the incoming is same as what on top of stack
             IntAndCount cur = stack.peek();
             if(cur.value==arr[i]){
                 stack.pop();
                 stack.push(new IntAndCount(arr[i], cur.count+1));
             }
+            //Cases two: when incoming is notSame as what an top of stack
             else{
                 if(cur.count>=3) {
-                    stack.pop();
+                    stack.pop();                   //if what on top of stack has count >=3 remove it
                     cur = stack.peek();
                     if (cur.value == arr[i]) {
                         stack.pop();
-                        stack.push(new IntAndCount(arr[i], cur.count+1));
+                        stack.push(new IntAndCount(arr[i], cur.count+1)); //after removing, if current is same as what left
                     }else{
                         stack.push(new IntAndCount(arr[i], 1));
                     }

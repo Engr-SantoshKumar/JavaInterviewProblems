@@ -25,6 +25,10 @@ more info = https://www.youtube.com/watch?v=vdwcCIkLUQI&t=186s
 
 package GooPrep;
 
+import javax.swing.tree.TreeNode;
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class _Goo_29_Create_Mirror_Tree {
 
     public static void main(String args[]) {
@@ -32,6 +36,10 @@ public class _Goo_29_Create_Mirror_Tree {
         int[] nodes = new int[]{50, 30, 70, 20, 40, 60, 80, 5, 10};
         Node r = TreePrint.create(nodes);
         TreePrint.print(createMirrorTree(r));
+
+        int[] nodes1 = new int[]{5,3,8,1,2,7,9,0};
+        Node r1 = TreePrint.create(nodes1);
+        TreePrint.print(mirror_imageWithOutRecursion(r1));
     }
 
 
@@ -40,13 +48,39 @@ public class _Goo_29_Create_Mirror_Tree {
         if(root == null) return root;
         Node right = createMirrorTree(root.right);
         Node left = createMirrorTree(root.left);
-
-
         /* swap the left and right pointers */
         root.left = right;
         root.right =left;
+        return root;
+    }
+
+    public static Node  mirror_imageWithOutRecursion(Node root) {
+        if (root == null)
+            return root;
+
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        // Do BFS. While doing BFS, keep swapping
+        // left and right children
+        while(!queue.isEmpty()) {
+            // pop top node from queue
+            Node cur_node = queue.poll();
+
+            // swap left child with right child
+            Node temp = cur_node.left;
+            cur_node.left = cur_node.right;
+            cur_node.right = temp;
+
+            // push left and right children
+            if (cur_node.left!=null)
+                queue.add(cur_node.left);
+            if (cur_node.right!=null)
+                queue.add(cur_node.right);
+        }
 
         return root;
-
     }
+
+
+
 }

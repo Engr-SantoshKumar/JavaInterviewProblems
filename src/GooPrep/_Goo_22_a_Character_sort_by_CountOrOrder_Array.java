@@ -22,7 +22,7 @@ public class _Goo_22_a_Character_sort_by_CountOrOrder_Array {
         //System.out.println(Arrays.toString(chCount));
 
         PriorityQueue<CharAndCount> pq = new PriorityQueue<>((a,b) ->
-                (((b.count - a.count)==0)?(a.chr - b.chr):(b.count - a.count)));
+                (((b.count == a.count)?(a.chr - b.chr):(b.count - a.count))));
 
 
         for(char alphabet = 'A'; alphabet <= 'Z'; alphabet++){

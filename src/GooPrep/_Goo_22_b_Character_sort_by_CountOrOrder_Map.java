@@ -17,32 +17,20 @@ public class _Goo_22_b_Character_sort_by_CountOrOrder_Map {
         Map<Character, Integer> hMap = new HashMap<>();
 
         for(char c: S.toCharArray()){
-            hMap.put(c, hMap.getOrDefault(c, 1)+1);
+            hMap.put(c, hMap.getOrDefault(c, 0)+1);
         }
+        System.out.println(hMap);
 
-        Queue<CharAndCount> pq = new PriorityQueue<>(new Comparator<CharAndCount>() {
-            @Override
-            public int compare(CharAndCount o1, CharAndCount o2) {
-
-                // Compare value by frequency
-                int freqCompare = o2.count - o1.count;
-
-                // Compare value if frequency is equal
-                int charCompare = o1.chr - o2.chr;
-
-                // If frequency is equal, then just compare by value, otherwise -
-                // compare by the frequency.
-                if(freqCompare==0)
-                    return charCompare;
-                else
-                    return o2.count - o1.count;
-            }
-        });
+        Queue<CharAndCount> pq = new PriorityQueue<>((a,b) ->
+                ((a.count==b.count)?(a.chr-b.chr):(b.count-a.count)));
 
         // to get the key and value, use entrySet():
-        for (Map.Entry<Character, Integer> entry : hMap.entrySet()) {
+
+        hMap.forEach((k,v)-> {pq.offer(new CharAndCount(k,v));});
+
+        /*for (Map.Entry<Character, Integer> entry : hMap.entrySet()) {
             pq.offer(new CharAndCount(entry.getKey(), entry.getValue()));
-        }
+        }*/
 
         while (!pq.isEmpty()) {
             CharAndCount top = pq.poll();

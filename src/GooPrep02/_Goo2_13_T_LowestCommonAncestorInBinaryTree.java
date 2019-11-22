@@ -54,7 +54,7 @@ public class _Goo2_13_T_LowestCommonAncestorInBinaryTree {
 
         Node left = findLCA(root.left, n1 , n2);
         Node right = findLCA(root.right, n1, n2);
-        // this means it found the both node one at left side one at right side
+        // this means it found the both nodes, one at left side one at right side
         if(left != null && right != null) return root;
 
         // this when both node in same side under each other,
