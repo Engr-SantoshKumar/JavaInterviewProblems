@@ -21,7 +21,7 @@ public class _Goo_06_sudokuValidate{
     public static boolean isValidSudoku(int [][] board){
 
         //Validate Row
-        for(int row=0; row < board[0].length; row ++){
+        for(int row=0; row < board[0].length; row ++){  //--> only row loop
             if(!validator(row, row, 0, board.length-1, board))   //same as (r, r, 0, 8, board))
             {
                 return false;
@@ -29,7 +29,7 @@ public class _Goo_06_sudokuValidate{
         }
 
         //Validate Column
-        for(int col =0; col<board.length; col ++){
+        for(int col =0; col<board.length; col ++){  //--> only col loop
             if(!validator(0, board[0].length-1, col, col, board ))  //same as (0, 8, c, c, board))
             {
                 return false;

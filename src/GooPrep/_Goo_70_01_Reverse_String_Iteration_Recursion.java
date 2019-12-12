@@ -32,13 +32,13 @@ public class _Goo_70_01_Reverse_String_Iteration_Recursion {
         if (s == null) {
             System.out.println("Invalid input");
         }
-        String reversedString = reverse(s);
+        String reversedString = reverseRec(s);
         return reversedString;
     }
     static String reverseRec(String str) {
         if(str.isEmpty()) return str;
 
-        return reverse(str.substring(1) + str.substring(0));
+        return reverseRec(str.substring(1) + str.substring(0));
     }
 
     //Test

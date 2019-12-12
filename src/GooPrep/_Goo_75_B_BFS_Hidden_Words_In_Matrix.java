@@ -51,26 +51,22 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
         int index = 1;
 
         while(!rowQueue.isEmpty()){
-
                 int curRow = rowQueue.poll();
                 int curCol = colQueue.poll();
                 for(int i =0; i<8; i++) {
                     int nRow = curRow + rowDirections[i];
                     int nCol = curCol + colDirections[i];
-
                     // some validations
                     if(index==givenWord.length()) return true;
                     if (nRow < 0 || nRow >= board.length || nCol < 0 || nCol >= board[0].length) continue;
                     if (visitedMatrix[nRow][nCol]) continue;
-
                     if (board[nRow][nCol] != givenWord.charAt(index)) continue;
-
                     rowQueue.add(nRow);
                     colQueue.add(nCol);
-
+                    visitedMatrix[nRow][nCol]=true;
                 }
-                //increase the index
-                index++;
+            //increase the index
+            index++;
         }
         return false;
     }
@@ -78,11 +74,10 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
     public static void main(String[] args) {
         char mat[][] =
                 {
-                        "DEMXB".toCharArray(),
-                        "AOEAE".toCharArray(),
-                        "PDCPD".toCharArray(),
-                        "EBEDP".toCharArray(),
-                        "CPYEL".toCharArray()
+                        "HBKC".toCharArray(),
+                        "DPGL".toCharArray(),
+                        "EFEP".toCharArray(),
+                        "GHAP".toCharArray()
                 };
 
         //String word = "SANTOSH";

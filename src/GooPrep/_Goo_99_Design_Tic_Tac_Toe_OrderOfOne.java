@@ -32,7 +32,7 @@ public class _Goo_99_Design_Tic_Tac_Toe_OrderOfOne {
             diagonal += toAdd;
         }
 
-        if ((row+col) == col -1) {
+        if ((row+col) == cols.length -1) {
             antiDiagonal += toAdd;
         }
 

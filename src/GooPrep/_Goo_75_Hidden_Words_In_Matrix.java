@@ -72,11 +72,10 @@ public class _Goo_75_Hidden_Words_In_Matrix {
     public static void main(String[] args) {
         char mat[][] =
                 {
-                        "DEMXB".toCharArray(),
-                        "AOEAE".toCharArray(),
-                        "PDCPD".toCharArray(),
-                        "EBEDP".toCharArray(),
-                        "CPYEL".toCharArray()
+                        "ABAC".toCharArray(),
+                        "DPPL".toCharArray(),
+                        "EFEP".toCharArray(),
+                        "GHAP".toCharArray()
                 };
 
         String word = "SANTOSH";

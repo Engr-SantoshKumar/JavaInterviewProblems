@@ -32,20 +32,20 @@ public class _Goo_04_CounterManagementClass {
         System.out.println(qSec);
         currTimeInSec = System.currentTimeMillis() / 1000;
         while (!qSec.isEmpty() && currTimeInSec - qSec.peek() > 0) {
+            qMin.offer(qSec.poll());
             secCounter--;
             minCounter++;
-            qMin.offer(qSec.poll());
         }
 
         while (!qMin.isEmpty() && currTimeInSec - qMin.peek() > 60) {
+            qhr.offer(qMin.poll());
             minCounter--;
             hrCounter++;
-            qhr.offer(qMin.poll());
         }
 
         while (!qhr.isEmpty() && currTimeInSec - qhr.peek() > 60 * 60) {
-            hrCounter--;
             qhr.poll();
+            hrCounter--;
         }
         System.out.println(" at this time sec counter " + qSec.size());
         System.out.println(" at this time min counter " + (qMin.size() + qSec.size()));

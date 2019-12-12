@@ -24,9 +24,8 @@ public class _Goo_90_Longest_Sequeance_in_Matrix {
     static Queue<Integer> colQ = new ArrayDeque<>();
 
 
-    public static List<List<Integer>> LongestSequence(int[][] grid){
-        boolean[][] isVisited = new boolean[grid.length][grid[0].length];
-        List<List<Integer>> result = new ArrayList<>();
+    public static List<Set<Integer>> LongestSequence(int[][] grid){
+        List<Set<Integer>> result = new ArrayList<>();
 
         if(grid==null || grid.length==0||grid[0].length==0)
             return result;
@@ -34,6 +33,7 @@ public class _Goo_90_Longest_Sequeance_in_Matrix {
         //scan for 0 and put all 0s in the queue
         for(int row =0; row<grid.length; row++){
             for(int col =0; col<grid[0].length; col++){
+                boolean[][] isVisited = new boolean[grid.length][grid[0].length];
                 if(!isVisited[row][col]) {
                     rowQ.add(row);
                     colQ.add(col);
@@ -45,8 +45,8 @@ public class _Goo_90_Longest_Sequeance_in_Matrix {
         return result;
     }
 
-    public static List<Integer> exploreNeighbours(int[][] grid, boolean[][] isVisited){
-        List<Integer> currentList = new ArrayList<>();
+    public static Set<Integer> exploreNeighbours(int[][] grid, boolean[][] isVisited){
+        Set<Integer> currentList = new HashSet<>();
         while (!rowQ.isEmpty()) {
             int curRow = rowQ.poll();
             int curCol = colQ.poll();
@@ -72,7 +72,11 @@ public class _Goo_90_Longest_Sequeance_in_Matrix {
                 {2, 1, 3},
                 {5, 9, 8},
                 {4, 6, 7}};
-        List<List<Integer>> result = LongestSequence(M);
+        int[][] M1 = new int[][]{
+                {1, 2, 5},
+                {2, 2, 3},
+                {5, 3, 3}};
+        List<Set<Integer>> result = LongestSequence(M1);
         System.out.println(" final result:" + Arrays.toString(result.toArray()));
     }
 }

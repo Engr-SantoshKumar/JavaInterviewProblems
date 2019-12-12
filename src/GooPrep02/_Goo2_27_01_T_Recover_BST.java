@@ -9,6 +9,16 @@
  A solution using O(n) space is pretty straight forward.
  Could you devise a constant space solution?  --> next program [_Goo2_27_02_T_Recover_BST]
 
+ public class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode(int x) {
+          val = x;
+          left=right=null;
+      }
+  }
+
  */
 package GooPrep02;
 

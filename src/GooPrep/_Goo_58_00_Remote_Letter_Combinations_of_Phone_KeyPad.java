@@ -26,7 +26,6 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad {
 
     static List<String>  result= new ArrayList<String>();
 
-
     public static List<String> letterCombinations(String KeyPadDigits){
         if(KeyPadDigits.length()!=0){
             createStrings("", KeyPadDigits);
@@ -42,7 +41,7 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad {
         }
         else
             {
-                // take the 1st digit from the next_digit string, e.g: "3 4 5" -> substring(0,1) --> 3
+            // take the 1st digit from the next_digit string, e.g: "3 4 5" -> substring(0,1) --> 3
             String digit = next_digits.substring(0,1);
             String letters = hmap.get(digit);
             for(int i=0; i < letters.length(); i++){
@@ -53,9 +52,6 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad {
             }
         }
     }
-
-
-
 
     public static void main(String[] args) {
         String keys = "232";

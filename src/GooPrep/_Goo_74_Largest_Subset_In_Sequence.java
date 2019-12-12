@@ -116,10 +116,11 @@ public class _Goo_74_Largest_Subset_In_Sequence {
 
 
     public static void main(String[] args) {
-        //int[] arr = {3,27,4,5,5,6,7,12,17,9,22,23,68};
-        int[] arr = {1,2,3,4,5,7,8,9,10,11,12,13, 14, 16,17};
-        //System.out.println(Arrays.toString(longestSequenceSubSet(arr)));
-        longestSequenceSubSetUsingTwoPointer(arr);
+        int[] arr = {3,27,4,4, 4,5,5,5,6,7,12,17};
+        //int[] arr = {1,2,3,4,5,7,8,9,10,11,12,13, 14, 16,17};
+        System.out.println(Arrays.toString(longestSequenceSubSet(arr)));
+        //longestSequenceSubSetUsingTwoPointer(arr);
+
 
     }
 

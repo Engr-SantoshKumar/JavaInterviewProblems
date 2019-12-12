@@ -40,7 +40,42 @@ public class _Goo2_26_Search_In_Rotated_Sorted_Array {
     }
     if (start == end && target != arr[start]) return -1;
     return start;
-}
+    }
+
+    static int searchInShiftedArr(int[] arr, int key) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        int low = 0;
+        int high = arr.length - 1;
+        int mid; // declared outside loop to avoid constant memory allocation for this variable
+
+        while (low <= high) {
+            mid = low + ((high-low) / 2);
+            if (arr[mid] == key) {
+                return mid;
+            }
+            if (arr[low] <= arr[mid]) { // means first half of the array is sorted
+
+                // deciding which pointer to move:  high -to-> mid  or low -to-> mid
+                if (arr[low] <= key && key < arr[mid]) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            else {
+
+                // deciding which pointer to move high or low -> mid
+                if (arr[mid] < key && key <= arr[high]) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
         int[] arr = {4,5,6,7,0,1,2};
@@ -49,6 +84,8 @@ public class _Goo2_26_Search_In_Rotated_Sorted_Array {
         System.out.println(search(arr, 0));
         System.out.println(search(arr1, 0));
         System.out.println(search(arr2, 3));
+
+        System.out.println(searchInShiftedArr(arr2, 1));
     }
 }
 

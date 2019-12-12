@@ -34,7 +34,7 @@ public class _Goo_29_A_Symmetric_Tree {
     private static boolean isSymmetricHelp(Node left, Node right){
         //base
         if(left==null || right==null)
-            return left==right;
+            return left==right; //--> will return true or false
 
         if(left.data!=right.data)
             return false;
