@@ -20,6 +20,9 @@ also represented as a string.
 
  */
 package GooPrep;
+
+import java.util.Arrays;
+
 public class _Goo_59_01_StringInteger_Multiplication {
     public static String multiply(String s1, String s2) {
 
@@ -32,7 +35,9 @@ public class _Goo_59_01_StringInteger_Multiplication {
                 int x2 = s2.charAt(j) - '0';
                 result[i+j+1] += x1*x2;
             }
-        }// result --> [0, 4, 13, 28, 27, 18]
+        }
+        System.out.println(Arrays.toString(result));
+        // result --> [0, 4, 13, 28, 27, 18]
 
         /*carry each element over.*/
         int carry =0;

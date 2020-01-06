@@ -46,13 +46,10 @@ public class _Goo2_10_T_Find_Leaves_of_BT_bottomUP {
         int curLevel = Math.max( leftHeight, rightHeight ) +1;
 
         // Using curLevel as Key to store leaves
-        if(hm.containsKey(curLevel)){
-            hm.get(curLevel).add(root.data);
-        }else{
-            List<Integer> leaveAtThisLevel = new LinkedList<>();
-            leaveAtThisLevel.add(root.data);
-            hm.put(curLevel, leaveAtThisLevel);
-        }
+        if(!hm.containsKey(curLevel)){
+            hm.put(curLevel, new ArrayList<>());
+        }hm.get(curLevel).add(root.data);
+
         return curLevel;
     }
 

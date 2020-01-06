@@ -37,16 +37,16 @@ public class _Goo2_27_01_T_Recover_BST {
     }
 
     // find the numbers need to swap
-    public static int[] findTwoSwapped(List<Integer> treeNodeList){
+    public static int[] findTwoSwapped(List<Integer> resultList){
         Integer FN = null;
         Integer SN = null;
 
-        for(int i =1; i<treeNodeList.size()-1; i++){
-            if(treeNodeList.get(i) < treeNodeList.get(i-1)){
+        for(int i =1; i<resultList.size(); i++){
+            if(resultList.get(i) < resultList.get(i-1)){
                 if(FN == null){
-                    FN = treeNodeList.get(i-1);
+                    FN = resultList.get(i-1);
                 }
-                SN = treeNodeList.get(i);
+                SN = resultList.get(i);
             }
         }
         return new int[]{FN, SN};
@@ -56,13 +56,13 @@ public class _Goo2_27_01_T_Recover_BST {
     public static void recoverTree(Node root, int count, int FN, int SN){
         if(root != null)
         {
+            recoverTree(root.left, count, FN, SN);
             if(root.data == FN || root.data ==SN)
                 {
                     root.data = root.data==FN? SN:FN;
                     count--;
                     if(count==0) return;
                 }
-            recoverTree(root.left, count, FN, SN);
             recoverTree(root.right, count, FN, SN);
         }
     }

@@ -53,7 +53,7 @@ public class _Goo2_25_Product_Of_Last_K_Elements {
         }else{
             product *= val;
         }
-        que.addLast(val);
+        que.offerLast(val);
         List.add(val);
     }
 

@@ -23,9 +23,9 @@ public class _Goo2_27_02_T_Recover_BST_ConstantSpace {
 
     public static void findTwoSwapped(Node root){
         if(root==null) return;
-
         //go all the way left
         findTwoSwapped(root.left);
+
         //look for swapped node
         if(previous!=null){
             if(previous.data > root.data){
@@ -36,6 +36,7 @@ public class _Goo2_27_02_T_Recover_BST_ConstantSpace {
             }
         }
         previous = root;//update previous
+
         //go all the way right
         findTwoSwapped(root.right);
     }
@@ -52,6 +53,8 @@ public class _Goo2_27_02_T_Recover_BST_ConstantSpace {
         int temp = firstNode.data;
         firstNode.data= secondNode.data;
         secondNode.data=temp;
+
+
         TreeHelper.print(root);
     }
 }

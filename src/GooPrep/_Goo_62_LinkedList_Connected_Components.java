@@ -13,7 +13,7 @@ Q. Given a list of nodes belonging to some doubly linked list,
  e.g.
  linklist --> { 1->2->3->4->5->6->7-8}
  set = {2, 7, 4, 3}
- output is 2 ==> {1,2,3} {7}
+ output is 2 (sets) ==> one {2,3,4} and 2nd {7}
  **/
 
 package GooPrep;

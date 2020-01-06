@@ -23,6 +23,7 @@ public class _Goo2_20_S_CreateMaxNumberFromArray {
         }
         System.out.println(Arrays.toString(arr));
 
+
         Arrays.sort(arr, new Comparator<String>() {
             public int compare(String a, String b) {
                 return (b + a).compareTo(a + b);
