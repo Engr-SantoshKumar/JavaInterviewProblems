@@ -40,10 +40,8 @@ public class _Goo_46_Two_Sum_Less_Equal_K {
     static void computePairs(int[] ar, int left, int right, List<SumPair> list, int K) {
 
         for (int i = left + 1; i <= right; i++) {
-            if (ar[left] + ar[i] <= K) {
-                list.add(new SumPair(ar[left], ar[i]));
-                System.out.println(ar[left] +" : "+ ar[i]);
-            }
+            list.add(new SumPair(ar[left], ar[i]));
+            System.out.println(ar[left] +" : "+ ar[i]);
         }
     }
 

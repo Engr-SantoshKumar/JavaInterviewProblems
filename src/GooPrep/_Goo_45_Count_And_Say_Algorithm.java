@@ -3,7 +3,7 @@
  Create best optimized solution for "Count and Say" algorithm.
 
  The count-and-say sequence is the sequence of integers beginning as follows:
- 1, 11, 21, 1211, 111221, 312211, ...
+ 1, 11, 12, 1121, 122111, 112213, 12221131
  Given an integer n, generate the nth sequence.
 
  */

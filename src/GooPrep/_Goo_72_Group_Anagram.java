@@ -34,7 +34,7 @@ public class _Goo_72_Group_Anagram {
         Map<String, List<String>> map = new HashMap<String, List<String>>();
 
         for (String s : strs) {
-            String keyStr = getKey(s);
+            String keyStr = getKey(s); // getting the sorted string
             if (!map.containsKey(keyStr)){
                 map.put(keyStr, new ArrayList<String>());
             }
@@ -43,6 +43,7 @@ public class _Goo_72_Group_Anagram {
         return new ArrayList<List<String>>(map.values());
     }
 
+    //sorting the string [EAT --> AET]
     public static String getKey(String str){
         char[] arr = new char[26];
         for(int i=0; i<str.length(); i++){

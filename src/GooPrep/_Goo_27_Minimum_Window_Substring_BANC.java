@@ -60,9 +60,9 @@ public class _Goo_27_Minimum_Window_Substring_BANC {
     }
 
     public static void main(String[] args) {
-        String s="IODACBDBCBANC";
+        String s="EABDEBANC";
         //String s="APDPBAKAP";
-        String t = "ABCC";
+        String t = "ABC";
         minimumWindowSubstring(s,t);
         //System.out.println(" result "+result);
     }
