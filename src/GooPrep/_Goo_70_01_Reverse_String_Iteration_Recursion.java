@@ -38,7 +38,7 @@ public class _Goo_70_01_Reverse_String_Iteration_Recursion {
     static String reverseRec(String str) {
         if(str.isEmpty()) return str;
 
-        return reverseRec(str.substring(1) + str.substring(0));
+        return reverseRec(str.substring(1)) + str.substring(0);
     }
 
     //Test
@@ -50,7 +50,7 @@ public class _Goo_70_01_Reverse_String_Iteration_Recursion {
         testFor("ABCD");
     }
     static void testFor(String s)  {
-        System.out.println(" input " + s + " rev " + reverse(s));
+        //System.out.println(" input " + s + " rev " + reverse(s));
         System.out.println(" input " + s + " revrec " + reverseUsingRecursion(s));
     }
 

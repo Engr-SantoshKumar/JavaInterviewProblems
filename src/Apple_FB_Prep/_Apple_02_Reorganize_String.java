@@ -14,7 +14,7 @@
  LOGIC: Poll top from PQ, check if we can append it to string or not. If not, poll one more now and append it to string
  not put back both into pq if still has count more than 0
  */
-package ApplePrep;
+package Apple_FB_Prep;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;

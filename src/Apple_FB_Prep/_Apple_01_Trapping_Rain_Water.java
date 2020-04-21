@@ -6,7 +6,7 @@
 
  Logic is same as leftSum RightSum _Goo_63_Leftsum_Rightsum
  */
-package ApplePrep;
+package Apple_FB_Prep;
 
 public class _Apple_01_Trapping_Rain_Water {
 
