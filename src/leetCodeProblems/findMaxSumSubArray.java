@@ -10,7 +10,10 @@ public class findMaxSumSubArray {
 
 		int[] v1 = new int[]{-15, -14, -10, -19, -5, -21, -10};
 		System.out.println("Sum of largest subarray: " + find_max_sum_sub_array(v1));
-		
+
+
+		int[] v2 = new int[]{-2,1,-3,4,-1,2,1,-5,4};
+		System.out.println("Sum of largest subarray: " + find_max_sum_sub_array(v2));
 
 	}
 	
@@ -25,7 +28,8 @@ public class findMaxSumSubArray {
 
 			if (curr_max < 0) {
 				curr_max = A[i];
-			} else {
+				}
+			else {
 				curr_max += A[i];
 			}
 

@@ -1,5 +1,5 @@
 /**
- * [ Goo2_09_S ] [ Reorganize String ]
+ * [ Apple_02 ] [ Reorganize String ]
  * ____________________________________________________________________________________________________________________
  Given a string S, check if the letters can be rearranged so that two characters that
  are adjacent to each other are not the same. If possible, output any possible result.
