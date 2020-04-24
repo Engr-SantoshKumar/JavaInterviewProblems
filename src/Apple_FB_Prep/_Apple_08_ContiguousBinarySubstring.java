@@ -4,8 +4,8 @@ ________________________________________________________________________________
  Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
 
  Input: [0,1,0,0,1,1,1]
- Output: 4
- Explanation: [1,0,0,1] is a longest contiguous subArray with equal number of 0 and 1.
+ Output: 6
+ Explanation: [0,1,0,0,1,1] is a longest contiguous subArray with equal number of 0 and 1.
  */
 package Apple_FB_Prep;
 
