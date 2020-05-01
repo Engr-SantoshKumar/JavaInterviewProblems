@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class _04_Product_of_Array_Except_Self {
 
-    public static int[] findProduct(int[] arr){ //
+    public static int[] findProduct(int[] arr){ 
 
         int len = arr.length;
         int[] resultArr = new int[len];
