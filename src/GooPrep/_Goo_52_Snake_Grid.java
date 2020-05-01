@@ -21,7 +21,7 @@ public class _Goo_52_Snake_Grid {
         int cS = 0;
         int cE = matrix[0].length-1;
 
-        while(rS<=rE && cS <=cE){
+        while(rS<rE && cS <cE){
 
             // print first col from top to bottom
             for(int r = 0; r <= rE; r++){
@@ -39,7 +39,7 @@ public class _Goo_52_Snake_Grid {
 
 
     public static void main(String[] args) {
-        int[][] matrix = {{1, 8, 9, 16}, {2, 7, 10, 15}, {3, 6, 11, 14}, {4, 5, 12, 13}};
+        int[][] matrix = {{1, 8, 9}, {2, 7, 10}, {3, 6, 11}, {4, 5, 12}};
         printMatrix(matrix);
         snakeGrid(matrix);
     }
