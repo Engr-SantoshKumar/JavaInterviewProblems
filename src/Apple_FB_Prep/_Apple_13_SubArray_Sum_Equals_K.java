@@ -1,8 +1,8 @@
 /**
- * [ Apple_13 ] [ Subarray Sum Equals K ]
+ * [ Apple_13 ] [ SubArray Sum Equals K ]
  * ____________________________________________________________________________________________________________
  Given an array of integers and an integer k, you need to find the total number of continuous
- subarrays whose sum equals to k.
+ subArrays whose sum equals to k.
 NOTE: Sliding window -- will NoT work, contains negative number
  Input:nums = [1,1,1], k = 2
  Output: 2
@@ -17,8 +17,8 @@ package Apple_FB_Prep;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _Apple_13_Subarray_Sum_Equals_K {
-        static int subarraySum(int[] arr, int k){
+public class _Apple_13_SubArray_Sum_Equals_K {
+        static int subArraySum(int[] arr, int k){
             int result =0;
             int sum=0;
             // map(sum, noOfOccurrenceOfSum)
@@ -40,9 +40,9 @@ public class _Apple_13_Subarray_Sum_Equals_K {
 
     public static void main(String[] args) {
         int[] arr = {1,1,0,1,0,1};
-        System.out.println(subarraySum(arr, 2));
-        int[] arr1 = {1,1,0,1-1,1,1};
-        System.out.println(subarraySum(arr1, 2));
+        //System.out.println(subArraySum(arr, 2));
+        int[] arr1 = {1,1,0,-1,1,1};
+        System.out.println(subArraySum(arr1, 2));
     }
 
 }
