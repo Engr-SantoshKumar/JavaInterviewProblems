@@ -9,7 +9,7 @@
  The function should return 4.0 (the drop from 26.0 to 22.0)
  */
 package GooPrep;
-public class _Goo_21_Stock_Price_Max_Profit_Loss_SingleTrx {
+public class _Goo_21_02_Stock_Price_Max_Profit_Loss_SingleTrx {
 
     static void findMaxProfit(double[] array){
         if(array == null || array.length < 2) {

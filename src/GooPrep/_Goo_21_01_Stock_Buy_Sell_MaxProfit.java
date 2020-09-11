@@ -6,7 +6,7 @@ Find the maximum profit by buying and selling multiple times
 
 package GooPrep;
 
-public class _Goo_21_Stock_Buy_Sell_Multiple_Transections {
+public class _Goo_21_01_Stock_Buy_Sell_MaxProfit {
 
     public static void main(String args[]) {
         int[] ar = new int[]{5, 3, 8, 5, 1, 6};

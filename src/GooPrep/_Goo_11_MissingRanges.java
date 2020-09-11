@@ -45,10 +45,11 @@ public class _Goo_11_MissingRanges {
             // Cases 3: if bunch of nums missing
             else
                 {
-                if(arr[i] >= upper){
+                if(arr[i] >= upper){// current number is out of range
                     result.add(String.format("%s-%s", lower, upper-1));
                     break; //--> no need to scan more as current element is > upper
-                }else if(arr[i] == Integer.MAX_VALUE) {
+                }
+                else if(arr[i] == Integer.MAX_VALUE) {
                         return result;
                 }
                 else{

@@ -12,7 +12,7 @@ the stock price information for each day.
  */
 package GooPrep;
 
-public class _Goo_21_Stock_Maximum_Profit_Two_Transactions {
+public class _Goo_21_03_Stock_Maximum_Profit_Two_Transactions {
 
     public static int maxProfitWithTwoTrx(int[] arr){
 
@@ -38,7 +38,7 @@ public class _Goo_21_Stock_Maximum_Profit_Two_Transactions {
         //Get the maximum profit with two transactions allowed, After this loop, profit[n-1] contains the result */
         for (int i = 1; i < size; i++){
             // update minimum stock price seen so far
-            /* Maximum profit is maximum of:  logic is buy at min price and sell at current
+            /* Maximum profit is maximum of(a,b) -->  logic is buy at min price and sell at current
                 a) previous maximum, i.e., profit[i-1]
                 b) (Buy, Sell) at (min_price, price[i]) and add profit of other trans. stored in profit[i] */
             profit[i] = Math.max (profit[i - 1],
