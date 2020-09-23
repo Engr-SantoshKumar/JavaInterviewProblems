@@ -1,4 +1,4 @@
-/** 27  [Minimum sub string window]
+/** 27  [Sliding Window - Minimum sub string window]
  ---------------------------------------------------------------------------------------------------------
 Logic in this problem is same as og "Finding sub Anagram in a String" problem _Goo_14_TARZAN
 

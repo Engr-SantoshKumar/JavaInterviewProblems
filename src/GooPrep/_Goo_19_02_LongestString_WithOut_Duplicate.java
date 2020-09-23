@@ -1,5 +1,5 @@
 /**
-[19-02 ] [Longest Substring Without Repeating Characters ]
+[19-02 ] [Sliding Window Longest Substring Without Repeating Characters ]
 -----------------------------------------------------------------------------------------------------
  Input: "pwwkew"
  Output: 3

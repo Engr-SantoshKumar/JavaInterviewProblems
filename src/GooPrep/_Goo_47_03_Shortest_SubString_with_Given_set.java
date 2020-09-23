@@ -1,5 +1,5 @@
 /**
- * [ _Goo_47_03 ] [ Shortest SubString with given set ]
+ * [ _Goo_47_03 ] [ Sliding Window Shortest SubString with given set ]
  * ____________________________________________________________________________________________________________________
  This is same BANC Problem _Goo_27_Minimum_Window_Substring_BANC
 

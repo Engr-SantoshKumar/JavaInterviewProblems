@@ -36,6 +36,7 @@ public class _08_LC_Stock_Buy_Sell_K_Trx_DP {
         for (int j = 1; j <= days; j++)
             profit[0][j] = 0;
 
+        //now lets fill the table
         for(int d =1; d<=k; d++){
             int maxSoFar = Integer.MIN_VALUE;
             for(int t=1; t<days; t++){

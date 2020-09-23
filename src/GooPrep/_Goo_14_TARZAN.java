@@ -1,4 +1,4 @@
-/** 14 [find sub-anagram in a string]
+/** 14 [Sliding Window find sub-anagram in a string]
  -------------------------------------------------------------------------------------------------------
  "Given 2 words, return true if second word has a substring that is also an anagram of word 1.
  ART , TARZAN - True

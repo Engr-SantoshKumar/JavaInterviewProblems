@@ -1,4 +1,4 @@
-/** 47-02 [Longest Substring Which Contains K Unique Characters]
+/** 47-02 [Sliding Window Longest Substring Which Contains K Unique Characters]
  -----------------------------------------------------------------------------------------------------------------
  Given a string, find the longest substring that contains only [K = two] unique characters.
  For example, given "abcbbbbcccbdddadacb",
