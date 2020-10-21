@@ -12,7 +12,7 @@ ________________________________________________________________________________
  Explanation: [0,1] -->  "abc" -> "bca" --> [1,2] right by 2. "bca" -> "cab"
  */
 package Apple_FB_Prep;
-public class _Apple_09_StringShifts {
+public class _oA_09_StringShifts {
     static void stringShift(String s, int[][] shift) {
         /**find the final shift by counting the total left shift times
         (may be negative if the final result is right shift), and perform it once. */

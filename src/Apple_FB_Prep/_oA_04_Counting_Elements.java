@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _Apple_04_Counting_Elements {
+public class _oA_04_Counting_Elements {
 
     static int countElements(int[] arr){
         int result = 0;

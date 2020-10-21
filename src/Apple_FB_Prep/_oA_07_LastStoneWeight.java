@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class _Apple_07_LastStoneWeight {
+public class _oA_07_LastStoneWeight {
     static int LastStoneWeight(int[] arr){
         if(arr.length ==0) return 0;
         if(arr.length ==1) return arr[0];

@@ -17,7 +17,7 @@ package Apple_FB_Prep;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _Apple_13_SubArray_Sum_Equals_K {
+public class _oA_13_SubArray_Sum_Equals_K {
         static int subArraySum(int[] arr, int k){
             int result =0;
             int sum=0;
@@ -28,7 +28,7 @@ public class _Apple_13_SubArray_Sum_Equals_K {
 
             for(int i=0; i<arr.length; i++){
                 sum += arr[i];
-                /** check map : if present, it means there is some sum value v between 0 and x,
+                /* check map : if present, it means there is some sum value v between 0 and x,
                 which makes sum of array [x + 1 to i] == k the frequency is the number of x */
                 if(map.containsKey(sum-k)){
                     result+=map.get(sum-k);

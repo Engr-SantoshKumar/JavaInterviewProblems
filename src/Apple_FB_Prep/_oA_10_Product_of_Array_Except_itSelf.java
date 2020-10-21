@@ -14,7 +14,7 @@ package Apple_FB_Prep;
 
 import java.util.Arrays;
 
-public class _Apple_10_Product_of_Array_Except_itSelf {
+public class _oA_10_Product_of_Array_Except_itSelf {
     static int[] productOfArray(int[] arr){
         int[] result = new int[arr.length];
         //we can solve this problem with the same concept of leftSumRightSum

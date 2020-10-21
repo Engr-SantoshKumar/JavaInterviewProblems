@@ -12,7 +12,7 @@ package Apple_FB_Prep;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _Apple_08_ContiguousBinarySubstring {
+public class _oA_08_ContiguousBinarySubstring {
     static int findBinaryStringBrutForce(int[] arr){
         int numOfZeros;
         int numOfOnes;

@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class _Apple_02_Reorganize_String {
+public class _oA_02_Reorganize_String {
 
     private static String reorganizeString(String s){
 

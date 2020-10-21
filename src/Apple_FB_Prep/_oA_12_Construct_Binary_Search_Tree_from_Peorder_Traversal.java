@@ -13,7 +13,7 @@ package Apple_FB_Prep;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class _Apple_12_Construct_Binary_Search_Tree_from_Peorder_Traversal {
+public class _oA_12_Construct_Binary_Search_Tree_from_Peorder_Traversal {
 
     static Node bstFromPreOrder(int[] arr){
         if(arr == null || arr.length==0) return null;

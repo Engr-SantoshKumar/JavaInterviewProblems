@@ -14,7 +14,7 @@
  Therefore, the complexity is O(N)
  */
 package Apple_FB_Prep;
-public class _Apple_11_FirstMissingPositiveNumber {
+public class _oA_11_FirstMissingPositiveNumber {
 
     static int firstMissingPositiveNumber(int[] arr){
         //base cases

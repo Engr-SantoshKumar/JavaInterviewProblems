@@ -15,7 +15,7 @@ ________________________________________________________________________________
  Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
  */
 package Apple_FB_Prep;
-public class _Apple_06_DiameterOfBinaryTree {
+public class _oA_06_DiameterOfBinaryTree {
 
     static int maxDiameter =0 ;
     static int findDiameterOfBT( Node root){

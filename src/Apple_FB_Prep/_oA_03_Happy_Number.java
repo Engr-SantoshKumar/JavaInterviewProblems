@@ -21,7 +21,7 @@ package Apple_FB_Prep;
 import java.util.HashSet;
 import java.util.Set;
 
-public class _Apple_03_Happy_Number {
+public class _oA_03_Happy_Number {
     static boolean IsHappyNumber(int x){
         if(x<10 && x!=1 ) return false;
         Set<Integer> hSet = new HashSet<>();

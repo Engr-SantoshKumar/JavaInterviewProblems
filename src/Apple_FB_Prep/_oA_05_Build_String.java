@@ -17,7 +17,7 @@ package Apple_FB_Prep;
 import java.sql.SQLOutput;
 import java.util.Stack;
 
-public class _Apple_05_Build_String {
+public class _oA_05_Build_String {
 
     //Simple concept of stack
     static boolean BuildStringUsingStack(String s1, String s2){

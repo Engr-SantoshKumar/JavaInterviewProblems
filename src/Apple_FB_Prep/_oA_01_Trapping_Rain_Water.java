@@ -8,7 +8,7 @@
  */
 package Apple_FB_Prep;
 
-public class _Apple_01_Trapping_Rain_Water {
+public class _oA_01_Trapping_Rain_Water {
 
     public static int trapWater(int[] arr) {
         int result = 0;
