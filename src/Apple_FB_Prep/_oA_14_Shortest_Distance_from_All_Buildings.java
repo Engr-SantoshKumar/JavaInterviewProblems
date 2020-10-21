@@ -1,6 +1,6 @@
 /**
  * [ oA_14] [ Find Shortest_Distance_from_All_Buildings ]
- * ____________________________________________________________________________________________________________
+ ____________________________________________________________________________________________________________
  You want to build a house on an empty land which reaches all buildings in the shortest amount of distance.
  You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
 
@@ -20,15 +20,17 @@
  Explanation: Given three buildings at (0,0), (0,4), (2,2), and an obstacle at (0,2),
  the point (1,2) is an ideal empty land to build a house, as the total
  travel distance of 3+3+1=7 is minimal. So return 7.
+
+ Logic: we need 3 matrix of same size of input grid
+       1. distSumToEachBuilding[][] --> to capture sum of dist from a cell to all building
+       2. reach[][] --> to track how many building can be reached from each cells
+       3. isVisited[][] --> to track visited cells
+
  */
-
 package Apple_FB_Prep;
-
 import java.util.ArrayDeque;
 import java.util.Queue;
-
 public class _oA_14_Shortest_Distance_from_All_Buildings {
-
     // some global variables --> all possible directions + Queue for BFS
     static int[] rowDirections = {-1, +1, 0, 0};
     static int[] colDirections = {0, 0, -1, +1};
@@ -39,7 +41,6 @@ public class _oA_14_Shortest_Distance_from_All_Buildings {
     static int[][] reach; //--> to track how many building can be reached from each cells
 
     public static int shortestDistToAll(int[][] grid) {
-
         if (grid == null || grid.length == 0 || grid[0].length == 0) return -1;
         distSumToEachBuilding = new int[grid.length][grid[0].length];
         reach = new int[grid.length][grid[0].length];
@@ -54,7 +55,6 @@ public class _oA_14_Shortest_Distance_from_All_Buildings {
                 }
             }
         }
-
         // lets scan the grid , distSumToEachBuilding and reach to get the min dist
         int minDist = Integer.MAX_VALUE;
         for (int r = 0; r < grid.length; r++) {
@@ -66,12 +66,8 @@ public class _oA_14_Shortest_Distance_from_All_Buildings {
         }
         return minDist == Integer.MAX_VALUE ? -1 : minDist;
     }
-    /* Step 2: find minimum distance from dp array
-     * @param DistFromBuildingToEachCell: store distance sum to all building for every mark 0.
-     *          Update values when we do BFS traversal
-     * @param reach: store number of buildings that every point 0 can reach.
-     *  Used for checking if current point is valid while we want to find final result
-     * */
+
+    /* Step 2: find minimum distance from dp array*/
     public static void dfs(int[][] grid, int[][] distSumToEachBuilding, int row, int col) {
         int level = 1; //need a variable to track how far from current building
         boolean[][] isVisited = new boolean[grid.length][grid[0].length];
@@ -89,7 +85,7 @@ public class _oA_14_Shortest_Distance_from_All_Buildings {
                     //some condition checks
                     if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >= grid[0].length) continue;
                     if (grid[nextRow][nextCol] != 0 || isVisited[nextRow][nextCol]) continue;
-
+                    //update the distance matrix by adding current level
                     distSumToEachBuilding[nextRow][nextCol] += level;
                     isVisited[nextRow][nextCol] = true;
                     reach[nextRow][nextCol] ++;
