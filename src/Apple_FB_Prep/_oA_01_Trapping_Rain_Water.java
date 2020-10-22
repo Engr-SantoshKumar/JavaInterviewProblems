@@ -1,10 +1,10 @@
 /**
- * [01] [ Trapping Rain Water]
+ * [_oA_01] [ Trapping Rain Water]
  * -----------------------------------------------------------------------------------------------------
  Given n non-negative integers representing an elevation map where the width of each bar is 1,
  compute how much water it is able to trap after raining.
 
- Logic is same as leftSum RightSum _Goo_63_Leftsum_Rightsum
+ Logic is same as leftSum RightSum _Goo_63_LeftSum_RightSum
  */
 package Apple_FB_Prep;
 
@@ -16,8 +16,8 @@ public class _oA_01_Trapping_Rain_Water {
         if(arr==null || arr.length<=2)
             return result;
 
-        int left[] = new int[arr.length];
-        int right[]= new int[arr.length];
+        int[] left = new int[arr.length];
+        int[] right = new int[arr.length];
 
         //scan from left to right  --->
         left[0] = arr[0];
