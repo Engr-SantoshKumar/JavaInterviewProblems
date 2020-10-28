@@ -10,7 +10,7 @@ ________________________________________________________________________________
  Space Complexity	O(n)
  Auxiliary Space Used	O(1)
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 
 import java.util.Arrays;
 

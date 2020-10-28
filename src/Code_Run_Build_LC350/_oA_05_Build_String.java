@@ -1,5 +1,5 @@
-/**
-[ Apple_05] [ Build String ]
+/*
+[ _oA_05] [ Build String ]
 _________________________________________________________________________________________________________
  Given two strings S and T, return if they are equal when both are typed into empty text editors.
  # means a backspace character.
@@ -12,11 +12,8 @@ ________________________________________________________________________________
  Output: true
  Explanation: Both S and T become "c".
  */
-package Apple_FB_Prep;
-
-import java.sql.SQLOutput;
+package Code_Run_Build_LC350;
 import java.util.Stack;
-
 public class _oA_05_Build_String {
 
     //Simple concept of stack

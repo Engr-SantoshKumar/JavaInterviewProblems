@@ -12,7 +12,7 @@ Logic: we can use the logic of two sum with some modification
  Time complexity O(n), Space complexity O(n).
 
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 
 import java.util.HashMap;
 import java.util.Map;

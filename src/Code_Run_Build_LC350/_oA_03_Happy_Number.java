@@ -1,5 +1,5 @@
-/**
-[ Apple 03 ] [ Write an algorithm to determine if a number n is "happy". ]
+/*
+[ _oA_03 ] [ Write an algorithm to determine if a number n is "happy". ]
 ______________________________________________________________________________________________________________
  A happy number is a number defined by the following process: Starting with any positive integer,
  replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1
@@ -16,7 +16,7 @@ ________________________________________________________________________________
  6^2 + 8^2 = 100
  1^2 + 0^2 + 0^2 = 1
 */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,8 +29,8 @@ public class _oA_03_Happy_Number {
             int currentNum = x;
             int sum = 0;
             while(currentNum!=0){
-                sum += (currentNum % 10) * (currentNum % 10);
-                currentNum = currentNum/10;
+                sum += (currentNum % 10) * (currentNum % 10); // 82 % 10 --> 2
+                currentNum = currentNum/10;                   // 82 / 10 --> 8
             }
             if(hSet.contains(sum)) return false;
             hSet.add(sum);
@@ -65,7 +65,7 @@ public class _oA_03_Happy_Number {
     public static void main(String[] args) {
         //System.out.println(IsHappyNumberWithOutSpace(19));
         for(int i =1; i<20 ; i++){
-            System.out.println(IsHappyNumber(i));
+            System.out.println(IsHappyNumber(82));
             System.out.println(IsHappyNumberWithOutSpace(i));
             System.out.println("-------------");
         }

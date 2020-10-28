@@ -1,5 +1,5 @@
-/**
-[ Apple_06 ] [ Diameter Of BinaryTree ]
+/*
+[ _oA_06 ] [ Diameter Of BinaryTree ]
 _________________________________________________________________________________________________________
  Given a binary tree, you need to compute the length of the diameter of the tree.
  The diameter of a binary tree is the length of the longest path between any two nodes in a tree.
@@ -14,7 +14,7 @@ ________________________________________________________________________________
     4   5
  Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 public class _oA_06_DiameterOfBinaryTree {
 
     static int maxDiameter =0 ;

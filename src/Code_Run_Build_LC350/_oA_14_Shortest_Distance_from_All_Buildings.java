@@ -26,15 +26,13 @@
        3. isVisited[][] --> to track visited cells
 
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 import java.util.ArrayDeque;
 import java.util.Queue;
 public class _oA_14_Shortest_Distance_from_All_Buildings {
     // some global variables --> all possible directions + Queue for BFS
-    static int[] rowDirections = {-1, +1, 0, 0};
-    static int[] colDirections = {0, 0, -1, +1};
-    static Queue<Integer> rowQueue = new ArrayDeque<>();
-    static Queue<Integer> colQueue = new ArrayDeque<>();
+    static int[][] directions = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    static Queue<int[]> queue = new ArrayDeque<>();
 
     static int[][] distSumToEachBuilding; // --> to capture sum of dist from a cell to all building
     static int[][] reach; //--> to track how many building can be reached from each cells
@@ -70,17 +68,15 @@ public class _oA_14_Shortest_Distance_from_All_Buildings {
     public static void dfs(int[][] grid, int[][] distSumToEachBuilding, int row, int col) {
         int level = 1; //need a variable to track how far from current building
         boolean[][] isVisited = new boolean[grid.length][grid[0].length];
-        rowQueue.offer(row);
-        colQueue.offer(col);
+        queue.offer(new int[]{row, col});
         isVisited[row][col] = true;
-        while (!rowQueue.isEmpty()) {
-            int size = rowQueue.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int curRow = rowQueue.poll();
-                int curCol = colQueue.poll();
-                for (int j = 0; j < 4; j++) {
-                    int nextRow = curRow + rowDirections[j];
-                    int nextCol = curCol + colDirections[j];
+                int[] curCell = queue.poll();
+                for (int[] dir: directions) {
+                    int nextRow = curCell[0] + dir[0];
+                    int nextCol = curCell[1] + dir[1];
                     //some condition checks
                     if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >= grid[0].length) continue;
                     if (grid[nextRow][nextCol] != 0 || isVisited[nextRow][nextCol]) continue;
@@ -88,8 +84,7 @@ public class _oA_14_Shortest_Distance_from_All_Buildings {
                     distSumToEachBuilding[nextRow][nextCol] += level;
                     isVisited[nextRow][nextCol] = true;
                     reach[nextRow][nextCol] ++;
-                    rowQueue.offer(nextRow);
-                    colQueue.offer(nextCol);
+                    queue.offer(new int[]{nextRow, nextCol});
                 }
             }
             level++;

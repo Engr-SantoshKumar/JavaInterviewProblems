@@ -6,7 +6,7 @@
 
  Logic is same as leftSum RightSum _Goo_63_LeftSum_RightSum
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 
 public class _oA_01_Trapping_Rain_Water {
 

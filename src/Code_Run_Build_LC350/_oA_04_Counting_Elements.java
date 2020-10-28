@@ -1,9 +1,9 @@
 
-/**
- * [ Apple_04 ] [ Counting Elements ]
+/*
+ * [ oA_04 ] [ Counting Elements ]
 _____________________________________________________________________________________________________________
  Given an integer array arr, count element x such that x + 1 is also in arr.
- If there're duplicates in arr, count them seperately.
+ If there's duplicates in arr, count them separately.
  Example 1:
  Input: arr = [1,3,2,3,5,0]
  Output: 3
@@ -14,9 +14,8 @@ ________________________________________________________________________________
  Output: 2
  Explanation: Two 1s are counted cause 2 is in arr.
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 

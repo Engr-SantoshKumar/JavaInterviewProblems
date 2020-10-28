@@ -1,18 +1,20 @@
-/**
-[ _Apple_08 ] [ Contiguous Binary subArray with 0's==1's ]
-_______________________________________________________________________________________________________________
+/*
+[ _oA_08 ] [ Contiguous Binary subArray with 0's==1's ]
+___________________________________________________________________________________________________________
  Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
-
  Input: [0,1,0,0,1,1,1]
  Output: 6
  Explanation: [0,1,0,0,1,1] is a longest contiguous subArray with equal number of 0 and 1.
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class _oA_08_ContiguousBinarySubstring {
+
+    /* Simple n^2 solution*/
     static int findBinaryStringBrutForce(int[] arr){
         int numOfZeros;
         int numOfOnes;

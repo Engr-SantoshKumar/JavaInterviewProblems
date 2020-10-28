@@ -13,7 +13,7 @@
  The maximum of CORRECT SLOT <= N
  Therefore, the complexity is O(N)
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 public class _oA_11_FirstMissingPositiveNumber {
 
     static int firstMissingPositiveNumber(int[] arr){

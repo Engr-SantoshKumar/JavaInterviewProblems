@@ -9,7 +9,7 @@
  Time complexity :{O}(N) since we visit each node exactly once.
  Space complexity :{O}(N) to keep the stack and the tree.
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 import java.util.ArrayDeque;
 import java.util.Deque;
 

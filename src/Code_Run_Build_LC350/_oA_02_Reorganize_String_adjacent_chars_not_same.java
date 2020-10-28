@@ -1,6 +1,6 @@
 /*
- * [ _oA_02 ] [ Reorganize String ]
- * ____________________________________________________________________________________________________________________
+ * [ _oA_02 ] [ Reorganize String so that adjacent chars not same]
+ * ______________________________________________________________________________________________________________
  Given a string S, check if the letters can be rearranged so that two characters that
  are adjacent to each other are not the same. If possible, output any possible result.
  If not possible, return the empty string.
@@ -11,15 +11,15 @@
  Input: S = "aaab"
  Output: "
 
- LOGIC: Poll top from PQ, check if we can append it to string or not. If not, poll one more now and append it to string
- not put back both into pq if still has count more than 0
+ LOGIC: Poll top from PQ, check if we can append it to string or not. If not, poll one more now and
+ append it to string not put back both into pq if still has count more than 0
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class _oA_02_Reorganize_String {
+public class _oA_02_Reorganize_String_adjacent_chars_not_same {
 
     private static String reorganizeString(String s){
 

@@ -11,10 +11,10 @@ ________________________________________________________________________________
  Output: "cab"
  Explanation: [0,1] -->  "abc" -> "bca" --> [1,2] right by 2. "bca" -> "cab"
  */
-package Apple_FB_Prep;
+package Code_Run_Build_LC350;
 public class _oA_09_StringShifts {
     static void stringShift(String s, int[][] shift) {
-        /**find the final shift by counting the total left shift times
+        /*find the final shift by counting the total left shift times
         (may be negative if the final result is right shift), and perform it once. */
         int finalShift =0;
         for(int i=0; i<shift.length; i++){
