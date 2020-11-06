@@ -1,4 +1,4 @@
-/** 13 [Merge Interval]
+/* _Goo_13_b_Merge Interval
  -------------------------------------------------------------------------------------------------------
 You are given a sorted list of disjoint intervals and an interval.
     Input:
@@ -30,7 +30,7 @@ public class _Goo_13_b_Merge_Intervals {
         int start =1;
         Interval previousInterval  = existingIntervals.get(0);
 
-        /** looping through existing intervals and will check which one need to merge */
+        /* looping through existing intervals and will check which one need to merge */
         while(start < end ){
             Interval curInterval = existingIntervals.get(start);
 

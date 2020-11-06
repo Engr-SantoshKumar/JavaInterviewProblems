@@ -1,4 +1,4 @@
-/** 37  [reverse K Group Nodes]
+/* 37  [reverse K Group Nodes]
  ---------------------------------------------------------------------------------------------------------
  Write a program to reverse a linked list in groups of size k.
  For example, if the given linked list is 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
@@ -60,8 +60,8 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
     public static NodeLinkList reverseKGroup(NodeLinkList head, int k) {
         NodeLinkList curr = head;
         int count = 0;
-        //
-        while (curr != null && count != k) { // find the k+1th node (last node of group)
+        //find the k+1th node (last node of group)
+        while (curr != null && count != k) {
             curr = curr.next;
             count++;
         }
