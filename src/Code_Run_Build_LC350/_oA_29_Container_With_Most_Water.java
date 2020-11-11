@@ -1,5 +1,5 @@
 /*
- * [_oA_28_  ] [ Container With Most Water ]
+ * [_oA_29_  ] [ Container With Most Water ]
  * _______________________________________________________________________________________________________________
  Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai).
  n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0).
@@ -16,7 +16,7 @@ In this case, the max area of water (blue section) the container can contain is 
 * not the buildings where we store the water on top, its just two pointer L and R and Length game
  * */
 package Code_Run_Build_LC350;
-public class _oA_28_Container_With_Most_Water {
+public class _oA_29_Container_With_Most_Water {
 
     public static int maxArea(int[] height) {
         //base cases
