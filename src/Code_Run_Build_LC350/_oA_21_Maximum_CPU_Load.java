@@ -20,7 +20,7 @@ Logic:
  */
 package Code_Run_Build_LC350;
 import java.util.*;
-public class _oA_20_Maximum_CPU_Load {
+public class _oA_21_Maximum_CPU_Load {
 
     public static int maximumCPULoad(List<Process> jobs){
         //base cases check

@@ -21,7 +21,7 @@ public class _Goo_19_02_LongestString_WithOut_Duplicate {
         Set<Character> hSet = new HashSet<>();
         while(i<str.length())
         {
-            if(!hSet.contains(str.charAt(i))){
+            if(hSet.contains(str.charAt(i))){
                 hSet.add(str.charAt(i++));
                 //System.out.println(str.substring(j,i));
             }else{
