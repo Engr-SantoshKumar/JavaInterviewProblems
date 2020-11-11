@@ -25,7 +25,7 @@ public class _oA_29_Container_With_Most_Water {
         //Logic:
         // get the minimum of left and Right vertical line
         // multiply minimum to current calculate length i.e R-L
-        // then move the smaller one
+        // then move the smaller index of smaller vertical
         int maxArea =0, L=0, R= height.length-1;
         while(L<R){
             maxArea = Math.max(maxArea, Math.min(height[L],height[R])*(R-L));

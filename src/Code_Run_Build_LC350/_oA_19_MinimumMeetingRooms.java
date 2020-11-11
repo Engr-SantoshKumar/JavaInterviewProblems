@@ -22,6 +22,7 @@ public class _oA_19_MinimumMeetingRooms {
 
         int[] startTimes = new int[intervals.length];
         int[] endTimes = new int[intervals.length];
+        // load both arrays
         for(int i =0; i< intervals.length; i++){
             startTimes[i] = intervals[i][0];
             endTimes[i] = intervals[i][1];
@@ -32,7 +33,7 @@ public class _oA_19_MinimumMeetingRooms {
         /*For eg:
         Starts 1,5,6,9,10   Ends 8,11,12,13,14
         so meeting 1,5,6 start before first meeting ends at 8 so we need 3 rooms.
-        For 9 and 8 we just move i++ and endsItr++ ( think of as it took the spot of the meeting ended at 8.)
+        For 9 and 8 we just move i++ and j++ ( think of as it took the spot of the meeting ended at 8.)
         then for 10 and 11.. all previous rooms are occupied and one of them ends after 10...
         so we need a room for a meeting starting at 10 so total 4 rooms */
         int rooms = 0;

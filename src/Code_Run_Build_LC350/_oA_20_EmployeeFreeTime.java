@@ -8,12 +8,7 @@ Output: [[3,4]]
 Explanation: There are a total of three employees, and all common
 free time intervals would be [-inf, 1], [3, 4], [10, inf].
 We discard any intervals that contain inf as they aren't finite.
-*
-* LOGIC:
-1. sorted the meetings by start time, and for same start time sort by either largest end time or smallest (it is not matter).
-2. Everytime you poll from sorted list/pq, just make sure it doesn't intersect with previous interval.
-This mean that there is no common interval and everyone is free time.
- */
+*/
 package Code_Run_Build_LC350;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +29,11 @@ public class _oA_20_EmployeeFreeTime {
 
         //sorting schedule
         //Collections.sort(schedule, ((a, b) -> a.start - b.start));
+        /* LOGIC:
+        1. sorted the meetings by start time, and for same start time sort by either largest end time or smallest (it is not matter).
+        2. Everytime you poll from sorted list/pq, just make sure it doesn't intersect with previous interval.
+        This mean that there is no common interval and everyone is free time.
+        */
 
         Interval current = pq.poll();
 

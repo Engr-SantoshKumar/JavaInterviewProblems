@@ -16,7 +16,7 @@ Logic:
  2. Maintain min-heap(PQ) for the jobs on the basis of their end times
  3. Go through the sorted jobs list and Check PQ if any job is ending before the start of current job if so
     remove those jobs from PQ and update maximum CPU Load
-    (current max load will be the sum of all the jobs that are present in the min-heap)
+    (AnyTime current max load will be the sum of all the jobs that are present in the min-heap)
  */
 package Code_Run_Build_LC350;
 import java.util.*;
@@ -26,11 +26,8 @@ public class _oA_21_Maximum_CPU_Load {
         //base cases check
         if(jobs.isEmpty()) return 0;
         //Step 1: First sort the jobs with start time
-        Collections.sort(jobs, new Comparator<Process>(){
-            public int compare(Process a, Process b) {
-                return a.start - b.start;
-            }
-        });
+        Collections.sort(jobs,(a, b) -> a.start-b.start);
+
         //Step 2: need Priority Queue for Process where jobs sorted on end Time
         Queue<Process> pq = new PriorityQueue<>((a,b) -> a.end-b.end);
         int maxLoad=0; int currentLoad =0;

@@ -17,8 +17,12 @@ public class _oA_25_ZigZag_Conversion {
     public static String zigZagConvert(String s, int nRows) {
         char[] charArray = s.toCharArray();
         int strLen = charArray.length;
+        // create array of string buffer
         StringBuffer[] sb = new StringBuffer[nRows];
-        for (int i = 0; i < sb.length; i++) sb[i] = new StringBuffer();
+        // for each cell of above array create string buffer
+        for (int i = 0; i < sb.length; i++){
+            sb[i] = new StringBuffer();
+        }
 
         int i = 0;
         while (i < strLen) {

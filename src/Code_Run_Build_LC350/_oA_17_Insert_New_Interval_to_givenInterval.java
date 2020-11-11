@@ -26,7 +26,7 @@ public class _oA_17_Insert_New_Interval_to_givenInterval {
         int newIntervalEnd   = newInterval[1];
         int index=0; int len = givenIntervals.length;
 
-        //lets put all the intervals which ends before the new interval's startt
+        //lets put all the intervals which ends before the new interval's start
         while(index < len && givenIntervals[index][1] < newIntervalStart){
             result.add(givenIntervals[index]);
             index++;
