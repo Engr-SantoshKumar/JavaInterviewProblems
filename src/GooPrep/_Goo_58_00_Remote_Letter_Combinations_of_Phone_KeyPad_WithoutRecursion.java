@@ -8,10 +8,8 @@
  Note that 1 does not map to any letters.
  */
 package GooPrep;
-
 import java.util.*;
 import java.util.LinkedList;
-
 public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad_WithoutRecursion {
 
     static Map<Integer, String> hmap = new HashMap<>() {{
@@ -52,7 +50,7 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad_WithoutRecurs
     }
 
     public static void main(String[] args) {
-        String keys = "232";
+        String keys = "23222";
         letterCombinations(keys);
 
     }
