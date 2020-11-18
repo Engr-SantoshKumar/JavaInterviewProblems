@@ -22,13 +22,13 @@ public class _Goo_23_c_Merge_K_Sorted_LinkedList {
         // some pre checks
         if(heads==null || heads.length==0)  return null;
 
-        // create a PQ with linklist node Comparator
+        // create a PQ with linkList node Comparator
         PriorityQueue<NodeLinkList> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
 
         NodeLinkList resultHead = null;
         NodeLinkList currentNode = null;
 
-        // Step 1: Insert all heads into PQ
+        // Step 1: Insert all K heads into PQ
         for(int i =0; i <heads.length; i++){
             if(heads[i]!=null){
                 pq.offer(heads[i]);

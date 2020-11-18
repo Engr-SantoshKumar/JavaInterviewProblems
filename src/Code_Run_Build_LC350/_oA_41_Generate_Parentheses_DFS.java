@@ -19,7 +19,7 @@ public class _oA_41_Generate_Parentheses_DFS {
 
     public static void parentheses(String str, int open, int close, int pair,
                                    List<String> result){
-        if(str.length()==pair*2){ // if pair is 3 that means char count is 6 (3*2)
+        if(str.length() == pair*2){ // if pair is 3 that means char count is 6 (3*2)
             result.add(str);
             return;
         }

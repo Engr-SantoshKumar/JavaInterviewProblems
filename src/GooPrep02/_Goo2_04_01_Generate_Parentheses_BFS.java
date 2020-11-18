@@ -15,7 +15,7 @@ public class _Goo2_04_01_Generate_Parentheses_BFS {
 
         while(!queue.isEmpty()){
             Parenthesis current = queue.poll();
-            if(current.openBrkt ==pair && current.closeBrkt ==pair){
+            if(current.str.length() == pair*2 ){
                 result.add(current.str);
             }
             if(current.openBrkt < pair){
