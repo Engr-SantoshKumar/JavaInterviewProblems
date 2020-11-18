@@ -13,7 +13,7 @@ package Code_Run_Build_LC350;
 import java.util.*;
 import java.util.LinkedList;
 
-public interface _oA_35_Letter_Combinations_of_a_Phone_Number {
+public class _oA_35_Letter_Combinations_of_a_Phone_Number {
 
     // global map
     static Map<Integer, String> map = new HashMap<>() {{
@@ -58,7 +58,7 @@ public interface _oA_35_Letter_Combinations_of_a_Phone_Number {
     public static void main(String[] args) {
         String keys1 = "232";
         String keys2 = "";
-        System.out.println(letterCombinations(keys2));
+        System.out.println(letterCombinations(keys1));
 
     }
 }
