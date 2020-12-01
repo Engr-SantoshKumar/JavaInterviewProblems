@@ -33,7 +33,7 @@ public class _Goo_24_03_String_Pattern_Matching_KMP {
                         ("Pattern is found at index " + (i-j));
                 j = lps[j-1];
             }
-            else if(pat.charAt(j) != str.charAt(i))
+            else if((i < str.length()) && pat.charAt(j) != str.charAt(i))
             {
                 // mismatch occurs after j matches
                 if(j != 0)
@@ -74,7 +74,7 @@ public class _Goo_24_03_String_Pattern_Matching_KMP {
     }
     public static void main (String args[])
     {
-        String txt = "AbcAbcAbc12AbcAbcAbc12";
+        String txt = "AbcAbcAbc12AbcAbcAbc12Abc";
         String pattern = "AbcAbc12";//"ABAAABABC";
         KEMP_Search_Algorithm( txt, pattern);
     }

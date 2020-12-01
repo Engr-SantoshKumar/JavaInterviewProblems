@@ -1,9 +1,11 @@
 /* [ _oA_48_ ] [ String Pattern Match KMP ]
 _______________________________________________________________________________
-Input: haystack = "hello", needle = "ll"
-Output: 2
-
 KMP: https://www.youtube.com/watch?v=V5-7GzOfADQ
+https://prismoskills.appspot.com/lessons/Pattern_Matching/Chapter_01_-_KMP_Algorithm.jsp
+ Problem Statement: Find all occurrences of pattern[] of length 'm' in txt[] of length 'n'.
+ Solution: KMP algorithm makes use of the match done till now and does not begin searching all over again
+ in case a mismatch is found while searching for a match.
+
 */
 package Code_Run_Build_LC350;
 
@@ -25,7 +27,7 @@ public class _oA_48_String_Pattern_Match_KMP {
                 System.out.println
                         ("Pattern is found at index " + (i - j));
                 j = lps[j - 1];
-            } else if (pat.charAt(j) != str.charAt(i)) {
+            } else if ((i<str.length()) && pat.charAt(j) != str.charAt(i)) {
                 // mismatch occurs after j matches
                 if (j != 0)
                     j = lps[j - 1];
@@ -57,8 +59,8 @@ public class _oA_48_String_Pattern_Match_KMP {
     }
 
     public static void main(String args[]) {
-        String txt = "AbcAbcAbc12AbcAbcAbc12";
-        String pattern = "AbcAbc12";//"ABAAABABC";
+        String txt = "AbcAbcAbc12Abc12AbcAbc12";
+        String pattern = "AbcAbc12";
         KEMP_Search_Algorithm(txt, pattern);
     }
 }
