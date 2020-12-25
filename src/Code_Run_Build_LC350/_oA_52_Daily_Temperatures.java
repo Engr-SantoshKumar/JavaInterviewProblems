@@ -1,4 +1,4 @@
-/* [ _oA_52 ] [ Daily Temperatures ]
+/* [ _oA_52 ] [ Daily Temperatures, Monotonic Stack problem ]
 _______________________________________________________________________________
 Given a list of daily temperatures T, return a list such that, for each day in the input,
 tells you how many days you would have to wait until a warmer temperature.
