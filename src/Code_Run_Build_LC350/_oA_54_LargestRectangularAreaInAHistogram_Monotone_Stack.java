@@ -23,7 +23,7 @@ package Code_Run_Build_LC350;
 
 import java.util.Stack;
 
-public class _oA_54_LargestRectangularAreaInAHistogram {
+public class _oA_54_LargestRectangularAreaInAHistogram_Monotone_Stack {
     public static int largestRectangleArea(int[] bars) {
         int maxArea =0;
         int curIndex;

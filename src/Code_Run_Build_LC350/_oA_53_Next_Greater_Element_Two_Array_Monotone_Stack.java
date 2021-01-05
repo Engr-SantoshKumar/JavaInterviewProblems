@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class _oA_53_Next_Greater_Element_Two_Array {
+public class _oA_53_Next_Greater_Element_Two_Array_Monotone_Stack {
     public static int[] nextGraterToRight(int[] findNumbers, int[] numbers){
         /*Logic: We use a stack to keep a decreasing sub-sequence, whenever we see a number x greater than stack.peek()
           we pop all elements less than x and for all the popped ones, their next greater element is x

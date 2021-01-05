@@ -13,7 +13,7 @@ package Code_Run_Build_LC350;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class _oA_52_Daily_Temperatures {
+public class _oA_52_Daily_Temperatures_monotone_Stack {
         /*
         temperatures = {6,4,5,7}, the next greater element for 6 is 7.
         So we will return the index difference of the next
