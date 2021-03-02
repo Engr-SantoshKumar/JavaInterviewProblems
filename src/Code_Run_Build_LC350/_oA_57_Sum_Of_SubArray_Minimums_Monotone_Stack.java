@@ -17,8 +17,8 @@ Logic:
      element of 3           element of 3
 
 calculation:
-how far is previous less 4 (3 is at index 4, previousLess is at index 0, so 4-0 = 4
-how far is next less     3 (3 is at index 4, nextLess is at index 7, so 7-4 = 3
+how far is previous less [left of 3(3isAtIndex4)] (the element lessThan 3 is 2, which is at index 0, so DistCal will be 4-0 = 4
+how far is next less [Right of 3(3isAtIndex4)] (the element lessThan 3 is 1, which is at index 4, so DistCal will be 7-4 = 3
 so total subArray we can make using 3 as minimum is 4*3=12 and sum would be 3*12 = 36
 */
 package Code_Run_Build_LC350;
@@ -33,6 +33,7 @@ public class _oA_57_Sum_Of_SubArray_Minimums_Monotone_Stack {
         int[] previousLess = new int[len];
         // nextLess is for the distance to next less element
         int[] nextLess = new int[len];
+
         Stack<Integer> stack = new Stack<>();
 
         // fill previousLess using Monotone stack logic (same logic as previous rainWater and other monotone stack
@@ -62,7 +63,7 @@ public class _oA_57_Sum_Of_SubArray_Minimums_Monotone_Stack {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3,1,2,4};
+        int[] arr = new int[]{2,8,9,3,4,1};
         System.out.println(minSumSubArray(arr));
     }
 }

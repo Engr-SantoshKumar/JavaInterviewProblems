@@ -18,6 +18,7 @@ find the area of largest rectangle in the histogram.
 Above is a histogram where width of each bar is 1, given height = [3,6,7,9,6,3,9,5,4].
 The largest rectangle is (length index 0 -> 8 (height 3), which has area = 9*3 = 27 unit.
 the second largest rectangle (length index 1 -> 4) (height 6) , which has area = 4*6 = 24 unit.
+https://www.youtube.com/watch?v=vcv3REtIvEo
 */
 package Code_Run_Build_LC350;
 
