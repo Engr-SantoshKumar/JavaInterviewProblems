@@ -23,7 +23,7 @@ public class _Goo_02_StackPopMaxFunction extends Stack<Integer> {
         Integer x = mainStack.pop();
         Integer y = maxStack.pop();
 
-        if(x!=y){
+        if(!x.equals(y)){
             maxStack.push(y);
         }
         return x;
@@ -34,7 +34,7 @@ public class _Goo_02_StackPopMaxFunction extends Stack<Integer> {
         Integer x = mainStack.pop();
         Integer y = maxStack.pop();
 
-        while(x!=y){
+        while(!x.equals(y)){
             x = mainStack.pop();
         }
         return x;

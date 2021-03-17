@@ -8,10 +8,7 @@
  */
 package GooPrep;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class _Goo_13_a_Insert_New_Interval_Comparator {
 
@@ -20,6 +17,7 @@ public class _Goo_13_a_Insert_New_Interval_Comparator {
         List<Interval> finalResult = new ArrayList<Interval>();
         if(existingIntervals == null || existingIntervals.size() ==0){
             finalResult.add(newInterval);
+            return finalResult;
         }
 
         // First sort the existingIntervals with start timing

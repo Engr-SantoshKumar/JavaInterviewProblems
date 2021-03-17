@@ -12,21 +12,18 @@ public class _Goo_05_ThreeColorFlag {
 
         int start = 0;
         int end = nums.length-1;
-
         for(int i = 0; i<=end; i++){
-
             //swap 2 to the end, and then end --
             if(nums[i] == 2){
                 while(nums[i] == 2 && i < end){
-
                     int temp = nums[end];
                     nums[end] = nums[i];
                     nums[i] = temp;
                     end --;
-                    }
+                }
             }
-            /*0 from the end may swap to nums[i], therefore we should check 2 first then 0
-            swap 0 to the head, and then start ++
+            /*while moving 2 to the end, current position might become 0.. now swap 0 with int at start.
+            That's why we trying to move 2 and then 0
             */
             if(nums[i] == 0){
                 int temp = nums[start];

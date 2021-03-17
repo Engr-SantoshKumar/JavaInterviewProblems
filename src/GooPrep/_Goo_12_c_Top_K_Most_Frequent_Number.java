@@ -4,6 +4,7 @@
  arr :  1, 5, 2, 1, 3, 2, 1 , 1, 5, 5,5, 5,5, 5,5
  o/p: [5, 1, 2]
 
+ Solved using: Bucket Sort technique
 
  */
 
@@ -18,7 +19,7 @@ public class _Goo_12_c_Top_K_Most_Frequent_Number {
 
     public static void mostPopularNumberUsingBucketSort(int [] nums, int k){
 
-        List<Integer>[] bucket = new List[nums.length + 1];
+        List<Integer>[] bucketList = new List[nums.length + 1];
         Map<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
 
         for (int n : nums) {
@@ -26,25 +27,25 @@ public class _Goo_12_c_Top_K_Most_Frequent_Number {
         }
 
         for (int key : frequencyMap.keySet()) {
-            int frequency = frequencyMap.get(key);
-            if (bucket[frequency] == null) {
-                bucket[frequency] = new ArrayList<>();
+            int count = frequencyMap.get(key);
+            if (bucketList[count] == null) {
+                bucketList[count] = new ArrayList<>();
             }
-            bucket[frequency].add(key);
+            bucketList[count].add(key);
         }
 
         List<Integer> res = new ArrayList<>();
 
-        for (int pos = bucket.length - 1; pos >= 0 && res.size() < k; pos--) {
-            if (bucket[pos] != null) {
-                res.addAll(bucket[pos]);
+        for (int pos = bucketList.length - 1; pos >= 0 && res.size() < k; pos--) {
+            if (bucketList[pos] != null) {
+                res.addAll(bucketList[pos]);
             }
         }
         System.out.println(res);
     }
 
     public static void main (String[] args) {
-        int arr[] = {1, 5, 2, 1, 3, 2, 1 , 1, 5, 5,5, 5,5, 5,5};
+        int arr[] = {1, 5, 2, 1, 3, 2, 1 , 1, 5, 5,5, 5,4, 5,4, 2, 2};
         int topK = 3;
         mostPopularNumberUsingBucketSort(arr, topK);
     }

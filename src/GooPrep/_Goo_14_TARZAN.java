@@ -24,9 +24,9 @@ public class _Goo_14_TARZAN {
         for(int i =0, j =0; i < givenString.length(); i++ )
         {
             //get the current char count from countDirectory
-            int charCount = countDirectory[givenString.charAt(i) -'A'];
+            int charCountAti = countDirectory[givenString.charAt(i) -'A'];
             countDirectory[givenString.charAt(i)-'A'] --;
-            if(charCount > 0) {
+            if(charCountAti > 0) {
                 count--;
             }
             /* will start looking for anagram in givenString once i [current index ] is >= patternLength */
@@ -35,10 +35,10 @@ public class _Goo_14_TARZAN {
                 if(count == 0){
                     results.add(givenString.substring(j, i+1));
                 }
-                charCount = countDirectory[givenString.charAt(j)-'A'];
+                int charCountAtj = countDirectory[givenString.charAt(j)-'A'];
                 countDirectory[givenString.charAt(j) - 'A']++;
                 // will increase the charCount if the leftmost char is from pattern
-                if(charCount >=0) {
+                if(charCountAtj >=0) {
                     count++;
                 }
                 j++;

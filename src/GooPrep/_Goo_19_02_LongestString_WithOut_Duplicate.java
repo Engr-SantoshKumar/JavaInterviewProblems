@@ -21,11 +21,12 @@ public class _Goo_19_02_LongestString_WithOut_Duplicate {
         Set<Character> hSet = new HashSet<>();
         while(i<str.length())
         {
-            if(hSet.contains(str.charAt(i))){
+            if(!hSet.contains(str.charAt(i))){
                 hSet.add(str.charAt(i++));
                 //System.out.println(str.substring(j,i));
             }else{
                 count = Math.max(count, hSet.size());
+                //System.out.println("removing " + str.charAt(j));
                 hSet.remove(str.charAt(j++));
             }
         }
@@ -34,7 +35,7 @@ public class _Goo_19_02_LongestString_WithOut_Duplicate {
     }
 
     public static void main(String[] args) {
-        String s = "abcdef";
+        String s = "abacbdef";
         System.out.println(longestSubStringWithDups(s));
     }
 }

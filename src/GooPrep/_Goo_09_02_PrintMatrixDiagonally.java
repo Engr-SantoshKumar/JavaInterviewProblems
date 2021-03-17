@@ -29,8 +29,9 @@ public class _Goo_09_02_PrintMatrixDiagonally {
     private static void printMatrixDiagonally(int[][] matrix){
 
         //base cases
-        if(matrix.length==0 && matrix[0].length == 0) {
+        if(matrix.length==0 || matrix[0].length == 0) {
             System.out.println("Matrix is blank");
+            return;
         }
 
         int rowEnd = matrix.length;

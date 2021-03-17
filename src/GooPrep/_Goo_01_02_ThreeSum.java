@@ -9,14 +9,14 @@ package GooPrep;
 
 import java.util.Arrays;
 
-public class _Goo_01_01_ThreeSum {
+public class _Goo_01_02_ThreeSum {
 
     public static void threeSumWithoutExtraSpace(int[] arr, int k){
 
-        if(arr.length < 3 || arr == null){
-            System.out.println("There are no pair");
+        if(arr == null || arr.length < 3){
+            System.out.println("No pair found");
             return;
-          }
+        }
         Arrays.sort(arr); //0, 0, 1, 2, 3, 4, 7, 8, 8, 9
         for(int i =0; i < arr.length-2; i++){
             int start = i+1;
