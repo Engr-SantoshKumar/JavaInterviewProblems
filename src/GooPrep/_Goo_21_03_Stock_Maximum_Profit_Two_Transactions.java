@@ -7,7 +7,7 @@ the stock price information for each day.
  1. In the first scan, we update profit[i] Get the maximum profit with only one transaction
     allowed. After this loop, profit[i] contains maximum profit from price[i..n-1] using at most one trans..
  2. Traverse price[] from left to right and update profit[i] such that profit[i] stores maximum profit such
-    that profit[i] contains maximum achievable profit from two transactions in subarray price[0..i].
+    that profit[i] contains maximum achievable profit from two transactions in subArray price[0..i].
  3. Finally, the last element of profit[] has the result.
  */
 package GooPrep;
@@ -18,7 +18,7 @@ public class _Goo_21_03_Stock_Maximum_Profit_Two_Transactions {
 
         int size = arr.length;
         int[] profit =  new int[arr.length];
-        // initialize last element of the auxiliary array to 0
+        // initialize last element of the auxiliary array to 0, logic if buy-sell at same price, profit =0
         profit[size-1] = 0;
         // to keep track of maximum stock price on the right of current stock price
         int max_price = arr[size - 1];
@@ -27,7 +27,7 @@ public class _Goo_21_03_Stock_Maximum_Profit_Two_Transactions {
         for(int i = size - 2; i >= 0; i-- ){
             // update max stock price seen so far
             /* we can get profit[i] by taking maximum of: Logic is ..buy at current Price and sell at max
-               a) previous maximum, i.e., profit[i+1]
+               a) previous maximum profit, i.e., profit[i+1]
                b) profit by buying at price[i] and selling at max_price */
             profit[i] = Math.max(profit[i+1], max_price - arr[i]);
             max_price = Math.max(max_price, arr[i]);

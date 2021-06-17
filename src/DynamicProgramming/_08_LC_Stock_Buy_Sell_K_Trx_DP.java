@@ -25,14 +25,14 @@ public class _08_LC_Stock_Buy_Sell_K_Trx_DP {
 
     public static int maxProfitWithKTransactions(int[] prices, int days, int k){
 
-        //table to store results of profit[K->trx][days]
+        //table to store results of profit[K->noOfTrx][days]
         int[][] profit = new int[k+1][days+1];
 
         // For day 0, profit is 0
         for (int i = 0; i <= k; i++)
             profit[i][0] = 0;
 
-        // profit is 0 if we don't do any transation (i.e. k =0)
+        // profit is 0 if we don't do any translation (i.e. k =0)
         for (int j = 1; j <= days; j++)
             profit[0][j] = 0;
 

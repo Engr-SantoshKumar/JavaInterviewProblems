@@ -15,7 +15,7 @@ Given :                         OutPut:
 
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  Logic: you always just need to update INF cells, if value is something else its already being updated with distance
- step1: load queue with all 0s --> q[0(r0,c2), 0(r3,c0)]
+ step1: load queue with all 0s positions --> q[0(r0,c2), 0(r3,c0)]
  step2: pull zero and visit is adjutant cell, if cell value is INF then update cell value with [currentCell's value+1]
  and add cell to queue. After working with all 0's adjutant cells, queue will looks like
  pull 0(r0,c2) --> q[0(r3,c0), # 1(r1,c2), 1(r0,c3)] --> now pull 0(r3,c0)
@@ -50,17 +50,20 @@ public class _Goo_61_Walls_And_Gates {
                 }
             }
         }
-        // pull the 0 and check its adjutant cells is this value is MaxInteger update it
+        // pull the 0 and check its adjutant cells, if value is MaxInteger update it
         while (!rowQ.isEmpty()) {
             int curRow = rowQ.poll();
             int curCol = colQ.poll();
             for (int i = 0; i < 4; i++) {
                 int nextRow = curRow + rowDirections[i];
                 int nextCol = curCol + colDirections[i];
-                //some condition checks
+                //some condition checks:
+                // a. boundary check
                 if (nextRow < 0 || nextRow >= grid.length || nextCol < 0 || nextCol >= grid[0].length) continue;
+                // b. wall check
                 if (grid[nextRow][nextCol] == -1) continue;
 
+                // update the empty with distance
                 if (grid[nextRow][nextCol] == Integer.MAX_VALUE) {
                     grid[nextRow][nextCol] = grid[curRow][curCol] + 1;
                     rowQ.add(nextRow);

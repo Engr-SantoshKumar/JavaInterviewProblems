@@ -1,6 +1,7 @@
 /**
  * [ 21 ] [ DP- Maximum profit by buying and selling a share at most k times ]
 ________________________________________________________________________________________________________________
+ https://www.youtube.com/watch?v=oDhu5uGq_ic
  In share trading, a buyer buys shares and sells on a future date. Given the stock price of n days,
  the trader is allowed to make at most k transactions, where a new transaction can only start after the
  previous transaction is complete, find out the maximum profit that a share trader could have made.
@@ -32,7 +33,7 @@ public class _Goo_21_04_Stock_Buy_Sell_K_Trx_DP {
         for (int i = 0; i <= k; i++)
             profit[i][0] = 0;
 
-        // profit is 0 if we don't do any transation (i.e. k =0)
+        // profit is 0 if we don't do any translation (i.e. k =0)
         for (int j = 1; j <= days; j++)
             profit[0][j] = 0;
 

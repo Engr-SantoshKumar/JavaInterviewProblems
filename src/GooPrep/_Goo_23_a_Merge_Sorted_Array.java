@@ -10,20 +10,20 @@ import java.util.Arrays;
 public class _Goo_23_a_Merge_Sorted_Array {
 
     static int[] mergeArray(int[] a, int[] b, int lastA, int lastB)  {
-        int indexMerged = lastB + lastA - 1; /* Index of last location of merged array */
-        int indexA = lastA - 1; /* Index of last element in array b */
-        int indexB = lastB - 1; /* Index of last element in array a */
+        int writeIndex = lastB + lastA - 1; /* Index of last location of merged array */
+        int readA = lastA - 1; /* Index of last element in array b */
+        int readB = lastB - 1; /* Index of last element in array a */
 
         /* Merge a and b, starting from the last element in each */
-        while (indexB >= 0) {
-            if (indexA >= 0 && a[indexA] > b[indexB]) { /* end of a is bigger than end of b */
-                a[indexMerged] = a[indexA]; // copy element
-                indexA--;
+        while (readB >= 0) {
+            if (readA >= 0 && a[readA] > b[readB]) { /* end of a is bigger than end of b */
+                a[writeIndex] = a[readA]; // copy element
+                readA--;
             } else {
-                a[indexMerged] = b[indexB]; // copy element
-                indexB--;
+                a[writeIndex] = b[readB]; // copy element
+                readB--;
             }
-            indexMerged--; // move indices
+            writeIndex--; // move indices
         }
         return a;
     }

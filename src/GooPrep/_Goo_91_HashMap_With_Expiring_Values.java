@@ -83,6 +83,9 @@ public class _Goo_91_HashMap_With_Expiring_Values<K,V>{
         sExp.get(10);
         sExp.get(13);
 
+        sExp.get(16);
+        sExp.get(19);
+
         Thread.sleep(10000);
 
         sExp.get(10);

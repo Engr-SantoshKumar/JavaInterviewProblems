@@ -28,7 +28,8 @@ public class _06_01_LC_Longest_Common_Subsequence_recursion {
 
     static int LCS_topDown(String s1, String s2, int i, int j){
         //base cases : if we reach the end of either of strings
-        if(i==s1.length() || j == s2.length()) return 0;
+        if(i==s1.length() || j == s2.length())
+            return 0;
 
         //condition one : if both matching char
         if(s1.charAt(i)== s2.charAt(j)){

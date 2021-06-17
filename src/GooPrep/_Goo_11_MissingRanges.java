@@ -31,21 +31,21 @@ public class _Goo_11_MissingRanges {
                 lower = arr[i] + 1;
                 continue;
             }
-            //Cases 1: keep moving lower until there is missing number e.g 1,2,3
+            //Cases 1: keep moving lower until there is missing number e.g 1,2,3,4
             if(lower == arr[i]){
                 lower = arr[i] +1;
             }
 
-            // Cases 2: this to check if only one number is missing
+            // Cases 2: this to check if only one number is missing e.g 4,5,_,7,8
             else if(lower == arr[i] - 1){
                 result.add(String.valueOf(lower));
                 lower = arr[i] +1;
             }
 
-            // Cases 3: if bunch of nums missing
+            // Cases 3: if bunch of numbers missing
             else
                 {
-                if(arr[i] >= upper){// current number is out of range
+                if(arr[i] >= upper){// current number arr[i] is out of range
                     result.add(String.format("%s-%s", lower, upper-1));
                     break; //--> no need to scan more as current element is > upper
                 }
@@ -87,6 +87,7 @@ public class _Goo_11_MissingRanges {
 }
 
 /*
+o/p
 [2, 4-49, 51-74, 76-99]
 [2, 4-49, 51-74, 76-98]
 [0-49, 51-74, 76-99]

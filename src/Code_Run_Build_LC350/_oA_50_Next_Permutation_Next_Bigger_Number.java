@@ -16,20 +16,20 @@ import java.util.Arrays;
 
 public class _oA_50_Next_Permutation_Next_Bigger_Number {
     public static int[] nextPermutation(int[] arr) {
-        //Step 1: find first number which breaks ascending order(from R-->L)
-        // (e.g. 7 5 9 6 3 2) 5 breaks the descending order
-        //         ^
+
         int i = arr.length-1;
         int end = arr.length-1;
         int k;
+        //Step 1: find first number which breaks ascending order(from R-->L)
+        // (e.g. 7 5 9 6 3 2) 5 breaks the descending order
+        //         ^
         while(i>0){
             if(arr[i -1] < arr[i]){
                 break;
             }
             i--;
         }
-        /* if i =0 that means its the largest number formed by the combination e.g 4 3 2 1 is the largest
-         number can be formed using 1 2 3 4  */
+        /* if i =0 that means its the largest number formed by the combination next will be the smallest one */
         if(i==0){
             reverseSort(arr, 0, arr.length-1);
         }
@@ -44,7 +44,7 @@ public class _oA_50_Next_Permutation_Next_Bigger_Number {
             }
             swap(arr, i-1, k);
             //Step 3: Reverse sort the numbers after the exchanged number.
-            // reverse sort (7  5  9  6  3  2) --> 2 3 5 9
+            // reverse sort (7  6  9  5  3  2) --> 2 3 5 9
             //                     ^--------^
             //o/p   7  6  2  3  5  9
             reverseSort(arr, i, end);

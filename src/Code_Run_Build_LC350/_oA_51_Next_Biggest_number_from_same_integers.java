@@ -3,8 +3,8 @@ _______________________________________________________________________________
 Given a positive integer n, find the smallest integer which has exactly the same
 digits existing in the integer n and is greater in value than n.
 If no such positive integer exists, return -1.
-i/p 534976
-o.p 536479
+i/p 5349763
+o.p 5363467
 this problem is same as _oA_50_Next_Permutation_Next_Bigger_Number
 the only differance is you need to convert given number to int[] or char[]
 */
@@ -46,7 +46,7 @@ public class _oA_51_Next_Biggest_number_from_same_integers {
     }
 
     public static void main(String[] args) {
-        int i = 534976;
+        int i = 5349763;
         System.out.println(nextBiggerNumber(i));
     }
 

@@ -19,7 +19,7 @@ Logic: its same as traversing from bottom, we are using map/ListOfList to store 
 package GooPrep02;
 import java.util.*;
 
-public class _Goo2_10_T_Find_Leaves_of_BT_bottomUP {
+public class _Goo2_10_T_Find_Leaf_of_BT_bottomUP {
 
     public static void findLeaves(Node root) {
 

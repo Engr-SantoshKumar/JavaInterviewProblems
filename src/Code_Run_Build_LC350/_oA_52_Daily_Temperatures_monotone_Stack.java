@@ -24,9 +24,9 @@ public class _oA_52_Daily_Temperatures_monotone_Stack {
         // since we are handling indexes instead of the temperatures we can directly store result in result array
         int[] result = new int[temperature.length];
         for(int curIndex =0; curIndex<temperature.length; curIndex++){
-            //logic: check if the temperature at curIndex is bigger than the top of the
-            // stack index temperature temperature[stack.peek()] if yes than
-            // do the diff of index and so on in the while loop
+            /*logic: check if the temperature at curIndex is bigger than the top of the
+            stack (index) temperature[stack.peek()] if yes than do the diff of index
+            and so on in the while loop */
             while(!stack.isEmpty() && temperature[curIndex] > temperature[stack.peek()]){
                 result[stack.peek()] =  curIndex - stack.pop();
             }

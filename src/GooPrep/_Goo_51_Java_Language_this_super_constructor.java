@@ -74,7 +74,7 @@ public class _Goo_51_Java_Language_this_super_constructor extends myClass{
     }
 
     public _Goo_51_Java_Language_this_super_constructor(int value) {
-        this();  //---> calling line 67: _Goo_51_Java_Language_this_super_constructor
+        this();  // calling line 67: _Goo_51_Java_Language_this_super_constructor
         // super(); // Call to 'super()' must be the first statement in constructor body
         System.out.println("I am inside constructor");
         //super(); --> error

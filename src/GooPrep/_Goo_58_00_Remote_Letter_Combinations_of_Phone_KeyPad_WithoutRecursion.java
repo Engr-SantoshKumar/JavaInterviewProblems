@@ -34,8 +34,9 @@ public class _Goo_58_00_Remote_Letter_Combinations_of_Phone_KeyPad_WithoutRecurs
         while(!queue.isEmpty()){
             //get the length of current removed string
             String currentWord = queue.poll();
-            // if the length is not equal to digits length that means still some key remaining to add
+
             int currentWordLength = currentWord.length();
+            // if the length is equal we have one combination else
             if(currentWordLength == digits.length()){
                 result.add(currentWord);
                 continue;
