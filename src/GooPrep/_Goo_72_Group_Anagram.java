@@ -4,9 +4,10 @@
  * PROBLEM STATEMENT: Given a list words with lowercase and uppercase characters.
  * Implement a function to find all words that have unique character set.
  * <p>
- * e.g:
- * <p>
- * <p>
+ e.g: {"Eat", "Tea", "Tan", "Ate", "Nat", "Bat"};
+     [Tan, Nat]
+     [Eat, Tea, Ate]
+     [Bat]
  * TIME COMPLEXITY:
  */
 package GooPrep;
@@ -26,18 +27,20 @@ public class _Goo_72_Group_Anagram {
         }
     }
 
-    public static List<List<String>> groupAnagrams(String[] strs) {
+    public static List<List<String>> groupAnagrams(String[] strArr) {
 
-        if (strs == null || strs.length == 0)
+        if (strArr == null || strArr.length == 0)
             return new ArrayList<List<String>>();
 
         Map<String, List<String>> map = new HashMap<String, List<String>>();
 
-        for (String s : strs) {
+        for (String s : strArr) {
             String keyStr = getKey(s); // getting the sorted string
-            if (!map.containsKey(keyStr)){
+            /*  if (!map.containsKey(keyStr)){
                 map.put(keyStr, new ArrayList<String>());
             }
+            */
+            map.putIfAbsent(keyStr, new ArrayList<>());
             map.get(keyStr).add(s);
         }
         return new ArrayList<List<String>>(map.values());

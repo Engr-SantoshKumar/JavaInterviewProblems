@@ -43,27 +43,27 @@ public class _Goo_62_LinkedList_Connected_Components {
     public static int connected(LinkedList<Number> ll, Set<Integer> hSet){
         int count =0;
 
-        NodeLinkList head = ll.getHead();
+        NodeLinkList runningHead = ll.getHead();
 
-        if(head == null || hSet.size()==0) return count;
+        if(runningHead == null || hSet.size()==0) return count;
 
-        while(head != null){
-            NodeLinkList startHead = head;
+        while(runningHead != null){
+            NodeLinkList startHead = runningHead;
 
-            // check if current head and its next are in set
+            // check if current runningHead and its next are in set
             // as we need to count all connected as 1 for (2->3->4)
-            while(head!=null && hSet.contains(head.data)){
-                head = head.next;
+            while(runningHead!=null && hSet.contains(runningHead.data)){
+                runningHead = runningHead.next;
             }
-            // if the starting head is not equal to currentHead that means
+            // if the starting runningHead is not equal to currentHead that means
             // we found at least one set from the given set
-            if(startHead !=head){
+            if(startHead !=runningHead){
                 count++;
             }
 
-            //if the current head in not in the set, update the head
-            if(head != null){
-                head = head.next;
+            //if the current runningHead in not in the set, update the runningHead
+            if(runningHead != null){
+                runningHead = runningHead.next;
             }
         }
 

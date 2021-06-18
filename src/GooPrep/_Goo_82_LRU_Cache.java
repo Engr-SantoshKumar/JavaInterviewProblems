@@ -97,9 +97,8 @@ class LRU{
     }
 
     void print() {
-        Iterator<Node> it = linkedList.iterator();
-        while (it.hasNext()) {
-            System.out.print(it.next().value + " ->");
+        for (Node node : linkedList) {
+            System.out.print(node.value + " ->");
         }
         System.out.println();
     }

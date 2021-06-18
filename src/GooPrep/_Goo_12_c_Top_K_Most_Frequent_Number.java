@@ -19,7 +19,7 @@ public class _Goo_12_c_Top_K_Most_Frequent_Number {
 
     public static void mostPopularNumberUsingBucketSort(int [] nums, int k){
 
-        List<Integer>[] bucketList = new List[nums.length + 1];
+        List<Integer>[] bucketList = new ArrayList[nums.length + 1];
         Map<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
 
         for (int n : nums) {

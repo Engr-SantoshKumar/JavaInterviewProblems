@@ -42,7 +42,6 @@ public class _Goo_52_Snake_Grid {
         int[][] matrix = {{1, 8, 9}, {2, 7, 10}, {3, 6, 11}, {4, 5, 12}};
         printMatrix(matrix);
         snakeGrid(matrix);
-
         System.out.println("\n");
         int[][] matrix1 = {{1, 8, 9, 16}, {2, 7, 10, 15}, {3, 6, 11, 14}, {4, 5, 12, 13}};
         printMatrix(matrix1);
@@ -51,9 +50,9 @@ public class _Goo_52_Snake_Grid {
 
     public static void printMatrix(int [][] matrix){
         System.out.println(" = = = Given Matrix = = = ");
-        for(int r=0; r < matrix.length; r++ ){
-            for(int c=0; c < matrix[r].length; c++){
-                System.out.print(matrix[r][c] + " ");
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.println();
         }

@@ -24,10 +24,10 @@ public class _Goo_22_b_Character_sort_by_CountOrOrder_Map {
         Queue<CharAndCount> pq = new PriorityQueue<>((a,b) ->
                 ((a.count==b.count)?(a.chr-b.chr):(b.count-a.count)));
 
-        // to get the key and value, use entrySet():
-
+        // In Java 8, you can iterate a map using Map.forEach(action) method and using lambda expression.
         hMap.forEach((k,v)-> {pq.offer(new CharAndCount(k,v));});
 
+        // to get the key and value, use entrySet():
         /*for (Map.Entry<Character, Integer> entry : hMap.entrySet()) {
             pq.offer(new CharAndCount(entry.getKey(), entry.getValue()));
         }*/
