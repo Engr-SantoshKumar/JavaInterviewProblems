@@ -23,6 +23,7 @@ public class _Goo_43_Wildcard {
 
         while (!queue.isEmpty()) {
             String curString = queue.remove();
+
             // this will return first occurrence of '?' and if not present will return -1
             int indexOfWild = curString.indexOf('?');
             if(indexOfWild == -1){
@@ -30,12 +31,10 @@ public class _Goo_43_Wildcard {
             }else{
                 String strWithZero = curString.substring(0, indexOfWild) + '0' +
                         curString.substring(indexOfWild + 1);
-
                 queue.add(strWithZero);
 
                 String strWithOne  = curString.substring(0, indexOfWild) + '1' +
                         curString.substring(indexOfWild + 1);
-
                 queue.add(strWithOne);
             }
         }

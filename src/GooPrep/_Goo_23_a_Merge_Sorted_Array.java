@@ -1,4 +1,4 @@
-/**  23 [Merge Sorted Array]
+/**  23 [Merge Sorted Array, Merge Array B into array A as A has space at end]
  ---------------------------------------------------------------------------------------------------------
  Given two sorted integer arrays X and Y , merge Y into X as one sorted array.
  X = { 1, 3, 5, 9, 11,_,_,_,_,_}

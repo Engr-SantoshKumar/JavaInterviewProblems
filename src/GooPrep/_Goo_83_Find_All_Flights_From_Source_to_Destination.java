@@ -20,12 +20,9 @@
  SFO -> LAX -> IAH -> NYC
  */
 package GooPrep;
-
-import _01_Coderust._06_Graph.Graph;
-
 import java.util.*;
 
-public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
+public class  _Goo_83_Find_All_Flights_From_Source_to_Destination {
 
     public static void findAllRoutesBetweenGivenAirports(List<Flight> flightList, 
                                                          String source, String destination){
@@ -33,10 +30,7 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
         // first create a map/graph from flightList
         HashMap<String, List<String>> map = new HashMap<>();
         for(Flight flight : flightList){
-            if(!map.containsKey(flight.source)){
-                List<String> destinations = new ArrayList<>();
-                map.put(flight.source, destinations);
-            }
+            map.putIfAbsent(flight.source, new ArrayList<>());
             map.get(flight.source).add(flight.Destination);
         }
         System.out.println(map);
@@ -49,36 +43,37 @@ public class _Goo_83_Find_All_Flights_From_Source_to_Destination {
     public static void findAllRoutesBFS(HashMap<String, List<String>> mapGraph,
                                               String source, String destination)
     {
+        // need a list of LinkedHashSets to store all possible paths (LinkedHashSets to maintain the path in order)
         List<LinkedHashSet<String>> allPathsResult = new ArrayList<LinkedHashSet<String>>();
         Queue<SourceWithPath> queue = new ArrayDeque<>();
 
         // first put the source in Queue as (source and destination)
         LinkedHashSet<String> path = new LinkedHashSet<>();
         path.add(source);
-
+        //add path and source for BFS
         queue.add(new SourceWithPath(source, path));
 
         while(!queue.isEmpty()){
-            SourceWithPath currentPath = queue.poll();
+            SourceWithPath current = queue.poll();
 
             //if source and dest same that means we reached the dest
-            if(currentPath.source == destination)
-                allPathsResult.add(currentPath.path);
+            if(current.source.equals(destination))
+                allPathsResult.add(current.path);
 
             // if the mapGraph/map doesn't contain source (i.e key) means no flight going out
             // from here and we can just skip it
-            if(!mapGraph.containsKey(currentPath.source))
+            if(!mapGraph.containsKey(current.source))
                 continue;
 
             // visit all the dest of the current source and if the current stop is not already visited,
             // add to the current path and make current path the new source
-            for(String dist: mapGraph.get(currentPath.source) ){
-                if(currentPath.path.contains(dist))
+            for(String dist: mapGraph.get(current.source) ){
+                if(current.path.contains(dist))
                     continue; // skip already visited path
 
-                //create a new object for Q with current source as source and update the path with existing+currentPath
+                //create a new object for Q with current source as source and update the path with existing+current
                 LinkedHashSet<String> updatedPath = new LinkedHashSet<>();
-                updatedPath.addAll(currentPath.path);
+                updatedPath.addAll(current.path);
                 updatedPath.add(dist);
                 queue.offer(new SourceWithPath(dist, updatedPath));
             }

@@ -9,53 +9,36 @@ package GooPrep;
 import java.util.*;
 import java.util.LinkedList;
 
-// person class
-class Person{
 
-        private String name;
-        Set<Person> friendsList = new HashSet<>();
-        // set name
-        Person(String name) {
-            this.name = name;
-        }
-        // set friendsList
-        void setFriends(Person p){
-            friendsList.add(p);
-        }
-        // created a return to print name
-        public String toString(){
-        return this.name;
-    }
-}
 
 public class _Goo_73_Friends_Of_Friends{
-
 
     private static void friendsOfFriends(Person source) {
         Set<Person> visited = new HashSet<>();
         List<Person> result = new ArrayList<>();
         Queue<Person> queue = new LinkedList<>();
 
-        // queue.add((Person) source.friendsList);
+        // Step 1: load the immediate friends to que and visited as we
+        //          need friends of friends not immediate friend.
         for (Person p : source.friendsList) {
             queue.add(p);
             visited.add(p);
         }
 
+        //Step 2: now lets all the friends of person in queue.
         while (!queue.isEmpty()) {
             Person curPerson = queue.remove();
-            for (Person p : curPerson.friendsList) {
+            for (Person p : curPerson.friendsList)
+            {
                 if (visited.contains(p)) continue;
                 visited.add(p);
                 result.add(p);
                 queue.add(p);
             }
         }
-
         System.out.println(" friends of friends of "+source + " => "
                 +Arrays.toString(result.toArray()));
     }
-
 
     public static void main(String[] args){
         Person p0 = new Person("P0");
@@ -77,6 +60,24 @@ public class _Goo_73_Friends_Of_Friends{
 
         friendsOfFriends(p0);
 
+    }
+}
+// person class
+class Person{
+
+    private final String name;
+    Set<Person> friendsList = new HashSet<>();
+    // set name
+    Person(String name) {
+        this.name = name;
+    }
+    // set friendsList
+    void setFriends(Person p){
+        friendsList.add(p);
+    }
+    // created a return to print name
+    public String toString(){
+        return this.name;
     }
 }
 

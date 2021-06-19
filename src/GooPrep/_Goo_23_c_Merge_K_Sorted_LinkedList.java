@@ -37,20 +37,20 @@ public class _Goo_23_c_Merge_K_Sorted_LinkedList {
 
         // Step 2: remove the node from pq add to result and also if removed node has next node, add next node to PQ
         while(!pq.isEmpty()){
-            NodeLinkList mNode = pq.poll();
+            NodeLinkList curNode = pq.poll();
 
             // add the above node to result
             if(resultHead == null){ // this is just for first time
-                resultHead = mNode;
-                currentNode = mNode; // keep the track of last added node position of result LL so that
+                resultHead = curNode;
+                currentNode = curNode; // keep the track of last added node position of result LL so that
                                     // we don't need to traverse all the way to last to add new incoming node
             }else{
-                currentNode.next=mNode;
+                currentNode.next=curNode;
                 currentNode = currentNode.next;
             }
             //add next List Node to priority queue
-            if(mNode.next!=null){
-                pq.offer(mNode.next);
+            if(curNode.next!=null){
+                pq.offer(curNode.next);
             }
         }
         return resultHead;

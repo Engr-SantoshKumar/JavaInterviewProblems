@@ -38,8 +38,11 @@ public class _Goo_83_02_Cheapest_Flight_with_K_Stop {
             mapWithSrcPrice.get(src[0]).put(src[1], src[2]);
         }
 
+        //heap with compare on price (lowest price first)
         Queue<int[]> pq = new PriorityQueue<>((a, b) -> (Integer.compare(a[0], b[0])));
         pq.add(new int[] {0, source, noOfStops+1});
+
+        //BFS
         while (!pq.isEmpty()) {
             int[] top = pq.remove();
             int price = top[0];

@@ -1,6 +1,7 @@
 /**
- * [ Apple_13 ] [ SubArray Sum Equals K ]
+ * [ _0A_ ] [ Sub Array Sum Equals K ]
  * ____________________________________________________________________________________________________________
+ https://www.youtube.com/watch?v=HbbYPQc-Oo4&t=306s
  Given an array of integers and an integer k, you need to find the total number of continuous
  subArrays whose sum equals to k.
 NOTE: Sliding window -- will NoT work, contains negative number
@@ -8,8 +9,12 @@ NOTE: Sliding window -- will NoT work, contains negative number
  Output: 2
 Logic: we can use the logic of two sum with some modification
  we just need to go through the array, calculate the current sum and
- save number of all seen PreSum to a HashMap((sum_i, no. of occurences of sum_i).
+ save number of all seen PreSum to a HashMap((sum_i, no. of occurrences of sum_i).
  Time complexity O(n), Space complexity O(n).
+
+ equation:
+ => currentSum -K = value;
+ => currentSum = value + k;
 
  */
 package Code_Run_Build_LC350;
@@ -21,19 +26,19 @@ public class _oA_13_SubArray_Sum_Equals_K {
         static int subArraySum(int[] arr, int k){
             int result =0;
             int sum=0;
-            // map(sum, noOfOccurrenceOfSum)
-            Map<Integer, Integer> map = new HashMap<>();
-            // default value in map (sum =0, noOfOccurrenceOfSum =1)
-            map.put(0,1);
+            // preSumMap(sum, noOfOccurrenceOfSum)
+            Map<Integer, Integer> preSumMap = new HashMap<>();
+            // default value in preSumMap (sum =0, noOfOccurrenceOfSum =1)
+            preSumMap.put(0,1);
 
             for(int i=0; i<arr.length; i++){
                 sum += arr[i];
-                /* check map : if present, it means there is some sum value v between 0 and x,
-                which makes sum of array [x + 1 to i] == k the frequency is the number of x */
-                if(map.containsKey(sum-k)){
-                    result+=map.get(sum-k);
+                /* check preSumMap : if present, it means there is some sum value v between 0 and x,
+                which makes sum of array [x + 1 to i] == k, and the frequency is  x */
+                if(preSumMap.containsKey(sum-k)){
+                    result+=preSumMap.get(sum-k);
                 }
-                map.put(sum,map.getOrDefault(sum, 0) +1);
+                preSumMap.put(sum,preSumMap.getOrDefault(sum, 0) +1);
             }
             return result;
         }

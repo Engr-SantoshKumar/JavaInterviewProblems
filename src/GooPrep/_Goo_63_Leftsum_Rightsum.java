@@ -55,6 +55,7 @@ public class _Goo_63_Leftsum_Rightsum {
             totalSum += ar[i];
         }
         int leftSum = 0;
+        //logic = total sum = sumOfAllLeftOf(i) + sumOfAllRightOf(i) + value(i)
         for (int i = 0; i < ar.length; i++) {
             int rightSum = totalSum - ar[i] - leftSum;
             if (rightSum == leftSum) {

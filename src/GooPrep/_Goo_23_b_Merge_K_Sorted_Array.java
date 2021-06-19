@@ -4,6 +4,9 @@
 PROBLEM STATEMENT: Merge k sorted array and return it as one sorted list. Analyze and describe its complexity.
 TIME COMPLEXITY: This problem can be solved by using a heap. The time complexity is kn * log(K),
 where n is the total number of elements and k is the number of arrays.
+-- which Array, which index and what value.
+
+
  */
 package GooPrep;
 
