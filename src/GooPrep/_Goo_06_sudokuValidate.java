@@ -15,7 +15,6 @@ package GooPrep;
 
 import java.util.HashSet;
 import java.util.Set;
-
 public class _Goo_06_sudokuValidate{
 
     public static boolean isValidSudoku(int [][] board){

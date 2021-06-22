@@ -8,27 +8,27 @@ package GooPrep;
 import java.util.Arrays;
 public class _Goo_05_ThreeColorFlag {
 
-    public static void sortFlag(int[] nums){
+    public static void sortFlag(int[] arr){
 
         int start = 0;
-        int end = nums.length-1;
+        int end = arr.length-1;
         for(int i = 0; i<=end; i++){
             //swap 2 to the end, and then end --
-            if(nums[i] == 2){
-                while(nums[i] == 2 && i < end){
-                    int temp = nums[end];
-                    nums[end] = nums[i];
-                    nums[i] = temp;
+            if(arr[i] == 2){
+                while(arr[i] == 2 && i < end){
+                    int temp = arr[end];
+                    arr[end] = arr[i];
+                    arr[i] = temp;
                     end --;
                 }
             }
             /*while moving 2 to the end, current position might become 0.. now swap 0 with int at start.
             That's why we trying to move 2 and then 0
             */
-            if(nums[i] == 0){
-                int temp = nums[start];
-                nums[start] = nums[i];
-                nums[i] = temp;
+            if(arr[i] == 0){
+                int temp = arr[start];
+                arr[start] = arr[i];
+                arr[i] = temp;
                 start ++;
             }
         }

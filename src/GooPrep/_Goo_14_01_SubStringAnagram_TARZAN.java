@@ -5,7 +5,6 @@
  ART, TREAT - False"
  */
 package GooPrep;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,25 +27,25 @@ public class _Goo_14_01_SubStringAnagram_TARZAN {
         for(int i =0 ; i < givenString.length(); i++ ){
             //get the current char count from countDirectory
             int charCount = countDirectory[givenString.charAt(i)];
-
+            /* if the count of current char is more than 0, that means current char is in pattern
+             * so, will reduce the remainingCount by 1 */
+            if(charCount > 0) {
+                requiredCount--;
+            }
             /** Reduce the count from countDirectory for current char
              Case a: if the current char is in pattern its count will be reduced by 1..
              case b: if the current char is NOT in pattern, its count will go in negative ( 0--> -1 --> -2)
              */
             countDirectory[givenString.charAt(i)] --;
 
-            /* if the count of current char is more than 0, that means current char is in pattern
-             * so, will reduce the remainingCount by 1 */
-            if(charCount > 0) {
-                requiredCount--;
-            }
+
             /* will start looking for anagram in givenString once i [current index ] is >= patternLength */
             if(i >= patternLength -1){ //-1 because its index
                 //Positive Cases: if we found the all char of pattern
                 if(requiredCount == 0){
-                    int str = i-patternLength+1;
-                    int end = str+patternLength;   //or  end = i+1
-                    results.add(givenString.substring(str, end));
+                    int s = i-patternLength+1;
+                    int e = s+patternLength;   //or  e = i+1
+                    results.add(givenString.substring(s, e));
                 }
                 /*If we not found the pattern, and i is already grater than pattern length..
                 so there is no point of keeping the left most char..
