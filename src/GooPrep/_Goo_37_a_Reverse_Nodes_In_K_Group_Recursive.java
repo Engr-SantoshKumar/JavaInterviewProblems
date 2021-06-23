@@ -25,19 +25,20 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
 //=========Solution One ============================================================================
        public static NodeLinkList reverseKGroupSimplestRecursion(NodeLinkList head, int k) {
 
-        if(hasEnoughNods(head,k) == false) return head;
+        if(!hasEnoughNods(head, k)) return head;
 
         NodeLinkList current = head;
         NodeLinkList previous = null;
         NodeLinkList next = null;
 
         // revers k nodes
-        while (k>0) {
+        int i =0;
+        while (i<k) {
             next = current.next;
             current.next = previous;
             previous = current;
             current = next;
-            k--;
+            i++;
         }
 
         head.next = reverseKGroupSimplestRecursion(current, k);

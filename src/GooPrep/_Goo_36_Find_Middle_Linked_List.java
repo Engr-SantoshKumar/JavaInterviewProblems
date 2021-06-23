@@ -16,8 +16,8 @@ class _07_MiddleValueLinkedList {
         if (head == null) return 0;
         if(head.next.next == null) return head.data;
 
-        Node current = head;
-        Node runner = head.next.next;
+        Node current = head;// set at 1st
+        Node runner = head.next.next;// set at 3rd
 
         while(runner!=null){
             current= current.next;

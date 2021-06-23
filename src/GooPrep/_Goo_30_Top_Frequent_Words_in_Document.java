@@ -33,8 +33,9 @@ public class _Goo_30_Top_Frequent_Words_in_Document {
         }
         System.out.println(hMap);
         // create a pq of size (count of top words) with comparator, comparing their counts
+
         PriorityQueue<WordAndCount> pq = new PriorityQueue<>((a,b)->(a.count - b.count));
-        //now iterate over items in HashMap to get the word-counts
+
         for(Map.Entry<String, Integer> entry : hMap.entrySet()){
             if(topWordsNo > 0){
                 pq.offer(new WordAndCount(entry.getKey(), entry.getValue()));

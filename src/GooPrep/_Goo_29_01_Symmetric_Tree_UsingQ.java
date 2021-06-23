@@ -17,18 +17,6 @@ import java.util.Queue;
 
 public class _Goo_29_01_Symmetric_Tree_UsingQ {
 
-    public static void main(String args[]) {
-
-        int[] nodes = new int[]{1, 2, 2, 3, 4, 4, 3};
-        Node r = TreePrint.create(nodes);
-        symmetricTree(r);
-
-        int[] nodes1 = new int[]{1, 2, 2, 3, 4, 5, 3};
-        Node r1 = TreePrint.create(nodes1);
-        symmetricTree(r1);
-    }
-
-
     public static void symmetricTree(Node root) {
         System.out.println(isSymmetricHelp(root));
     }
@@ -66,5 +54,16 @@ public class _Goo_29_01_Symmetric_Tree_UsingQ {
             }
         }
         return true;
+    }
+
+    public static void main(String args[]) {
+
+        int[] nodes = new int[]{1, 2, 2, 3, 4, 4, 3};
+        Node r = TreePrint.create(nodes);
+        symmetricTree(r);
+
+        int[] nodes1 = new int[]{1, 2, 2, 3, 4, 5, 3};
+        Node r1 = TreePrint.create(nodes1);
+        symmetricTree(r1);
     }
 }

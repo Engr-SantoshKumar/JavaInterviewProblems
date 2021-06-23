@@ -19,7 +19,7 @@
                          ┌─┴─┐
                         10   5
 
-	e.g - in the this tree swapping will occurs in this way: 20<->40 , 75<->85, 60<->80, 30<->70
+	e.g - in the this tree swapping will occurs in this way:  5 <->10, 20<->40, 60<->80, 30<->70
 more info = https://www.youtube.com/watch?v=vdwcCIkLUQI&t=186s
 */
 
@@ -46,8 +46,8 @@ public class _Goo_29_Create_Mirror_Tree {
     static Node createMirrorTree(Node root){
 
         if(root == null) return root;
-        Node right = createMirrorTree(root.right);
-        Node left = createMirrorTree(root.left);
+        Node left = createMirrorTree(root.right);
+        Node right = createMirrorTree(root.left);
         /* swap the left and right pointers */
         root.left = right;
         root.right =left;
@@ -56,7 +56,7 @@ public class _Goo_29_Create_Mirror_Tree {
 
     public static Node  mirror_imageWithOutRecursion(Node root) {
         if (root == null)
-            return root;
+            return null;
 
         Queue<Node> queue = new ArrayDeque<>();
         queue.add(root);

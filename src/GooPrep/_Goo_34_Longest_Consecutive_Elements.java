@@ -71,7 +71,6 @@ public class _Goo_34_Longest_Consecutive_Elements {
             int max = 1;
             Arrays.sort(num);
             for (int i = 1; i < num.length; i++) {
-
                 if (num[i - 1] == num[i]) {//dup case
                     continue;
                 } else if (num[i - 1] + 1 == num[i]) {

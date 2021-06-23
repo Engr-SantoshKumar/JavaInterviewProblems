@@ -45,7 +45,6 @@ public class _Goo_82_0_LRU_Cache {
             linkedList.remove(index);
             // no need to remove from hasSet as when we put it will make it most recent
         }
-
         linkedList.add(key);
         hs.add(key);
     }

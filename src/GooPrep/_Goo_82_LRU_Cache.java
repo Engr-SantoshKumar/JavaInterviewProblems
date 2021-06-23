@@ -15,17 +15,17 @@ import java.util.LinkedList;
 public class _Goo_82_LRU_Cache {
     public static void main(String args[]) {
         LRU cache = new LRU(4);
-        cache.put(1, 10);
+        cache.put(1, 1);
         cache.print();      //1 ->
-        cache.put(2, 20);
-        cache.put(3, 30);
-        cache.put(4, 40);
+        cache.put(2, 2);
+        cache.put(3, 3);
+        cache.put(4, 4);
         System.out.println("Original Cache :  " );
         cache.print();      // 4 ->3 ->2 ->1 ->
         System.out.println("Get 2 : " + cache.get(2));
         System.out.println("Cache structure after accessing 1 :  " );
         cache.print();      // 1 ->4 ->3 ->2 ->
-        cache.put(5, 50);    // evicts key 2
+        cache.put(5, 5);    // evicts key 2
         System.out.println("Cache after adding 5:  " );
         cache.print();      // 5 ->1 ->4 ->3 ->
         System.out.println("get invalid key :" + cache.get(7));    // - 1
