@@ -10,9 +10,7 @@ a. Traverse both array together in increasing order
 b. Keep increasing the count of plansInAir as it takes-off and decrease as it as it is landing
  */
 
-
 import java.util.Arrays;
-
 public class _Goo_39_Flights_In_Air {
 
 

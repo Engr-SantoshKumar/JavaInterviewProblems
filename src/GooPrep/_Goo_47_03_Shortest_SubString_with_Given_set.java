@@ -12,4 +12,6 @@
  */
 package GooPrep;
 public class _Goo_47_03_Shortest_SubString_with_Given_set {
+
+    //same : _Goo_27_00_Minimum_Window_Substring_MAP
 }

@@ -50,7 +50,6 @@ public class _Goo_46_Two_Sum_Less_Equal_K {
         //testFor(b, 5);
         findPairLessThanK(ar, 16);
     }
-
     static class SumPair{
         int s;
         int e;

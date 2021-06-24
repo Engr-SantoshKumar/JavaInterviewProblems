@@ -17,6 +17,7 @@ public class _Goo_40_01_Circular_LinkedList_Delete_Alternate_Element {
         while(runner.next!=null){
             runner.next = runner.next.next;
             runner = runner.next;
+            //  checking circular
             if(runner==head || runner.next == head){
                 break;
             }

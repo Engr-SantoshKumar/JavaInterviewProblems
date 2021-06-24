@@ -20,9 +20,7 @@ public class _Goo_40_LinkedList_Delete_Alternate_Elements {
                 break;
             }
             current = current.next;
-
         }
-
         return head;
   }
 

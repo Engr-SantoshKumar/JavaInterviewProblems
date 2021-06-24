@@ -26,7 +26,7 @@ public class _Goo_43_Wildcard {
 
             // this will return first occurrence of '?' and if not present will return -1
             int indexOfWild = curString.indexOf('?');
-            if(indexOfWild == -1){
+            if(indexOfWild == -1){ // all done
                 result.add(curString);
             }else{
                 String strWithZero = curString.substring(0, indexOfWild) + '0' +

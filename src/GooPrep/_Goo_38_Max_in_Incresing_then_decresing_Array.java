@@ -19,8 +19,8 @@ public class _Goo_38_Max_in_Incresing_then_decresing_Array {
     public static void main (String[] args)
     {
         int arr[] = {1, 3, 50, 10, 9, 7, 6};
-        int arr1[] = {2, 3, 4, 2, 2, 2, 2, 2, 2};
-        int[] ar3= new int[]{1, 50, 50, 50, 50, 60};
+        int arr1[] = {2, 3, 4, 2, 2, 2, 2, 2, 2}; // binary recursion will not work on this
+        int[] ar3= new int[]{1, 50, 50, 50, 50, 60};// binary recursion will not work on this
         int n = arr.length;
         System.out.println("The maximum element using recursion is :  "+ findMaximumRecursion(arr1, 0, n-1));
         System.out.println("The maximum element using normalWay is :  "+ findMaximumNormalWay(arr1));

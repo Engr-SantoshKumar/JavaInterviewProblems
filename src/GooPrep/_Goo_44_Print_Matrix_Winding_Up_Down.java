@@ -37,12 +37,12 @@ public class _Goo_44_Print_Matrix_Winding_Up_Down {
 
         public static void printMatrix(int [][] matrix){
         System.out.println(" = = = Given Matrix = = = ");
-        for(int r=0; r < matrix.length; r++ ){
-            for(int c=0; c < matrix[r].length; c++){
-                System.out.print(matrix[r][c] + " ");
+            for (int[] ints : matrix) {
+                for (int anInt : ints) {
+                    System.out.print(anInt + " ");
+                }
+                System.out.println();
             }
-            System.out.println();
-        }
     }
 }
 
