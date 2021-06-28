@@ -28,7 +28,7 @@ public class _Goo_09_01_SpiralMatrixInClockwise {
             }
                 rowStart ++; /* incrementing rowStart as 1st row is done */
 
-            /** going down */
+            /* going down */
 
             for(int i = rowStart; i <= rowEnd; i++){
                 System.out.print(matrix[i][colEnd] + ", ");
@@ -41,7 +41,7 @@ public class _Goo_09_01_SpiralMatrixInClockwise {
             }
                 rowEnd --; /* decrementing rowEnd as last row is done */
 
-            /** Going up */
+            /* Going up */
             for(int i = rowEnd; i>= rowStart; i --){
                 System.out.print(matrix[i][colStart] + ", ");
             }

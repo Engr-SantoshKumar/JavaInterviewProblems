@@ -53,9 +53,6 @@ public class _Goo_68_Not_Repeating_Number_In_array {
         }
         return result;
     }
-
-
-
     //bit-manipulation : known that A XOR A = 0 and the XOR operator is commutative.
 
     public static int singleNumber(int A[]) {

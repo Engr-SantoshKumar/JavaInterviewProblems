@@ -16,7 +16,7 @@ public class _Goo_47_02_Longest_Substring_With_K_Chars_Map {
 
         Map<Character, Integer> map = new HashMap<>();
         int start=0; int end=0; int len =0; int count=0;
-
+        // Used the same template of _Goo_14_00_Find_All_Anagrams_in_String_UsingMAP
         while (end < givenString.length()){
             char ch = givenString.charAt(end);
             map.put(ch, map.getOrDefault(ch, 0)+1);

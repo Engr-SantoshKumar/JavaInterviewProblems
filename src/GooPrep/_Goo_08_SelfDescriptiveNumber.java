@@ -15,6 +15,28 @@ import java.util.Collections;
 
 public class _Goo_08_SelfDescriptiveNumber {
 
+    public static boolean isSelfDescriptiveNumber(int num) {
+
+        String s = Integer.toString(num);
+        for (int i = 0; i < s.length(); i++) {
+            // Extracting each digit one by one from the string
+            String temp_char = s.charAt(i) + "";
+            int b = Integer.parseInt(temp_char);
+            //counting how many times the particular digit
+            int count = 0;
+            for (int j = 0; j < s.length(); j++) {
+                int temp = Integer.parseInt(s.charAt(j) + "");
+                if (temp == i) {
+                    count++;
+                }
+            }
+            /* If it is not equal*/
+            if (count != b)
+                return false;
+        }
+        return true;
+    }
+
     public static boolean isDescriptive(int num){
 
         boolean isSelfDesc = true;
@@ -34,28 +56,6 @@ public class _Goo_08_SelfDescriptiveNumber {
             }
             i++;
         }
-        return true;
-    }
-
-    public static boolean isSelfDescriptiveNumber(int num) {
-
-        String s = Integer.toString(num);
-            for (int i = 0; i < s.length(); i++) {
-                // Extracting each digit one by one from the string
-                String temp_char = s.charAt(i) + "";
-                int b = Integer.parseInt(temp_char);
-                //counting how many times the particular digit
-                int count = 0;
-                    for (int j = 0; j < s.length(); j++) {
-                        int temp = Integer.parseInt(s.charAt(j) + "");
-                        if (temp == i) {
-                            count++;
-                        }
-                    }
-                /* If it is not equal*/
-                    if (count != b)
-                        return false;
-                }
         return true;
     }
 

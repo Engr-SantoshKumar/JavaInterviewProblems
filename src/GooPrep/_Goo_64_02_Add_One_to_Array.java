@@ -29,7 +29,7 @@ public class _Goo_64_02_Add_One_to_Array {
         for(int i=n-1; i>=0; i--) {
             if(digits[i] < 9) {
                 digits[i]++;
-                return digits;
+                return digits;//break nothing else to check
             }
             digits[i] = 0;
         }

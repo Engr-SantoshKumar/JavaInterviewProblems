@@ -37,7 +37,8 @@ public class _Goo_70_01_Reverse_String_Iteration_Recursion {
     }
     static String reverseRec(String str) {
         if(str.isEmpty()) return str;
-
+                            //except1stCh      //1stChar
+                            //      V              V
         return reverseRec(str.substring(1)) + str.substring(0);
     }
 

@@ -61,7 +61,7 @@ public class _Goo_50_BinaryTree_Level_Order_Traversal {
             }else{
                 if(q.size() ==0){
                     System.out.println();
-                    break;
+                    break; // end of all nods
                 }
                 q.add(null);
                 System.out.println();

@@ -1,6 +1,5 @@
 /** 07 [wiggle sort or wave sort]
 -------------------------------------------------------------------------------------------------------
-
  *      Approach #1 (Sorting) + swap  ==> NlogN + N
  *      The obvious solution is to just sort the array first, then swap elements pair-wise starting
  *      from the second element. For example:

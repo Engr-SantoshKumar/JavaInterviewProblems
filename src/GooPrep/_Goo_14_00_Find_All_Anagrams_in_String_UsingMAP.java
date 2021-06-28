@@ -1,4 +1,4 @@
-package GooPrep;/* [  ] [ Find All Anagrams in a String [TARZEN] ]
+/* [ _Goo_14_00 ] [ Find All Anagrams in a String [TARZEN] ]
 _______________________________________________________________________________
 Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order.
  "Given 2 words, return true if second word has a substring that is also an anagram of word 1.
@@ -8,7 +8,7 @@ Given two strings s and p, return an array of all the start indices of p's anagr
 Input: s = "cbaebabacd", p = "abc"
 Output: [0,6]
 */
-
+package GooPrep;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;

@@ -42,9 +42,9 @@ public class _Goo_59_01_StringInteger_Multiplication {
         /*carry each element over.*/
         int carry =0;
         for(int i = result.length-1; i>=0; i--){
-            int temp = (result[i]+carry) % 10; //18 % 10 --> 8
+            int reminder = (result[i]+carry) % 10; //18 % 10 --> 8
             carry = (result[i]+carry) / 10;
-            result[i] = temp;
+            result[i] = reminder;
         }// result --> [0, 5, 6, 0, 8, 8]
 
         StringBuilder stringBuilder = new StringBuilder();

@@ -75,7 +75,7 @@ public class _Goo_59_One_Plus_One_Minus_StringInteger {
     public static void main(String args[]) {
         char[] ch = new char[]{'1', '9', '3', '9'};
         //plusOne(ch);
-        //plusOne(new char[]{'9', '9'});
+        plusOne(new char[]{'9', '9'});
         minusOne(new char[]{'1', '0'});
         minusOne(new char[]{'4', '3'});
         minusOne(new char[]{'0', '0'});
