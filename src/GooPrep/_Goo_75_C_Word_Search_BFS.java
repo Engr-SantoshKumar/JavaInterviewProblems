@@ -16,7 +16,7 @@ public class _Goo_75_C_Word_Search_BFS {
     static Queue<HeadAndPath> allPaths = new ArrayDeque<>();
     static int boardSize;
 
-    public static boolean findHiddenWord(char[][] board, String word) {
+    public static boolean exist(char[][] board, String word) {
         if (board == null || board.length == 0 || board[0].length == 0) return false;
         boardSize = board[0].length;
 
@@ -60,7 +60,6 @@ public class _Goo_75_C_Word_Search_BFS {
                 // if all ready visited
                 int[] newHead = new int[]{nRow, nCol};
                 int integerValueOfHead = (nRow*boardSize) + nCol;
-                System.out.println("new head : "+ integerValueOfHead);
                 if(currentPath.path.contains(integerValueOfHead)) continue;
 
                 // construct a new obj with existing Path+newHead
@@ -81,13 +80,23 @@ public class _Goo_75_C_Word_Search_BFS {
                 {
                         "ABCE".toCharArray(),
                         "SFES".toCharArray(),
-                        "ADEE".toCharArray(),
+                        "ADEE".toCharArray()
+                };
+        char[][] mat3 =
+                {       "aabaab".toCharArray(),
+                        "aabbba".toCharArray(),
+                        "aaaaba".toCharArray(),
+                        "babbab".toCharArray(),
+                        "abbaba".toCharArray(),
+                        "baaaab".toCharArray()
                 };
 
         String word2 = "ABCB";
         String word3 = "ABCESEEEFS";
+
         //System.out.println(findHiddenWord(mat2, word2));
-        System.out.println(findHiddenWord(mat2, word3));
+        //System.out.println(findHiddenWord(mat2, word3));
+        System.out.println(exist(mat3, "bbbaabbbbbab"));
     }
 
 
