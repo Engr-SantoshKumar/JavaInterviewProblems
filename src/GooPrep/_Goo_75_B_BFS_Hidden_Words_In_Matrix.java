@@ -18,27 +18,26 @@
  */
 package GooPrep;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.*;
 
 public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
-    //All all eight possible directions neighbours
-    static int[] rowDirections = {-1, +1 , 0, 0, 1, 1, -1, -1};
-    static int[] colDirections = {0 , 0, -1, +1, 1, -1, -1, 1};
-    static Queue<Integer> rowQueue = new ArrayDeque<>();
-    static Queue<Integer> colQueue = new ArrayDeque<>();
-
+    // some global variables --> all possible directions + Queue for BFS
+    static int[][] directions = new int[][]{{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+    static Queue<LinkedHashSet<Integer>> allPaths = new ArrayDeque<>();
+    static int rowSize; static int colSize;
 
     public static boolean findHiddenWord(char[][] board, String word) {
         if (board==null ||board.length==0||board[0].length==0) return false;
+         rowSize = board.length;
+         colSize = board[0].length;
         // iterate through every cell in this 2D array
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) {
                 if(board[row][col] == word.charAt(0)){
-                    boolean[][] visitedMatrix=new boolean[board.length][board[0].length];
-                    rowQueue.add(row);
-                    colQueue.add(col);
-                    if (BFS(board, visitedMatrix, word)){
+                    LinkedHashSet<Integer> curPath = new LinkedHashSet<>();
+                    curPath.add(row*rowSize + col);
+                    allPaths.offer(curPath);
+                    if (BFS(board, word, allPaths)){
                         return true;
                     }
                 }
@@ -47,45 +46,66 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
         return false;
     }
 
-    public static boolean BFS(char[][] board, boolean[][] visitedMatrix, String givenWord){
-        int index = 1;
+    public static boolean BFS(char[][] board, String givenWord, Queue<LinkedHashSet<Integer>> allPaths){
+        while(!allPaths.isEmpty()){
+            LinkedHashSet<Integer> currentPath = allPaths.poll();
+            System.out.println(allPaths.size());
+            System.out.println(Arrays.toString(currentPath.toArray()));
+            if (currentPath.size() == givenWord.length()) return true;
 
-        while(!rowQueue.isEmpty()){
-                int curRow = rowQueue.poll();
-                int curCol = colQueue.poll();
-                for(int i =0; i<8; i++) {
-                    int nRow = curRow + rowDirections[i];
-                    int nCol = curCol + colDirections[i];
-                    // some validations
-                    if(index==givenWord.length()) return true;
-                    if (nRow < 0 || nRow >= board.length || nCol < 0 || nCol >= board[0].length) continue;
-                    if (visitedMatrix[nRow][nCol]) continue;
-                    if (board[nRow][nCol] != givenWord.charAt(index)) continue;
-                    rowQueue.add(nRow);
-                    colQueue.add(nCol);
-                    visitedMatrix[nRow][nCol]=true;
-                }
-            //increase the index
-            index++;
+            //get the last cell of linkedHashSet
+            Integer[] intArray = new Integer[ currentPath.size() ];
+            intArray = currentPath.toArray(intArray);
+            int lastCell =  intArray[ intArray.length - 1 ];
+            int curRow = lastCell/rowSize;
+            int curCol = lastCell%rowSize;
+
+            for (int[] dir: directions) {
+                int nRow = curRow + dir[0];
+                int nCol = curCol + dir[1];
+
+                // some validations
+                if (nRow < 0 || nRow >= board.length || nCol < 0 || nCol >= board[0].length) continue;
+
+                if (board[nRow][nCol] != givenWord.charAt(currentPath.size())) continue;
+                int nextBlockNo = nRow*rowSize + nCol;
+                if(currentPath.contains(nextBlockNo)) continue;
+                LinkedHashSet<Integer> updatedPath = new LinkedHashSet<>();
+                updatedPath.addAll(currentPath);
+                updatedPath.add(nextBlockNo);
+                allPaths.offer(updatedPath);
+            }
         }
         return false;
     }
 
     public static void main(String[] args) {
-        char mat[][] =
+        char[][] mat =
                 {
-                        "HBKC".toCharArray(),
-                        "DPGL".toCharArray(),
-                        "EFEP".toCharArray(),
-                        "GHAP".toCharArray()
+                 "HBKC".toCharArray(), "EPGD".toCharArray(), "LFEP".toCharArray(), "PPAP".toCharArray()
+                };
+        char[][] Box1 =
+                {
+                 "LEB".toCharArray(),  "PEP".toCharArray(), "PAP".toCharArray(),
+                };
+        char[][] mat2 =
+                {
+                    "BCE".toCharArray(),
+                    "FES".toCharArray(),
+                    "DEE".toCharArray(),
+                };
+        char[][] mat3 =
+                {
+                        "ABCE".toCharArray(),
+                        "SFCS".toCharArray(),
+                        "ADEE".toCharArray(),
                 };
 
-        //String word = "SANTOSH";
-        //System.out.println(findHiddenWord(mat, word));
-
         String word1 = "APPLE";
-        System.out.println(findHiddenWord(mat, word1));
-
+        String word2 = "BCESEEEF";
+        //System.out.println(findHiddenWord(mat1, "word1"));
+        System.out.println(findHiddenWord(mat3, "ABCB"));
     }
-
 }
+
+
