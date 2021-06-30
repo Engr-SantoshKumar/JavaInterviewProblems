@@ -97,7 +97,7 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
         char[][] mat3 =
                 {
                         "ABCE".toCharArray(),
-                        "SFCS".toCharArray(),
+                        "SFES".toCharArray(),
                         "ADEE".toCharArray(),
                 };
 
