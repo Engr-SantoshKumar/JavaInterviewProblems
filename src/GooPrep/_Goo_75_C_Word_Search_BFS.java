@@ -12,11 +12,13 @@ import java.util.*;
 
 public class _Goo_75_C_Word_Search_BFS {
     //Global variable
-    static int[][] directions = new int[][]{{1, 0}, {-1, 0},{0, 1}, {0, -1}};
+    static int[][] directions = new int[][]{{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
     static Queue<HeadAndPath> allPaths = new ArrayDeque<>();
+    static int boardSize;
 
     public static boolean findHiddenWord(char[][] board, String word) {
         if (board == null || board.length == 0 || board[0].length == 0) return false;
+        boardSize = board[0].length;
 
         for(int row =0; row < board.length; row++){
             for(int col =0; col < board[0].length; col++){
@@ -24,7 +26,7 @@ public class _Goo_75_C_Word_Search_BFS {
                     int[] head = new int[]{row, col};
                     // converting row/col to integer value, so that we can
                     // use contains function of hashset to check the traveled path in O(1)
-                    int integerValueOfHead = row*board.length + col;
+                    int integerValueOfHead = (row*boardSize) + col;
                     LinkedHashSet<Integer> curPath = new LinkedHashSet<>();
                     curPath.add(integerValueOfHead);
                     HeadAndPath headWithPath = new HeadAndPath(head, curPath);
@@ -57,9 +59,9 @@ public class _Goo_75_C_Word_Search_BFS {
                 if (board[nRow][nCol] != word.charAt(currentPath.path.size())) continue;
                 // if all ready visited
                 int[] newHead = new int[]{nRow, nCol};
-                int integerValueOfHead = nRow*board.length + nCol;
+                int integerValueOfHead = (nRow*boardSize) + nCol;
+                System.out.println("new head : "+ integerValueOfHead);
                 if(currentPath.path.contains(integerValueOfHead)) continue;
-                //boolean contains = currentPath.path.stream().anyMatch(c -> Arrays.equals(c, b));
 
                 // construct a new obj with existing Path+newHead
                 LinkedHashSet<Integer> nPath = new LinkedHashSet<>();
@@ -67,31 +69,25 @@ public class _Goo_75_C_Word_Search_BFS {
                 nPath.add(integerValueOfHead);
                 HeadAndPath nHeadWithPath = new HeadAndPath(newHead, nPath);
                 allPaths.offer(nHeadWithPath);
+
             }
-    }
+        }
         return false;
-}
+    }
 
     public static void main(String[] args) {
 
         char[][] mat2 =
                 {
                         "ABCE".toCharArray(),
-                        "SFCS".toCharArray(),
-                        "ADEE".toCharArray(),
-                };
-        char[][] mat3 =
-                {
-                        "ABCE".toCharArray(),
                         "SFES".toCharArray(),
                         "ADEE".toCharArray(),
                 };
 
-
         String word2 = "ABCB";
-        String word3 = "ABCESEEEF";
-        System.out.println(findHiddenWord(mat2, word2));
-        System.out.println(findHiddenWord(mat3, word3));
+        String word3 = "ABCESEEEFS";
+        //System.out.println(findHiddenWord(mat2, word2));
+        System.out.println(findHiddenWord(mat2, word3));
     }
 
 
@@ -100,7 +96,7 @@ class HeadAndPath{
     int[] head;
     LinkedHashSet<Integer> path;
 
-    public HeadAndPath(int[] head, LinkedHashSet<Integer> path){
+    public HeadAndPath(int[] head, LinkedHashSet<Integer> path) {
         this.head = head;
         this.path = path;
     }
