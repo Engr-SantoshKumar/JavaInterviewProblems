@@ -15,7 +15,7 @@ package GooPrep;
 import java.util.*;
 import java.util.LinkedList;
 
-public class _Goo_90_Longest_Sequeance_in_Matrix {
+public class _Goo_90_Longest_Sequences_in_Matrix {
 
     //All all four possible directions neighbours
     static int[] rowDirections = {-1, +1 , 0, 0};
@@ -76,7 +76,9 @@ public class _Goo_90_Longest_Sequeance_in_Matrix {
                 {1, 2, 5},
                 {2, 2, 3},
                 {5, 3, 3}};
-        List<Set<Integer>> result = LongestSequence(M1);
+        List<Set<Integer>> result = LongestSequence(M);
+        List<Set<Integer>> result1 = LongestSequence(M1);
         System.out.println(" final result:" + Arrays.toString(result.toArray()));
+        System.out.println(" final result:" + Arrays.toString(result1.toArray()));
     }
 }

@@ -14,59 +14,64 @@
  */
 
 package GooPrep;
-
 import java.util.*;
-
 public class _Goo_89_Find_All_Path_from_Source_to_Destination {
 
+    static int[] rowDirections = {-1, +1, 0, 0};
+    static int[] colDirections = {0, 0, -1, +1};
 
     public static void findAllPossiblePath(char[][] grid) {
 
-        // some global variables
         List<LinkedHashSet<Integer>> allPathsResult = new ArrayList<LinkedHashSet<Integer>>();
-        Queue<pathNode> queue = new ArrayDeque<>();
+        Queue<headWithPath> allTraveledPath = new ArrayDeque<>();
         int totalWaysToGetDestination =0;
 
-        int rSiz = grid.length;
-        int cSiz = grid[0].length;
-
-        int gateCell =  0;
-        int exitCell =  0;
+        int[] entryCell = new int[0];
 
         // search for entry and exit door cell
-        for (int r = 0; r < rSiz; r++) {
-            for (int c = 0; c < cSiz; c++) {
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
                 if (grid[r][c] == 's') {
-                    gateCell = r*(rSiz-1) + c;  // eg: [0, 3] == 3
-
-                }
-                if(grid[r][c] == 'd') {
-                    exitCell = r*(rSiz-1) + c;  // eg: [4, 1] == 4*4+1 = 17
+                    entryCell = new int[]{r, c};
                 }
             }
         }
 
         // first put the source in Queue as (source and destination)
         LinkedHashSet<Integer> path = new LinkedHashSet<>();
-        path.add(gateCell);
-        queue.add(new pathNode(gateCell, path));
+        int intValueOfCell = entryCell[0]*grid[0].length + entryCell[1];
+        path.add(intValueOfCell);
+        allTraveledPath.add(new headWithPath(entryCell, path));
 
         //BFS
-        while(!queue.isEmpty()){
+        while(!allTraveledPath.isEmpty()){
+            headWithPath curPath = allTraveledPath.poll();
+            //extract the current row AND cell from cell position
+            int curR = curPath.head[0];
+            int curC = curPath.head[1];
 
-            pathNode curNode = queue.poll();
-
-            if(curNode.nodeNo == exitCell){
-                allPathsResult.add(curNode.pathTraveled);
+            // check if we are exit cell
+            if(grid[curR][curC] == 'd'){
+                allPathsResult.add(curPath.pathTraveled);
                 totalWaysToGetDestination++;
+                continue;
             }
-            ArrayList<Integer> adjacentCells  =  exploreNeighbours(curNode.nodeNo, curNode.pathTraveled, grid );
 
-            for(int cell : adjacentCells){
+            for (int i = 0; i < 4; i++) {
+                int newR = curR + rowDirections[i];
+                int newC = curC + colDirections[i];
+
+                intValueOfCell = newR * (grid[0].length) + newC;
+
+                //skip outOfBounds cells
+                if (newR < 0 || newR >= grid.length || newC < 0 || newC >= grid[0].length) continue;
+                //skip already visited cell or blocked
+                if (curPath.pathTraveled.contains(intValueOfCell) || grid[newR][newC] == '#') continue;
+
                 LinkedHashSet<Integer> newPath = new LinkedHashSet<>();
-                newPath.addAll(curNode.pathTraveled);
-                newPath.add(cell);
-                queue.add(new pathNode(cell, newPath));
+                newPath.addAll(curPath.pathTraveled);
+                newPath.add(intValueOfCell);
+                allTraveledPath.add(new headWithPath(new int[]{newR, newC}, newPath));
             }
         }
 
@@ -75,35 +80,6 @@ public class _Goo_89_Find_All_Path_from_Source_to_Destination {
         for(LinkedHashSet<Integer> ll : allPathsResult){
             System.out.println(ll);
         }
-
-    }
-
-    //this is the simplest way to find Neighbour
-    public static ArrayList<Integer> exploreNeighbours(int curCell, LinkedHashSet<Integer> curPath, char[][] grid) {
-        int totalNeighbours = 4; // only four sides, no corners
-        ArrayList<Integer> adjCells = new ArrayList<>();
-
-        //extract the current row AND cell from cell position
-        int curR = curCell / grid[0].length;
-        int curC = curCell % grid[0].length;
-        int[] rowDirections = {-1, +1, 0, 0};
-        int[] colDirections = {0, 0, -1, +1};
-
-        for (int i = 0; i < totalNeighbours; i++) {
-            int newR = curR + rowDirections[i];
-            int newC = curC + colDirections[i];
-
-            int cellPosition = newR * (grid[0].length) + newC;
-
-            //skip outOfBounds cells
-            if (newR < 0 || newR >= grid.length || newC < 0 || newC >= grid[0].length) continue;
-
-            //skip already visited cell or blocked
-            if (curPath.contains(cellPosition) || grid[newR][newC] == '#') continue;
-            adjCells.add(cellPosition);
-
-        }
-        return adjCells;
     }
 
     public static void main(String[] args) {
@@ -119,11 +95,32 @@ public class _Goo_89_Find_All_Path_from_Source_to_Destination {
     }
 }
 
-class pathNode{
-    int nodeNo;
+class headWithPath {
+    int[] head;
     LinkedHashSet<Integer> pathTraveled;
-    public pathNode(int nodeNo, LinkedHashSet pathTraveled){
-        this.nodeNo = nodeNo;
+    public headWithPath(int[] head, LinkedHashSet<Integer> pathTraveled){
+        this.head = head;
         this.pathTraveled = pathTraveled;
     }
 }
+
+/*
+[*, *, *, s]
+[*, #, *, *]
+[*, #, #, *]
+[*, *, *, *]
+[*, d, *, #]
+Total possible Paths : 12
+[3, 7, 11, 15, 14, 18, 17]
+[3, 7, 11, 15, 14, 13, 17]
+[3, 7, 11, 15, 14, 13, 12, 16, 17]
+[3, 2, 6, 7, 11, 15, 14, 18, 17]
+[3, 2, 6, 7, 11, 15, 14, 13, 17]
+[3, 2, 1, 0, 4, 8, 12, 16, 17]
+[3, 2, 1, 0, 4, 8, 12, 13, 17]
+[3, 7, 6, 2, 1, 0, 4, 8, 12, 16, 17]
+[3, 7, 6, 2, 1, 0, 4, 8, 12, 13, 17]
+[3, 2, 6, 7, 11, 15, 14, 13, 12, 16, 17]
+[3, 2, 1, 0, 4, 8, 12, 13, 14, 18, 17]
+[3, 7, 6, 2, 1, 0, 4, 8, 12, 13, 14, 18, 17]
+ */

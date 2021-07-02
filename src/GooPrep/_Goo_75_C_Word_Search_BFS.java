@@ -68,7 +68,6 @@ public class _Goo_75_C_Word_Search_BFS {
                 nPath.add(integerValueOfHead);
                 HeadAndPath nHeadWithPath = new HeadAndPath(newHead, nPath);
                 allPaths.offer(nHeadWithPath);
-
             }
         }
         return false;

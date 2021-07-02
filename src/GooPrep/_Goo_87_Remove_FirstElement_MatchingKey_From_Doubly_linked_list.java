@@ -12,7 +12,7 @@ public class _Goo_87_Remove_FirstElement_MatchingKey_From_Doubly_linked_list {
     }
 
     /* Function to delete a node in a Doubly Linked List.
-        head_ref --> pointer to head node pointer.
+        head_ref --> head node pointer.
         del --> pointer to node to be deleted. */
     static Node deleteNode(Node head, Node del)
     {

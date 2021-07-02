@@ -1,4 +1,4 @@
-/**
+/*
  * [ 88 ] [ Peeking Iterator ]
  ____________________________________________________________________________________________________________________
  Given an Iterator class interface with methods: next() and hasNext(), design and implement a PeekingIterator
@@ -21,10 +21,9 @@ package GooPrep;
 
 import java.util.Iterator;
 
-
 public class _Goo_88_Implement_Peeking_Iterator{
 
-    class PeekingIterator implements Iterator<Integer> {
+    static class PeekingIterator implements Iterator<Integer> {
 
         boolean isLast;
         int cacheMemory;

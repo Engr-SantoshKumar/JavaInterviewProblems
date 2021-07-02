@@ -37,13 +37,13 @@ public class _Goo_24_02_Periodic_string_KMP {
         return (len > 0 && n%(n-len) == 0)? true: false;
     }
 
-    static void computeLPSArray(String sPattern, int pLen, int[] lpsArray){
+    static void computeLPSArray(String sPattern, int strLen, int[] lpsArray){
 
         int count =0;
         lpsArray[0] =0; // lps[0] is always 0
 
         int i =1;
-        while(i < pLen){
+        while(i < strLen){
 
             if(sPattern.charAt(count) == sPattern.charAt(i)){
                 count ++;
