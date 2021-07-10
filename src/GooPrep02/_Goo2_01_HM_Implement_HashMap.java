@@ -90,7 +90,7 @@ public class _Goo2_01_HM_Implement_HashMap {
     }
 
 
-class hmNode{
+static class hmNode{
     int key;
     int value;
     hmNode next;
@@ -100,7 +100,6 @@ class hmNode{
         this.key= key;
         this.value = value;
     }
-
 }
 }
 

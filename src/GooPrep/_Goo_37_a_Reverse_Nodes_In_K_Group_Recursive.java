@@ -36,6 +36,7 @@ public class _Goo_37_a_Reverse_Nodes_In_K_Group_Recursive {
         while (i<k) {
             next = current.next;
             current.next = previous;
+
             previous = current;
             current = next;
             i++;

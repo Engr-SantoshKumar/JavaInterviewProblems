@@ -33,12 +33,12 @@ public class _Goo_23_b_Merge_K_Sorted_Array {
         // Step 2: remove the node from pq add to result and also add the next element of removed element's array to pq
         int i =0;
         while(!pq.isEmpty()){
-            pqNodes n = pq.poll();
-            result [i++] = n.value;
+            pqNodes currentNode = pq.poll();
+            result [i++] = currentNode.value;
             // add next element to pq
-            int nextIndex = n.index +1 ; //current index + 1
-            if(nextIndex < arr[n.array].length){//check if its the last element
-                pq.add(new pqNodes(n.array, nextIndex, arr[n.array][nextIndex]));
+            int nextIndex = currentNode.index +1 ; //current index + 1
+            if(nextIndex < arr[currentNode.array].length){//check if its the last element
+                pq.add(new pqNodes(currentNode.array, nextIndex, arr[currentNode.array][nextIndex]));
             }
         }
        return result;

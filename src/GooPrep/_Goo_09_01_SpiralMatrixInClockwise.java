@@ -10,8 +10,10 @@ public class _Goo_09_01_SpiralMatrixInClockwise {
 
     public static void printSpiralMatrix(int [][] matrix){
 
-        if(matrix == null || matrix.length ==0)
+        if(matrix == null || matrix.length ==0){
             return;
+        }
+
 
         int rowStart = 0;
         int rowEnd = matrix.length-1;

@@ -40,7 +40,7 @@ public class _Goo_27_00_Minimum_Window_Substring_MAP {
             }
             end++;
 
-            // Now we all a window which contains all the characters of pattern or maybe some extra
+            // Now we have a window which contains all the characters of pattern or maybe some extra
             while(counter ==0){
                 char tempCh = str.charAt(begin);
                 if(map.containsKey(tempCh)){

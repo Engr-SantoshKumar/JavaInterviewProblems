@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class _Goo_12_c_Top_K_Most_Frequent_Number {
+public class _Goo_12_c_Top_K_Most_Frequent_NumberUsingBucketSort {
 
     public static void mostPopularNumberUsingBucketSort(int [] nums, int k){
 

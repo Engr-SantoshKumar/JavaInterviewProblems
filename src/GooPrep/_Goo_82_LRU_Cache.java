@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 public class _Goo_82_LRU_Cache {
-    public static void main(String args[]) {
+    public void main(String args[]) {
         LRU cache = new LRU(4);
         cache.put(1, 1);
         cache.print();      //1 ->
@@ -43,6 +43,7 @@ class LRU{
     public LRU(int capacity){
         if(capacity <1){
             System.out.println("Invalid capacity");
+            return;
         }
         this.capacity = capacity;
     }

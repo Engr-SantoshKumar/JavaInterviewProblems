@@ -25,8 +25,8 @@ public class _Goo_23_c_Merge_K_Sorted_LinkedList {
         // create a PQ with linkList node Comparator
         PriorityQueue<NodeLinkList> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
 
-        NodeLinkList resultHead = null;
-        NodeLinkList currentNode = null;
+        NodeLinkList resultHead = null; //--head of result LL ..will return this
+        NodeLinkList currentNode = null; //traveling node in result linkedlist
 
         // Step 1: Insert all K heads into PQ
         for(int i =0; i <heads.length; i++){

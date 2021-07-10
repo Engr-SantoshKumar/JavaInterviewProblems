@@ -40,7 +40,7 @@ public class _oA_54_LargestRectangularAreaInAHistogram_Monotone_Stack {
             }
             // If this currentBar is lower than top of stack, then calculate area of rectangle to so that we need boundaries
             /*Right Boundary: at curIndex = 4, barSize 6, is the first bar that is lower than previous bars[3] ofHeight 9,
-                              so the right boundary is (curIndex - 1).
+                              so the right boundary is (curIndex - 1) i.e index 3
             Height = pop(not peek) the top, here it will be bar[3]-->9; 9 is height
             Left Boundary: bars[2] ofHeight 7, which is the top in stack after bar[3]-->9 is popped, is the first
                             bar that is lower than bar[3] on its left, so the left boundary is (stack.peek() + 1).

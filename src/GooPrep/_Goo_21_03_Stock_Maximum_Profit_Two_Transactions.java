@@ -14,14 +14,14 @@ package GooPrep;
 
 public class _Goo_21_03_Stock_Maximum_Profit_Two_Transactions {
 
-    public static int maxProfitWithTwoTrx(int[] arr){
+    public static int maxProfitWithTwoTrx(int[] price){
 
-        int size = arr.length;
-        int[] profit =  new int[arr.length];
+        int size = price.length;
+        int[] profit =  new int[price.length];
         // initialize last element of the auxiliary array to 0, logic if buy-sell at same price, profit =0
         profit[size-1] = 0;
         // to keep track of maximum stock price on the right of current stock price
-        int max_price = arr[size - 1];
+        int max_price = price[size - 1];
 
         // lets fill the array from right to left
         for(int i = size - 2; i >= 0; i-- ){
@@ -29,11 +29,11 @@ public class _Goo_21_03_Stock_Maximum_Profit_Two_Transactions {
             /* we can get profit[i] by taking maximum of: Logic is ..buy at current Price and sell at max
                a) previous maximum profit, i.e., profit[i+1]
                b) profit by buying at price[i] and selling at max_price */
-            profit[i] = Math.max(profit[i+1], max_price - arr[i]);
-            max_price = Math.max(max_price, arr[i]);
+            profit[i] = Math.max(profit[i+1], max_price - price[i]);
+            max_price = Math.max(max_price, price[i]);
         }
         // to keep track of min stock price on the right of current stock price
-        int min_price = arr[0];
+        int min_price = price[0];
 
         //Get the maximum profit with two transactions allowed, After this loop, profit[n-1] contains the result */
         for (int i = 1; i < size; i++){
@@ -42,9 +42,9 @@ public class _Goo_21_03_Stock_Maximum_Profit_Two_Transactions {
                 a) previous maximum, i.e., profit[i-1]
                 b) (Buy, Sell) at (min_price, price[i]) and add profit of other trans. stored in profit[i] */
             profit[i] = Math.max (profit[i - 1],
-                    (arr[i] - min_price) + profit[i]);
+                    (price[i] - min_price) + profit[i]);
 
-            min_price = Math.min(min_price, arr[i]);
+            min_price = Math.min(min_price, price[i]);
         }
         // the last element of profit[] stores the result
         return profit[size - 1];

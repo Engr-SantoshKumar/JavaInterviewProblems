@@ -1,6 +1,5 @@
 /** 03 [Sort String]
 -------------------------------------------------------------------------------------------------------
- *
  * "Write a procedure which accept this string “THISISGOOD” .
  * ==> print string in sorted order - DGHIIOOSST
  * ==> print letter with highest count - 2 - IOS"

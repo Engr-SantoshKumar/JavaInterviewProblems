@@ -14,7 +14,6 @@ package GooPrep;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-
 public class _Goo_04_CounterManagementClass {
     static int secCounter = 0;
     static int minCounter = 0;

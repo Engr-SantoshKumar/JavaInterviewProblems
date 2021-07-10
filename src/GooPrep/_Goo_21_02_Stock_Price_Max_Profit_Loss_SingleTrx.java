@@ -18,7 +18,7 @@ public class _Goo_21_02_Stock_Price_Max_Profit_Loss_SingleTrx {
         double buy = array[0];
         double sell = array[1];
         double global_profit = sell-buy;
-        double current_profit = Integer.MIN_VALUE;
+        double current_profit;
 
         for(int i=1; i<array.length; i++){
 

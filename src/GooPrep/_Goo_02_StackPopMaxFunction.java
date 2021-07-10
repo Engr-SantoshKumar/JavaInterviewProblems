@@ -1,6 +1,5 @@
 /** 02 [Stack Max Function]
 -------------------------------------------------------------------------------------------------------
- *
  * how to implement a max stack which has additional popMax and peek
  */
 
