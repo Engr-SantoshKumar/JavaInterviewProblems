@@ -1,5 +1,5 @@
 /**
- * [ Goo_86 ] [ find the sub array with largest sum ]
+ * [ Goo_86 ] [ find the sub array with maximum sum ]
  * ____________________________________________________________________________________________________________________
  Given an array of positive and negative numbers(containing at least 1 positive number)
  find the sub array with largest sum

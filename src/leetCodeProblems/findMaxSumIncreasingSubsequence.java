@@ -1,10 +1,5 @@
 package leetCodeProblems;
-/**
- * 
- */
-
-/**
- * This problem is a variation of standard Longest Increasing Subsequence (LIS) problem. 
+/* * This problem is a variation of standard Longest Increasing Subsequence (LIS) problem.
  * If input is {1, 101, 2, 3, 100, 4, 5}, then output should be 106 (1 + 2 + 3 + 100)
  * if the input array is {3, 4, 5, 10}, then output should be 22 (3 + 4 + 5 + 10)
  */

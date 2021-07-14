@@ -53,7 +53,7 @@ public class _Goo_60_Game_Of_Life {
 
                 /*
                 if we think: there are only two case to handle
-                Case one: if current cell is date
+                Case one: if current cell is dead
                 Case two: else current cell is not dead
                  */
                 // if current cell is dead and Alive Neighbours count ==3
