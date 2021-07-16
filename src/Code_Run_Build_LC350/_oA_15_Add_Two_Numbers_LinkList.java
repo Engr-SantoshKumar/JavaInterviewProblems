@@ -46,8 +46,10 @@ public class _oA_15_Add_Two_Numbers_LinkList {
     }
 
     public static void main(String[] args) {
-        Integer[] a = {9,9,9,9,9,9,9};
-        Integer[] b = {9,9,9,9};
+        //Integer[] a = {9,9,9,9,9,9,9};
+        //Integer[] b = {9,9,9,9};
+        Integer[] a = {2,4,3};
+        Integer[] b = {5,6,4};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
         LinkedList<Number> list2 = new LinkedList<Number>(b);
         NodeLinkList headA = list1.getHead();
