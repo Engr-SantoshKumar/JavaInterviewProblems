@@ -1,39 +1,31 @@
 package _01_Coderust._06_Graph;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Vector;
+import java.util.*;
 
 
-// Java program to Clone an Undirected Graph
-// GraphNode class represents each
-// Node of the Graph
+// Java program to Clone an Undirected Graph GraphNode class represents each Node of the Graph
 class GraphNode
 {
     int val;
 
-    // A neighbour Vector which contains references to
-    // all the neighbours of a GraphNode
-    Vector<GraphNode> neighbours;
+    // A neighbour Vector which contains references to all the neighbours of a GraphNode
+    List<GraphNode> neighbours;
     public GraphNode(int val)
     {
         this.val = val;
-        neighbours = new Vector<GraphNode>();
+        neighbours = new ArrayList<GraphNode>();
     }
 }
 
 class GraphCreation
 {
-    // A method which clones the graph and
-    // returns the reference of new cloned source node
+    // A method which clones the graph and returns the reference of new cloned source node
     public GraphNode cloneGraph(GraphNode source)
     {
         Queue<GraphNode> q = new LinkedList<GraphNode>();
         q.add(source);
 
-        // An HashMap to keep track of all the
-        // nodes which have already been created
+        // An HashMap to keep track of all the nodes which have already been created
         HashMap<GraphNode,GraphNode> hm =
                 new HashMap<GraphNode,GraphNode>();
 
@@ -42,20 +34,17 @@ class GraphCreation
 
         while (!q.isEmpty())
         {
-            // Get the front node from the queue
-            // and then visit all its neighbours
+            // Get the front node from the queue and then visit all its neighbours
             GraphNode u = q.poll();
 
             // Get corresponding Cloned Graph Node
             GraphNode cloneNodeU = hm.get(u);
             if (u.neighbours != null)
             {
-                Vector<GraphNode> v = u.neighbours;
+                List<GraphNode> v = u.neighbours;
                 for (GraphNode graphNode : v)
                 {
-                    // Get the corresponding cloned node
-                    // If the node is not cloned then we will
-                    // simply get a null
+                    // Get the corresponding cloned node  If the node is not cloned then we will simply get a null
                     GraphNode cloneNodeG = hm.get(graphNode);
 
                     // Check if this node has already been created
@@ -63,14 +52,12 @@ class GraphCreation
                     {
                         q.add(graphNode);
 
-                        // If not then create a new Node and
-                        // put into the HashMap
+                        // If not then create a new Node and  put into the HashMap
                         cloneNodeG = new GraphNode(graphNode.val);
                         hm.put(graphNode,cloneNodeG);
                     }
 
-                    // add the 'cloneNodeG' to neighbour
-                    // vector of the cloneNodeG
+                    // add the 'cloneNodeG' to neighbour vector of the cloneNodeG
                     cloneNodeU.neighbours.add(cloneNodeG);
                 }
             }
@@ -129,7 +116,7 @@ class GraphCreation
             System.out.println("Address of Node " + u);
             if (u.neighbours != null)
             {
-                Vector<GraphNode> v = u.neighbours;
+                List<GraphNode> v = u.neighbours;
                 for (GraphNode g : v)
                 {
                     if (visit.get(g) == null)

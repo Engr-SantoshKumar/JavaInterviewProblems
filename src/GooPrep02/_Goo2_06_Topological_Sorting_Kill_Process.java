@@ -19,8 +19,7 @@
                 10   12 -- 16 --17
                       \   /
                         13
- Kill 5 will also kill 10, 12, 13, 16, 17, 13. in this order
-
+ Kill 5 will also kill 10, 17/13, 16, 12  then only we can kill 5
  */
 package GooPrep02;
 
@@ -31,13 +30,19 @@ public class _Goo2_06_Topological_Sorting_Kill_Process {
     public static HashSet<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
 
         // some variables
-        HashMap<Integer, List<Integer>> gMap = new HashMap<>();
+        HashMap<Integer, List<Integer>> hashMapGraph = new HashMap<>();
         Queue<Integer> queue = new LinkedList<>();
         LinkedHashSet<Integer> result = new LinkedHashSet<>();
 
         // build the graph out of pid and pPid
-        gMap = buildConnectedGraph(pid, ppid);  // {0=[3], 16=[17], 3=[1, 5], 5=[10, 12], 12=[13, 16]}
-
+        // {0=[3], 16=[17], 3=[1, 5], 5=[10, 12], 12=[13, 16]}
+        for(int i=0; i<pid.size(); i++){
+            int curProcessID = pid.get(i);
+            int curPatentID = ppid.get(i);
+            hashMapGraph.putIfAbsent(curPatentID, new ArrayList<>());
+            hashMapGraph.get(curPatentID).add(curProcessID);
+        }
+        // add process id to queue which need to kill
         queue.add(kill);
 
         //BFS
@@ -49,7 +54,7 @@ public class _Goo2_06_Topological_Sorting_Kill_Process {
             }                                   // parent pids.. want to put in the kill list first
             result.add(currentProcess);
 
-            List<Integer> list = gMap.get(currentProcess);
+            List<Integer> list = hashMapGraph.get(currentProcess);
             if(list == null || list.size() == 0) continue;
 
             for(Integer child : list) {
@@ -59,24 +64,6 @@ public class _Goo2_06_Topological_Sorting_Kill_Process {
 
         return result;
     }
-
-    public static HashMap<Integer, List<Integer>> buildConnectedGraph(List<Integer> pid, List<Integer> ppid){
-        HashMap<Integer, List<Integer>> graph = new HashMap<>();
-
-        for(int i =0; i < pid.size(); i++){
-            int parentID = ppid.get(i);
-
-            if(!graph.containsKey(parentID)){
-                List<Integer> curProcess = new ArrayList<>();
-                curProcess.add(pid.get(i));
-                graph.put(parentID, curProcess);
-            }else{
-                graph.get(parentID).add(pid.get(i));
-            }
-        }
-        return graph;
-    }
-
 
     public static void main(String[] args) {
         List<Integer> pPid = new ArrayList<>();
