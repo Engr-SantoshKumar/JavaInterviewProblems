@@ -23,9 +23,9 @@ public class _oA_19_b_MinimumMeetingRoomsUsingPQ {
         if(meetings.length ==1) return 1;
 
         // sort the meetings to start time lambda style comparator
-        Arrays.sort(meetings, (a, b) -> Integer.compare(a[0], b[0]));
-        //need a PQ to track and compare ended meetings
-        Queue<int[]> minPQ = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(meetings, (a, b) -> a[0]- b[0]);
+        //need a PQ to track and compare ended meetings so that first ending will be at top
+        Queue<int[]> minPQ = new PriorityQueue<>((a, b) -> a[1]- b[1]);
 
         for (int[] currMeeting : meetings) {
             // If the current meeting starts before the earliest meeting ends then we need a new meeting room.

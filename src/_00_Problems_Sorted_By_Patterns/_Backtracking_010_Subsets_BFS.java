@@ -16,7 +16,7 @@ public class _Backtracking_010_Subsets_BFS {
             return new ArrayList<>();
 
         List<List<Integer>> result = new ArrayList<>();
-        Queue<List<Integer>> queue = new LinkedList<>();
+        Queue<List<Integer>> queue = new ArrayDeque<>();
         queue.offer(new ArrayList<Integer>()); // add the empty one to queue
         int i=0;
         Arrays.sort(nums);// required for duplicates

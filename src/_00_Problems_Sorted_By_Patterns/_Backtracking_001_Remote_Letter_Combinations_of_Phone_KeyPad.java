@@ -23,7 +23,7 @@ public class _Backtracking_001_Remote_Letter_Combinations_of_Phone_KeyPad {
 
     public static void letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
-        Queue<String> queue = new LinkedList<>();
+        Queue<String> queue = new ArrayDeque<>();
         if(digits.length() ==0) {
             System.out.println("Not enough keys");
         }
