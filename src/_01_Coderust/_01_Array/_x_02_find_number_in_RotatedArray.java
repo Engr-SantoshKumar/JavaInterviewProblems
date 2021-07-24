@@ -8,7 +8,7 @@ public class _x_02_find_number_in_RotatedArray {
      * Work also for zero-shifted array, e.g fully sorted, when shift = 0 also called as Rotated array
      */
 
-    static int searchInShiftedArr(int[] arr, int key) {
+    static int searchInShiftedArr(int[] arr, int target) {
         if (arr == null || arr.length == 0) {
             return -1;
         }
@@ -18,22 +18,21 @@ public class _x_02_find_number_in_RotatedArray {
 
         while (low <= high) {
             mid = low + ((high-low) / 2);
-            if (arr[mid] == key) {
+            if (arr[mid] == target) {
                 return mid;
             }
             if (arr[low] <= arr[mid]) { // means first half of the array is sorted
 
                 // deciding which pointer to move high or low -> mid
-                if (arr[low] <= key && key < arr[mid]) {
+                if (arr[low] <= target && target < arr[mid]) {
                     high = mid - 1;
                 } else {
                     low = mid + 1;
                 }
             }
             else {
-
                 // deciding which pointer to move high or low -> mid
-                if (arr[mid] < key && key <= arr[high]) {
+                if (arr[mid] < target && target <= arr[high]) {
                     low = mid + 1;
                 } else {
                     high = mid - 1;
