@@ -14,20 +14,20 @@ merging them into one sorted list:
 */
 
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class _K_Way_Merge_02_Merge_K_Sorted_Lists {
 
-    public static NodeLinkList mergeKLists(NodeLinkList[] lists) {
-        NodeLinkList head = new NodeLinkList(0);
-        NodeLinkList current = head;
+    public static ListNode mergeKLists(ListNode[] lists) {
+        ListNode head = new ListNode(0);
+        ListNode current = head;
 
         //pq for sorting the node in accenting order
-        Queue<NodeLinkList> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
+        Queue<ListNode> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
         //load the nodes to pq
-        for(NodeLinkList node : lists){
+        for(ListNode node : lists){
             if(node!=null)
                 pq.offer(node);
         }
@@ -48,10 +48,10 @@ public class _K_Way_Merge_02_Merge_K_Sorted_Lists {
         LinkedList<Number> list1 = new LinkedList<Number>(a);
         LinkedList<Number> list2 = new LinkedList<Number>(b);
         LinkedList<Number> list3= new LinkedList<Number>(c);
-        NodeLinkList headA = list1.getHead();
-        NodeLinkList headB = list2.getHead();
-        NodeLinkList headC = list3.getHead();
-        NodeLinkList[] lists = new NodeLinkList[]{headA, headB, headC};
+        ListNode headA = list1.getHead();
+        ListNode headB = list2.getHead();
+        ListNode headC = list3.getHead();
+        ListNode[] lists = new ListNode[]{headA, headB, headC};
 
         LinkedList.printList(mergeKLists(lists));
     }

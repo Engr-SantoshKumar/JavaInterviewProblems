@@ -13,13 +13,13 @@ Output: [8,9,9,9,0,0,0,1]
  */
 
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 
 public class _FastAndSlowPointer_01_Add_Two_Numbers_LL {
-    public static NodeLinkList addTwoNumber(NodeLinkList llOne, NodeLinkList llTwo){
-        NodeLinkList sumList = new NodeLinkList(0);
+    public static ListNode addTwoNumber(ListNode llOne, ListNode llTwo){
+        ListNode sumList = new ListNode(0);
         // need variable to travel/update all three linkList
-        NodeLinkList l1 = llOne, l2 = llTwo, current = sumList;
+        ListNode l1 = llOne, l2 = llTwo, current = sumList;
         int carry = 0;
         // loop until booth ends
         while(l1!=null || l2!=null){
@@ -33,13 +33,13 @@ public class _FastAndSlowPointer_01_Add_Two_Numbers_LL {
                 l2 = l2.next;
             }
             //create new node with sum %10 in sumLinkList
-            current.next = new NodeLinkList(sum % 10);
+            current.next = new ListNode(sum % 10);
             current = current.next;
             carry = sum / 10;
         }
         // create a last node for any carry value
         if(carry > 0){
-            current.next = new NodeLinkList(carry);
+            current.next = new ListNode(carry);
         }
         return sumList.next;
     }
@@ -50,8 +50,8 @@ public class _FastAndSlowPointer_01_Add_Two_Numbers_LL {
         Integer[] b = {5, 6, 4};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
         LinkedList<Number> list2 = new LinkedList<Number>(b);
-        NodeLinkList headA = list1.getHead();
-        NodeLinkList headB = list2.getHead();
+        ListNode headA = list1.getHead();
+        ListNode headB = list2.getHead();
         LinkedList.printList(addTwoNumber(headA, headB));
     }
 }

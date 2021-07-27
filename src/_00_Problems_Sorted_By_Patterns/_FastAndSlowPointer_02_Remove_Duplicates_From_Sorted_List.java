@@ -7,11 +7,11 @@ Input: head = [1,1,2,3,3]
 Output: [1,2,3]
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 public class _FastAndSlowPointer_02_Remove_Duplicates_From_Sorted_List {
 
-    public static NodeLinkList removeDuplicatesFromSortedLL(NodeLinkList head){
-        NodeLinkList current = head;
+    public static ListNode removeDuplicatesFromSortedLL(ListNode head){
+        ListNode current = head;
         while (current != null && current.next != null) {
             if (current.data == current.next.data) {
                 current.next = current.next.next;
@@ -24,7 +24,7 @@ public class _FastAndSlowPointer_02_Remove_Duplicates_From_Sorted_List {
     public static void main(String[] args) {
         Integer[] a = {1, 1, 1, 2, 3, 4, 4,4, 4,4, 4};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
-        NodeLinkList headA = list1.getHead();
+        ListNode headA = list1.getHead();
         LinkedList.printList(removeDuplicatesFromSortedLL(headA));
     }
 

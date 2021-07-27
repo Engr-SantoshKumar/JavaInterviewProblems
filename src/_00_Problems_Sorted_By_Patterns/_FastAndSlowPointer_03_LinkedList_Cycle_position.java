@@ -15,19 +15,19 @@ Find the postion where linked list cycle circular linked list start
 
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 
 public class _FastAndSlowPointer_03_LinkedList_Cycle_position {
 
-    public static NodeLinkList findStartOfCircle(NodeLinkList head){
+    public static ListNode findStartOfCircle(ListNode head){
         if(head==null) return null;
 
         //step 1: first find if its a circular linked list (keep the point where they meet slow==fast
-        NodeLinkList p2 = getIntersectionPoint(head);
+        ListNode p2 = getIntersectionPoint(head);
 
         //step 2: Reinitialize slow to head(beginning) and move both slow and fast once step at a time
         if(p2 !=null){
-            NodeLinkList p1 = head;
+            ListNode p1 = head;
             while(p1!=p2){
                 p1=p1.next;
                 p2=p2.next;
@@ -36,10 +36,10 @@ public class _FastAndSlowPointer_03_LinkedList_Cycle_position {
         return p2;
     }
 
-    private static NodeLinkList getIntersectionPoint(NodeLinkList head) {
+    private static ListNode getIntersectionPoint(ListNode head) {
 
-        NodeLinkList slow = head;
-        NodeLinkList fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
         while(fast!=null){
 
             slow = slow.next;

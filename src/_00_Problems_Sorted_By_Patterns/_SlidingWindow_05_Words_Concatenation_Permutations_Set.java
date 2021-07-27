@@ -49,7 +49,7 @@ public class _SlidingWindow_05_Words_Concatenation_Permutations_Set {
                 //creating a new permutation by adding the current word at every position
                 for (int j = 0; j <= current.size(); j++) {
                     List<String> temp = new LinkedList<>(current);
-                    temp.add(j, currentWord);
+                    temp.add(j, currentWord); // (j,currentWord) --> (atIndex j , add currentWord)
                     queue.add(temp);
 
                     if (temp.size() == wordsList.length) {

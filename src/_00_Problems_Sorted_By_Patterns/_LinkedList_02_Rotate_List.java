@@ -19,16 +19,16 @@ Then all we need to do is record the next node as head, and break the circle wit
 
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 
 public class _LinkedList_02_Rotate_List {
-    public static NodeLinkList rotateRight(NodeLinkList head, int k) {
+    public static ListNode rotateRight(ListNode head, int k) {
         //base
         if(head==null || k==0) return head;
 
         //step1: find length and connect tail to head to make circular
         int len =1;
-        NodeLinkList pointer = head;
+        ListNode pointer = head;
         while(pointer.next!=null){
             pointer=pointer.next;
             len++;
@@ -49,9 +49,9 @@ public class _LinkedList_02_Rotate_List {
     public static void main(String[] args) {
         Integer[] a = {1, 2, 3, 4, 5};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
-        NodeLinkList head1 = list1.getHead();
+        ListNode head1 = list1.getHead();
         LinkedList.printList(head1);
-        NodeLinkList result =rotateRight(head1, 11);
+        ListNode result =rotateRight(head1, 11);
         LinkedList.printList(result);
     }
 

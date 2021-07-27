@@ -8,12 +8,12 @@ Input: l1 = [1,2,4], l2 = [1,3,4]
 Output: [1,1,2,3,4,4]
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 
 public class _K_Way_Merge_01_Two_Sorted_Lists {
-        public static NodeLinkList mergeTwoLists(NodeLinkList l1, NodeLinkList l2) {
-            NodeLinkList fakeHead = new NodeLinkList(0);
-            NodeLinkList current = fakeHead;
+        public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+            ListNode fakeHead = new ListNode(0);
+            ListNode current = fakeHead;
 
             while (l1 != null && l2 != null) {
                 if (l1.data <= l2.data) {
@@ -36,8 +36,8 @@ public class _K_Way_Merge_01_Two_Sorted_Lists {
 
         LinkedList<Number> list1 = new LinkedList<Number>(a);
         LinkedList<Number> list2 = new LinkedList<Number>(b);
-        LinkedList.NodeLinkList headA = list1.getHead();
-        NodeLinkList headB = list2.getHead();
+        ListNode headA = list1.getHead();
+        ListNode headB = list2.getHead();
         LinkedList.printList(mergeTwoLists(headA, headB));
     }
 }

@@ -7,15 +7,15 @@ index of the node that tail's next pointer is connected to. Note that pos is not
 Return true if there is a cycle in the linked list. Otherwise, return false.
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 
 import java.util.HashSet;
 
 public class _FastAndSlowPointer_03_Linked_List_Cycle {
 
-    public boolean isCircularLLUsingSET(NodeLinkList node){
-        NodeLinkList current = node;
-        HashSet<NodeLinkList> visited = new HashSet<>();
+    public boolean isCircularLLUsingSET(ListNode node){
+        ListNode current = node;
+        HashSet<ListNode> visited = new HashSet<>();
         while(current!=null){
             if(visited.contains(current)) return true;
             current = current.next;
@@ -23,9 +23,9 @@ public class _FastAndSlowPointer_03_Linked_List_Cycle {
         return false;
     }
 
-    public boolean isCircularLLUsingSlowFastPointer(NodeLinkList node){
-        NodeLinkList slow = node;
-        NodeLinkList fast = node.next;
+    public boolean isCircularLLUsingSlowFastPointer(ListNode node){
+        ListNode slow = node;
+        ListNode fast = node.next;
 
         while(fast!=null || fast.next!=null){
             if(slow==fast) return true;

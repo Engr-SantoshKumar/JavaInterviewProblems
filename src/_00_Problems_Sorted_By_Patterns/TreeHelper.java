@@ -3,14 +3,14 @@ package _00_Problems_Sorted_By_Patterns;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeHelper extends Node {
+public class TreeHelper extends TreeNode {
 
-    public static void print(Node root)
+    public static void print(TreeNode root)
     {  System.out.println("= = = = = = = = = = = Printing Tree = = = = = = = = = = = =");
         List<List<String>> lines = new ArrayList<List<String>>();
 
-        List<Node> level = new ArrayList<Node>();
-        List<Node> next = new ArrayList<Node>();
+        List<TreeNode> level = new ArrayList<TreeNode>();
+        List<TreeNode> next = new ArrayList<TreeNode>();
 
         //System.out.println(" adding root "+root.getText());
         level.add(root);
@@ -24,14 +24,14 @@ public class TreeHelper extends Node {
 
             nn = 0;
 
-            for (Node n : level) {
+            for (TreeNode n : level) {
                 if (n == null) {
                     line.add(null);
 
                     next.add(null);
                     next.add(null);
                 } else {
-                    int aa = n.data;
+                    int aa = n.value;
                     line.add(String.valueOf(aa));
                     if (String.valueOf(aa).length() > widest) widest = String.valueOf(aa).length();
 
@@ -47,7 +47,7 @@ public class TreeHelper extends Node {
 
             lines.add(line);
 
-            List<Node> tmp = level;
+            List<TreeNode> tmp = level;
             level = next;
             next = tmp;
             next.clear();
@@ -125,24 +125,24 @@ public class TreeHelper extends Node {
     public static void print(int[] ar){
         //int[] ar = new int[]{1,2,3,4,5,6,7,8,9};
         TreeHelper tp = new TreeHelper();
-        Node root = new Node();
-        root.data = ar[0];
+        TreeNode root = new TreeNode();
+        root.value = ar[0];
         tp.construct(ar, root, 0);
         print(root);
 
     }
-    public void construct(int[] ar, Node root , int i){
+    public void construct(int[] ar, TreeNode root , int i){
         int N = ar.length-1;
         int leftChild = 2*i+1; int rightChild = leftChild+1;
         if(leftChild<=N){
-            root.left = new Node();
-            root.left.data = ar[leftChild];
+            root.left = new TreeNode();
+            root.left.value = ar[leftChild];
             //System.out.print("\n in construct root "+ root.text+" left "+root.left.text);
             construct(ar, root.left, leftChild);
         }
         if(rightChild<=N){
-            root.right = new Node();
-            root.right.data = ar[rightChild];
+            root.right = new TreeNode();
+            root.right.value = ar[rightChild];
             //System.out.print("\n root "+ root.text+" right "+root.right.text);
             construct(ar, root.right, rightChild);
         }
@@ -152,11 +152,11 @@ public class TreeHelper extends Node {
         new TreeHelper().print(ar);
     }
 
-    public static Node create(int[] ar){
+    public static TreeNode create(int[] ar){
         //int[] ar = new int[]{1,2,3,4,5,6,7,8,9};
         TreeHelper tp = new TreeHelper();
-        Node root = new Node();
-        root.data = ar[0];
+        TreeNode root = new TreeNode();
+        root.value = ar[0];
         tp.construct(ar, root, 0);
         print(root);
         return root;

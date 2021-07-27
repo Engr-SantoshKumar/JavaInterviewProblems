@@ -42,7 +42,7 @@ public class _Goo2_27_01_T_Recover_BST {
         Integer SN = null;
 
         for(int i =1; i<resultList.size(); i++){
-            if(resultList.get(i) < resultList.get(i-1)){
+            if(resultList.get(i-1) > resultList.get(i)){
                 if(FN == null){
                     FN = resultList.get(i-1);
                 }

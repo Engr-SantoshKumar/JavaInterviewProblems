@@ -17,21 +17,21 @@ Logic:
        step 3: merge take one from head one from P2 and move both
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 public class _FastAndSlowPointer_04_Reorder_LinkedList {
-    public static NodeLinkList reorderList(NodeLinkList head){
+    public static ListNode reorderList(ListNode head){
 
         if (head == null || head.next == null) return null;
 
         // step 1: Find the middle node
-        NodeLinkList slow = head, fast = head.next;
+        ListNode slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
         //step 2: Reverse the second half and create the another ll from reversed 2nd half and end the firstHalf
-        NodeLinkList head2 = reverse(slow.next);
+        ListNode head2 = reverse(slow.next);
         slow.next = null; //--> 1st half ends
 
         //step 3: Intertwine the two halves
@@ -40,10 +40,10 @@ public class _FastAndSlowPointer_04_Reorder_LinkedList {
         return head;
     }
 
-    private static NodeLinkList reverse(NodeLinkList n) {
-        NodeLinkList prev = null, cur = n;
+    private static ListNode reverse(ListNode n) {
+        ListNode prev = null, cur = n;
         while (cur != null) {
-            NodeLinkList tmp = cur.next;
+            ListNode tmp = cur.next;
             cur.next = prev;
             prev = cur;
             cur = tmp;
@@ -51,9 +51,9 @@ public class _FastAndSlowPointer_04_Reorder_LinkedList {
         return prev; //--> after reverse previous will be at last and return it. now this will be head of reverse 2nd half
     }
 
-    private static void merge(NodeLinkList head1, NodeLinkList head2) {
+    private static void merge(ListNode head1, ListNode head2) {
         while (head2 != null) {
-            NodeLinkList temp = head1.next;
+            ListNode temp = head1.next;
             head1.next = head2;
             head1 = head2; //moving head1 one ahead
             head2 = temp;  //moving head2 one ahead
@@ -64,7 +64,7 @@ public class _FastAndSlowPointer_04_Reorder_LinkedList {
 
         Integer[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
-        NodeLinkList headA = list1.getHead();
+        ListNode headA = list1.getHead();
         LinkedList.printList(reorderList(headA));
     }
 }

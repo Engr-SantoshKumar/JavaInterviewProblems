@@ -3,15 +3,15 @@ package _00_Problems_Sorted_By_Patterns;
 public class LinkedList<I extends Number> {
 
     public LinkedList(){}
-    NodeLinkList first;
-    NodeLinkList last;
+    ListNode first;
+    ListNode last;
     public LinkedList(Integer[] ar){
         first = null;
 
-        NodeLinkList prev = null;
+        ListNode prev = null;
         for(Integer elem : ar){
             //head.data = elem;
-            NodeLinkList current = new NodeLinkList(elem);
+            ListNode current = new ListNode(elem);
             if(prev != null){
                 prev.next = current;
                 //System.out.println(" prev "+prev.data+" --> "+prev.next.data);
@@ -23,12 +23,12 @@ public class LinkedList<I extends Number> {
             prev = current;
         }
     }
-    public NodeLinkList getHead(){
+    public ListNode getHead(){
         //System.out.println(" returning head of LL as "+first.data);
         return first;
     }
 
-    public NodeLinkList getLast(){
+    public ListNode getLast(){
         last = first;
         if(last == null){
             return last;
@@ -42,8 +42,8 @@ public class LinkedList<I extends Number> {
 
 
 
-    public static void printList(NodeLinkList head){
-        NodeLinkList result = head;
+    public static void printList(ListNode head){
+        ListNode result = head;
         System.out.println("\n.....list here");
         while(result!=null){
             System.out.print(result.data+" -> ");
@@ -51,26 +51,17 @@ public class LinkedList<I extends Number> {
         }
         System.out.println();
     }
-    static class NodeLinkList{
+    static class ListNode {
         Integer data;
-        NodeLinkList next;
-        public NodeLinkList(){
+        ListNode next;
+        public ListNode(){
 
         }
-        public NodeLinkList(Integer data){
+        public ListNode(Integer data){
             this.data = data;
         }
     }
 }
 
-class NodeLinkList{
-    Integer data;
-    NodeLinkList next;
-    public NodeLinkList(){
 
-    }
-    public NodeLinkList(Integer data){
-        this.data = data;
-    }
-}
 

@@ -14,17 +14,17 @@ Logic:
     otherwise there will be a cycle.
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 public class _LinkedList_03_Partition_List {
-    public static NodeLinkList partitionList(NodeLinkList head, int k){
+    public static ListNode partitionList(ListNode head, int k){
         //base
         if(head==null || head.next==null) return head;
         //dummy heads of the 1st and 2nd queues
-        NodeLinkList smallerValHead = new NodeLinkList(0);
-        NodeLinkList largerValHead = new NodeLinkList(0);
+        ListNode smallerValHead = new ListNode(0);
+        ListNode largerValHead = new ListNode(0);
         //current tails of the two queues;
-        NodeLinkList sCur = smallerValHead;
-        NodeLinkList gCur = largerValHead;
+        ListNode sCur = smallerValHead;
+        ListNode gCur = largerValHead;
 
         while(head!=null){
             if(head.data < k){
@@ -46,9 +46,9 @@ public class _LinkedList_03_Partition_List {
     public static void main(String[] args) {
         Integer[] a = {5, 2, 3, 4, 6, 2, 3, 9};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
-        NodeLinkList head1 = list1.getHead();
+        ListNode head1 = list1.getHead();
         LinkedList.printList(head1);
-        NodeLinkList result = partitionList(head1, 4);
+        ListNode result = partitionList(head1, 4);
         LinkedList.printList(result);
     }
 }

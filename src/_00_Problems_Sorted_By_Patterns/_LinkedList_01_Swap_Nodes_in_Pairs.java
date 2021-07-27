@@ -8,19 +8,19 @@ Output: [2,1,4,3]
 
 */
 package _00_Problems_Sorted_By_Patterns;
-import _00_Problems_Sorted_By_Patterns.LinkedList.NodeLinkList;
+import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
 
 public class _LinkedList_01_Swap_Nodes_in_Pairs {
 
     // recursive approach
-    public static NodeLinkList swapPairs(NodeLinkList head) {
+    public static ListNode swapPairs(ListNode head) {
 
         //base cases
         if(head == null || head.next == null) return head;
 
         // Nodes to be swapped
-        NodeLinkList first = head;
-        NodeLinkList second = head.next;
+        ListNode first = head;
+        ListNode second = head.next;
 
         //swap
         first.next = swapPairs(second.next);
@@ -29,17 +29,17 @@ public class _LinkedList_01_Swap_Nodes_in_Pairs {
     }
 
     //leaner approach
-    public static NodeLinkList swapInPairsLeaner(NodeLinkList head){
+    public static ListNode swapInPairsLeaner(ListNode head){
         //base cases
         if(head == null || head.next == null) return head;
 
-        NodeLinkList dummyHead = new NodeLinkList(-1);
-        NodeLinkList previous = dummyHead;
+        ListNode dummyHead = new ListNode(-1);
+        ListNode previous = dummyHead;
 
         while (head!=null){
             // Nodes to be swapped
-            NodeLinkList first = head;
-            NodeLinkList second = head.next;
+            ListNode first = head;
+            ListNode second = head.next;
             // Swapping
             previous.next=second;
             first.next = second.next;
@@ -55,8 +55,8 @@ public class _LinkedList_01_Swap_Nodes_in_Pairs {
     public static void main(String[] args) {
         Integer[] a = {1, 2, 1, 2, 1, 2, 1, 2};
         LinkedList<Number> list1 = new LinkedList<Number>(a);
-        LinkedList.NodeLinkList head1 = list1.getHead();
-        LinkedList.NodeLinkList result =swapPairs(head1);
+        ListNode head1 = list1.getHead();
+        ListNode result =swapPairs(head1);
         LinkedList.printList(result);
     }
 
