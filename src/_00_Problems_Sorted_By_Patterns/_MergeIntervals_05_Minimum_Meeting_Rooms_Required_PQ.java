@@ -27,11 +27,12 @@ public class _MergeIntervals_05_Minimum_Meeting_Rooms_Required_PQ {
             Arrays.sort(meetings, (a, b) -> a[0] - b[0]);
             //need a PQ to track and compare ended meetings so that first ending will be at top
             Queue<int[]> minPQ = new PriorityQueue<>((a, b) -> a[1]- b[1]);
-
+            int minMeetingRoom=meetings.length;
             for (int[] currMeeting : meetings) {
                 // If the current meeting starts before any ended meeting then we need a new meeting room.
                 if (minPQ.size() == 0 || currMeeting[0] < minPQ.peek()[1]) {
                     minPQ.add(currMeeting);
+                    minMeetingRoom = Math.min(minMeetingRoom, minPQ.size());
                 } else {
                     // Re-use the meeting room of the meeting that finished earliest.
                     minPQ.remove();// remove the finished one and add the current running one

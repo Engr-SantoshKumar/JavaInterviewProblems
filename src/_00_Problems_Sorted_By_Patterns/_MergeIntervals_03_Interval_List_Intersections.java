@@ -17,15 +17,13 @@ Logic:
 2. End Point of intersection will be MinOf(EndOfA, EndOfB)
 3. Remove the interval of smallest end point(move i or j in A or B)
 */
-
-
 package _00_Problems_Sorted_By_Patterns;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _MergeIntervals_02_Interval_List_Intersections {
+public class _MergeIntervals_03_Interval_List_Intersections {
 
     public static int[][] intervalIntersection(int[][] A, int[][] B) {
         List<int[]> ans = new ArrayList();
@@ -33,12 +31,12 @@ public class _MergeIntervals_02_Interval_List_Intersections {
 
         while (i < A.length && j < B.length) {
             // Let's check if A[i] intersects B[j].
-            // lo - the startPoint of the intersection
-            // hi - the endPoint of the intersection
-            int lo = Math.max(A[i][0], B[j][0]);
-            int hi = Math.min(A[i][1], B[j][1]);
-            if (lo <= hi) //--> if low is less than high then there is overlapping
-                ans.add(new int[]{lo, hi});
+            // maxOfStarts - the startPoint of the intersection
+            // minOfEnds - the endPoint of the intersection
+            int maxOfStarts = Math.max(A[i][0], B[j][0]);
+            int minOfEnds = Math.min(A[i][1], B[j][1]);
+            if (maxOfStarts < minOfEnds) //--> if low is less than high then there is overlapping
+                ans.add(new int[]{maxOfStarts, minOfEnds});
 
             // Remove the interval with the smallest endpoint
             if (A[i][1] < B[j][1])

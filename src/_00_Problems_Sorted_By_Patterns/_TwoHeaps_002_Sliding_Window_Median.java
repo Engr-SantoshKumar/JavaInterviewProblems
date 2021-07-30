@@ -38,7 +38,7 @@ public class _TwoHeaps_002_Sliding_Window_Median {
         for(int i=0; i<nums.length; i++){
             firstHalf.offer(nums[i]);
             secondHalf.offer(firstHalf.remove()); // idea is to bring the elements to 2nd half through 1st half, so that the bigger elements will come
-            //now balance both
+            //now balance both (we always try to have extra at first half)
             if(secondHalf.size() > firstHalf.size()){
                 firstHalf.offer(secondHalf.remove());// top of 2nd half become top of 1st half
             }

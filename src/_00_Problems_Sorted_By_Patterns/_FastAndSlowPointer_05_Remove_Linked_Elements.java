@@ -1,4 +1,4 @@
-/* [  ] [ Remove Linked List Elements ]
+/* [ _FastAndSlowPointer_05 ] [ Remove Linked given Elements ]
 _______________________________________________________________________________
 Given the head of a linked list and an integer val, remove all the nodes of the linked list
 that has Node.val == val, and return the new head.
@@ -8,7 +8,7 @@ Output: [1,2,3,4,5]
 */
 package _00_Problems_Sorted_By_Patterns;
 import _00_Problems_Sorted_By_Patterns.LinkedList.ListNode;
-public class _FastAndSlowPointer_05_Remove_Linked_List_Elements {
+public class _FastAndSlowPointer_05_Remove_Linked_Elements {
 
     public static ListNode removeElements(ListNode head, int val) {
         ListNode fakeHead = new ListNode(-1); //imp is the head we need to remove

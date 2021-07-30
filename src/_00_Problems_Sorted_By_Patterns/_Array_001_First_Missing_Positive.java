@@ -13,7 +13,10 @@
     Therefore, the complexity is O(N)
     */
 package _00_Problems_Sorted_By_Patterns;
-    public class _Array_001_First_Missing_Positive {
+
+import java.util.Arrays;
+
+public class _Array_001_First_Missing_Positive {
 
     static int firstMissingPositiveNumber(int[] arr){
         //base cases
@@ -27,13 +30,14 @@ package _00_Problems_Sorted_By_Patterns;
             // Almost the same, but like [3,2,3,4], when i = 0, A[0] = 3, and we should move it to position 3
             // i.e  i = 2 where there also  A[2] = 3. same digit exists
             // Thus there is no need to do swap or it will go into endless loop
-            while(arr[i] > 0 && arr[i] < arr.length && arr[arr[i]-1]!=arr[i] ){
+            while(current > 0 && current < arr.length && arr[current-1]!=current ){
                 int temp = arr[current-1];
-                arr[current-1] = arr[i];
+                arr[current-1] = current;
                 arr[i] = temp;
             }
         }
         //check if arr[index] == index + 1;
+        System.out.println(Arrays.toString(arr));
         for(int i=0; i < arr.length; i++){
             if(arr[i]!=i+1) return i+1;
         }
@@ -44,6 +48,7 @@ package _00_Problems_Sorted_By_Patterns;
     public static void main(String[] args) {
         int[] arr = {1,4,8,2,3,9};
         int[] arr1 = {3,4,-1,1};
-        System.out.println(firstMissingPositiveNumber(arr1));
+        int[] arr2 = new int[]{1,7,3,4};
+        System.out.println(firstMissingPositiveNumber(arr2));
     }
 }

@@ -11,12 +11,10 @@ permutation of the pattern in the string. We will use a list to store the starti
 the anagrams of the pattern in the string.
 */
 package _00_Problems_Sorted_By_Patterns;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 public class _SlidingWindow_04_Find_All_Anagrams_in_Given_String {
     public static List<Integer> findStringAnagrams(String str, String pattern){

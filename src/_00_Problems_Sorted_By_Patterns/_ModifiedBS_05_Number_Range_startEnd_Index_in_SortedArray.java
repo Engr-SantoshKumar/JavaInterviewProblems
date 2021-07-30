@@ -12,22 +12,21 @@ finding last position of the ‘key’, we can update start = middle + 1 to see 
 
 */
 package _00_Problems_Sorted_By_Patterns;
-
 import java.util.Arrays;
 
 public class _ModifiedBS_05_Number_Range_startEnd_Index_in_SortedArray {
     public static int[] findStartEndIndex(int[] array, int target){
         int[] result = new int[]{-1, -1};
         //lets find the target first if its there
-        result[0] = search(array, target, false); // false we just look for left end 1st index
+        result[0] = search(array, target, false); // passing false as parameter- we just look for left end 1st index
         //if target exist in input array, find 1st and last index of target
         if(result[0]!=-1){
-            result[1]=search(array, target, true); // true we just look for right side
+            result[1]=search(array, target, true); // passing true as parameter- we just look for right side
         }
         return result;
     }
 
-    private static int search(int[] array, int target, boolean findMaxIndex) {
+    private static int search(int[] array, int target, boolean findRightMost) {
         int targetIndex =-1;
         int start=0;
         int end= array.length-1;
@@ -40,7 +39,7 @@ public class _ModifiedBS_05_Number_Range_startEnd_Index_in_SortedArray {
                 start=mid+1;
             }else{ //it come to this loop if target is not either sides means mid is key
                 targetIndex=mid;
-                if(findMaxIndex){//if true means we are looking for end (rightSide of current)
+                if(findRightMost){//if true means we are looking for end (rightSide of current)
                     start = mid+1;
                 }else{ //false, means we got the target and still find its left end
                     end=mid-1;

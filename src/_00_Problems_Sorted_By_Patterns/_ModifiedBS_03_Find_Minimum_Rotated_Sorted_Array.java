@@ -17,7 +17,7 @@ public class _ModifiedBS_03_Find_Minimum_Rotated_Sorted_Array {
         int left = 0, right = array.length - 1; int mid;
 
         //Case 1: 1 < 2 < 3 < 4 < 5 < 7. Already sorted array. A[0] --> smallest
-        if (array[right] > array[0]) {
+        if (array[right] > array[left]) {
             return array[0];
         }
 
@@ -40,7 +40,7 @@ public class _ModifiedBS_03_Find_Minimum_Rotated_Sorted_Array {
             // if the mid elements value is greater than the 0th element this means
             // the least value is still somewhere to the right as we are still dealing with elements
             // greater than array[0]
-            if (array[mid] > array[0]) {
+            if (array[mid] > array[left]) {
                 left = mid + 1;
             } else {
                 // if array[0] is greater than the mid value then this means the smallest value is somewhere to

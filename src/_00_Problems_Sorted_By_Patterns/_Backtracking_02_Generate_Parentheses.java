@@ -10,7 +10,7 @@ package _00_Problems_Sorted_By_Patterns;
 import java.util.LinkedList;
 import java.util.List;
 
-public class _Backtracking_10_Generate_Parentheses {
+public class _Backtracking_02_Generate_Parentheses {
     public static List<String> generateParentheses(int pair){
         List<String> result = new LinkedList<>();
         Parentheses("", 0, 0, pair, result);

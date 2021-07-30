@@ -29,10 +29,10 @@ public class _SlidingWindow_02_Fruit_into_Baskets {
 
             //shrink the window, until we have only 2 kinds of fruits left
             while(countMap.size() > 2){ //---> this line is only different from problem: K Distinct char subString
-                char leftChar = fruitsArray[windowEnd];
+                char leftChar = fruitsArray[windowStart];
                 countMap.put(leftChar,countMap.get(leftChar) -1);
-                if(countMap.get(rightChar)==0){
-                    countMap.remove(rightChar);
+                if(countMap.get(leftChar)==0){
+                    countMap.remove(leftChar);
                 }
                 windowStart++; //-->shrink the window
             }

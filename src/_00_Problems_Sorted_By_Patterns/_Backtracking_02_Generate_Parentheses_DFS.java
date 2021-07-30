@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-public class _Backtracking_10_Generate_Parentheses_DFS {
+public class _Backtracking_02_Generate_Parentheses_DFS {
 
     public static List<String> generateParenthesisBFS(int count){
         List<String> result = new ArrayList<>();

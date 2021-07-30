@@ -47,7 +47,7 @@ public class _SlidingWindow_01_Longest_Repeating_Character_Replacement {
             allowed to replace more then k characters [len-maxChCount > k]
              */
             if((windowEnd-windowStart+1 - maxRepeatingCharCount) > k ){
-                //shrink
+                //shrink  shrink  shrink
                 char leftChar = str.charAt(windowStart);
                 //update countMap
                 countMap.put(leftChar,countMap.get(leftChar)-1);

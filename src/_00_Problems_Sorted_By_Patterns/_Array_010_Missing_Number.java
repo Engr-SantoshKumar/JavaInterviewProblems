@@ -31,9 +31,9 @@ public class _Array_010_Missing_Number {
     public static int missingNumberBitOperation(int[] nums){
         int missingNo = nums.length;
 
-        for(int i=0; i<nums.length; i++){
-            missingNo ^= i; // add 1 to missing then add 2 t missing then 3 to missing
-            missingNo ^= nums[i];  // suppose arr [2,3,0,4] --> firs 2 come its make -2 to missing then -3 then 0
+        for(int i=0; i<nums.length; i++){ //arr[0,3,2,4]
+            missingNo ^= i; // --> 4^0^1^2^3^
+            missingNo ^= nums[i];  // 0^3^2^4 ==> 4^0^1^2^3^0^3^2^4 ==> 1
         }
         return missingNo;
 

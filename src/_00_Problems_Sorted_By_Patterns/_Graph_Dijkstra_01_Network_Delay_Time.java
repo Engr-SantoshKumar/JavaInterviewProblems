@@ -52,31 +52,31 @@ public class _Graph_Dijkstra_01_Network_Delay_Time {
         pq.offer(new int[]{source, 0});
 
         // need another map to keep track of destinationNode and timeTaken
-        Map<Integer, Integer> distMap = new HashMap();
+        Map<Integer, Integer> visitedMap = new HashMap();
 
         while (!pq.isEmpty()) {
             int[] current = pq.poll();
             int curNode = current[0];
             int curTime = current[1];
-            //if visited --> skip, as we are using PQ so the least time node will process first and
-            // so if the node is already visited means we get there already with smaller time
-            if (distMap.containsKey(curNode)){
+            //if visited --> skip, as we are using PQ so the leastTimeTaken node will process first and
+            // so if the node is already visited means we reached there already with smaller time
+            if (visitedMap.containsKey(curNode)){
                 continue;
             }
-            distMap.put(curNode, curTime);
+            visitedMap.put(curNode, curTime);
             //find the neighbours and add to qp time will be curTime + newTime
             if (hashMapGraph.containsKey(curNode))
                 for (int[] edge : hashMapGraph.get(curNode)) {
                     int newNode = edge[0], newTime = edge[1];
-                    if (!distMap.containsKey(newNode))
+                    if (!visitedMap.containsKey(newNode))
                         pq.offer(new int[]{newNode, curTime+newTime});
                 }
         }
-        // to check if we visited all nodes or not we check distMap size to given totalNode
-        if (distMap.size() != totalNodes) return -1;
+        // to check if we visited all nodes or not we check visitedMap size to given totalNode
+        if (visitedMap.size() != totalNodes) return -1;
         int ans = 0;
         //loop map for max value
-        for (int time: distMap.values())
+        for (int time: visitedMap.values())
             ans = Math.max(ans, time);
         return ans;
     }

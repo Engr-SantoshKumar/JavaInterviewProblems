@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _Backtracking_010_Subsets {
+public class _Backtracking_03_Subsets {
     //General approach to backtracking questions :
     // Subsets, Permutations, Combination Sum, Palindrome Partitioning
     public static List<List<Integer>> subsetsBacktracking(int[] nums) {

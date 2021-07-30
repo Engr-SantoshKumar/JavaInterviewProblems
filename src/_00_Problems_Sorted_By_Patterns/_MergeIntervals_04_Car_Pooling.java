@@ -16,48 +16,36 @@ Output: true
    Start/End           2    3             7                       9
 
 Logic:
-Move to time line from left to right and add when pickUp and subtract when dropOff and count count should not over the capacity
-So what we need:
-1. need trips in sorted order on pickup time
-Way to solve created an array of size of lastDrop of point say 9 (array size 9+1=10) and scan the trips and
-update start=index=+pickUpPassengerCount and end=index=-dropOffPassengerCount
-                  ↑                                       ↑
-        arr[trip[1]] = +trip[0]                 arr[trip[2]] = -trip[0]
-2. Another way to use map(sortedMap) --> treeMap
-    Key:StartPoint Value:+PassengerCount
-    Key:EndPoint   Value:-PassengerCount
 
 */
 package _00_Problems_Sorted_By_Patterns;
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 public class _MergeIntervals_04_Car_Pooling {
-    public static boolean carPoolingUsingArray(int[][] trips, int capacity) {
-        int maxArraySize =0;
-        for(int[] curTrip: trips){
-            int curTripEnd = curTrip[2];
-            maxArraySize=Math.max(maxArraySize,curTripEnd);
 
-        }
-        int[] distArray = new int[maxArraySize+1];
-
-        //scan array and update distance array index
-        for(int[] curTrip: trips) {
-            int curPassenger = curTrip[0];
-            int curTripStart = curTrip[1];
-            int curTripEnd   = curTrip[2];
-            //updateArray
-            distArray[curTripStart] += curPassenger;
-            distArray[curTripEnd] -= curPassenger;
-        }
-        //fill the array with accumulative sum and at the same time check for maxCapacity
-        for(int i=1; i<distArray.length; i++){
-            distArray[i] += distArray[i-1];
-            if(distArray[i]>capacity) return false;
+    public static boolean carPoolingUsingMergeInterval(int[][] trips, int capacity) {
+        //same logic of problem: min meeting room
+        Arrays.sort(trips, (a, b)->(a[1]-b[1]));
+        //pq sort on end time
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->(a[2]-b[2]));
+        int passengerCount =0;
+        for(int[] curTrip : trips){
+            // if curTrip starts after the oldTrip(currently in PQ) ends, then passenger -= oldTrp=> pq.poll()[0];
+            while(!pq.isEmpty() && curTrip[1] > pq.peek()[2]){
+                passengerCount -= pq.poll()[0];
+            }
+            passengerCount += curTrip[0];
+            if(passengerCount > capacity) return false;
+            // add curTRip to pq
+            pq.add(curTrip);
         }
         return true;
     }
 
     public static void main(String[] args) {
         int[][] trips = new int[][]{{3,2,7},{3,7,9},{8,3,9}};
-        System.out.println(carPoolingUsingArray(trips, 11));
+        System.out.println(carPoolingUsingMergeInterval(trips, 11));
     }
 }

@@ -1,4 +1,4 @@
-package _00_Problems_Sorted_By_Patterns;/* [  ] [ 452. Minimum Number of Arrows to Burst Balloons ]
+/* [  _MergeIntervals_01_] [ 452. Minimum Number of Arrows to Burst Balloons ]
 _______________________________________________________________________________
 There are some spherical balloons spread in two-dimensional space. For each balloon, provided input is the start
 and end coordinates of the horizontal diameter.
@@ -30,7 +30,7 @@ Logic: problem type Overlapping Interval Problem
 4. If the current interval does not overlap with the active set, record some parameters,
     and create a new active set that contains the current interval.
 */
-
+package _00_Problems_Sorted_By_Patterns;
 import java.util.Arrays;
 
 public class _MergeIntervals_01_Minimum_Number_of_Arrows_Burst_Balloons {

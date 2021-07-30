@@ -10,7 +10,7 @@ package _00_Problems_Sorted_By_Patterns;
 
 import java.util.*;
 
-public class _Backtracking_010_Subsets_BFS {
+public class _Backtracking_03_Subsets_BFS {
     public static List<List<Integer>> subsetsBFS(int[] nums) {
         if (nums == null || nums.length <= 0)
             return new ArrayList<>();
@@ -26,16 +26,16 @@ public class _Backtracking_010_Subsets_BFS {
                 continue;
             }
             int levelSize = queue.size();
-            for (int j = 0; j < levelSize; j++) {
-                List<Integer> polled = queue.poll();
+            while(levelSize --> 0) {
+                List<Integer> curSet = queue.poll();
                 //Logic is create two copy of current and push back one as is other with current index value
+                List<Integer> firstCopy = curSet; //1st copy as is
+                queue.offer(firstCopy); // --> push firstCopy asIs
 
-                List<Integer> asIs = polled; //1st copy as is
-                queue.offer(asIs);
-
-                List<Integer> updated = new ArrayList<>(polled); // 2nd copy + nums[i]
-                updated.add(nums[i]);
-                queue.offer(updated);
+                List<Integer> secondCopy = new ArrayList<>(); // 2nd copy + nums[i]
+                secondCopy.addAll(curSet);
+                secondCopy.add(nums[i]);
+                queue.offer(secondCopy);
             }
             i++;
         }

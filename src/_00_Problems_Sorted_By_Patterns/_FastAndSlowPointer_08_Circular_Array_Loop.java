@@ -24,7 +24,7 @@ public class _FastAndSlowPointer_08_Circular_Array_Loop {
         int n = nums.length;
         Map<Integer,Integer> map = new HashMap<>();
 
-        //arr[i]%n==0 (cycle)
+        //https://www.youtube.com/watch?v=2hVinjU-5SA
         for(int start=0; start<n;start++){
             //check if already visited
             if(map.containsKey(start))

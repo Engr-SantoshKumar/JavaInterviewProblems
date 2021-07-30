@@ -1,4 +1,4 @@
-package _00_Problems_Sorted_By_Patterns;/* [  ] [  ]
+/* [ _ModifiedBS_06_ ] [ _ModifiedBS_06_Rotation_Count ]
 _______________________________________________________________________________
 Given an array of numbers which is sorted in ascending order and is rotated ‘k’ times around a pivot, find ‘k’.
 You can assume that the array does not have any duplicates.
@@ -16,25 +16,27 @@ Comparing the numbers at indices start and middle will give us two options:
 If arr[start] < arr[middle], the numbers from start to middle are sorted.
 Else, the numbers from middle + 1 to end are sorted.
 */
-
+package _00_Problems_Sorted_By_Patterns;
 public class _ModifiedBS_06_Rotation_Count {
+
+    // same as find smallest, only differance this returns index not valve
     public static int rotationCount(int[] array){
-        int startIndex =0;
-        int endIndex = array.length-1;
-        int midIndex;
-        while (startIndex<=endIndex){
-            midIndex=startIndex+(endIndex-startIndex)/2;
+        int start =0;
+        int end = array.length-1;
+        int mid;
+        while (start<=end){
+            mid=start+(end-start)/2;
             // sorted 10, 15, 1, 3, 8, 9
-            if(midIndex < endIndex && array[midIndex] > array[midIndex+1]){
-                return midIndex+1;
+            if(mid < end && array[mid] > array[mid+1]){
+                return mid+1;
             }
-            if(midIndex > startIndex && array[midIndex-1]>array[midIndex]){
-                return midIndex;
+            if(mid > start && array[mid-1]>array[mid]){
+                return mid;
             }
-            if(array[startIndex]<array[midIndex]){
-                startIndex = midIndex+1;
+            if(array[start]<array[mid]){
+                start = mid+1;
             }else{
-                endIndex = midIndex-1;
+                end = mid-1;
             }
         }
         return 0;

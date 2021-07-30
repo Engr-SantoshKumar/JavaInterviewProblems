@@ -38,9 +38,9 @@ package _00_Problems_Sorted_By_Patterns;
 
 import java.util.*;
 
-public class _Graph_TopologicalSort_01_Schedule {
+public class _Graph_TopologicalSort_01_Course_Schedule {
 
-    //numCourses= total numberOfCourses, prerequisites = [[1,0]] currentCourse 0, depends on preCourse 1
+    //numCourses= total numberOfCourses, prerequisites = [[0,1]] currentCourse 0, depends on preCourse 1
     public static boolean courseScheduleInOrder(int numCourses, int[][] prerequisites) {
 
         //A map to track--> key: preCourse, Value: curCourse(e.g if completing preCourse eligible to take course in value)
@@ -58,7 +58,6 @@ public class _Graph_TopologicalSort_01_Schedule {
             hashMapGraph.putIfAbsent(preCourse, new ArrayList<>());
             hashMapGraph.get(preCourse).add(curCourse);
         }
-
         /*
         Now we have hashMapGraph contains Key--> preCourse, to complete Course present in value
         Array totalCoursesReqToCompleteCur has total count of total preRequisites courses

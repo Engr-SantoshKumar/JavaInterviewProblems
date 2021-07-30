@@ -36,7 +36,6 @@ public class _GraphMatrix_02_Surrounded_Regions_BFS {
     public static char[][] matrixSurrounded(char[][] matrix){
 
         int row = matrix.length, col = matrix[0].length;
-        boolean[][] visited = new boolean[row][col];
 
         //scanning the boarders
         //Moving over first and last row
@@ -44,12 +43,12 @@ public class _GraphMatrix_02_Surrounded_Regions_BFS {
             if(matrix[0][c]=='0'){
                 queue.offer(new int[]{0,c});
                 matrix[0][c] ='#';
-                DFS(matrix, 0, c, queue);
+                BFS(matrix, 0, c, queue);
             }
             if(matrix[row-1][c]=='0'){
                 queue.offer(new int[]{row-1,c});
                 matrix[row-1][c] ='#';
-                DFS(matrix, row-1, c, queue);
+                BFS(matrix, row-1, c, queue);
             }
         }
         //Moving over first and last col
@@ -57,12 +56,12 @@ public class _GraphMatrix_02_Surrounded_Regions_BFS {
             if(matrix[r][0]=='0'){
                 queue.offer(new int[]{r,0});
                 matrix[r][0] ='#';
-                DFS(matrix, r, 0, queue);
+                BFS(matrix, r, 0, queue);
             }
             if(matrix[r][col-1]=='0'){
                 queue.offer(new int[]{r,col-1});
                 matrix[r][col-1] ='#';
-                DFS(matrix, r, col-1, queue);
+                BFS(matrix, r, col-1, queue);
             }
         }
 
@@ -78,7 +77,7 @@ public class _GraphMatrix_02_Surrounded_Regions_BFS {
         return matrix;
     }
 
-    private static void DFS(char[][] matrix, int r, int c, Queue<int[]> queue) {
+    private static void BFS(char[][] matrix, int r, int c, Queue<int[]> queue) {
         while(!queue.isEmpty()){
             int[] curCell = queue.poll();
             for(int i=0; i<4; i++){
@@ -97,10 +96,10 @@ public class _GraphMatrix_02_Surrounded_Regions_BFS {
 
     public static void main(String args[]) {
         char[][] grid = {
-                {'X', 'X', '0', 'X'},
+                {'X', 'X', 'X', 'X'},
+                {'X', '0', 'X', '0'},
                 {'X', '0', 'X', 'X'},
-                {'X', '0', '0', 'X'},
-                {'0', 'X', '0', 'X'}};
+                {'0', 'X', 'X', 'X'}};
         for (char[] x : grid) {
             System.out.println(Arrays.toString(x));
         }

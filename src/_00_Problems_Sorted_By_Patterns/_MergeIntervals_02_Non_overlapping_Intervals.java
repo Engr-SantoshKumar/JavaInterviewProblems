@@ -40,7 +40,7 @@ public class _MergeIntervals_02_Non_overlapping_Intervals {
     }
 
     public static void main(String[] args) {
-        int[][] intervals = new int[][]{{1,2}, {2,3}, {3,4},{1,3}};
+        int[][] intervals = new int[][]{{1,5}, {2,6}, {3,4},{4,6}};
         System.out.println(eraseOverlapIntervals(intervals));
     }
 }

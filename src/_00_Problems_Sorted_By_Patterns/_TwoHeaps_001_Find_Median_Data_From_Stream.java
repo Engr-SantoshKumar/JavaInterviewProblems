@@ -56,6 +56,7 @@ public class _TwoHeaps_001_Find_Median_Data_From_Stream {
 
     public double findMedian() {
         if (firstHalf.size() == secondHalf.size()) {
+            if(firstHalf.isEmpty())return -1;
             return (double) (firstHalf.peek() + secondHalf.peek()) / 2;
         }
 
