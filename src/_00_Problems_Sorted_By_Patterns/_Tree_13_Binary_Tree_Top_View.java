@@ -31,7 +31,7 @@ public class _Tree_13_Binary_Tree_Top_View {
         while(!queue.isEmpty()){
             TreeNode curNode = queue.poll();
             int curCol = colQ.poll();
-            if(!mapColNodes.containsKey(curCol)){ //--> so very first will be of top ..will skip under it
+            if(!mapColNodes.containsKey(curCol)){ //--> only differance from last program
                 mapColNodes.putIfAbsent(curCol, new LinkedList<>());
                 mapColNodes.get(curCol).add(curNode.value);
             }

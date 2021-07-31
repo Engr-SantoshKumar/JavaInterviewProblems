@@ -20,8 +20,7 @@ public class _Tree_10_Paths_for_a_Sum {
         TreeNode prev = null;
         TreeNode curr = root;
         while (curr != null || !s.isEmpty()){
-            // go down all the way to the left leaf node
-            // add all the left nodes to the stack
+            // go down all the way to the left leaf node add all the left nodes to the stack
             while (curr != null){
                 s.push(curr);
                 // record the current path
@@ -30,10 +29,8 @@ public class _Tree_10_Paths_for_a_Sum {
                 pathSum += curr.value;
                 curr = curr.left;
             }
-            // check left leaf node's right subtree
-            // or check if it is not from the right subtree
-            // why peek here?
-            // because if it has right subtree, we don't need to push it back
+            // check left leaf node's right subtree or check if it is not from the right subtree
+            // why peek here? because if it has right subtree, we don't need to push it back
             curr = s.peek();
             if (curr.right != null && curr.right != prev){
                 curr = curr.right;
@@ -42,8 +39,7 @@ public class _Tree_10_Paths_for_a_Sum {
             // check leaf
             if (curr.left == null && curr.right == null && pathSum == sum){
                 list.add(new ArrayList<Integer>(path));
-                // why do we need new arraylist here?
-                // if we are using the same path variable path
+                // why do we need new arraylist here? if we are using the same path variable path
                 // path will be cleared after the traversal
             }
             // pop out the current value

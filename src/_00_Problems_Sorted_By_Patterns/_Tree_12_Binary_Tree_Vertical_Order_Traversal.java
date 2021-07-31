@@ -23,7 +23,7 @@ public class _Tree_12_Binary_Tree_Vertical_Order_Traversal {
         //we will use map to Column-->Nodes
         Map<Integer, List<Integer>> mapColNodes = new HashMap<>();
         List<List<Integer>> result = new LinkedList<>();
-        //new two Qs one for DFS and other to track columns
+        //new two Qs one for BFS and other to track columns
         Queue<TreeNode> queue = new LinkedList<>(); // other way to create obj (Node, col) and put in Q(single Q)
         Queue<Integer> colQ = new ArrayDeque<>();
         //add the root and col 0

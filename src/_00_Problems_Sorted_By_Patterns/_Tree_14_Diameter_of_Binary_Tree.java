@@ -20,6 +20,8 @@ instead of max = Math.max(max, left + right + 1)
 package _00_Problems_Sorted_By_Patterns;
 public class _Tree_14_Diameter_of_Binary_Tree {
     //DFS
+    //The diameter of a binary tree is the length of the longest path between any two nodes in a tree.
+    // This path may or may not pass through the root.
     static int diameter;
     public static int findDiameterRecursion(TreeNode root){
         if(root==null) return 0;
@@ -31,7 +33,7 @@ public class _Tree_14_Diameter_of_Binary_Tree {
         return Math.max(leftHeight, rightHeight)+1;
     }
     public static void main(String args[]) {
-        int[] nodes = new int[]{1, 2, 4, 3, 5, 7, 9, 10};
+        int[] nodes = new int[]{1, 2, 4, 3, 5, 7, 9};
         TreeNode p = TreeHelper.create(nodes);
         System.out.println(findDiameterRecursion(p));
     }

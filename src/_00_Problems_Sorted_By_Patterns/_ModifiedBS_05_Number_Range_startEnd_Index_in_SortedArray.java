@@ -1,4 +1,4 @@
-/* [ _ModifiedBinarySearch_05_ ] [ Given number start and end index in binary search ]
+/* [ _ModifiedBinarySearch_05_ ] [ For Given number find start and end index in binary search ]
 _______________________________________________________________________________
 same as :_Goo_41_Find_Start_End_Of_Element_In_Sorted_Array
 The problem follows the Binary Search pattern. Since BS helps us find a number in a sorted array efficiently,

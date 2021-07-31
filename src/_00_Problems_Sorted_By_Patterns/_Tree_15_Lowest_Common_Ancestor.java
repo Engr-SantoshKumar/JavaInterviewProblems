@@ -1,6 +1,6 @@
 package _00_Problems_Sorted_By_Patterns;/* [  ] [  ]
 _______________________________________________________________________________
-
+https://youtu.be/13m9ZCB8gjw?t=70
 */
 
 import java.util.*;
@@ -50,6 +50,8 @@ public class _Tree_15_Lowest_Common_Ancestor {
 
         // this when both node in same side under each other,
         // we just need to find only one as we know other one will be under it.
+        if(left==null && right == null) return null;
+
         if(left != null)
             return left;
         else return right;
