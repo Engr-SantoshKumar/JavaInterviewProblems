@@ -1,4 +1,4 @@
-/* [ _oA_56_ ] [ Remove Duplicate Letters Monotone Stack ]
+/* [ _Monotone_Stack_05_] [ Remove Duplicate Letters Monotone Stack ]
 _______________________________________________________________________________
 Given a string s, remove duplicate letters so that every letter appears once and only once.
 You must make sure your result is the smallest in lexicographical order among all possible results.
@@ -8,40 +8,38 @@ Logic Two: Using Monotone stack
            Space complexity: O(n) worst case.
 
 */
-package Code_Run_Build_LC350;
+package _00_Problems_Sorted_By_Patterns;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Stack;
 
-public class _oA_56_Remove_Duplicate_Letters_Monotone_Stack {
+public class _Monotone_Stack_05_Remove_Duplicate_Letters {
     public static String removeDuplicate(String str){
         Stack<Character> stack = new Stack<>();
 
-        // this lets us keep track of what's in our solution in O(1) time
+        // will use set to keep track of already visited ones in O(1)
         HashSet<Character> hashSet = new HashSet<>();
 
-        // this will let us know if there are any more instances of s[i] left in s
+        // will keep map to have furthest index of any char
         HashMap<Character, Integer> hashMap = new HashMap<>();
         for(int i = 0; i < str.length(); i++) {
             hashMap.put(str.charAt(i), i);
         }
 
         for(int i = 0; i < str.length(); i++){
-            char c = str.charAt(i);
-            // we can only try to add c if it's not already in our solution
-            // this is to maintain only one of each character
-            if (!hashSet.contains(c)){
-                // if the last letter in our solution:
-                //     1. exists
-                //     2. is greater than c so removing it will make the string smaller
-                //     3. it's not the last occurrence
-                // we remove it from the solution to keep the solution optimal
-                while(!stack.isEmpty() && c < stack.peek() && hashMap.get(stack.peek()) > i){
+            char incomingChar = str.charAt(i);
+            //
+            if (!hashSet.contains(incomingChar)){
+                //Logic is pretty simple, we will check if incoming curChar is smaller than charAtTopOfStack
+                //if so we check, do we have top of stack char again in somewhere in the string later(compare curIndx with mapValue)
+                // if so its safe to remove top of stack (largerThanCurIncoming) and as we move forward in string we can add later
+                // this we maintain the smallest in the beginning of our result
+                while(!stack.isEmpty() && incomingChar < stack.peek() && hashMap.get(stack.peek()) > i){
                     hashSet.remove(stack.pop());
                 }
-                hashSet.add(c);
-                stack.push(c);
+                hashSet.add(incomingChar);
+                stack.push(incomingChar);
             }
         }
         StringBuilder sb = new StringBuilder(stack.size());

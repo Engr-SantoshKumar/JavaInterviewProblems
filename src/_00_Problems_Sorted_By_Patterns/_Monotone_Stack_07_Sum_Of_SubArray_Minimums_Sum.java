@@ -21,11 +21,11 @@ how far is previous less [left of 3(3isAtIndex4)] (the element lessThan 3 is 2, 
 how far is next less [Right of 3(3isAtIndex4)] (the element lessThan 3 is 1, which is at index 4, so DistCal will be 7-4 = 3
 so total subArray we can make using 3 as minimum is 4*3=12 and sum would be 3*12 = 36
 */
-package Code_Run_Build_LC350;
+package _00_Problems_Sorted_By_Patterns;
 
 import java.util.Stack;
 
-public class _oA_57_Sum_Of_SubArray_Minimums_Monotone_Stack {
+public class _Monotone_Stack_07_Sum_Of_SubArray_Minimums_Sum {
     public static int minSumSubArray(int[] arr){
         int result=0;
         int len = arr.length;
@@ -67,4 +67,3 @@ public class _oA_57_Sum_Of_SubArray_Minimums_Monotone_Stack {
         System.out.println(minSumSubArray(arr));
     }
 }
-

@@ -53,7 +53,7 @@ public class _oA_54_LargestRectangularAreaInAHistogram_Monotone_Stack {
             else
                 {
                     int height = bars[stack.pop()]; // height of top of stack
-                    int rightBoundary = curIndex -1;
+                    int rightBoundary = curIndex-1;
                     int leftBoundary =  stack.isEmpty()? 0 : stack.peek()+1;
                     int width = rightBoundary - leftBoundary + 1 ;
 
