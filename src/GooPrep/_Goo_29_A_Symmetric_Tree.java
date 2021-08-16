@@ -1,4 +1,4 @@
-/**
+/*
  * [  _Goo_29_A_ ] [Symmetric Tree ]
  * ______________________________________________________________________________________________________
  Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
@@ -33,11 +33,9 @@ public class _Goo_29_A_Symmetric_Tree {
     // (Note not the current node right main root node right)
     private static boolean isSymmetricHelp(Node left, Node right){
         //base
-        if(left==null || right==null)
-            return left==right; //--> will return true or false
-
-        if(left.data!=right.data)
-            return false;
+        if(left==null && right==null) return true;
+        if(left==null || right==null) return false;
+        if(left.data!=right.data) return false;
 
         return isSymmetricHelp(left.left, right.right) &&
                 isSymmetricHelp(left.right, right.left);

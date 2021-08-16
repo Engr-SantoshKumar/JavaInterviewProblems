@@ -25,12 +25,12 @@ package _00_Problems_Sorted_By_Patterns;
 
 import java.util.PriorityQueue;
 
-public class _TwoHeaps_001_Find_Median_Data_From_Stream {
+public class _HeapsTwo_001_Find_Median_Data_From_Stream {
     /** initialize your data structure here. */
     PriorityQueue<Integer> firstHalf;  //1st half (left half) this will be in reverse order (max heap)
     PriorityQueue<Integer> secondHalf; //2nd half (Right half) sorted in natural order
 
-    public _TwoHeaps_001_Find_Median_Data_From_Stream() {
+    public _HeapsTwo_001_Find_Median_Data_From_Stream() {
         firstHalf = new PriorityQueue<>((a, b) -> b - a);
         secondHalf= new PriorityQueue<>();
     }
@@ -64,7 +64,7 @@ public class _TwoHeaps_001_Find_Median_Data_From_Stream {
     }
 
     public static void main(String[] args) {
-        _TwoHeaps_001_Find_Median_Data_From_Stream findMedianOfStream = new _TwoHeaps_001_Find_Median_Data_From_Stream();
+        _HeapsTwo_001_Find_Median_Data_From_Stream findMedianOfStream = new _HeapsTwo_001_Find_Median_Data_From_Stream();
         findMedianOfStream.addNum(5);
         System.out.println(findMedianOfStream.findMedian());
         findMedianOfStream.addNum(3);

@@ -25,7 +25,7 @@ package _00_Problems_Sorted_By_Patterns;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class _TwoHeaps_002_Sliding_Window_Median {
+public class _HeapsTwo_002_Sliding_Window_Median {
     /** initialize your data structure here. */
     static PriorityQueue<Integer> firstHalf = new PriorityQueue<>((a, b) -> b - a);;  //1st half (left half) this will be in reverse order (max heap)
     static PriorityQueue<Integer> secondHalf = new PriorityQueue<>();; //2nd half (Right half) sorted in natural order

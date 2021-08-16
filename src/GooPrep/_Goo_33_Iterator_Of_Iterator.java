@@ -21,8 +21,8 @@ public class _Goo_33_Iterator_Of_Iterator implements Iterator {
     {
         // put all the arrList into queue one by one
         for (int i = 0; i <mainArr.size(); i++) {
-            Iterator<Integer> arrList = mainArr.get(i);
-            queue.add(arrList);
+            Iterator<Integer> curItr = mainArr.get(i);
+            queue.add(curItr);
         }
     }
 
@@ -41,7 +41,6 @@ public class _Goo_33_Iterator_Of_Iterator implements Iterator {
     public boolean hasNext(){
         return queue.size()!=0;
     }
-
 
     public static void main(String[] args) {
         ArrayList<Integer> list1 = new ArrayList<>();

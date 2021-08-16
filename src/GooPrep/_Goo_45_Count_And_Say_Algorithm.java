@@ -12,10 +12,6 @@ package GooPrep;
 
 public class _Goo_45_Count_And_Say_Algorithm {
 
-    public static void main(String[] args) {
-        System.out.println(countAndSay(8));
-    }
-
     public static String countAndSay(int n){
         //base cases
         if(n<=0) return null;
@@ -46,5 +42,8 @@ public class _Goo_45_Count_And_Say_Algorithm {
             result = sb.toString();
         }
         return result;
+    }
+    public static void main(String[] args) {
+        System.out.println(countAndSay(8));
     }
 }

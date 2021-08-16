@@ -1,4 +1,4 @@
-/** 47-01 [Longest Substring Which Contains K Unique Characters]
+/* 47-01 [Longest Substring Which Contains K Unique Characters]
  -----------------------------------------------------------------------------------------------------------------
  Given a string, find the longest substring that contains only [K = two] unique characters.
  For example, given "abcbbbbcccbdddadacb",
@@ -19,15 +19,15 @@ public class _Goo_47_01_Longest_Substring_With_K_Chars_Array {
         String longestString = "";
         Set<Character> hSet = new HashSet<>();
         // [start....current] maintain sliding window boundaries
-        for(int start =0, current =0; current<givenString.length(); current++)
+        for(int start =0, end =0; end<givenString.length(); end++)
         {
-            char ch = givenString.charAt(current);
+            char ch = givenString.charAt(end);
             hSet.add(ch);
             countDirectory[ch]++;
 
             if(hSet.size()>=K){
                 if(hSet.size() == K){
-                    String curString = givenString.substring(start, current +1);
+                    String curString = givenString.substring(start, end +1);
                     if(curString.length() > longestString.length() )
                         longestString = curString;
                 }

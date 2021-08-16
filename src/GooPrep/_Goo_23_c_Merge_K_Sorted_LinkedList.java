@@ -1,4 +1,4 @@
-/**
+/*
  * [23 c ] [Merge k sorted linked lists and return it as one sorted list]
 -----------------------------------------------------------------------------------------------------
  Optimize Approach 2 by Priority Queue

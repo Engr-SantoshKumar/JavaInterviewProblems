@@ -1,4 +1,4 @@
-/* [ _Monotone_Stack_02_ ] [ Continues_SubArray_For_Each_Index
+/* [ _Monotone_Stack_02_ ] [ Continues_SubArray_For_Each_Index]
 _______________________________________________________________________________
 Contiguous SubArrays: You are given an array arr of N integers. For each index i, you are required to
 determine the number of contiguous subArrays that fulfill the following conditions:

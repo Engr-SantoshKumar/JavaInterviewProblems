@@ -16,6 +16,7 @@ import java.util.Stack;
 
 public class _oA_56_Remove_Duplicate_Letters_Monotone_Stack {
     public static String removeDuplicate(String str){
+
         Stack<Character> stack = new Stack<>();
 
         // this lets us keep track of what's in our solution in O(1) time

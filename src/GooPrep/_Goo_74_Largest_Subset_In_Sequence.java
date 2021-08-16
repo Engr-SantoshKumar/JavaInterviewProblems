@@ -21,44 +21,44 @@ public class _Goo_74_Largest_Subset_In_Sequence {
         if (num.length == 1) {
             return num;
         }
-        int startIndex = 0;
-        int endIndex = 1;
-        int[] resultIndex = {startIndex, endIndex};
-        int maxSizeTillNow = endIndex-startIndex;
+        int start = 0;
+        int end = 1;
+        int[] resultIndex = {start, end};
+        int maxSizeTillNow = end-start;
 
-        for (endIndex = 1; endIndex < num.length; endIndex++) {
+        for (end = 1; end < num.length; end++) {
 
             //dup case (1, 1, 2, 2, 2)
-            if (num[endIndex - 1] == num[endIndex]) {
+            if (num[end - 1] == num[end]) {
                 continue;
 
-            } else if (num[endIndex - 1] + 1 == num[endIndex]) {
+            } else if (num[end - 1] + 1 == num[end]) {
                 continue;
 
             } else {
-                int currentSize = endIndex-startIndex;
+                int currentSize = end-start;
                 if(maxSizeTillNow < currentSize) {
-                    resultIndex[0] = startIndex;
-                    resultIndex[1] = endIndex;
+                    resultIndex[0] = start;
+                    resultIndex[1] = end;
                     maxSizeTillNow = currentSize;
                 }
-                // move startIndex counter to endIndex
-                startIndex =endIndex;
+                // move start counter to end
+                start =end;
             }
         }
         // to catch the set if that set is longest and contains last integer
-        int currentSize = endIndex-startIndex;
+        int currentSize = end-start;
         if(maxSizeTillNow < currentSize) {
-            resultIndex[0] = startIndex;
-            resultIndex[1] = endIndex;
+            resultIndex[0] = start;
+            resultIndex[1] = end;
         }
 
-        int start = resultIndex[0];
-        int end = resultIndex[1];
+        int startL = resultIndex[0];
+        int endL = resultIndex[1];
 
-        int[] resultArray = new int[ end - start ];
+        int[] resultArray = new int[ endL - startL ];
         int t =0;
-        for(int k = start; k<end; k++){
+        for(int k = startL; k<endL; k++){
             resultArray[t] = num[k];
             t++;
         }

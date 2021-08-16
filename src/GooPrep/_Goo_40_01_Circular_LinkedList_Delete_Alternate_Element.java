@@ -6,12 +6,8 @@ package GooPrep;
 import GooPrep.LinkedList.NodeLinkList;
 public class _Goo_40_01_Circular_LinkedList_Delete_Alternate_Element {
 
-
     public static NodeLinkList CircularLinkedList_deleteAlternateElement(NodeLinkList head){
-
         if(head == null) return null;
-
-
         NodeLinkList runner = head;
 
         while(runner.next!=null){

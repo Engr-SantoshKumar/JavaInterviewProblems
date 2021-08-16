@@ -33,14 +33,14 @@ public class _Goo_27_00_Minimum_Window_Substring_MAP {
         int begin = 0, end = 0; int minLength = Integer.MAX_VALUE;
 
         while(end < str.length()){
-            char ch = str.charAt(end);
+            char ch = str.charAt(end++);
             if(map.containsKey(ch)){
                 map.put(ch, map.get(ch)-1);
                 if(map.get(ch)==0) counter--; // update only if count is 0, which will take care of dups
             }
-            end++;
 
             // Now we have a window which contains all the characters of pattern or maybe some extra
+            // keep moving if its not part of map, if part check its count
             while(counter ==0){
                 char tempCh = str.charAt(begin);
                 if(map.containsKey(tempCh)){

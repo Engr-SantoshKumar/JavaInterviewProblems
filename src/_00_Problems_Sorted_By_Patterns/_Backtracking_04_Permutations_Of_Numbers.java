@@ -38,19 +38,40 @@ public class _Backtracking_04_Permutations_Of_Numbers {
         }
         return result;
     }
+    //General approach to backtracking questions :
+    // Subsets, Permutations, Combination Sum, Palindrome Partitioning
+    public static List<List<Integer>> permuteRecursive(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        // Arrays.sort(nums); // not necessary
+        backtrack(list, new ArrayList<>(), nums);
+        return list;
+    }
 
-    public static List<List<Integer>> permuteRecursive(int[] array) {
-            // init result list
-            List<List<Integer>> result = new LinkedList<>();
-
-            // convert array into list since the result is a list of lists
-            ArrayList<Integer> arrayList = new ArrayList<Integer>();
-            for (int i : array){
-                arrayList.add(i);
+    private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums){
+        if(tempList.size() == nums.length){
+            list.add(new ArrayList<>(tempList));
+        } else{
+            for(int i = 0; i < nums.length; i++){
+                if(tempList.contains(nums[i])) continue; // element already exists, skip
+                tempList.add(nums[i]);
+                backtrack(list, tempList, nums);
+                tempList.remove(tempList.size() - 1);
             }
-            int length = array.length;
-            backtrack(length, arrayList, result, 0);
-            return result;
+        }
+    }
+
+    public static List<List<Integer>> permuteRecursiveSwap(int[] array) {
+        // init result list
+        List<List<Integer>> result = new LinkedList<>();
+
+        // convert array into list since the result is a list of lists
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        for (int i : array){
+            arrayList.add(i);
+        }
+        int length = array.length;
+        backtrack(length, arrayList, result, 0);
+        return result;
     }
     public static void backtrack(int length, ArrayList<Integer> array, List<List<Integer>> output, int curIndex) {
         // if all integers are used up
@@ -73,6 +94,7 @@ public class _Backtracking_04_Permutations_Of_Numbers {
         int[] array = new int[] {1,2,3,};
         System.out.println(permuteIterative(array));
         System.out.println(permuteRecursive(array));
+        System.out.println(permuteRecursiveSwap(array));
     }
 
 }

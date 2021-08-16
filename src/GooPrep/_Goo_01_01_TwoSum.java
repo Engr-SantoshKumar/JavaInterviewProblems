@@ -1,15 +1,12 @@
-/** 01  [Two Sum]
--------------------------------------------------------------------------------------------------------
- *
+/** [01]  [Two Sum]
+-----------------------------------------------------------------------------------------------------
+
  * Program to solve the 2 sum problem
  * Problem statement - Given an array of integers, find two numbers such that they add up target
- *
-*/
+ */
 
 package GooPrep;
-
 import java.util.*;
-
 public class _Goo_01_01_TwoSum {
 
     static void twoSum(int[] arr, int target){
@@ -58,7 +55,6 @@ public class _Goo_01_01_TwoSum {
             if(arr[start] + arr[end] == target)
             {
                 System.out.println("Pair : "+ arr[start] + " & " + arr[end]);
-
                 while(start < end && arr[start] == arr[start+1]) start++;
                 while(start < end && arr[end] == arr[end-1]) end--;
                 start++;
@@ -73,7 +69,6 @@ public class _Goo_01_01_TwoSum {
                 start++;
             }
         }
-
     }
 
     public static void main(String[] args) {

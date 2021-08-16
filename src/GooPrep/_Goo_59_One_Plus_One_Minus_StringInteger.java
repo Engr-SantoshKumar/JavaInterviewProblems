@@ -51,7 +51,6 @@ public class _Goo_59_One_Plus_One_Minus_StringInteger {
         int i = ch.length-1;
 
         while(i>=0){
-
             int a = ch[i] -'0'; //get the last cha & convert to int value
             int newDigit = a-minusToChar;
             if(newDigit==-1){

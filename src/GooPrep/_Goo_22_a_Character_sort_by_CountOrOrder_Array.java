@@ -24,7 +24,6 @@ public class _Goo_22_a_Character_sort_by_CountOrOrder_Array {
         PriorityQueue<CharAndCount> pq = new PriorityQueue<>((a,b) ->
                 (((b.count == a.count)?(a.chr - b.chr):(b.count - a.count))));
 
-
         for(char alphabet = 'A'; alphabet <= 'Z'; alphabet++){
             int count = chCount[alphabet - 'A'];
             if(count>0){
@@ -37,7 +36,6 @@ public class _Goo_22_a_Character_sort_by_CountOrOrder_Array {
             System.out.println(top.chr + " : " + top.count);
         }
     }
-
 
     public static void main(String args[]) {
 

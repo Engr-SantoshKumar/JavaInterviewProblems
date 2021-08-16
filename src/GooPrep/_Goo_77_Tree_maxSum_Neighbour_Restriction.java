@@ -38,7 +38,7 @@ public class _Goo_77_Tree_maxSum_Neighbour_Restriction {
         // as taking current root date, which restrict us to use its child data
         finalSumPairs.sumWithRoot = root.data + leftNodePairs.sumWithOutRoot + rightNodePairs.sumWithOutRoot;
 
-        // root not include, so if we are not including root what to add to make it max
+        // root not include, so if we are not including root, so what to add to make it max
         finalSumPairs.sumWithOutRoot = Math.max(leftNodePairs.sumWithOutRoot, leftNodePairs.sumWithRoot)
                                         +
                                         Math.max(rightNodePairs.sumWithRoot, rightNodePairs.sumWithOutRoot);
@@ -52,7 +52,6 @@ public class _Goo_77_Tree_maxSum_Neighbour_Restriction {
         int[] nodes = new int[]{1, 2, 3, 1, 0, 5, 6};
         Node r = TreePrint.create(nodes);
         NodeSumPairs p = sumOfNodesWithoutNeighbours(r);
-
         System.out.println(Math.max(p.sumWithOutRoot, p.sumWithRoot));
     }
 

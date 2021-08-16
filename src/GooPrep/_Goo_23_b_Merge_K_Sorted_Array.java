@@ -1,4 +1,4 @@
-/**
+/*
 [23 -B] [Merge K Sorted Arrays in Java ]
 -----------------------------------------------------------------------------------------------------
 PROBLEM STATEMENT: Merge k sorted array and return it as one sorted list. Analyze and describe its complexity.

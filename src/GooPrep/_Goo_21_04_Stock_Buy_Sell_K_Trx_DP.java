@@ -47,7 +47,6 @@ public class _Goo_21_04_Stock_Buy_Sell_K_Trx_DP {
                 profit[d][t] = Math.max(profit[d][t-1], maxSoFar+prices[t]);
             }
         }
-
         return profit[k][days-1];
     }
 

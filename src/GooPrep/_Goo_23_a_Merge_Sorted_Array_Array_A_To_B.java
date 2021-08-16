@@ -7,7 +7,7 @@
 package GooPrep;
 import java.util.Arrays;
 
-public class _Goo_23_a_Merge_Sorted_Array {
+public class _Goo_23_a_Merge_Sorted_Array_Array_A_To_B {
 
     static int[] mergeArray(int[] a, int[] b, int lastA, int lastB)  {
         int writeIndex = lastB + lastA - 1; /* Index of last location of merged array */

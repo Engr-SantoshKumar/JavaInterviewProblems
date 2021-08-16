@@ -23,7 +23,6 @@ public class _Goo_76_Even_Number_At_Even_Index {
             if(curDigt%2 ==0){
                 System.out.print(arr[i] + ", ");
             }
-
             i++;
         }
 

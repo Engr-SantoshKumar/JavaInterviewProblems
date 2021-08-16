@@ -22,18 +22,18 @@ import java.util.Queue;
 
 public class _Tree_09_Binary_Tree_Right_Side_View {
     //Logic:same as levelOrderTraversal, in result we just need to out last node of each level
-    public static List<List<Integer>> rightViewOfTree(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+    public static List<Integer> rightViewOfTree(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) return result;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            List<Integer> curLevelNodes = new ArrayList<>();
+            //List<Integer> curLevelNodes = new ArrayList<>();
             int nodesAtCurrentLevel = queue.size();
             while(nodesAtCurrentLevel --> 0) {
                 TreeNode node = queue.poll();
                 if(nodesAtCurrentLevel==0) //---> this line is only different from levelOrderTraversal
-                    curLevelNodes.add(node.value);
+                    result.add(node.value);
                 if (node.left != null) {
                     queue.add(node.left);
                 }
@@ -41,7 +41,7 @@ public class _Tree_09_Binary_Tree_Right_Side_View {
                     queue.add(node.right);
                 }
             }
-            result.add(curLevelNodes);
+            //result.add(curLevelNodes);
         }
         return result;
     }

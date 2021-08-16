@@ -17,19 +17,22 @@ public class _Goo_82_0_LRU_Cache {
     Set<Integer> hs;
     int limit;
     LinkedList<Integer> linkedList;
+    int curSize;
 
      _Goo_82_0_LRU_Cache(int limit){
         this.hs = new HashSet<>();
         this.limit = limit;
         this.linkedList = new LinkedList<>();
+        this.curSize=0;
     }
 
     public void add(int key){
 
         if(!hs.contains(key)){
-            if(linkedList.size() == limit ){
-                int last = linkedList.removeLast();
-                hs.remove(last);
+            if(curSize == limit ){
+                int lestRecent = linkedList.removeLast();
+                hs.remove(lestRecent);
+                curSize--;
             }
         }
         else{
@@ -43,10 +46,13 @@ public class _Goo_82_0_LRU_Cache {
             }
             // remove from current element from linkedList
             linkedList.remove(index);
-            // no need to remove from hasSet as when we put it will make it most recent
+            hs.remove(key); // optional:  no need to remove from hasSet as when we put it will make it most recent
+            curSize--;
+
         }
-        linkedList.add(key);
+        linkedList.addFirst(key);
         hs.add(key);
+        curSize++;
     }
 
     // display contents of cache
@@ -60,13 +66,15 @@ public class _Goo_82_0_LRU_Cache {
 
     public static void main(String[] args)
     {
-        _Goo_82_0_LRU_Cache ca = new _Goo_82_0_LRU_Cache(4);
+        _Goo_82_0_LRU_Cache ca = new _Goo_82_0_LRU_Cache(3);
         ca.add(1);
         ca.add(2);
         ca.add(3);
         ca.display();
         System.out.println();
         ca.add(1);
+        ca.display();
+        System.out.println();
         ca.add(4);
         ca.add(5);
         ca.display();

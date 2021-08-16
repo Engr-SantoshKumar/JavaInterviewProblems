@@ -33,7 +33,6 @@ public class _Goo_60_Game_Of_Life {
     //All all eight possible directions neighbours
     static int[] rowDirections = {-1, +1 , 0, 0, 1, 1, -1, -1};
     static int[] colDirections = {0 , 0, -1, +1, 1, -1, -1, 1};
-
     //all states
     static int dead =0;
     static int alive = 1;
@@ -91,12 +90,9 @@ public class _Goo_60_Game_Of_Life {
         for(int i=0; i<8; i++){
             int nR = row + rowDirections[i];
             int nC = col + colDirections[i];
-
-            if(nR >= 0 && nR <board.length && nC>=0 && nC<board[0].length){
-                //look for live or live2Ded cell
-                if(board[nR][nC] == alive || board[nR][nC] == alive2dead){
-                    count++;
-                }
+            if(nR < 0 || nR >= board.length || nC < 0 || nC >= board[0].length) continue;
+            if(board[nR][nC] == alive || board[nR][nC] == alive2dead){
+                count++;
             }
         }
         return count;

@@ -12,7 +12,6 @@ import java.util.PriorityQueue;
 public class _Goo_10_FindTopKthLargest {
 
     static void topK(int[] ar, int k) {
-
         PriorityQueue<Integer> pq = new PriorityQueue<>(k);
         for (int a : ar) {
             if (pq.size() < k) {

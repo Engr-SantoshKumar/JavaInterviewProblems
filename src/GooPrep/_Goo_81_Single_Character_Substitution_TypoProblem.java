@@ -25,19 +25,13 @@ public class _Goo_81_Single_Character_Substitution_TypoProblem {
     public static boolean isSingleTypo(String[] vocab, String s ){
 
         if(vocab == null || s.length()==0) return false;
-
         Map<Integer, ArrayList> map = new HashMap<>();
 
         //sort the vocab based on size
         for(String word: vocab){
             int len = word.length();
-            if(!map.containsKey(len)){
-                ArrayList<String> sameLengthWordsList = new ArrayList<String>();
-                sameLengthWordsList.add(word);
-                map.put(len, sameLengthWordsList );
-            }else{
-                map.get(len).add(word);
-            }
+            map.putIfAbsent(len, new ArrayList<>());
+            map.get(len).add(word);
         }
 
         //get all the words from Vocab having size of s

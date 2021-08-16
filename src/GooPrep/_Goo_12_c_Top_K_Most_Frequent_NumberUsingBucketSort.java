@@ -10,14 +10,11 @@
 
 package GooPrep;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class _Goo_12_c_Top_K_Most_Frequent_NumberUsingBucketSort {
 
-    public static void mostPopularNumberUsingBucketSort(int [] nums, int k){
+    public static int[] mostPopularNumberUsingBucketSort(int [] nums, int k){
 
         List<Integer>[] bucketList = new ArrayList[nums.length + 1];
         Map<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
@@ -27,11 +24,11 @@ public class _Goo_12_c_Top_K_Most_Frequent_NumberUsingBucketSort {
         }
 
         for (int key : frequencyMap.keySet()) {
-            int count = frequencyMap.get(key);
-            if (bucketList[count] == null) {
-                bucketList[count] = new ArrayList<>();
+            int value = frequencyMap.get(key);
+            if (bucketList[value] == null) {
+                bucketList[value] = new ArrayList<>();
             }
-            bucketList[count].add(key);
+            bucketList[value].add(key);
         }
 
         List<Integer> res = new ArrayList<>();
@@ -41,12 +38,13 @@ public class _Goo_12_c_Top_K_Most_Frequent_NumberUsingBucketSort {
                 res.addAll(bucketList[pos]);
             }
         }
-        System.out.println(res);
+        int[] toArray = res.stream().mapToInt(Integer::intValue).toArray();
+        return toArray;
     }
 
     public static void main (String[] args) {
         int arr[] = {1, 5, 2, 1, 3, 2, 1 , 1, 5, 5,5, 5,4, 5,4, 2, 2};
         int topK = 3;
-        mostPopularNumberUsingBucketSort(arr, topK);
+        System.out.println(Arrays.toString(mostPopularNumberUsingBucketSort(arr, topK)));
     }
 }

@@ -39,6 +39,7 @@ public class _Goo_83_02_Cheapest_Flight_with_K_Stop {
         }
 
         //heap with compare on price (lowest price first)
+        // pq --> { price, source, no of Stops}
         Queue<int[]> pq = new PriorityQueue<>((a, b) -> (Integer.compare(a[0], b[0])));
         pq.add(new int[] {0, source, noOfStops+1});
 

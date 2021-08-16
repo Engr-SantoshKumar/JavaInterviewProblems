@@ -61,6 +61,7 @@ public class _Goo_18_Fibonacci {
 
         int i = 2;
         while(i<=n){
+            //e.g : i=4--> s[1] = s[0]+s[2] --> keep using other two
             myStorage[i%3] = myStorage[(i-1) %3 ] + myStorage[(i-2) %3 ];
             i++;
             System.out.println(Arrays.toString(myStorage));

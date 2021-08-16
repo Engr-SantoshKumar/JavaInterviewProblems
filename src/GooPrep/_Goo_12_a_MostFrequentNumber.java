@@ -9,11 +9,9 @@ import java.util.*;
 
 public class _Goo_12_a_MostFrequentNumber {
 
-
     public static void mostPopularNumber(int [] arr){
         //sort the array
         Arrays.sort(arr);
-
         int result =arr[0];
         int currentCount = 1;
         int maxCount = 1;

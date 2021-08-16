@@ -37,15 +37,14 @@ public class _Goo_08_SelfDescriptiveNumber {
         return true;
     }
 
+    //N^2 solution
     public static boolean isDescriptive(int num){
-
         boolean isSelfDesc = true;
         String s = Integer.toString(num);
         int i =0;
             while(i<s.length() && isSelfDesc){
                 int currentDigit = Integer.parseInt(s.charAt(i) + "");
                 int count =0;
-
                     for(int k=0; k<s.length(); k++){
                         if(i == Integer.parseInt(s.charAt(k)+ "")){
                             count ++;

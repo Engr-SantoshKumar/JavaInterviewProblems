@@ -26,10 +26,8 @@ public class _Goo_07_WiggleSort {
             swap(arr, i, i+1);
         }
     }
-
     // Approach 2:
     public static void waveSort(int [] arr){
-
         for(int i =0; i<arr.length -1; i++){
             if (i % 2 == 0){
                 if(arr[i] > arr[i+1]){

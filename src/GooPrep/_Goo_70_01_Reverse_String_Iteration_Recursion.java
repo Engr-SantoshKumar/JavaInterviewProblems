@@ -28,23 +28,23 @@ public class _Goo_70_01_Reverse_String_Iteration_Recursion {
     }
 
     //Recursion way
-    static String reverseUsingRecursion(String s) {
-        if (s == null) {
-            System.out.println("Invalid input");
-        }
-        String reversedString = reverseRec(s);
-        return reversedString;
+
+    public static void reverseString(char[] s) {
+        helper(s, 0, s.length - 1);
     }
-    static String reverseRec(String str) {
-        if(str.isEmpty()) return str;
-                            //except1stCh      //1stChar
-                            //      V              V
-        return reverseRec(str.substring(1)) + str.substring(0);
+    public static void helper(char[] s, int left, int right) {
+        if (left >= right) return;
+        char tmp = s[left];
+        s[left++] = s[right];
+        s[right--] = tmp;
+        helper(s, left, right);
     }
+
+
 
     //Test
     public static void main(String args[]) {
-        testFor("");
+        testFor("ABCD");
         testFor("S");
         testFor("DJ");
         testFor("SUN");
@@ -52,7 +52,7 @@ public class _Goo_70_01_Reverse_String_Iteration_Recursion {
     }
     static void testFor(String s)  {
         //System.out.println(" input " + s + " rev " + reverse(s));
-        System.out.println(" input " + s + " revrec " + reverseUsingRecursion(s));
+        //System.out.println(" input " + s + " revrec " + reverseUsingRecursion(s.toCharArray()));
     }
 
 

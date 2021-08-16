@@ -10,11 +10,7 @@ public class _Goo_09_01_SpiralMatrixInClockwise {
 
     public static void printSpiralMatrix(int [][] matrix){
 
-        if(matrix == null || matrix.length ==0){
-            return;
-        }
-
-
+        if(matrix == null || matrix.length ==0) return;
         int rowStart = 0;
         int rowEnd = matrix.length-1;
         int colStart = 0;
@@ -23,7 +19,6 @@ public class _Goo_09_01_SpiralMatrixInClockwise {
         System.out.println("\n\n  = = = Printing Spiral = = = =     ");
 
         while(rowStart <= rowEnd && colStart <= colEnd){
-
             // Going RIGHT -->
             for(int i = colStart; i<=colEnd; i++){
                 System.out.print(matrix[rowStart][i] + ", ");

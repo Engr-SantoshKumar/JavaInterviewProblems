@@ -10,7 +10,7 @@ package GooPrep;
 import java.util.Arrays;
 /*Given an integer array, move all elements that are equal to 0 to the left while maintaining the order
 of other elements in the array.
-* */
+*/
 public class _Goo_17_Move_Zeros {
 
     public static int[] moveZero(int[] arr){

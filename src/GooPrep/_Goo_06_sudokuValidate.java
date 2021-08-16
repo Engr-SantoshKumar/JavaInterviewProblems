@@ -1,7 +1,6 @@
 /** 06 [Valid Sudoku]
  -------------------------------------------------------------------------------------------------------
  * Write a method that determines if a Sudoku puzzle is solved correctly
- *
  * validate box 3X3 logic:
  *  when r =0 and c =0
  *  call will be like (0*3, 0*3+2, 0*3, 0*3+2, box) -> (0,2,0,2,box) -> this is top left box

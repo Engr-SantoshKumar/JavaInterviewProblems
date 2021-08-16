@@ -82,11 +82,16 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
     public static void main(String[] args) {
         char[][] mat =
                 {
-                 "HBKC".toCharArray(), "EPGD".toCharArray(), "LFEP".toCharArray(), "PPAP".toCharArray()
+                        "HBKC".toCharArray(),
+                        "EPGD".toCharArray(),
+                        "LFEP".toCharArray(),
+                        "PPAP".toCharArray()
                 };
         char[][] Box1 =
                 {
-                 "LEB".toCharArray(),  "PEP".toCharArray(), "PAP".toCharArray(),
+                        "LEB".toCharArray(),
+                        "PEP".toCharArray(),
+                        "PAP".toCharArray(),
                 };
         char[][] mat2 =
                 {
@@ -103,7 +108,7 @@ public class _Goo_75_B_BFS_Hidden_Words_In_Matrix {
 
         String word1 = "APPLE";
         String word2 = "BCESEEEF";
-        //System.out.println(findHiddenWord(mat1, "word1"));
+        System.out.println(findHiddenWord(mat2, "word2"));
         System.out.println(findHiddenWord(mat3, "ABCB"));
     }
 }

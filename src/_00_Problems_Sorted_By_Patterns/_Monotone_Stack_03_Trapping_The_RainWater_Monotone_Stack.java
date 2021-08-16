@@ -35,7 +35,7 @@ public class _Monotone_Stack_03_Trapping_The_RainWater_Monotone_Stack {
                 int rightHeight = bars[curIndex];
                 int leftHeight = bars[stack.peek()];
                 int minHeight = Math.min(rightHeight, leftHeight);
-                totalWater += (minHeight - curBarHeight) * (curIndex - stack.peek() - 1);
+                totalWater += (minHeight - curBarHeight) * (curIndex - 1 - stack.peek());
             }
         }
         stack.push(curIndex);

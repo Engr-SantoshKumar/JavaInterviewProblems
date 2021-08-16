@@ -15,6 +15,33 @@ package GooPrep;
 import java.util.*;
 
 public class _Goo_72_Group_Anagram {
+    public static List<List<String>> groupAnagrams(String[] strArr) {
+
+        if (strArr == null || strArr.length == 0) {
+            return new ArrayList<List<String>>();
+        }
+
+        Map<String, List<String>> map = new HashMap<String, List<String>>();
+
+        for (String s : strArr) {
+            String keyStr = getKey(s);
+            map.putIfAbsent(keyStr, new ArrayList<>());
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<List<String>>(map.values());
+    }
+    //sorting the string [EAT --> AET]
+    public static String getKey(String str){
+        char[] arr = new char[26];
+        for(int i=0; i<str.length(); i++){
+            char lowCase = Character.toLowerCase(str.charAt(i));
+            arr[lowCase -'a']++;
+        }
+        String nKey = new String(arr);
+        return nKey;
+    }
+
+
     public static void main(String[] args) {
         int x = 'a';
         System.out.println(x);
@@ -25,36 +52,6 @@ public class _Goo_72_Group_Anagram {
         for (List<String> list : result) {
             System.out.println(Arrays.toString(list.toArray()));
         }
-    }
-
-    public static List<List<String>> groupAnagrams(String[] strArr) {
-
-        if (strArr == null || strArr.length == 0)
-            return new ArrayList<List<String>>();
-
-        Map<String, List<String>> map = new HashMap<String, List<String>>();
-
-        for (String s : strArr) {
-            String keyStr = getKey(s); // getting the sorted string
-            /*  if (!map.containsKey(keyStr)){
-                map.put(keyStr, new ArrayList<String>());
-            }
-            */
-            map.putIfAbsent(keyStr, new ArrayList<>());
-            map.get(keyStr).add(s);
-        }
-        return new ArrayList<List<String>>(map.values());
-    }
-
-    //sorting the string [EAT --> AET]
-    public static String getKey(String str){
-        char[] arr = new char[26];
-        for(int i=0; i<str.length(); i++){
-            char lowCase = Character.toLowerCase(str.charAt(i));
-            arr[lowCase -'a']++;
-        }
-        String nKey = new String(arr);
-        return nKey;
     }
 }
 

@@ -30,20 +30,7 @@ import java.util.Queue;
 
 public class _Goo_29_Create_Mirror_Tree {
 
-    public static void main(String args[]) {
-
-        int[] nodes = new int[]{50, 30, 70, 20, 40, 60, 80, 5, 10};
-        Node r = TreePrint.create(nodes);
-        TreePrint.print(createMirrorTree(r));
-
-        int[] nodes1 = new int[]{5,3,8,1,2,7,9,0};
-        Node r1 = TreePrint.create(nodes1);
-        TreePrint.print(mirror_imageWithOutRecursion(r1));
-    }
-
-
     static Node createMirrorTree(Node root){
-
         if(root == null) return root;
         Node left = createMirrorTree(root.right);
         Node right = createMirrorTree(root.left);
@@ -59,8 +46,7 @@ public class _Goo_29_Create_Mirror_Tree {
 
         Queue<Node> queue = new ArrayDeque<>();
         queue.add(root);
-        // Do BFS. While doing BFS, keep swapping
-        // left and right children
+        // Do BFS. While doing BFS, keep swapping left and right children
         while(!queue.isEmpty()) {
             // pop top node from queue
             Node cur_node = queue.poll();
@@ -76,10 +62,17 @@ public class _Goo_29_Create_Mirror_Tree {
             if (cur_node.right!=null)
                 queue.add(cur_node.right);
         }
-
         return root;
     }
 
+    public static void main(String args[]) {
 
+        int[] nodes = new int[]{50, 30, 70, 20, 40, 60, 80, 5, 10};
+        Node r = TreePrint.create(nodes);
+        TreePrint.print(createMirrorTree(r));
 
+        int[] nodes1 = new int[]{5,3,8,1,2,7,9,0};
+        Node r1 = TreePrint.create(nodes1);
+        TreePrint.print(mirror_imageWithOutRecursion(r1));
+    }
 }

@@ -1,5 +1,5 @@
 /** 02 [Stack Max Function]
--------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
  * how to implement a max stack which has additional popMax and peek
  */
 
@@ -40,7 +40,6 @@ public class _Goo_02_StackPopMaxFunction extends Stack<Integer> {
     }
 
     public int getMax(){
-
         if(maxStack.isEmpty()){
             return Integer.MIN_VALUE;
         } else

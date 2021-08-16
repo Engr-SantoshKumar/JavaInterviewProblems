@@ -17,21 +17,24 @@
 */
 package _00_Problems_Sorted_By_Patterns;
 
+import javafx.beans.binding.IntegerExpression;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class _Design_02_Peeking_Iterator {
 
     static class PeekingIterator implements Iterator<Integer> {
 
-        boolean isLast;
-        int cacheMemory;
+        Integer cacheMemory;
         Iterator<Integer> iterator;
 
         public PeekingIterator(Iterator<Integer> iterator) {
             // initialize any member here.
             this.iterator = iterator;
             cacheMemory= iterator.next();  //--> set cacheMemory
-            isLast = iterator.hasNext();
         }
 
         // Returns the next element in the iteration without advancing the iterator.
@@ -44,16 +47,34 @@ public class _Design_02_Peeking_Iterator {
         @Override
         public Integer next() {
             int current = cacheMemory;  // --> use the current cacheMemory
-            isLast = iterator.hasNext();
-            if(isLast){
+            if(iterator.hasNext()){
                 cacheMemory = iterator.next(); // --> set the cacheMemory
+            }else{
+                cacheMemory=null;
             }
             return current;
         }
 
         @Override
         public boolean hasNext() {
-            return isLast;
+            return (cacheMemory!=null);
         }
     }
+
+
+    public static void main(String[] args) {
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.addAll(Arrays.asList(3,4,5));
+        Iterator itr = list1.iterator();
+        PeekingIterator pk = new PeekingIterator(itr);
+        System.out.println(pk.peek());
+        System.out.println(pk.hasNext());
+        System.out.println(pk.next());
+        System.out.println(pk.peek());
+        System.out.println(pk.next());
+        System.out.println(pk.peek());
+        System.out.println(pk.next());
+        System.out.println(pk.peek());
+ }
+
 }

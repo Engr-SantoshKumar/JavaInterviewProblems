@@ -17,12 +17,12 @@ public class _Goo_93_Iterator_Of_Iterator_Using_Queue implements Iterator {
 
     Queue<Iterator<Integer>> queue = new ArrayDeque<>();
     // constructor
-    public _Goo_93_Iterator_Of_Iterator_Using_Queue(ArrayList<Iterator> mainArr)
+    public _Goo_93_Iterator_Of_Iterator_Using_Queue(ArrayList<Iterator> itrList)
     {
         // put all the arrList into queue one by one
-        for (int i = 0; i <mainArr.size(); i++) {
-            Iterator<Integer> arrList = mainArr.get(i);
-            queue.add(arrList);
+        for (int i = 0; i <itrList.size(); i++) {
+            Iterator<Integer> itr = itrList.get(i);
+            queue.add(itr);
         }
     }
 

@@ -1,4 +1,4 @@
-package _00_Problems_Sorted_By_Patterns;/* [  ] [  ]
+/* [  _Design_05_ ] [ Skip_Iterator_design ]
 _______________________________________________________________________________
 
 class SkipIterator {
@@ -17,7 +17,7 @@ Map<Integer, Integer>, key is the number that needs to be skipped, and value is 
 The frequency of skip is increased by one for each call, and the value of the key is decreased by one each time
 the key is skipped.
 */
-
+package _00_Problems_Sorted_By_Patterns;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,6 +33,7 @@ public class _Design_05_Skip_Iterator_design {
 
         public SkipIterator(Iterator<Integer> itr) {
             this.itr = itr;
+            // initialize the other values
             findNext(); //set the nextElement and hasNext value (check for skipped ones)
         }
 

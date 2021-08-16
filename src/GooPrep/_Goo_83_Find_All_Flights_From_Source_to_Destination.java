@@ -38,8 +38,7 @@ public class  _Goo_83_Find_All_Flights_From_Source_to_Destination {
         // find all possible path using BFS 
         findAllRoutesBFS(map, source, destination);
     }
-    
-    
+
     public static void findAllRoutesBFS(HashMap<String, List<String>> mapGraph,
                                               String source, String destination)
     {

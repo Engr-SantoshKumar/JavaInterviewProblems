@@ -67,7 +67,7 @@ public class _Goo_21_02_Stock_Price_Max_Profit_Loss_SingleTrx {
                                         "\nglobal_profit : " + global_loss));
     }
     public static void main(String args[]) {
-        double[] prices = {11.0, 24.0, 26.0, 25.0, 24.0, 1.00, 23.0, 24.0, 22.0, 12.0, 27.0, 5.0};
+        double[] prices = {11.0, 24.0, 26.0, 25.0, 24.0, 5.00, 23.0, 24.0, 22.0, 12.0, 1.0, 1.0};
         findMaxProfit(prices);
         System.out.println("\n");
         findMaxDrop_Loss(prices);

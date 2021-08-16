@@ -33,7 +33,6 @@ public class _Goo_09_02_PrintMatrixDiagonally {
             System.out.println("Matrix is blank");
             return;
         }
-
         int rowEnd = matrix.length;
         int colEnd = matrix[0].length;
 
@@ -62,7 +61,6 @@ public class _Goo_09_02_PrintMatrixDiagonally {
             System.out.println();
         }
     }
-
 
     public static void main(String[] args) {
         int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {12, 13, 14, 15}};

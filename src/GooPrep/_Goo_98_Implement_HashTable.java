@@ -22,12 +22,12 @@ import java.util.List;
 public class _Goo_98_Implement_HashTable {
 
     // create a list of 31 Linked List and initiate it with dummy head
-    List<hmNode> list = null;
+    List<hmNode> arrayList = null;
     public void MyHashMap() {
-        list = new ArrayList<>();
+        arrayList = new ArrayList<>();
         for (int i = 0; i < 31; i++) {
             // add dummy node
-            list.add(new hmNode());
+            arrayList.add(new hmNode());
         }
     }
 
@@ -35,7 +35,7 @@ public class _Goo_98_Implement_HashTable {
     if same (key, value) already present in list we return else create new node and add */
     public void put(int key, int value) {
         int hCode = key % 31;
-        hmNode head = list.get(hCode);  //--> this will return the dummy hmNode
+        hmNode head = arrayList.get(hCode);  //--> this will return the dummy hmNode
 
         while(head.next != null){
             head = head.next;
@@ -53,7 +53,7 @@ public class _Goo_98_Implement_HashTable {
     /* GET : fist go to the Linked List represented by hashCode i.e key%31
        and loop through the Linked List to find key */
     public int get(int key) {
-        hmNode head = list.get(key % 31);
+        hmNode head = arrayList.get(key % 31);
         while(head.next != null){
             head = head.next;
             if(head.key == key){
@@ -66,7 +66,7 @@ public class _Goo_98_Implement_HashTable {
 
     /** Removes the mapping of the specified value key if this map contains a mapping for the key */
     public void remove(int key) {
-        hmNode head = list.get(key%31);
+        hmNode head = arrayList.get(key%31);
 
         while(head.next != null){
             if(head.next.key == key){
