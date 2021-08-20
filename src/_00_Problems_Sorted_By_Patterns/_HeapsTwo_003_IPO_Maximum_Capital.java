@@ -32,7 +32,7 @@ public class _HeapsTwo_003_IPO_Maximum_Capital {
         //two pq
         PriorityQueue<pair> pqCapital = new PriorityQueue<>((a,b) -> a.capital-b.capital);//minCap first
         PriorityQueue<pair> pqProfit  = new PriorityQueue<>((a,b) -> b.profit-a.profit);//maxProfit first
-
+        //profits = [1,2,3], capital = [0,1,1]
         //step1: put all the projects in pqCapital (min capital needs to start project first)
         for(int i =0; i < capital.length; i++){
             pqCapital.offer(new pair(capital[i], profits[i]));

@@ -46,7 +46,9 @@ public class _Monotone_Stack_06_Continues_SubArray_For_Each_Index {
         stack.push(0); //first index
         for (int curIdx = 1; curIdx < len; curIdx++) {
             //Monotone: stack will only have current and graterThanCur
-            while (!stack.isEmpty() && arr[stack.peek()] < arr[curIdx]) stack.pop();
+            while (!stack.isEmpty() && arr[stack.peek()] < arr[curIdx]) {
+                stack.pop();
+            }
             // if anyTime when stack is empty (there is nothing > cur) leftSideSubArrayLessThanCur = curIdx+1
             if (stack.isEmpty()) {
                 left[curIdx] = curIdx + 1;
