@@ -55,7 +55,7 @@ public class _Graph_Traversal_02_Story_Telling {
         }
 
         //bfs : how this will work ..get personX and Time from queue, get PersonX Values from map to find with whom
-        //      PersonX going to interact and at what time.. if time is after the PersonX has story at next person to Q
+        //      PersonX going to interact and at what time.. if time is after the PersonX learn story, add next person to Q
         while(!queue.isEmpty()){
             int[] current = queue.poll();
             int curPerson = current[0];
