@@ -8,7 +8,6 @@ _______________________________________________________________________________
 */
 package _00_Problems_Sorted_By_Patterns;
 import java.util.*;
-import java.util.LinkedList;
 
 public class _Design_01_LRU_OrderOf_N {
 
@@ -30,12 +29,21 @@ public class _Design_01_LRU_OrderOf_N {
         }
         else{
             // remove from current element from arrayList.. how to remove we need to find its index
-            for(int i=0; i<arrayList.size(); i++){
+            /* Iterator<Integer> itr = arrayList.listIterator();
+            int index=0;
+            while(itr.hasNext()){
+                if(itr.next() == key){
+                    break;
+                }index++;
+            }
+            arrayList.remove(index); */
+
+           for(int i=0; i<arrayList.size(); i++){
                 if(arrayList.get(i) ==key){
                     arrayList.remove(i);
                     break;
                 }
-            }
+           }
         }
         arrayList.add(0,key);
         hset.add(key);
@@ -60,12 +68,12 @@ public class _Design_01_LRU_OrderOf_N {
         ca.display(); //4 3 2
         System.out.println();
         ca.add(1);
-        ca.display();
+        ca.display(); //1 4 3
         System.out.println();
         ca.add(4);
-        ca.display();
+        ca.display(); //4 1 3
         System.out.println();
         ca.add(5);
-        ca.display();
+        ca.display(); //5 4 1
     }
 }
