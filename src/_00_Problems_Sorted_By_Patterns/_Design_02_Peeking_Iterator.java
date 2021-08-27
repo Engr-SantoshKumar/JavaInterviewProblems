@@ -17,12 +17,8 @@
 */
 package _00_Problems_Sorted_By_Patterns;
 
-import javafx.beans.binding.IntegerExpression;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class _Design_02_Peeking_Iterator {
 
@@ -30,11 +26,12 @@ public class _Design_02_Peeking_Iterator {
 
         Integer cacheMemory;
         Iterator<Integer> iterator;
+        boolean hasNoMoreElements;
 
         public PeekingIterator(Iterator<Integer> iterator) {
             // initialize any member here.
             this.iterator = iterator;
-            cacheMemory= iterator.next();  //--> set cacheMemory
+            setCacheValue();
         }
 
         // Returns the next element in the iteration without advancing the iterator.
@@ -46,18 +43,27 @@ public class _Design_02_Peeking_Iterator {
         // Override them if needed.
         @Override
         public Integer next() {
-            int current = cacheMemory;  // --> use the current cacheMemory
-            if(iterator.hasNext()){
-                cacheMemory = iterator.next(); // --> set the cacheMemory
-            }else{
-                cacheMemory=null;
+            if(cacheMemory==null){
+                throw new NoSuchElementException();
             }
-            return current;
+            int result = cacheMemory;
+            setCacheValue();
+            return result;
         }
 
         @Override
         public boolean hasNext() {
-            return (cacheMemory!=null);
+                return cacheMemory!=null;
+        }
+
+        private void setCacheValue(){
+            //why can't we simply put cacheValue = iterator.next()
+            // because if iterate is empty or its last one it will give NoSuchElementException
+            if(iterator.hasNext()){
+                cacheMemory = iterator.next();
+            }else {
+                cacheMemory = null;
+            }
         }
     }
 
@@ -67,14 +73,14 @@ public class _Design_02_Peeking_Iterator {
         list1.addAll(Arrays.asList(3,4,5));
         Iterator itr = list1.iterator();
         PeekingIterator pk = new PeekingIterator(itr);
-        System.out.println(pk.peek());
-        System.out.println(pk.hasNext());
-        System.out.println(pk.next());
-        System.out.println(pk.peek());
-        System.out.println(pk.next());
-        System.out.println(pk.peek());
-        System.out.println(pk.next());
-        System.out.println(pk.peek());
+        System.out.println(pk.peek()); //3
+        System.out.println(pk.hasNext()); // true
+        System.out.println(pk.next()); // 3
+        System.out.println(pk.peek()); // 4
+        System.out.println(pk.next()); // 4
+        System.out.println(pk.peek()); // 5
+        System.out.println(pk.next()); // 5
+        System.out.println(pk.peek()); //
  }
 
 }

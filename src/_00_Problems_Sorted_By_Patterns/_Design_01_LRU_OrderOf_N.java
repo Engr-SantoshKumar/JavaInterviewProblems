@@ -37,13 +37,7 @@ public class _Design_01_LRU_OrderOf_N {
                 }index++;
             }
             arrayList.remove(index); */
-
-           for(int i=0; i<arrayList.size(); i++){
-                if(arrayList.get(i) ==key){
-                    arrayList.remove(i);
-                    break;
-                }
-           }
+            arrayList.remove(arrayList.indexOf(key));
         }
         arrayList.add(0,key);
         hset.add(key);

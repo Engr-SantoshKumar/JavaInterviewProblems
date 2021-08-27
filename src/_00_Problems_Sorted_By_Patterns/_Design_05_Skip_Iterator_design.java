@@ -6,8 +6,6 @@ class SkipIterator {
  boolean hasNext();
  Integer next();
  void skip(int num); //--> num need to skip (its can be nextElement or somewhere in itr.
-}
-void skip(int num); //--> num need to skip (its can be nextElement or somewhere in itr.
 skip may be called multiple times, skip(5), skip(5) means that the next two 5 are not needed.
 
 Ideas:
