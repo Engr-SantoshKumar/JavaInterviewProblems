@@ -73,6 +73,8 @@ public class _Goo2_29_Alien_Dictionary {
 
     public static void main(String[] args) {
         String[] words = {"wrt", "wrf", "wrd", "er", "ett", "rftt"};
-        System.out.println(alienAlphabetsOrder(words));
+        String[] words1 = {"ac","ab","zc","zb"};
+        //System.out.println(alienAlphabetsOrder(words));
+        System.out.println(alienAlphabetsOrder(words1));
     }
 }

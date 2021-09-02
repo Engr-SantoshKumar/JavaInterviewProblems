@@ -13,7 +13,7 @@ eg.
 
 public class _DP_08_TargetSum_NumberOfWays_BrutForce_Memoization_DP {
          /* ===================    Method 1   Recursion BruteForce  ======================================
-                ● Time complexity is O(2n)
+                ● Time complexity is O(2^n)
                 ● Space complexity is O(n)         */
 
         //Similar to 0-1 Knapsack, where we include or exclude each item
@@ -40,8 +40,10 @@ public class _DP_08_TargetSum_NumberOfWays_BrutForce_Memoization_DP {
 
 
         /* ===================    Method 2   Memoization  ======================================
-                ● Time complexity is O(n * W)
-                ● Space complexity is O(n * W)      */
+                ● Number of possible subproblems is n * sum(nums)
+                ● Time complexity is O(n * sum(nums))
+                ● Space complexity is O(n * sum(nums))
+                ○ Could be improved by using a HashMap   */
 
 
 
