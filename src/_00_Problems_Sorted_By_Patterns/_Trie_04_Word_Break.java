@@ -1,4 +1,4 @@
-package _00_Problems_Sorted_By_Patterns;/* [  ] [  ]
+/* [ _Trie_04_ ] [ word break ]
 _______________________________________________________________________________
 Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated
 sequence of one or more dictionary words.
@@ -11,7 +11,7 @@ Explanation: Return true because "applepenapple" can be segmented as "apple pen 
 Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
 Output: false
 */
-
+package _00_Problems_Sorted_By_Patterns;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +40,6 @@ public class _Trie_04_Word_Break {
         return dp[str.length()];
     }
 
-
     private static void createTrieDictionary(List<String> wordDict, TrieNode root) {
         TrieNode curNode = root;
         for(String word: wordDict) {
@@ -65,7 +64,6 @@ public class _Trie_04_Word_Break {
         dictionary1.add("sand");dictionary1.add("and");dictionary1.add("cat");
         String sentence1 = "catsandog";
         System.out.println(wordBreak(sentence1, dictionary1));
-
     }
 
     /* Node class to store char | endOfAnyWord | mapOfChildren */
