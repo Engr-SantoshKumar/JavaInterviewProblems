@@ -65,7 +65,8 @@ public class _ModifiedBS_10_Allocate_Minimum_Number_Of_Pages {
             curPageSum += book;
             if (curPageSum > mid) {
                 curStud++;
-                curPageSum = book; // reset currentPageSum to current book page count as now its assign to new guy
+                curPageSum = book; // we will include the number in the next sum, so we can ensure all numbers are less than target
+                                    // reset currentPageSum to current book page count as now its assign to new guy
             }
         }
         return curStud <= students;

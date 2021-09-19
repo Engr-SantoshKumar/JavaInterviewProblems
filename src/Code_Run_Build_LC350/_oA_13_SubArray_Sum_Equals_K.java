@@ -1,5 +1,5 @@
 /**
- * [ _0A_ ] [ Sub Array Sum Equals K ]
+ * [ _0A_ ] [ SubArray Sum Equals K ]
  * ____________________________________________________________________________________________________________
  https://www.youtube.com/watch?v=HbbYPQc-Oo4&t=306s
  Given an array of integers and an integer k, you need to find the total number of continuous
@@ -25,20 +25,22 @@ import java.util.Map;
 public class _oA_13_SubArray_Sum_Equals_K {
         static int subArraySum(int[] arr, int k){
             int result =0;
-            int sum=0;
-            // preSumMap(sum, noOfOccurrenceOfSum)
-            Map<Integer, Integer> preSumMap = new HashMap<>();
-            // default value in preSumMap (sum =0, noOfOccurrenceOfSum =1)
-            preSumMap.put(0,1);
-
+            int curSum=0;
+            // curSumMap(curSum, noOfOccurrenceOfSum)
+            Map<Integer, Integer> curSumMap = new HashMap<>();
+            // default value in  (curSum =0, noOfOccurrenceOfSum =1)
+            curSumMap.put(0,1);
+            /* Logic:
+            suppose if its two sum problem --> in that case we do: target-arr[i] --> put in map [target-arr[i], arr[i]]
+            and then we check for new incoming if mapContains incoming then we have a pair
+            here: we replace target with curSum and we check if curSum - target present in map
+            * */
             for(int i=0; i<arr.length; i++){
-                sum += arr[i];
-                /* check preSumMap : if present, it means there is some sum value v between 0 and x,
-                which makes sum of array [x + 1 to i] == k, and the frequency is  x */
-                if(preSumMap.containsKey(sum-k)){
-                    result+=preSumMap.get(sum-k);
+                curSum += arr[i];
+                if(curSumMap.containsKey(curSum-k)){
+                    result+=curSumMap.get(curSum-k);
                 }
-                preSumMap.put(sum,preSumMap.getOrDefault(sum, 0) +1);
+                curSumMap.put(curSum,curSumMap.getOrDefault(curSum, 0) +1);
             }
             return result;
         }

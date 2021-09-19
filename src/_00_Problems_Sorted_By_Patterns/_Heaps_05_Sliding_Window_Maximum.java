@@ -17,8 +17,8 @@ i->  0  1   2   3  4  5  6  7      -        -               -
      1 [3  -1  -3] 5  3  6  7      3[-3]       3               3,2,1       -3,-1,3    outOfBoundary idx 0 but its already removed
      1  3 [-1  -3  5] 3  6  7      4[5]        5               4           5          incoming i4 v5 --> indexOf -3,-1,3 out step2
      1  3  -1 [-3  5  3] 6  7      5[3]        5               5,4         3,5
-     1  3  -1  -3 [5  3  6] 7      6[6]        6               6           6         incoming 6 --> all smaller val out 3, 5 out
-     1  3  -1  -3  5 [3  6  7]      7[7]       7               7           7         incoming 7 --> all smaller val out 6 out
+     1  3  -1  -3 [5  3  6] 7      6[6]        6               6           6         incoming 6 --> all smaller val out: 3, 5 out
+     1  3  -1  -3  5 [3  6  7]      7[7]       7               7           7         incoming 7 --> all smaller val out: 6 out
 */
 package _00_Problems_Sorted_By_Patterns;
 

@@ -22,6 +22,7 @@ wordDictionary.search("b.."); // return True
 package _00_Problems_Sorted_By_Patterns;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class _Trie_02_Design_Add_And_Search_Word_DataStructure {
 
@@ -29,13 +30,11 @@ public class _Trie_02_Design_Add_And_Search_Word_DataStructure {
     static class TrieNode{
 
         boolean endingWord;
-        HashMap<Character, TrieNode> childrenMap = new HashMap<>(); // can use map or array of 26
+        Map<Character, TrieNode> childrenMap; // can use map or array of 26
 
         public TrieNode() {
-        }
-
-        public TrieNode(char ch){
-            TrieNode TrieNode = new TrieNode();
+            endingWord =false;
+            childrenMap = new HashMap<>();
         }
     }
 
@@ -49,7 +48,7 @@ public class _Trie_02_Design_Add_And_Search_Word_DataStructure {
         public void addWord(String word) {
             TrieNode currentNode = root;
                 for(char ch: word.toCharArray()){
-                    currentNode.childrenMap.putIfAbsent(ch, new TrieNode(ch));
+                    currentNode.childrenMap.putIfAbsent(ch, new TrieNode());
                     currentNode = currentNode.childrenMap.get(ch);
                 }
             currentNode.endingWord = true;

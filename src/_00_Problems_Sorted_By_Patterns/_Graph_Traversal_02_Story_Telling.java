@@ -16,7 +16,6 @@ second parameter is the PersonId who knows the story first.
 Output: [1, 2, 3]
 */
 package _00_Problems_Sorted_By_Patterns;
-
 import java.util.*;
 import java.util.LinkedList;
 
@@ -35,7 +34,7 @@ public class _Graph_Traversal_02_Story_Telling {
         // need a set to store who all learn the sort
         Set<Integer> visited = new HashSet<>();
 
-        //A queue to do BFS queue --> [2, 100] | [4, 200]...
+        //A queue to do BFS queue --> [2, 100] | [4, 200] . . .
         Queue<int[]> queue = new ArrayDeque<>();
 
         // link persons using map

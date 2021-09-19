@@ -16,8 +16,10 @@ import java.util.List;
 
 public class _Backtracking_05_Combination_sum {
 
-    //General approach to backtracking questions :
+    // General approach to backtracking questions :
     // Subsets, Permutations, Combination Sum, Palindrome Partitioning
+    // same program solved using backtracking : _Stack_01_Combination_Sum
+    
     public static List<List<Integer>> combinationSumBacktracking(int[] arr, int target) {
         List<List<Integer>> resultList = new ArrayList<>();
         Arrays.sort(arr);
@@ -36,7 +38,7 @@ public class _Backtracking_05_Combination_sum {
             // add i into the current combination
             tempList.add(arr[i]);
             // not i + 1 because we can reuse same elements
-            backtrack(resultList, tempList, arr, i, target-arr[i]); //only change here from other backTracking
+            backtrack(resultList, tempList, arr, i, target-arr[i]); //(i) & updatedTarget only change here from other backTracking
             // backtrack: remove the last added element
             tempList.remove(tempList.size() - 1);
         }

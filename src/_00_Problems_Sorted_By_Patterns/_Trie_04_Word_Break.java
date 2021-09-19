@@ -25,6 +25,7 @@ public class _Trie_04_Word_Break {
         boolean[] dp = new boolean[str.length()+1];
         char[] chars = str.toCharArray();
         dp[0] = true;
+        
         for(int i=0; i<chars.length; i++){
             if(dp[i]==false) continue;
             // start trie traversal

@@ -22,7 +22,7 @@ package _00_Problems_Sorted_By_Patterns;
 import java.util.PriorityQueue;
 
 public class _HeapsTwo_003_IPO_Maximum_Capital {
-    /* Algorithm:
+    /* Algorithm: O(NlogN), N is number of projects.
         1. Create (capital, profit) pairs and put them into PriorityQueue pqCap. This PriorityQueue sort by capital increasingly.
         2. poll all the pairs from pqCap which is lessThanEqual Capital. Put them into PriorityQueue pqPro which sort by profit decreasingly.
         3. Poll one from pqPro, it's guaranteed to be the project with max profit and within current capital capability. Add the profit to capital W.
@@ -53,8 +53,8 @@ public class _HeapsTwo_003_IPO_Maximum_Capital {
         int capital;
         int profit;
         public pair(int capital, int profit){
-            this.profit = profit;
             this.capital = capital;
+            
         }
     }
 

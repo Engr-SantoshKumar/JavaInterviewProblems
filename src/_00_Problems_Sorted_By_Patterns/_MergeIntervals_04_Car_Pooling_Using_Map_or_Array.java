@@ -68,7 +68,6 @@ public class _MergeIntervals_04_Car_Pooling_Using_Map_or_Array {
         for(int[] curTrip: trips){
             int curTripEnd = curTrip[2];
             maxArraySize=Math.max(maxArraySize,curTripEnd);
-
         }
         int[] distArray = new int[maxArraySize+1];
 

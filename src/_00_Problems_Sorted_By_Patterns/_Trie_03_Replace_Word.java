@@ -28,10 +28,10 @@ public class _Trie_03_Replace_Word {
         }
     }
 
-    public static String replaceWords(List<String> dictionary, String sentence) {
+    public static String replaceWords(List<String> dictionary, String givenSentence) {
         TrieNode root= new TrieNode('/');
         createTrieDictionary(dictionary, root);
-        String[] words = sentence.split(" ");
+        String[] words = givenSentence.split(" ");
         return replaceWords(words, root);
     }
 

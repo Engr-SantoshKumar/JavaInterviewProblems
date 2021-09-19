@@ -20,20 +20,22 @@ import java.util.Stack;
 public class _Stack_06_Basic_Calculator {
 
     public static int calculate(String s) {
-        int len;
-        if(s==null || (len = s.length())==0) return 0;
+        
+        if(s==null || s.length()==0)
+        return 0;
         Stack<Integer> stack = new Stack<Integer>();
         int num = 0;
         char sign = '+';
-        for(int i=0;i<len;i++){
+        int len = s.length();
+        for(int i=0; i<len; i++){
             if(Character.isDigit(s.charAt(i))){
-                num = num*10+s.charAt(i)-'0';
+                num = s.charAt(i)-'0';
             }
-            if((!Character.isDigit(s.charAt(i)) &&' '!=s.charAt(i)) || i==len-1){
+            if(!Character.isDigit(s.charAt(i)) || i==len-1){
                 if(sign=='-'){ //if at i its (-) push -number
                     stack.push(-num);
                 }
-                if(sign=='+'){ ////if at i its (+) push number
+                if(sign=='+'){ //if at i its (+) push number
                     stack.push(num);
                 }
                 if(sign=='*'){ //if its * or / --> pop the current number do operation and push back
@@ -43,7 +45,7 @@ public class _Stack_06_Basic_Calculator {
                     stack.push(stack.pop()/num);
                 }
                 sign = s.charAt(i);
-                num = 0; // reset the tempNumber to 0
+                //num = 0; // reset the tempNumber to 0
             }
         }
 

@@ -14,7 +14,7 @@ package _00_Problems_Sorted_By_Patterns;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _Array_019_Find_All_Numbers_Disappeared_in_an_Array {
+public class _Array_19_Find_All_Numbers_Disappeared_in_an_Array {
     public static List<Integer> allMissingNumbers(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             while (nums[i] != i + 1 && nums[i] != nums[nums[i] - 1]) {

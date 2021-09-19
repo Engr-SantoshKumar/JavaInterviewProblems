@@ -40,7 +40,7 @@ public class _Backtracking_06_Combination_sum_II {
             // add i into the current combination
             tempList.add(arr[i]);
             // not i + 1 because we can reuse same elements
-            backtrack(resultList, tempList, arr, i+1, target-arr[i]); //only change here from other backTracking
+            backtrack(resultList, tempList, arr, i+1, target-arr[i]); // (i+1) only change here from other backTracking
             // backtrack: remove the last added element
             tempList.remove(tempList.size() - 1);
         }

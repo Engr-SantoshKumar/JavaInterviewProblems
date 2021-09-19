@@ -14,40 +14,55 @@ import java.util.Arrays;
 
 public class _oA_51_Next_Biggest_number_from_same_integers {
     public static int nextBiggerNumber(int n){
-        char[] number = (n + "").toCharArray();
-
-        int i, j;
+        char[] arr = (n + "").toCharArray();
+        
         /* I) Start from the right most digit and  find the first digit that
          is smaller than the digit next to it (which breaks ascending order) */
-        for (i = number.length-1; i > 0; i--)
-            if (number[i-1] < number[i])
+        int i, j;
+        for (i = arr.length-1; i > 0; i--)
+            if (arr[i-1] < arr[i]){
                 break;
+            }
+            
 
         // If no such digit is found, its the edge case 1.
         if (i == 0)
             return -1;
 
-        /*II) Find the smallest digit on right side of (i-1)'th
-         digit that is greater than number[i-1] ..We know that numbers left of i is in decreasing order
-         so, if we travel from L--> R[until i+1] and look for the very first number grater than number[i-1] */
-        int smallest = number[i-1];
-        for( j = number.length-1; j>i; j--){
-            if(number[j] > smallest) break;
+        /*II) Find the smallest digit on right side of (i-1)'th digit that is greater than number[i-1] */
+        int smallest = arr[i-1];
+
+        for( j = arr.length-1; j>i; j--){
+            if(arr[j] > smallest) break;
         }
+        
         /* III) Swap the above found smallest digit with number[i-1] */
-        char temp = number[i-1];
-        number[i-1] = number[j];
-        number[i] = temp;
+        char temp = arr[i-1];
+        arr[i-1] = arr[j];
+        arr[j] = temp;
 
         /* IV) Sort the digits after (i-1) in ascending order */
-        Arrays.sort(number, i, number.length);
-        long val = Long.parseLong(new String(number));
+        //Arrays.sort(number, i, number.length); //nLog(n)
+        reverse(arr, i, arr.length-1); //O(n)
+        
+        long val = Long.parseLong(new String(arr));
         return (val <= Integer.MAX_VALUE) ? (int) val : -1;
+    }
+    
+    private static void reverse(char[] arr, int s, int e) {
+        while(s < e){
+            char temp = arr[s];
+            arr[s] =arr[e];
+            arr[e] = temp;
+            s++; e--;
+        }
     }
 
     public static void main(String[] args) {
         int i = 5349763;
         System.out.println(nextBiggerNumber(i));
+        System.out.println(nextBiggerNumber(1234));
+        System.out.println(nextBiggerNumber(10010));
     }
 
 }

@@ -71,7 +71,8 @@ public class _ModifiedBS_11_Split_Array_Largest_Sum {
                 total += ar;
                 if (total > target) {
                     count++;
-                    total = ar; // reset currentPageSum to current book page count as now its assign to new guy
+                    total = ar; // we will include the number in the next sum, so we can ensure all numbers are less than target
+                                // reset currentPageSum to current book page count as now its assign to new guy
                 }
             }
             return count <= noOfSplitsAllowed;
@@ -79,8 +80,8 @@ public class _ModifiedBS_11_Split_Array_Largest_Sum {
     
     public static void main(String[] args) {
         int[] arr = new int[]{7,2,5,10,8};
-        int givenTime = 2;
-        System.out.println(splitArray(arr, givenTime));
+        int splitInto = 2;
+        System.out.println(splitArray(arr, splitInto));
     }
 
 }

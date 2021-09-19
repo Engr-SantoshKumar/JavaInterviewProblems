@@ -19,7 +19,7 @@ The basic idea is to use XOR operation. We all know that a^b^b =a,
 which means two xor operations with the same number will eliminate the number and reveal the original number.
 */
 package _00_Problems_Sorted_By_Patterns;
-public class _Array_010_Missing_Number {
+public class _Array_10_Missing_Number {
     public static int missingNumberSumApproach(int[] nums) {
         int len = nums.length;
         int sum = (len)*(len+1)/2; //sum of natural number is Sn = n(n+1)/2

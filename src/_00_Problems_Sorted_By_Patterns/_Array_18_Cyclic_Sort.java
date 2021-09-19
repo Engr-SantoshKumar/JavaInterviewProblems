@@ -12,7 +12,7 @@ package _00_Problems_Sorted_By_Patterns;
 
 import java.util.Arrays;
 
-public class _Array_018_Cyclic_Sort {
+public class _Array_18_Cyclic_Sort {
     public static void cyclicSort(int[] arr){
         for(int i =0; i<arr.length; i++){
             int current = arr[i];

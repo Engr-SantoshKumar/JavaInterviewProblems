@@ -16,8 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class _Backtracking_03_Subsets {
-    //General approach to backtracking questions :
-    // Subsets, Permutations, Combination Sum, Palindrome Partitioning
+    
+    //General approach to backtracking questions : Subsets, Permutations, Combination Sum, Palindrome Partitioning
+    
     public static List<List<Integer>> subsetsBacktracking(int[] nums) {
         List<List<Integer>> resultList = new ArrayList<>();
         Arrays.sort(nums);
@@ -26,9 +27,11 @@ public class _Backtracking_03_Subsets {
     }
 
     private static void backtrack(List<List<Integer>> resultList, List<Integer> tempList, int[] nums, int start){
-        // adding current value (tempList) to result
+        // adding current value (tempList) to result not need to check size or anything as we are making subset  [1,2,3]
+        //[[]→[1]→[1,2]→[1,2,3]→ allDone now backTrack (tempListRemoveLast remove3→remove2→[1,3]→remove3→remove1→
+        // now at veryFirstLevel i=1 -> [2]→[2,3]→remove3→remove2→now again at veryFirstLevel i=2 add -> [3]]
+    
         resultList.add(new ArrayList<>(tempList));
-
         for(int i = start; i < nums.length; i++){
             // add i into the current combination
             tempList.add(nums[i]);

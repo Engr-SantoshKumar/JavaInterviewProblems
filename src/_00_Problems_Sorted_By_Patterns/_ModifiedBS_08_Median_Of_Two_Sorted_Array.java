@@ -1,5 +1,6 @@
 /* [  ] [ Median of Two Sorted Arrays ]
 _______________________________________________________________________________
+//https://scottc130.medium.com/understanding-leetcode-median-of-two-sorted-arrays-hard-a83d7e5cac53
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 The overall run time complexity should be O(log (m+n)).
 
@@ -33,27 +34,27 @@ package _00_Problems_Sorted_By_Patterns;
 
 */
 public class _ModifiedBS_08_Median_Of_Two_Sorted_Array {
-    //https://scottc130.medium.com/understanding-leetcode-median-of-two-sorted-arrays-hard-a83d7e5cac53
-    public static double findMedianSortedArrays(int[] a, int[] b) {
+    
+    public static double findMedianSortedArrays(int[] arrA, int[] arrB) {
         //make first array smaller size (the array on which we are performing binary search
-        if(a.length > b.length)
-            return findMedianSortedArrays(b,a);
+        if(arrA.length > arrB.length)
+            return findMedianSortedArrays(arrB,arrA);
 
-        // some variables, as we are performing BS on array a
-        int aLen = a.length;
-        int bLen = b.length;
+        // some variables, as we are performing BS on arrA
+        int aLen = arrA.length;
+        int bLen = arrB.length;
         int lo =0;
         int hi = aLen;
 
         while(lo <= hi){
-            int aMidPos = (lo+hi)/2; //--> aMidPos is noting but mid Position created by BS
-            int bMidPos = (aLen+bLen+1)/2 - aMidPos;
+            int aMidPos = (lo+hi)/2;   //--> aMidPos is noting but mid Position created by BS
+            int bMidPos = (aLen+bLen+1)/2 - aMidPos; // suppose total len(a+b) --> 15, mid of 15 is 7; suppose a mid is 3, remaining (7-3) = 4 .. so 4th index will be mid of arrayB
 
-            int aMidLeftVal = (aMidPos == 0)? Integer.MIN_VALUE : a[aMidPos-1];
-            int aMidVal = (aMidPos == aLen)? Integer.MAX_VALUE : a[aMidPos];
+            int aMidLeftVal = (aMidPos == 0)? Integer.MIN_VALUE : arrA[aMidPos-1];
+            int aMidVal = (aMidPos == aLen)? Integer.MAX_VALUE : arrA[aMidPos];
 
-            int bMidLeftVal = (bMidPos == 0)? Integer.MIN_VALUE : b[bMidPos-1];
-            int bMidVal = (bMidPos == bLen)? Integer.MAX_VALUE : b[bMidPos];
+            int bMidLeftVal = (bMidPos == 0)? Integer.MIN_VALUE : arrB[bMidPos-1];
+            int bMidVal = (bMidPos == bLen)? Integer.MAX_VALUE : arrB[bMidPos];
 
 
             //check if we get split both array correctly
@@ -66,15 +67,15 @@ public class _ModifiedBS_08_Median_Of_Two_Sorted_Array {
 
                 }else{
                     return Math.max(aMidLeftVal, bMidLeftVal);
-                }
+                }//https://scottc130.medium.com/understanding-leetcode-median-of-two-sorted-arrays-hard-a83d7e5cac53
             }
             // need to shift arbitrary mid in array A
             else if(aMidLeftVal > bMidVal){
-                //there are more elements need to be pick from array b (moving mid/aMidPos ← ←
+                //there are more elements need to be pick from array arrB (moving mid/aMidPos ← ←
                 hi = aMidPos-1;
             }
             else{
-                // there are more elements need to pick from array a (moving mid/aMidPos → →
+                // there are more elements need to pick from array arrA (moving mid/aMidPos → →
                 lo = aMidPos+1;
             }
         }
@@ -82,8 +83,8 @@ public class _ModifiedBS_08_Median_Of_Two_Sorted_Array {
     }
 
     public static void main(String[] args) {
-        int[] a = new int[] {1, 2, 3};
-        int[] b = new int[] { 4, 5, 6, 7, 8, 9};
+        int[] a = new int[] {1, 2, 5};
+        int[] b = new int[] { 2, 3, 6, 7, 8, 9};
         System.out.println(findMedianSortedArrays(b,a));
     }
 }

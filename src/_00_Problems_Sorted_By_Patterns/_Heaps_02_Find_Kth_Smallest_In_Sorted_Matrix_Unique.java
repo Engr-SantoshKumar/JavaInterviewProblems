@@ -8,8 +8,8 @@ Input: matrix =     [[1,5,9],
                     [1,10,13],
                     [1,13,15]],
        k = 2
-Output: 5
-Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13
+                    Output: 5
+
 */
 package _00_Problems_Sorted_By_Patterns;
 
@@ -24,18 +24,18 @@ public class _Heaps_02_Find_Kth_Smallest_In_Sorted_Matrix_Unique {
 
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b)->b-a);
         Set<Integer> set = new HashSet<>();
-        for(int i=0; i< rows; i++) {
-            for(int j=0; j< cols; j++) {
-                if(pq.size() < k && !set.contains(matrix[i][j])) {
-                    pq.offer(matrix[i][j]);
-                    set.add(matrix[i][j]);
-                }else {
-                    if(!set.contains(matrix[i][j])){
-                        pq.offer(matrix[i][j]); //--> adding incoming
+        for (int[] ints : matrix) {
+            for (int j = 0; j < cols; j++) {
+                if (pq.size() < k && !set.contains(ints[j])) {
+                    pq.offer(ints[j]);
+                    set.add(ints[j]);
+                } else {
+                    if (!set.contains(ints[j])) {
+                        pq.offer(ints[j]); //--> adding incoming
                         pq.poll();  // removing top to keep pq size == k
                     }
                 }
-
+            
             }
         }
         return pq.poll();

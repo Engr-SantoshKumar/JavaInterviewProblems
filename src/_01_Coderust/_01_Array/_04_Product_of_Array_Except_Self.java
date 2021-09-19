@@ -27,8 +27,9 @@ public class _04_Product_of_Array_Except_Self {
         for(int i=1; i < len; i++){
             resultArr[i] = arr[i-1] * resultArr[i-1];
         }
+        System.out.println(Arrays.toString(resultArr));
 
-
+        
         int right =1;
 
         /* In this loop, temp variable contains product of elements on right side excluding arr[i] */
@@ -38,7 +39,6 @@ public class _04_Product_of_Array_Except_Self {
             right = right * arr[i];
         }
         return resultArr;
-
     }
 
 

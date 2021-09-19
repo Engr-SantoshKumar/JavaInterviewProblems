@@ -76,10 +76,11 @@ public class _ModifiedBS_14_Divide_Chocolate {
             curSweetness +=chunk;
             if(curSweetness > targetSweetness){
                 curNoOfChunks++;
-                curSweetness =0;
+                curSweetness =0;  //only differance from last problem  not assigning 0 not cur chunk
+                                  //we will include that number in previous sum, as that is how we will maintain the target as the minimum number
             }
         }
-        return curNoOfChunks <= noOfFriends; // if friends =5 and we got chunks = >5 we need to increase targetSweetness
+        return curNoOfChunks <= noOfFriends; // if friends =5 and we got chunks =>5 we need to increase targetSweetness
     }
     
     public static void main(String[] args) {

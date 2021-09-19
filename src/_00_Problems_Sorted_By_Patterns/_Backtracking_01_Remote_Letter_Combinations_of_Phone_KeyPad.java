@@ -1,4 +1,4 @@
-package _00_Problems_Sorted_By_Patterns;/* [  ] [  ]
+/* [ _Backtracking_01_ ] [ Remote Letter Combinations of Phone KeyPad ]
 _______________________________________________________________________________
 Given a string containing digits from 2-9 inclusive, return all possible letter combinations
 that the number could represent. Return the answer in any order.
@@ -6,11 +6,11 @@ that the number could represent. Return the answer in any order.
 Input: digits = "23"
 Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 */
-
+package _00_Problems_Sorted_By_Patterns;
 import java.util.*;
 public class _Backtracking_01_Remote_Letter_Combinations_of_Phone_KeyPad {
 
-    static Map<Integer, String> hmap = new HashMap<>() {{
+    static Map<Integer, String> hashMap = new HashMap<>() {{
         put(2, "abc");
         put(3, "def");
         put(4, "ghi");
@@ -40,7 +40,7 @@ public class _Backtracking_01_Remote_Letter_Combinations_of_Phone_KeyPad {
                 continue;
             }
             // get the digit at currentWordLength and get its string value was map is Map<String, String>
-            String nextMapping =  hmap.get(digits.charAt(currentWordLength) - '0'); // - '0' to convert to int value
+            String nextMapping =  hashMap.get(digits.charAt(currentWordLength) - '0'); // - '0' to convert to int value
             for(char c : nextMapping.toCharArray()){
                 queue.add(currentWord+c);
             }

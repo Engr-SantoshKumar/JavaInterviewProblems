@@ -27,20 +27,24 @@ import java.util.PriorityQueue;
 
 public class _HeapsTwo_002_Sliding_Window_Median {
     /** initialize your data structure here. */
-    static PriorityQueue<Integer> firstHalf = new PriorityQueue<>((a, b) -> b - a);;  //1st half (left half) this will be in reverse order (max heap)
-    static PriorityQueue<Integer> secondHalf = new PriorityQueue<>();; //2nd half (Right half) sorted in natural order
+    //1st half (left half) this will be in reverse order (max heap)
+    static PriorityQueue<Integer> firstHalf = new PriorityQueue<>((a, b) -> b - a);
+    //2nd half (Right half) sorted in natural order
+    static PriorityQueue<Integer> secondHalf = new PriorityQueue<>();
 
 
-    public static double[] medianSlidingWindow(int[] nums, int k) {
-        double[] medianResult = new double[nums.length-k+1];
+    public static double[] medianSlidingWindow(int[] arr, int k) {
+        double[] medianResult = new double[arr.length-k+1];
         int index=0;
 
-        for(int i=0; i<nums.length; i++){
-            firstHalf.offer(nums[i]);
-            secondHalf.offer(firstHalf.remove()); // idea is to bring the elements to 2nd half through 1st half, so that the bigger elements will come
+        for(int i=0; i<arr.length; i++){
+            firstHalf.offer(arr[i]);
+            // idea is to bring the elements to 2nd half through 1st half, so that the bigger elements will come
+            secondHalf.offer(firstHalf.remove());
             //now balance both (we always try to have extra at first half)
             if(secondHalf.size() > firstHalf.size()){
-                firstHalf.offer(secondHalf.remove());// top of 2nd half become top of 1st half
+                // top of 2nd half become top of 1st half
+                firstHalf.offer(secondHalf.remove());
             }
             //check if we have window size
             if(i>=k-1) {
@@ -51,7 +55,7 @@ public class _HeapsTwo_002_Sliding_Window_Median {
                     medianResult[index++] = firstHalf.peek(); // we always try to have extra at first half
                 }
                 //Last step slide window i.e remove the last element of window i.t i-k+1
-                int numToRemove = nums[i - k + 1];
+                int numToRemove = arr[i - k + 1];
                 //check where this numToRemove could be
                 if (numToRemove <= firstHalf.peek()) {
                     firstHalf.remove(numToRemove);

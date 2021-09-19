@@ -20,7 +20,7 @@ public class _Heaps_03_Reorganize_string {
         for(char c : s.toCharArray()){
         int count = map.getOrDefault(c, 0)+1;
         // if the count of any char is more than half of string, then its not possible to make string
-        if (count > (s.length() + 1) / 2) return "";
+        if (count > (s.length() + 1) / 2) return "not Possible";
         map.put(c, count);
     }
 
@@ -46,9 +46,9 @@ public class _Heaps_03_Reorganize_string {
                 int[] secondPoll = maxPQ.poll();
                 result.append((char) secondPoll[0]);
                 // put back both firstPoll and secondPoll
-                if(--secondPoll[1] > 0)
+                if(--secondPoll[1] > 0){
                     maxPQ.offer(secondPoll);
-
+                }
                 maxPQ.offer(firstPoll);
             }
         }
@@ -56,11 +56,9 @@ public class _Heaps_03_Reorganize_string {
 }
 
     public static void main(String[] args) {
-        String s = "aaaabbc";
-        System.out.println("Given String : "+ s +"  Reorganize String :"+ reorganizeString(s));
+        System.out.println("Given String : "+ "aaaabbc" +"  Reorganize String :"+ reorganizeString("aaaabbc"));
         System.out.println("Given String : "+ "aaaaabbc" +"  Reorganize String :"+ reorganizeString("aaaaabbc"));
         System.out.println("Given String : "+ "aab" +"  Reorganize String :"+ reorganizeString("aab"));
         System.out.println("Given String : "+ "abc" +"  Reorganize String :"+ reorganizeString("abc"));
-
     }
 }

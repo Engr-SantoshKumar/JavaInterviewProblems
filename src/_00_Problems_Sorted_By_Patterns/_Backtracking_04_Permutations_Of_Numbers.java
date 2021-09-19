@@ -38,28 +38,31 @@ public class _Backtracking_04_Permutations_Of_Numbers {
         }
         return result;
     }
-    //General approach to backtracking questions :
-    // Subsets, Permutations, Combination Sum, Palindrome Partitioning
-    public static List<List<Integer>> permuteRecursive(int[] nums) {
+    
+/*------------------------------ backtracking -----------------------------------------------------------------------*/
+    //General approach to backtracking questions : Subsets, Permutations, Combination Sum, Palindrome Partitioning
+    public static List<List<Integer>> permuteRecursive(int[] arr) {
         List<List<Integer>> list = new ArrayList<>();
-        // Arrays.sort(nums); // not necessary
-        backtrack(list, new ArrayList<>(), nums);
+        // Arrays.sort(arr); // not necessary
+        backtrack(list, new ArrayList<>(), arr);
         return list;
     }
 
-    private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums){
-        if(tempList.size() == nums.length){
+    private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] arr){
+        if(tempList.size() == arr.length){
             list.add(new ArrayList<>(tempList));
+            
         } else{
-            for(int i = 0; i < nums.length; i++){
-                if(tempList.contains(nums[i])) continue; // element already exists, skip
-                tempList.add(nums[i]);
-                backtrack(list, tempList, nums);
+            for(int i = 0; i < arr.length; i++){
+                if(tempList.contains(arr[i])) continue; // element already exists, skip
+                tempList.add(arr[i]);
+                backtrack(list, tempList, arr);
                 tempList.remove(tempList.size() - 1);
             }
         }
     }
-
+    
+/*------------------------------ backtracking Recursive Swap --------------------------------------------------------*/
     public static List<List<Integer>> permuteRecursiveSwap(int[] array) {
         // init result list
         List<List<Integer>> result = new LinkedList<>();
@@ -78,8 +81,7 @@ public class _Backtracking_04_Permutations_Of_Numbers {
         if (curIndex == length)
             output.add(new ArrayList<Integer>(array));
         for (int i = curIndex; i < length; i++) {
-            // place i-th integer curIndex
-            // in the current permutation
+            // place i-th integer curIndex in the current permutation
             Collections.swap(array, curIndex, i);
             // use next integers to complete the permutations
             backtrack(length, array, output, curIndex + 1);

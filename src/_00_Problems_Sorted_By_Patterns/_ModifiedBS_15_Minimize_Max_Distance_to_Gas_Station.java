@@ -25,7 +25,8 @@ public class _ModifiedBS_15_Minimize_Max_Distance_to_Gas_Station {
     
     public static double minMaxGasDist(int[] stations, int K) {
         double lo = 0, hi = 1e8;
-        while (hi - lo > 1e-6) {
+        while (hi - lo > 1e-6) { /* When you write aex, where a = any double number, x is an integer, it is interpreted as a * 10 ^ x.
+                                    So here in your example 1e6 interpreted as 1.0 times 10^6*/
             double mid = (lo + hi) / 2.0;
             if (isPossible(stations, K, mid))
                 hi = mid;
@@ -44,7 +45,7 @@ public class _ModifiedBS_15_Minimize_Max_Distance_to_Gas_Station {
     
     public static void main(String[] args) {
         int[] stations = new int[]{23,24,36,39,46,56,57,65,84,98};
-        int[] stations1 = new int[]{1, 4, 10};
+        int[] stations1 = new int[]{1, 4, 12};
         int K = 1;
         //System.out.println(minMaxGasDist(stations, K));
         System.out.println(minMaxGasDist(stations1, K));

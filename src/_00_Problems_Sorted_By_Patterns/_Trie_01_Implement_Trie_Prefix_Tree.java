@@ -1,30 +1,30 @@
-/* [  ] [ Implement Trie (Prefix Tree) ]
+/* [ _Trie_01_ ] [ Implement Trie (Prefix Tree) ]
 _______________________________________________________________________________
 A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys
 in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
 
 Implement the Trie class:
 
-Trie() Initializes the trie object.
-void insert(String word) -->  Inserts the string word into the trie.
-boolean search(String word) --> Returns true if the string word is in the trie
-boolean startsWith(String prefix) --> Returns true if that has the prefix prefix, and false otherwise.
+    Trie() Initializes the trie object.
+    void insert(String word) -->  Inserts the string word into the trie.
+    boolean search(String word) --> Returns true if the string word is in the trie
+    boolean startsWith(String prefix) --> Returns true if that has the prefix prefix, and false otherwise.
 
 
-Input
-["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
-[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
-Output
-[null, null, true, false, true, null, true]
+        Input
+        ["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+        [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+        Output
+        [null, null, true, false, true, null, true]
 
-Explanation
-Trie trie = new Trie();
-trie.insert("apple");
-trie.search("apple");   // return True
-trie.search("app");     // return False
-trie.startsWith("app"); // return True
-trie.insert("app");
-trie.search("app");     // return True
+    Explanation
+    Trie trie = new Trie();
+    trie.insert("apple");
+    trie.search("apple");   // return True
+    trie.search("app");     // return False
+    trie.startsWith("app"); // return True
+    trie.insert("app");
+    trie.search("app");     // return True
 */
 package _00_Problems_Sorted_By_Patterns;
 public class _Trie_01_Implement_Trie_Prefix_Tree {
@@ -86,7 +86,7 @@ public class _Trie_01_Implement_Trie_Prefix_Tree {
 
              A link does not exist. If there are no available key characters and current node is marked as isEnd.
                                 we return true. Otherwise there are possible two cases in each of them we return false
-             Time complexity : O(m)O(m) In each step of the algorithm we search for the next key character.
+             Time complexity : O(m) In each step of the algorithm we search for the next key character.
              In the worst case the algorithm performs mm operations.
          */
 

@@ -67,7 +67,8 @@ public class _ModifiedBS_12_Capacity_To_Ship_Packages_Within_D_Days {
             curWeight += weight;
             if (curWeight > target) {
                 curDaysReq++;
-                curWeight = weight; // reset currentWeightSum to current weight as now its goto new belt
+                curWeight = weight; // we will include the number in the next sum, so we can ensure all numbers are less than target
+                                    // reset currentWeightSum to current weight as now its goto new belt
             }
         }
         return curDaysReq <= givenDays;  //finished the job before target? yes reduceTarget else increaseTarget

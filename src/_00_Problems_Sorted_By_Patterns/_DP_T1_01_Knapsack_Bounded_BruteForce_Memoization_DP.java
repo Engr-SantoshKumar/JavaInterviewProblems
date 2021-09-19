@@ -1,4 +1,4 @@
-/* [_DP_04_ ] [ Knapsack (medium) DP ]
+/* [ Type1 K-sack 02 ] [ Knapsack Bounded ]
 _______________________________________________________________________________
 Bottom-up Dynamic Programming #
 Let’s try to populate our dp[][] array from the above solution by working in a bottom-up fashion.
@@ -17,10 +17,10 @@ So, for each item at index ‘i’ (0 <= i < items.length) and
  */
 
 package _00_Problems_Sorted_By_Patterns;
-public class _DP_06_Knapsack_Bounded_BruteForce_Memoization_DP {
+public class _DP_T1_01_Knapsack_Bounded_BruteForce_Memoization_DP {
 
      /* ===================    Method 1   Recursion BruteForce  ======================================
-            ● Time complexity is O(2n)
+            ● Time complexity is O(2^n)
                 ○ Branching factor is 2
                 ○ Height is n
             ● Space complexity is O(n)
@@ -32,7 +32,7 @@ public class _DP_06_Knapsack_Bounded_BruteForce_Memoization_DP {
     private static int knapsackRecursionHelper(int[] profit, int[] weight, int capacity, int curIdx) {
         //base case: if the left capacity is 0 or the there is no items left profit will be 0
         if(capacity <=0 || curIdx >= profit.length) return 0;
-        //https://youtu.be/mGfK-j9gAQA?list=PLEJXowNB4kPxBwaXtRO1qFLpCzF75DYrS&t=192
+
         //Exclude
         int profitWithout = knapsackRecursionHelper(profit, weight, capacity, curIdx + 1);
 
@@ -116,7 +116,7 @@ public class _DP_06_Knapsack_Bounded_BruteForce_Memoization_DP {
                 //with: include current item if its not more than capacity, we include its profit plus whatever profit
                 // we get from the remaining capacity and from remaining items
                 if(weight[i] <= c ){
-                    profitWith = profits[i] + dp[i-1][c-weight[i]];
+                    profitWith = profits[i] + dp[i-1][c-weight[i]]; // same from recursive program:capacity-weight[curIndex], curIndex + 1
                 }
                 // Without/Exclude the item at index ‘i’. In this case, we will take whatever profit
                 // from the sub-array excluding this item => dp[i-1][c]
