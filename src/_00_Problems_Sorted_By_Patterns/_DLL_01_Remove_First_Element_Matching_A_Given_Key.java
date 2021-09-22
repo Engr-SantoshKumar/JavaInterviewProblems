@@ -35,7 +35,7 @@ public class _DLL_01_Remove_First_Element_Matching_A_Given_Key<V> {
         
         /* If node to be deleted is head node UPDATE Head*/
         if (head == del)
-            head = del.next;
+            head = head.next;
 
         /* updating nextNode previous connection, required for if it is 1stNode or mid node for last node
          as last node.next is null and there is no connection from null to previous  */

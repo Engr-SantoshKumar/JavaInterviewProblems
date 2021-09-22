@@ -7,7 +7,7 @@ public class _Array_03_Next_Bigger_Number_From_Same_Integers {
     
     public static int nextBiggerNumber(int n){
         //base case
-        if( n<10) return -1;
+        if(n < 10) return -1;
         
         char[] arr = (n + "").toCharArray();
         /*
@@ -59,8 +59,8 @@ public class _Array_03_Next_Bigger_Number_From_Same_Integers {
     }
     
     public static void main(String[] args) {
-        System.out.println(nextBiggerNumber(5349763));
-        System.out.println(nextBiggerNumber(1234));
+        //System.out.println(nextBiggerNumber(5349763));
+        System.out.println(nextBiggerNumber(3421));
         System.out.println(nextBiggerNumber(4321));
         System.out.println(nextBiggerNumber(10010));
         System.out.println(nextBiggerNumber(1332211));
