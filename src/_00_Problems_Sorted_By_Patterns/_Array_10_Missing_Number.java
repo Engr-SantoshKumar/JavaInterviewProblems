@@ -42,11 +42,13 @@ public class _Array_10_Missing_Number {
     public static void main(String[] args) {
         int[] arr1 = new int[]{0,3,2,4};
         int[] arr2 = new int[]{0,1,3};
+        int[] arr3 = new int[]{1,2,4,3,6,7,8, 0};
 
         System.out.println(missingNumberSumApproach(arr1));
         System.out.println(missingNumberSumApproach(arr2));
         System.out.println(missingNumberBitOperation(arr1));
         System.out.println(missingNumberBitOperation(arr2));
+        System.out.println(missingNumberBitOperation(arr3));
     }
 }
 
