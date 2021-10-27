@@ -1,14 +1,17 @@
 package _00_Problems_Sorted_By_Patterns;/* [  ] [  ]
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 ← ↑ → ↓ ↖ ↘ ↗ ↙   ●  ○ ∞
-last problem with update
-Each move # is associated with a score multiplier.
-Now for each move, you gain points equal to the card value multiplied by the score multiplier for that move.
+There are several cards arranged in a row, and each card has an associated number of points.
+The points are given in the integer array cardPoints.
+In one step, you can take one card from the beginning or from the end of the row. You have to take exactly k cards.
+Each move # is associated with a score multiplier. you gain points equal to the card value multiplied by the score multiplier for that move..
+Given the integer array cardPoints, multiplayer and integer k(length of multiplayer array), return the maximum score you can obtain.
 
-Input: cardPoints = [1,2,3,4,5,6,1], multiplayer = [1,3,2] , k = 3
-Output: 12
+Input: cardPoints = [1,2,3,4,5,6,1], multiplayer = [1,3,2]
+Output: 1*1 + 6*3 + 5*2 =  29
 
-Input: cardPoints = [4,2,1,4,3,6,0], multiplayer = [1,3,2] , k = 3
+Input: cardPoints = [4,2,1,4,3,6,0], multiplayer = [1,3,2]
+OutPut: 0*1 + 6*3 + 4*2 =  26
 
 */
 
